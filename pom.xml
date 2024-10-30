@@ -5,6 +5,7 @@
   <version>0.1.0</version>
   <name>LibANSI</name>
   <description>Inject or recevie ANSI control codes from streams</description>
+  <url>https://bitbucket.org/taranion/libansi/</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
