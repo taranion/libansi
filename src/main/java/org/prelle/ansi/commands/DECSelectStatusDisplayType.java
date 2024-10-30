@@ -7,7 +7,7 @@ import org.prelle.ansi.Level;
  * This control function lets the host select the type of status line displayed.
  * Available in: VT Level 4 mode only
  * Default: Indicator status display
- * @see https://vt100.net/docs/vt510-rm/DECSSDT.html
+ * @see <a href="https://vt100.net/docs/vt510-rm/DECSSDT.html">VT510 Docs</a>
  */
 public class DECSelectStatusDisplayType extends ControlSequenceFragment {
 

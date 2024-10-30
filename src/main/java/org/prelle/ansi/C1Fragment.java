@@ -35,7 +35,7 @@ public class C1Fragment extends AParsedElement {
 
 	//-------------------------------------------------------------------
 	/**
-	 * @see org.prelle.ansi.AParsedElement#encode(java.nio.ByteBuffer, boolean)
+	 * @see org.prelle.ansi.AParsedElement#encode(java.io.ByteArrayOutputStream, boolean)
 	 */
 	@Override
 	public void encode(ByteArrayOutputStream toFill, boolean use7Bit) {

@@ -49,10 +49,10 @@ public class DisplayControl {
 	/**
 	 * This control function selects a dark or light background on the screen.
 	 * <p><b>Default:</b> Dark background</p>
-	 * <h3>Notes on DECSCNM</h3>
+	 * <h4>Notes on DECSCNM</h4>
 	 * <p>Screen mode only affects how the data appears on the screen. DECSCNM does not change the data in page memory.</p>
 	 *
-	 * @param lightOnDark When DECSCNM is set, the screen displays dark characters
+	 * @param reverse When DECSCNM is set, the screen displays dark characters
 	 *        on a light background.<br/>When DECSCNM is reset, the screen displays
 	 *        light characters on a dark background
 	 */

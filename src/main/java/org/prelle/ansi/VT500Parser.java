@@ -4,7 +4,7 @@ import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 
 /**
- * @see https://vt100.net/emu/dec_ansi_parser
+ * @see <a href="https://vt100.net/emu/dec_ansi_parser">https://vt100.net/emu/dec_ansi_parser</a>
  */
 public class VT500Parser {
 

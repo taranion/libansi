@@ -4,10 +4,11 @@ import org.prelle.ansi.ControlSequenceFragment;
 import org.prelle.ansi.Level;
 
 /**
- * DECSASD selects whether the terminal sends data to the main display or the status line.
- * Available in: VT Level 4 mode only
- * Default: Main display
- * @see https://vt100.net/docs/vt510-rm/DECSASD.html
+ * <p>DECSASD selects whether the terminal sends data to the main display or the status line.
+ * Available in: VT Level 4 mode only<br/>
+ * Default: Main display</p>
+ * 
+ * @see <a href="https://vt100.net/docs/vt510-rm/DECSASD.html">VT510 Docs</a>
  */
 public class DECSelectActiveStatusDisplay extends ControlSequenceFragment {
 

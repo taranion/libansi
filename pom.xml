@@ -100,7 +100,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.10.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -109,6 +109,7 @@
                         </goals>
                         <configuration>
                             <author>false</author>
+                            <failOnError>false</failOnError>
                             <sourceFileExcludes>
                                 <sourceFileExclude>**/module-info.java</sourceFileExclude>
                             </sourceFileExcludes>
