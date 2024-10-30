@@ -5,12 +5,15 @@ pipelines:
     - step:
         name: Compile and test
         script: # Modify the commands below to build your repository.
-          - mvn -s settings.xml test
+          - mvn -s settings.xml package
+
+  tags:
+    '*':
     - step:
-       name: Deploy
-       trigger: manual
-       script:
-          - openssl aes-256-cbc -pass pass:$OPENSSL_PWD -in private-key.gpg.enc -out private-key.gpg -d
-          - gpg --import --no-tty --batch --yes private-key.gpg
-          - mvn -B -s settings.xml deploy -DskipTests=true
-              
+        name: Deploy
+        trigger: manual
+        script:
+           - openssl aes-256-cbc -pass pass:$OPENSSL_PWD -in private-key.gpg.enc -out private-key.gpg -d
+           - gpg --import --no-tty --batch --yes private-key.gpg
+           - mvn -B -s settings.xml deploy -DskipTests=true
+                   
