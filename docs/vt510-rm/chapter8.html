@@ -1,0 +1,2641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Keyboard Processing</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="chapter7.html">Chapter 7</a><a href="contents.html">Contents</a><a href="chapter9.html">Chapter 9</a></nav>
+</header>
+<h1 id="S8"><span>8</span> Keyboard Processing</h1>
+<div class="main"><p>This chapter describes the physical keyboards and keyboard-to-host interface
+supported by the VT510 video terminal.</p>
+<h2 id="S8.1">8.1 Overview</h2>
+<p>The VT510 supports two keyboard layouts:</p>
+<ul>
+<li>VT keyboard (VT layout)</li>
+<li>Enhanced PC 101/102 keyboard (PC layout)</li>
+</ul>
+<p>Any time the terminal is operating, a keyboard encoding is being used to
+translate graphic character keystrokes into character codes, called the keyboard
+character set. The Keyboard Character set is a function of the <b class="feature">Keyboard
+Dialect</b>, the default character set, the 7-bit or 8-bit characters setting, and any
+keyboard customization defined in terminal Set-Up.</p>
+<p>When the graphic character assigned to a keystroke (which usually corresponds
+to the legend appearing on the keycap) has a corresponding character in the
+Keyboard Character set, the terminal transmits the corresponding character
+code for that keystroke. The code transmitted for any given keystroke can vary
+depending on the Keyboard Character set. If the graphic character assigned to
+a keystroke does not have a corresponding character in the Keyboard Character
+set, then that keystroke becomes dead.</p>
+<p>The term keyboard layout describes the physical layout of a keyboard, specifically,
+the number of keys and their positions on the keyboard. The keys are marked
+with symbols which indicate their function. Graphic keys transmit codes that
+match the graphic character symbol on the key cap, whereas keys such as the
+<span class="keyname">Tab</span> key transmit control codes. Modifier keys (<span class="keyname">Shift</span>, <span class="keyname">Ctrl</span> and <span class="keyname">Alt</span>) change the
+behavior of other keys. Function keys transmit multi-byte sequences of control
+and character data; local function keys enable local terminal functions (For
+example, <span class="keyname">Set-Up</span>, and <span class="keyname">Print Screen</span>).</p>
+<h2 id="S8.2">8.2 PC Keyboard—VT Style vs. PC Style</h2>
+<p>The VT510 is designed to operate with either a VT keyboard or an enhanced PC
+keyboard. These keyboards differ in the number and positioning of keys. This
+leads to different user expectations of where function and local function keys
+are positioned on the PC keyboard. For example, traditional VT keyboard users
+expect <span class="keyname">F2</span> and <span class="keyname">F3</span> to enable local functions for printing the screen and entering
+Set-Up. Traditional PC keyboard users expect that these same keys will send
+signals to the host to control the application. These keyboard layouts are called
+VT style and PC style layouts. The PC style layout is the factory default.</p>
+<p>VT Style is an alternate way of mapping the PC keyboard to look like a VT
+keyboard. With this mapping, PC keys send the same function sequences as
+similarly named keys on the VT layout (<a href="#F8-1">Figure 8–1</a>). Since the enhanced PC
+layout does not correspond key-for-key to the VT Layout, some adaptation is
+necessary. Some function keys, that are missing from the PC keyboard, can be
+created by pressing a Function Key in combination with <span class="keyname">Caps Lock</span> (For example,
+press and hold <span class="keyname">Caps Lock</span> while typing another key).</p>
+<p>Pressing <span class="keyname">Caps Lock/Num Lock</span> toggles between the VT Style and PC Style. When
+VT Style is selected, "VT" is displayed on the keyboard indicator line at the
+bottom of the screen. The style is saved in NVM when you select <b class="feature">Save settings</b>.
+VT Style and PC Style mappings apply to VT modes only.</p>
+<table id="F8-1" class="figure">
+<caption><span class="tabfigid">Figure 8–1</span> VT Keyboard Layout</caption>
+<tbody>
+<tr>
+<td><img src="figure8-1.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="F8-2" class="figure">
+<caption><span class="tabfigid">Figure 8–2</span> PC Keyboard Layout</caption>
+<tbody>
+<tr>
+<td><img src="figure8-2.png" alt=""/></td>
+</tr>
+<tr>
+<td><p>(1) Main keypad, (2) Editing keypad, (3) Numeric keypad,<br/>
+(4) Function keys, (5) Escape key, (6) Indicator lights.</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S8.2.1">8.2.1 Differences—PC Style vs. VT Style</h3>
+<p>The differences between PC Style and VT Style are:</p>
+<ul>
+<li>Editing keypad keys <span class="keyname">Home</span> and <span class="keyname">Delete</span> send different sequences corresponding
+to their functions in PC Style and VT Style.</li>
+<li>Numeric keypad keys send different sequences when the keypad is in numeric
+mode to accommodate the <span class="keyname">Num Lock</span> feature. With <span class="keyname">Num Lock</span> off, the numeric
+keypad sends editing key sequences.</li>
+<li>Top row function keys <span class="keyname">F1</span> through <span class="keyname">F5</span> send function key sequences. Local
+terminal functions are relocated to the <span class="keyname">Print Screen</span>, <span class="keyname">Scroll Lock</span>, and <span class="keyname">Pause</span>
+keys on the enhanced PC layout.</li>
+<li><span class="keyname">Print Screen</span>, <span class="keyname">Scroll Lock</span>, and <span class="keyname">Pause</span> are either local function keys or function
+keys in PC style, but are only function keys in VT Style.</li>
+<li>The keys to operate the Copy/Paste function are different between the two
+styles (See <a href="#T8-5">Table 8–5</a>).</li>
+<li>Left <span class="keyname">Alt/Space</span> works as compose in VT Style only.</li>
+</ul>
+<h2 id="S8.3">8.3 Top Row Function Keys</h2>
+<p>There are 20 top row function keys on the VT layout and 12 on the enhanced
+PC layout. <span class="keyname">Caps Lock/F1</span> through <span class="keyname">Caps Lock/F10</span> keys on the enhanced PC
+layout transmit the same sequences as <span class="keyname">F11</span> through <span class="keyname">F20</span> in the VT layout.
+Additional unique function sequences are transmitted by pressing function keys
+in combination with <span class="keyname">Shift</span>, <span class="keyname">Alt</span>, or <span class="keyname">Ctrl</span> keys. See DECFNK and DECPAK for details.</p>
+<p>In VT Style, the <span class="keyname">F1</span> through <span class="keyname">F5</span> keys operate the same as on the VT layout.
+In VT Style, <span class="keyname">F13</span> (Print Screen), <span class="keyname">F14</span> (Scroll Lock), and <span class="keyname">F15</span> (Pause) send their
+corresponding function key sequences. In PC Style, the <span class="keyname">F1</span> through <span class="keyname">F5</span> keys
+send function sequences (unless re-programmed) while <span class="keyname">Print Screen</span>, <span class="keyname">Scroll Lock</span>,
+and <span class="keyname">Pause</span> default to local functions.</p>
+<h2 id="S8.4">8.4 Main Key Array</h2>
+<p>This section describes the main keys on the keyboard.</p>
+<h3 id="S8.4.1">8.4.1 Character Sets</h3>
+<p>Only characters from the currently selected keyboard character set may be
+generated. All other graphic character keystrokes are ignored. The following
+keyboard character sets are supported: ISO Latin 1, ISO Latin 2, ISO Latin
+Cyrillic, ISO Latin Greek, ISO Latin Hebrew, ISO Latin 5 (Turkish), DEC
+Multinational, DEC Cyrillic, DEC Greek, DEC Hebrew and DEC Turkish. When
+<b class="feature">7-bit NRCS characters</b> is selected, a corresponding 7-bit NRC set is supported
+based on the Keyboard Dialect.</p>
+<p>PC character sets are not supported in VT modes since the terminal is being used
+as a conventional video terminal that happens to have a PC keyboard attached.
+New applications should be written to use ISO character sets. (PC character sets
+are available in PCTerm and SCO console mode.)</p>
+<h3 id="S8.4.2">8.4.2 Caps Lock</h3>
+<p>The Lock function may operate in three ways:</p>
+<table>
+<tbody>
+<tr>
+<td>Caps Lock</td>
+<td>Alphabetic keys send their shifted character.</td>
+</tr>
+<tr>
+<td>Shift Lock</td>
+<td>All keys on the main key array send their shifted character.</td>
+</tr>
+<tr>
+<td>Reverse Lock</td>
+<td>Pressing Shift temporarily reverses the effect of <span class="keyname">Caps Lock</span>; that is,
+unshifted or lowercase alphabetic characters are transmitted.</td>
+</tr>
+</tbody>
+</table>
+<p>Pressing and releasing the <span class="keyname">Caps Lock</span> key toggles the lock state on or off.</p>
+<p>The <span class="keyname">Caps Lock</span> key is also used to generate keystrokes for keys that are not
+present on the keyboard. Known as keyboard extension, this is done by pressing
+and holding the <span class="keyname">Caps Lock</span> key and then pressing the extension key. The lock
+state is not toggled when an extension keystroke is pressed. Extension keystrokes
+are shown in <a href="#T8-5">Table 8–5, Local Functions</a>.</p>
+<h3 id="S8.4.3">8.4.3 Tab Key</h3>
+<p>With an enhanced PC keyboard, pressing <span class="keyname">Shift/Tab</span> causes a CBT sequence, CSI Z,
+to be transmitted. A horizontal tabulation code (HT, 0/9) is transmitted when a
+VT keyboard is used.</p>
+<h3 id="S8.4.4">8.4.4 Left Alt</h3>
+<p>Left <span class="keyname">Alt</span> on the PC layout corresponds to the <span class="keyname">Alt Function</span> on the VT layout.
+Depressing the left <span class="keyname">Alt</span> key performs the following functions (unless re-programmed):</p>
+<ul>
+<li>Left <span class="keyname">Alt/Space</span> acts as the compose key in VT Style.</li>
+<li>On the North American PC layout, left <span class="keyname">Alt</span> is the same as <span class="keyname">Alt Gr</span> when pressed
+and held in combination with keys from the numeric keypad. This feature
+keeps the two <span class="keyname">Alt</span> keys equivalent to each other.</li>
+</ul>
+<h3 id="S8.4.5">8.4.5 Right Alt</h3>
+<p>The right <span class="keyname">Alt</span> key appears on the North American, Hebrew, and Greek PC layouts.
+On other country layouts, the right <span class="keyname">Alt</span> key appears as <span class="keyname">Alt Gr</span>. Depressing the right
+<span class="keyname">Alt</span> key performs the following functions (unless re-programmed):</p>
+<ul>
+<li>Right <span class="keyname">Alt/Space</span> acts as the compose key in VT Style. This feature keeps the
+two <span class="keyname">Alt</span> keys equivalent.</li>
+<li>Right <span class="keyname">Alt</span> key is the same as the <span class="keyname">Alt Gr</span> key when pressed and held in
+combination with keys from the numeric keypad.</li>
+<li>The right <span class="keyname">Alt</span> key is the same as the Right Alt function on the VT layout with
+the exceptions listed previously.</li>
+</ul>
+<h3 id="S8.4.6">8.4.6 Alt Gr</h3>
+<p>The right <span class="keyname">Alt</span> key is marked as <span class="keyname">Alt Gr</span> on some Enhanced PC layouts. The words
+Alt Gr are short for alternate graphic and corresponds roughly to the function of
+the compose key.</p>
+<ul>
+<li><span class="keyname">Alt Gr</span> in combination with graphic character keys generate the character
+corresponding to the right side of the keyboard.</li>
+<li><span class="keyname">Alt Gr</span> is used for numeric keypad compose.</li>
+</ul>
+<h3 id="S8.4.7">8.4.7 Modifier Keys</h3>
+<p><a href="#T8-1">Table 8–1</a> shows the corresponding modifier keys for the VT and the enhanced PC
+layouts.</p>
+<table id="T8-1" class="truled">
+<caption><span class="tabfigid">Table 8–1</span> VT Layout vs. Enhanced PC Layout Modifier Keys</caption>
+<thead>
+<tr>
+<th>VT Keyboard</th>
+<th>PC Keyboard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left <span class="keyname">Shift</span></td>
+<td>Left <span class="keyname">Shift</span></td>
+</tr>
+<tr>
+<td>Right <span class="keyname">Shift</span></td>
+<td>Right <span class="keyname">Shift</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Lock</span></td>
+<td><span class="keyname">Caps Lock</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span></td>
+<td>Left <span class="keyname">Ctrl</span></td>
+</tr>
+<tr>
+<td>none</td>
+<td>Right <span class="keyname">Ctrl</span></td>
+</tr>
+<tr>
+<td>Left <span class="keyname">Compose Character</span></td>
+<td><span class="keyname">Alt Gr</span></td>
+</tr>
+<tr>
+<td>Right <span class="keyname">Compose Character</span></td>
+<td>none</td>
+</tr>
+<tr>
+<td>Left <span class="keyname">Alt</span></td>
+<td>Left <span class="keyname">Alt</span></td>
+</tr>
+<tr>
+<td>Right <span class="keyname">Alt</span></td>
+<td>none or Right <span class="keyname">Alt</span></td>
+</tr>
+</tbody>
+</table>
+<p>There is no <span class="keyname">Ctrl</span> key on the right side of the VT keyboard. Left and right <span class="keyname">Ctrl</span>
+keys on the enhanced PC layout generates the single control function on the VT
+Layout.</p>
+<p>There is no key labeled "compose" on the enhanced PC layout. <span class="keyname">Alt Gr</span> (Right <span class="keyname">Alt</span>)
+accesses the supplemental characters on the top right half of the keyboard on
+some enhanced PC layout keyboards. <span class="keyname">Alt Gr</span> can be used with the numeric keypad
+to enter character codes directly. Left <span class="keyname">Alt/Space</span> can be used to initiate compose
+sequences when VT Style is selected.</p>
+<h2 id="S8.5">8.5 Editing Keypad Keys</h2>
+<p><a href="#F8-3">Figure 8–3</a> shows the layout for the DEC VT and enhanced PC editing keypads.</p>
+<table id="F8-3" class="figure">
+<caption><span class="tabfigid">Figure 8–3</span> Editing Keypad Legends on DEC and PC Layouts</caption>
+<tbody>
+<tr>
+<td><img src="figure8-3.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>When VT Style is selected, the enhanced PC layout editing keys transmit the
+same function sequences as the similarly legend editing keys in the VT layout. In
+PC Style, the <span class="keyname">Home</span> key sends a Cursor Up (CUP) sequence to move the cursor
+home and the <span class="keyname">Delete</span> key transmits a DEL (7/15).</p>
+<p><a href="#T8-2">Table 8–2</a> lists the key sequences for PC editing keypads.</p>
+<table id="T8-2" class="truled">
+<caption><span class="tabfigid">Table 8–2</span> Editing Keypad Sequences for PC Layout</caption>
+<thead>
+<tr>
+<th>Enhanced PC Legend</th>
+<th>VT Legend</th>
+<th>VT Style Sequence</th>
+<th>PC Style Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Insert</span></td>
+<td><span class="keyname">Insert Here</span></td>
+<td>CSI 2 ~</td>
+<td>CSI 2 ~</td>
+</tr>
+<tr>
+<td><span class="keyname">Delete</span></td>
+<td><span class="keyname">Remove</span></td>
+<td>CSI 3 ~</td>
+<td>DEL</td>
+</tr>
+<tr>
+<td><span class="keyname">Home</span></td>
+<td><span class="keyname">Find</span></td>
+<td>CSI 1 ~</td>
+<td>CSI H</td>
+</tr>
+<tr>
+<td><span class="keyname">End</span></td>
+<td><span class="keyname">Select</span></td>
+<td>CSI 4 ~</td>
+<td>CSI 4 ~</td>
+</tr>
+<tr>
+<td><span class="keyname">Page Up</span></td>
+<td><span class="keyname">Prev Screen</span></td>
+<td>CSI 5 ~</td>
+<td>CSI 5 ~</td>
+</tr>
+<tr>
+<td><span class="keyname">Page Down</span></td>
+<td><span class="keyname">Next Screen</span></td>
+<td>CSI 6 ~</td>
+<td>CSI 6 ~</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to these unshifted sequences, the editing keys can send unique
+sequences when pressed in combination with <span class="keyname">Shift</span>, <span class="keyname">Alt</span>, or <span class="keyname">Ctrl</span>. See DECFNK for
+details.</p>
+<h2 id="S8.6">8.6 Cursor Keypad Keys</h2>
+<p>The cursor keypad keys send the same sequences as the VT layout. Additional
+unique sequences can be sent when pressed in combination with <span class="keyname">Shift</span>, <span class="keyname">Alt</span>, or <span class="keyname">Ctrl</span>.
+See DECFNK for details.</p>
+<h2 id="S8.7">8.7 Numeric Keypad Keys</h2>
+<p>The enhanced PC layout numeric keypad has three differences from the VT
+layout:</p>
+<ol>
+<li>The four keys at the top of the keyboard are labeled <span class="keyname">Num Lock</span>, <span class="keyname">/</span>, <span class="keyname">*</span>, and <span class="keyname">-</span> instead
+of <span class="keyname">PF1</span> through <span class="keyname">PF4</span>.</li>
+<li>The <span class="keyname">Num Lock</span> key toggles the keypad keys, sending either numerals or
+function sequences.</li>
+</ol>
+<p>In VT Style, with <b class="feature">Application Mode</b> enabled, the numeric keypad keys send the
+same sequences as the corresponding keys on a VT layout. When the numeric
+keypad is in numeric mode, the four keys at the top of the keyboard still operates
+as <span class="keyname">PF1</span> through <span class="keyname">PF4</span>, and the <span class="keyname">+</span> key sends an ASCII "+" character.</p>
+<p><a href="#T8-3">Table 8–3</a> shows the numeric keypad sequences in VT Style.</p>
+<table id="T8-3" class="truled">
+<caption><span class="tabfigid">Table 8–3</span> PC Layout Numeric Keypad Sequences - VT Style</caption>
+<thead>
+<tr>
+<th>PC Key</th>
+<th>DEC Key</th>
+<th>Numeric Mode</th>
+<th>Application Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Num Lock</span></td>
+<td><span class="keyname">PF1</span></td>
+<td>SS3 P</td>
+<td>SS3 P</td>
+</tr>
+<tr>
+<td><span class="keyname">/</span></td>
+<td><span class="keyname">PF2</span></td>
+<td>SS3 Q</td>
+<td>SS3 Q</td>
+</tr>
+<tr>
+<td><span class="keyname">*</span></td>
+<td><span class="keyname">PF3</span></td>
+<td>SS3 R</td>
+<td>SS3 R</td>
+</tr>
+<tr>
+<td><span class="keyname">-</span></td>
+<td><span class="keyname">PF4</span></td>
+<td>SS3 S</td>
+<td>SS3 S</td>
+</tr>
+<tr>
+<td><span class="keyname">Caps Lock/+</span></td>
+<td><span class="keyname">-</span></td>
+<td></td>
+<td>SS3 m</td>
+</tr>
+<tr>
+<td><span class="keyname">+</span></td>
+<td><span class="keyname">,</span></td>
+<td>"+"</td>
+<td>SS3 l</td>
+</tr>
+<tr>
+<td><span class="keyname">.</span></td>
+<td><span class="keyname">.</span></td>
+<td>"."</td>
+<td>SS3 n</td>
+</tr>
+<tr>
+<td><span class="keyname">Enter</span></td>
+<td><span class="keyname">Enter</span></td>
+<td>CR</td>
+<td>SS3 M</td>
+</tr>
+<tr>
+<td><span class="keyname">0</span></td>
+<td><span class="keyname">0</span></td>
+<td>"0"</td>
+<td>SS3 p</td>
+</tr>
+<tr>
+<td><span class="keyname">1</span></td>
+<td><span class="keyname">1</span></td>
+<td>"1"</td>
+<td>SS3 q</td>
+</tr>
+<tr>
+<td><span class="keyname">2</span></td>
+<td><span class="keyname">2</span></td>
+<td>"2"</td>
+<td>SS3 r</td>
+</tr>
+<tr>
+<td><span class="keyname">3</span></td>
+<td><span class="keyname">3</span></td>
+<td>"3"</td>
+<td>SS3 s</td>
+</tr>
+<tr>
+<td><span class="keyname">4</span></td>
+<td><span class="keyname">4</span></td>
+<td>"4"</td>
+<td>SS3 t</td>
+</tr>
+<tr>
+<td><span class="keyname">5</span></td>
+<td><span class="keyname">5</span></td>
+<td>"5"</td>
+<td>SS3 u</td>
+</tr>
+<tr>
+<td><span class="keyname">6</span></td>
+<td><span class="keyname">6</span></td>
+<td>"6"</td>
+<td>SS3 v</td>
+</tr>
+<tr>
+<td><span class="keyname">7</span></td>
+<td><span class="keyname">7</span></td>
+<td>"7"</td>
+<td>SS3 w</td>
+</tr>
+<tr>
+<td><span class="keyname">8</span></td>
+<td><span class="keyname">8</span></td>
+<td>"8"</td>
+<td>SS3 x</td>
+</tr>
+<tr>
+<td><span class="keyname">9</span></td>
+<td><span class="keyname">9</span></td>
+<td>"9"</td>
+<td>SS3 y</td>
+</tr>
+</tbody>
+</table>
+<p>In PC Style, when the numeric keypad is in <b class="feature">Application Mode</b>, the numeric
+keypad keys send the same sequences as the corresponding keys on the VT layout
+as shown in <a href="#T8-3">Table 8–3</a>.</p>
+<p>In PC Style, when the numeric keypad is in <b class="feature">Numeric Mode</b>, the keypad keys
+send either editing keypad sequences corresponding to the gray legend in the
+lower part of the keyboard, or the numerals corresponding to the black legend
+in the upper part of the keyboard. The numerals are sent when <span class="keyname">Shift</span> or the
+<span class="keyname">Num Lock</span> has been depressed. The Num Lock state can be toggled on or off by
+pressing the <span class="keyname">Num Lock</span> key. "Num Lock" appears on the keyboard indicator line
+when this feature is activated. If Num Lock is on and "Reverse Lock" is activated,
+pressing <span class="keyname">Shift</span> temporarily reverses the effect of Num Lock.</p>
+<p><a href="#T8-4">Table 8–4</a> lists the numeric keypad sequences in PC Style Numeric mode.</p>
+<table id="T8-4" class="truled">
+<caption><span class="tabfigid">Table 8–4</span> PC Layout Numeric Keypad Sequences - PC Style, Numeric Mode</caption>
+<thead>
+<tr>
+<th>Keys</th>
+<th>Num Lock Off unshifted, or<br/>
+Num Lock On with <span class="keyname">Shift</span></th>
+<th>Num Lock On unshifted, or<br/>
+Num Lock Off with <span class="keyname">Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Num Lock</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">/</span></td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span class="keyname">*</span></td>
+<td>*</td>
+<td>*</td>
+</tr>
+<tr>
+<td><span class="keyname">-</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="keyname">+</span></td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td><table>
+<tbody>
+<tr>
+<td class="keyname">.<br/>Del</td>
+</tr>
+</tbody>
+</table></td>
+<td>DEL</td>
+<td>.</td>
+</tr>
+<tr>
+<td><span class="keyname">Enter</span></td>
+<td>CR</td>
+<td>CR</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">0<br/>Ins</td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI 2 ~</td>
+<td>0</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">1<br/>End</td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI 4 ~</td>
+<td>1</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">2<br/><span title="Down">⇓</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI B</td>
+<td>2</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">3<br/>PgDn</td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI 6 ~</td>
+<td>3</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">4<br/><span title="Left">⇐</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI D</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="keyname">5</span></td>
+<td></td>
+<td>5</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">6<br/><span title="Right">⇒</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI C</td>
+<td>6</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">7<br/>Home</td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI H</td>
+<td>7</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">8<br/><span title="Up">⇑</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI A</td>
+<td>8</td>
+</tr>
+<tr>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">9<br/>PgUp</td>
+</tr>
+</tbody>
+</table></td>
+<td>CSI 5 ~</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h2 id="S8.8">8.8 Local Function Key Defaults</h2>
+<p>The keys used to perform local terminal functions differ between the VT
+keyboard, PC keyboard, and the mode selection. <a href="#T8-5">Table 8–5</a> shows the
+corresponding keys for the default local functions. The function number in
+<a href="#T8-5">Table 8–5</a> is used in the DECPFK host sequence or DECPAK's alternate function
+to specify a change to that local function key.</p></div>
+<table id="T8-5" class="truled">
+<caption><span class="tabfigid">Table 8–5</span> Local Functions</caption>
+<thead>
+<tr>
+<th>Function Number</th>
+<th>Function</th>
+<th>VT Keyboard</th>
+<th>SCO Console</th>
+<th>PC Keyboard VT-Style</th>
+<th>PC Keyboard PC-Style</th>
+<th>PC Keyboard SCO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>no function</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Hold</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Lock/F1</span></td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Scroll Lock</span></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Print</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">Lock/F2</span></td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">Print Screen</span></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">3</td>
+<td rowspan="2">Set-Up</td>
+<td rowspan="2"><span class="keyname">F3</span></td>
+<td rowspan="2"><span class="keyname">Lock/F3</span></td>
+<td rowspan="2"><span class="keyname">F3</span></td>
+<td><span class="keyname">Lock/Print Screen</span></td>
+<td rowspan="2"></td>
+</tr>
+<tr>
+<td><span class="keyname">Lock/Sys Rq</span><br/>or<br/><span class="keyname">Alt/Print Screen</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Break</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">Lock/F5</span></td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">Lock/Pause</span></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Hard Reset</td>
+<td><span class="keyname">Ctrl/F3</span></td>
+<td><span class="keyname">Lock/Ctrl/F3</span></td>
+<td><span class="keyname">Ctrl/F3</span></td>
+<td><span class="keyname">Ctrl/Lock/Print Screen</span></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Toggle Autoprint</td>
+<td><span class="keyname">Ctrl/F2</span></td>
+<td><span class="keyname">Lock/Ctrl/F2</span></td>
+<td><span class="keyname">Ctrl/F2</span></td>
+<td><span class="keyname">Ctrl/Print Screen</span></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Disconnect</td>
+<td><span class="keyname">Shift/F5</span></td>
+<td><span class="keyname">Lock/Shift/F5</span></td>
+<td><span class="keyname">Shift/F5</span></td>
+<td><span class="keyname">Shift/Lock/Pause</span></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Send Answerback</td>
+<td><span class="keyname">Ctrl/F5</span></td>
+<td><span class="keyname">Lock/Ctrl/F5</span></td>
+<td><span class="keyname">Ctrl/F5</span></td>
+<td><span class="keyname">Ctrl/Lock/Pause</span></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Print Composed Main Display</td>
+<td><span class="keyname">Shift/F2</span></td>
+<td>X<sup>1</sup></td>
+<td><span class="keyname">Shift/F2</span></td>
+<td><span class="keyname">Shift/Print Screen</span></td>
+<td>X</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Pan Up</td>
+<td><span class="keyname">Ctrl/<span title="Up">⇑</span></span></td>
+<td>X</td>
+<td><span class="keyname">Ctrl/<span title="Up">⇑</span></span></td>
+<td><span class="keyname">Ctrl/<span title="Up">⇑</span></span></td>
+<td>X</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Pan Down</td>
+<td><span class="keyname">Ctrl/<span title="Down">⇓</span></span></td>
+<td>X</td>
+<td><span class="keyname">Ctrl/<span title="Down">⇓</span></span></td>
+<td><span class="keyname">Ctrl/<span title="Down">⇓</span></span></td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Pan Prev Page</td>
+<td><span class="keyname">Ctrl/Prev</span></td>
+<td>X</td>
+<td><span class="keyname">Ctrl/Page Up</span></td>
+<td><span class="keyname">Ctrl/Page Up</span></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Pan Next Page</td>
+<td><span class="keyname">Ctrl/Next</span></td>
+<td>X</td>
+<td><span class="keyname">Ctrl/Page Down</span></td>
+<td><span class="keyname">Ctrl/Page Down</span></td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Copy &amp; Paste Mode</td>
+<td><span class="keyname">F1</span> (hold down)</td>
+<td><span class="keyname">Caps Lock/F1</span></td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Scroll Lock</span></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>C&amp;P Cursor Left</td>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td></td>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>C&amp;P Cursor Down</td>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td></td>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>C&amp;P Cursor Up</td>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td></td>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>C&amp;P Cursor Right</td>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td></td>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>C&amp;P Start Selection</td>
+<td><span class="keyname">Select</span></td>
+<td></td>
+<td><span class="keyname">Home</span></td>
+<td><span class="keyname">Home</span></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>C&amp;P Copy</td>
+<td><span class="keyname">Remove</span></td>
+<td></td>
+<td><span class="keyname">End</span></td>
+<td><span class="keyname">End</span></td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>C&amp;P Paste</td>
+<td><span class="keyname">Insert Here</span></td>
+<td></td>
+<td><span class="keyname">Insert</span></td>
+<td><span class="keyname">Insert</span></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>C&amp;P ± Left-to-Right</td>
+<td><span class="keyname">Select</span></td>
+<td></td>
+<td><span class="keyname">Home</span></td>
+<td><span class="keyname">Home</span></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Shift Modifier</td>
+<td>Left or right <span class="keyname">Shift</span></td>
+<td></td>
+<td>Left or right <span class="keyname">Shift</span></td>
+<td>Left or right <span class="keyname">Shift</span></td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Control Modifier</td>
+<td><span class="keyname">Ctrl</span></td>
+<td></td>
+<td>Left or right <span class="keyname">Ctrl</span></td>
+<td>Left or right <span class="keyname">Ctrl</span></td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>Alt Function Modifier</td>
+<td>Left or right <span class="keyname">Alt</span></td>
+<td></td>
+<td>Left or right <span class="keyname">Alt</span></td>
+<td>Left or right <span class="keyname">Alt</span></td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Start Compose</td>
+<td>Left or right <span class="keyname">Compose</span></td>
+<td></td>
+<td></td>
+<td>Left <span class="keyname">Alt/Space</span></td>
+<td></td>
+</tr>
+<tr>
+<td>45*</td>
+<td>Group Shift Modifier</td>
+<td><span class="keyname">Group Shift</span></td>
+<td></td>
+<td><span class="keyname">Alt/Gr</span></td>
+<td><span class="keyname">Alt/Gr</span></td>
+<td></td>
+</tr>
+<tr>
+<td>46†</td>
+<td>Shift2 Modifier</td>
+<td><span class="keyname">Alt/Shift</span></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>Primary KB language</td>
+<td><span class="keyname">Ctrl/Alt/F1</span></td>
+<td><span class="keyname">Lock/Alt/Ctrl/F1</span></td>
+<td><span class="keyname">Ctrl/Alt/F1</span></td>
+<td><span class="keyname">Ctrl/Alt/F1</span></td>
+<td>See SCO Console</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Secondary KB language</td>
+<td><span class="keyname">Ctrl/Alt/F2</span></td>
+<td><span class="keyname">Lock/Alt/Ctrl/F2</span></td>
+<td><span class="keyname">Ctrl/Alt/F2</span></td>
+<td><span class="keyname">Ctrl/Alt/F2</span></td>
+<td>See SCO Console</td>
+</tr>
+<tr>
+<td>49‡</td>
+<td>± KB language</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>± Caps Lock State</td>
+<td><span class="keyname">Lock</span></td>
+<td></td>
+<td><span class="keyname">Lock</span></td>
+<td><span class="keyname">Lock</span></td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>± Num Lock State</td>
+<td></td>
+<td></td>
+<td><span class="keyname">Num Lock</span></td>
+<td><span class="keyname">Num Lock</span></td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>± VT/IBM Style</td>
+<td></td>
+<td>X</td>
+<td><span class="keyname">Lock</span><br/><span class="keyname">Num Lock</span></td>
+<td><span class="keyname">Lock</span><br/><span class="keyname">Num Lock</span></td>
+<td>X</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Extend Kbd Modifier</td>
+<td></td>
+<td></td>
+<td><span class="keyname">Lock</span></td>
+<td><span class="keyname">Lock</span></td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td>Screen saver</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>Calculator</td>
+<td><span class="keyname">Lock/Alt/F12</span></td>
+<td></td>
+<td><span class="keyname">Lock/Alt/F12</span></td>
+<td><span class="keyname">Lock/Alt/F12</span></td>
+<td></td>
+</tr>
+<tr>
+<td>63</td>
+<td>Clock</td>
+<td><span class="keyname">Lock/Alt/F11</span></td>
+<td></td>
+<td><span class="keyname">Lock/Alt/F11</span></td>
+<td><span class="keyname">Lock/Alt/F11</span></td>
+<td></td>
+</tr>
+<tr>
+<td>64</td>
+<td>Character table</td>
+<td><span class="keyname">Lock/Alt/F10</span></td>
+<td></td>
+<td><span class="keyname">Lock/Alt/F10</span></td>
+<td><span class="keyname">Lock/Alt/F10</span></td>
+<td></td>
+</tr>
+<tr>
+<td>65</td>
+<td>Transfer result</td>
+<td><span class="keyname">Shift/Enter</span></td>
+<td></td>
+<td><span class="keyname">Shift/Enter</span></td>
+<td><span class="keyname">Shift/Enter</span></td>
+<td></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7"><p><sup>1</sup> X means the function is not available in the default SCO state. If there is no "X" in the <b>SCO Console</b> column, then
+this means that the key sequence is the same as the <b>VT Keyboard</b> column. If there is no "X" in the <b>PC Keyboard SCO</b>
+column, then this means that the key sequence is the same as the <b>PC Keyboard PC-Style</b> column.</p>
+<p>†The Shift2 Modifier is assigned to the <span class="keyname">Alt Shift</span> key (German "right <span class="keyname">Compose</span>") when it appears on the corresponding
+keyboard (German).</p>
+<p>‡Toggle KB language is assigned to the named language key when it appears on the corresponding keyboard (Greek,
+Hebrew, and Russian).</p>
+<p>± means the function switches alternately between on and off.</p>
+<p>C&amp;P means Copy and Paste.</p>
+<p><span class="keyname">Lock</span> means the <span class="keyname">Lock</span> key, <span class="keyname">Caps Lock</span> key, or key with lock icon.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>See <a href="chapter2.html">Chapter 2</a> to re-define keys using the Define Key Editor.</p></div></div>
+<p><a href="#T8-6">Table 8–6</a> lists the local functions for ASCII emulations.</p>
+<table id="T8-6" class="truled">
+<caption><span class="tabfigid">Table 8–6</span> Local Functions for ASCII emulations</caption>
+<thead>
+<tr>
+<th>Function</th>
+<th>DEC VT Layout</th>
+<th>EPC Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hold Screen</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Scroll Lock</span></td>
+</tr>
+<tr>
+<td>Print Page</td>
+<td><span class="keyname">Ctrl/Shift/.</span> kpd</td>
+<td><span class="keyname">Ctrl/Shift/.</span> kpd</td>
+</tr>
+<tr>
+<td rowspan="2">Set-Up</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">Alt/Print Screen</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Caps Lock/F3</span></td>
+<td><span class="keyname">Caps Lock/Print Screen</span></td>
+</tr>
+<tr>
+<td>Break</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">Ctrl/Pause</span></td>
+</tr>
+<tr>
+<td>Hard Reset</td>
+<td><span class="keyname">Ctrl/F3</span> in Setup</td>
+<td></td>
+</tr>
+<tr>
+<td>Soft Reset</td>
+<td><span class="keyname">Shift/F3</span></td>
+<td><span class="keyname">Alt/Shift/Print Screen</span></td>
+</tr>
+<tr>
+<td rowspan="3">Autoprint Mode</td>
+<td><span class="keyname">Ctrl/F2</span></td>
+<td><span class="keyname">Ctrl/Print Screen</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl/Shift/F2</span></td>
+<td><span class="keyname">Ctrl/Shift/Print Screen</span></td>
+</tr>
+<tr>
+<td></td>
+<td><span class="keyname">Alt/Ctrl/Shift/Print Screen</span></td>
+</tr>
+<tr>
+<td>Disconnect</td>
+<td><span class="keyname">Shift/F5</span></td>
+<td><span class="keyname">Pause</span></td>
+</tr>
+<tr>
+<td>Send Answerback</td>
+<td><span class="keyname">Ctrl/F5</span></td>
+<td><span class="keyname">Shift/Pause</span></td>
+</tr>
+<tr>
+<td rowspan="2">Display Next Page</td>
+<td><span class="keyname">Ctrl/Next</span></td>
+<td><span class="keyname">Ctrl/Page Down</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Shift/Ctrl/Next</span></td>
+<td><span class="keyname">Ctrl/Shift/Page Down</span></td>
+</tr>
+<tr>
+<td>Active Other Window</td>
+<td><span class="keyname">Ctrl/Next</span> or <span class="keyname">Ctrl/Prev</span></td>
+<td><span class="keyname">Ctrl/Page Down</span> or <span class="keyname">Ctrl/Shift/Page Down</span> or
+<span class="keyname">Ctrl/Page Up</span> or <span class="keyname">Ctrl/Shift/Page Up</span></td>
+</tr>
+<tr>
+<td rowspan="2">Display Prev. Page</td>
+<td><span class="keyname">Ctrl/Prev</span></td>
+<td><span class="keyname">Ctrl/Page Up</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Shift/Ctrl/Prev</span></td>
+<td><span class="keyname">Ctrl/Shift/Page Up</span></td>
+</tr>
+<tr>
+<td>Display Page 0</td>
+<td><span class="keyname">Ctrl/0</span> kpd</td>
+<td><span class="keyname">Ctrl/0</span> kpd</td>
+</tr>
+<tr>
+<td>Display Page 1</td>
+<td><span class="keyname">Ctrl/1</span> kpd</td>
+<td><span class="keyname">Ctrl/1</span> kpd</td>
+</tr>
+<tr>
+<td>Display Page 2</td>
+<td><span class="keyname">Ctrl/2</span> kpd</td>
+<td><span class="keyname">Ctrl/2</span> kpd</td>
+</tr>
+<tr>
+<td>Display Page 3</td>
+<td><span class="keyname">Ctrl/3</span> kpd</td>
+<td><span class="keyname">Ctrl/3</span> kpd</td>
+</tr>
+<tr>
+<td>Display Page 4</td>
+<td><span class="keyname">Ctrl/4</span> kpd</td>
+<td><span class="keyname">Ctrl/4</span> kpd</td>
+</tr>
+<tr>
+<td>Display Page 5</td>
+<td><span class="keyname">Ctrl/5</span> kpd</td>
+<td><span class="keyname">Ctrl/5</span> kpd</td>
+</tr>
+<tr>
+<td rowspan="3">Block Mode</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">Ctrl/Shift/Pause</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl/F4</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">Shift/Ctrl/F5</span></td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">Change Status Line Display</td>
+<td><span class="keyname">Ctrl/<span title="Right">⇒</span></span></td>
+<td><span class="keyname">Ctrl/<span title="Right">⇒</span></span></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl/Shift/<span title="Right">⇒</span></span></td>
+<td><span class="keyname">Ctrl/Shift/<span title="Right">⇒</span></span></td>
+</tr>
+<tr>
+<td rowspan="2">Insert Mode</td>
+<td><span class="keyname">Ctrl/PF4</span></td>
+<td><span class="keyname">Ctrl/Insert</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl/Shift/PF4</span></td>
+<td><span class="keyname">Ctrl/Shift/Insert</span></td>
+</tr>
+<tr>
+<td>Monitor Mode</td>
+<td><span class="keyname">Ctrl/Shift/1</span> kpd</td>
+<td><span class="keyname">Ctrl/Shift/1</span> kpd</td>
+</tr>
+<tr>
+<td>Screen Saver</td>
+<td><span class="keyname">Ctrl/Shift/PF3</span></td>
+<td><span class="keyname">Ctrl/Shift/End</span></td>
+</tr>
+<tr>
+<td>Speed Scroll Rate</td>
+<td><span class="keyname">Ctrl/Shift/<span title="Up">⇑</span></span></td>
+<td><span class="keyname">Ctrl/Shift/<span title="Up">⇑</span></span></td>
+</tr>
+<tr>
+<td>Slow Scroll Rate</td>
+<td><span class="keyname">Ctrl/Shift/<span title="Down">⇓</span></span></td>
+<td><span class="keyname">Ctrl/Shift/<span title="Down">⇓</span></span></td>
+</tr>
+<tr>
+<td>Home Cursor &amp; Clear Display</td>
+<td></td>
+<td><span class="keyname">Ctrl/Shift/Home</span></td>
+</tr>
+<tr>
+<td>Roll Active Window Up in Page</td>
+<td><span class="keyname">Ctrl/<span title="Up">⇑</span></span></td>
+<td><span class="keyname">Ctrl/<span title="Up">⇑</span></span></td>
+</tr>
+<tr>
+<td>Roll Active Window Down In Page</td>
+<td><span class="keyname">Ctrl/<span title="Down">⇓</span></span></td>
+<td><span class="keyname">Ctrl/<span title="Down">⇓</span></span></td>
+</tr>
+<tr>
+<td>Toggle Split Screen</td>
+<td><span class="keyname">Ctrl/Shift/-</span> kpd</td>
+<td><span class="keyname">Ctrl/Shift/-</span> kpd</td>
+</tr>
+<tr>
+<td>Raise Split Line</td>
+<td><span class="keyname">Ctrl/-</span> kpd</td>
+<td><span class="keyname">Ctrl/-</span> kpd</td>
+</tr>
+<tr>
+<td>Lower Split Line</td>
+<td><span class="keyname">Ctrl/,</span> kpd</td>
+<td>N.A.</td>
+</tr>
+<tr>
+<td>Adjust Window to Include Cursor</td>
+<td></td>
+<td><span class="keyname">Ctrl/Home</span></td>
+</tr>
+<tr>
+<td>Cursor Drag Mode</td>
+<td><span class="keyname">Ctrl/Shift/,</span> kpd</td>
+<td>N.A.</td>
+</tr>
+<tr>
+<td>Caps Lock State</td>
+<td><span class="keyname">Lock</span></td>
+<td><span class="keyname">Caps Lock</span></td>
+</tr>
+<tr>
+<td>Num Lock State</td>
+<td>N.A.</td>
+<td><span class="keyname">Num Lock</span></td>
+</tr>
+<tr>
+<td>Keyclick State</td>
+<td><span class="keyname">Shift/Enter</span> kpd</td>
+<td><span class="keyname">Shift/Enter</span> kpd</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S8.8.1">8.8.1 Numeric Keypad Compose</h3>
+<p>Pressing and holding <span class="keyname">Compose</span>, <span class="keyname">Alt</span> or <span class="keyname">Alt Gr</span> while typing a decimal number on
+the numeric keypad sends the corresponding decimal character code when the
+compose key is released. If the <span class="keyname">.</span> key on the keyboard is pressed while entering
+a number, then the value entered before pressing the <span class="keyname">.</span> key is multiplied by 16
+and added to the value entered next. This supports column/row entry commonly
+used in character coding tables.</p>
+<p>When accessibility aids are enabled, remember to Lock and Unlock the compose
+key when entering codes.</p>
+<h3 id="S8.8.2">8.8.2 Accessibility Aids</h3>
+<p><b>Accessibility aids</b> allow the user with limited motor skills to use modifier
+key combinations in a sequential manner rather than a simultaneous manner
+(default). All modifier key combinations are supported.</p>
+<p>The Accessibility aids option is enabled by depressing the <span class="keyname">Shift</span> key five times in
+succession. This option can be disabled by pressing and holding a modifier key
+while pressing another key.</p>
+<p>Once enabled, this option provides two levels of assistance known as Latch and
+Lock. The Latch state is achieved by pressing a modifier key once and affects the
+next key pressed. The Lock state is achieved by pressing a modifier key twice.
+All keys pressed are affected by the modifier until they are unlocked by either
+depressing the modifier key again or depressing another modifier key twice. Once
+any modifier is in the Locked state, pressing other modifier keys adds those
+modifiers to the Locked state.</p>
+<p>A small icon appears on the Keyboard Indicator Line or Status Line to provide
+user feedback on the changing modifier state.</p>
+<p>The icons for each state are as follows:</p>
+<table>
+<tbody>
+<tr>
+<td><img src="acc-aid-ena.png" alt=""/></td>
+<td>Accessibility Aid Keys Enabled</td>
+</tr>
+<tr>
+<td><img src="acc-mod-lat.png" alt=""/></td>
+<td>Modifier Latched (Cleared on Next Keystroke)</td>
+</tr>
+<tr>
+<td><img src="acc-mod-loc.png" alt=""/></td>
+<td>Modifier Locked</td>
+</tr>
+</tbody>
+</table>
+<p>When Accessibility aid keys are disabled, no icon is displayed on the Keyboard
+Indicator Line or Status Line.</p>
+<h2 id="S8.9">8.9 Controlling Keyboard LEDs</h2>
+<p>The following sequences allow the host to control keyboard modifier states for
+Caps Lock, Scroll Lock, and Num Lock or keyboard LEDs to indicate program
+status. They are as follows:</p>
+<table>
+<tbody>
+<tr>
+<td>ESC [ ? 108 h</td>
+<td>–</td>
+<td>Set NumLock mode (DECNUMLK)</td>
+</tr>
+<tr>
+<td>ESC [ ? 108 l</td>
+<td>–</td>
+<td>Reset NumLock mode</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td>ESC [ ? 109 h</td>
+<td>–</td>
+<td>Set CapsLock mode (DECCAPSLK)</td>
+</tr>
+<tr>
+<td>ESC [ ? 109 l</td>
+<td>–</td>
+<td>Reset CapsLock mode</td>
+</tr>
+</tbody>
+</table>
+<p>"Scroll Lock" or "Hold Screen" cannot be controlled from the host because it
+suspends transmission from the host and there is no way to release it.</p>
+<p>DECLL controls keyboard LEDs independently of any keyboard state. The use
+of LEDs for this purpose conflicts with their use as keyboard state indicators.
+The host control selects a mode of how the keyboard LEDs are to be used: as
+keyboard indicators; or host indicators. If host indicators is selected, then the
+DECLL sequence can be used to control the keyboard LEDs.</p>
+<p>The following control sequences are used to control keyboard LEDs.</p>
+<table>
+<tbody>
+<tr>
+<td>ESC [ ? 110 h</td>
+<td>–</td>
+<td>Set Keyboard LEDs Host Indicator Mode (DECKLHIM)</td>
+</tr>
+<tr>
+<td>ESC [ ? 110 l</td>
+<td>–</td>
+<td>Reset Keyboard LEDs Host Indicator Mode (default)</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>See <a href="chapter2.html">Chapter 2</a> to re-define keys using the Define Key Editor.</p></div></div>
+<h2 id="S8.10">8.10 Keyboard Languages</h2>
+<p><a href="#T8-7">Table 8–7</a> lists the keyboard languages available for the VT terminal.</p>
+<table id="T8-7" class="truled">
+<caption><span class="tabfigid">Table 8–7</span> VT Keyboard Layouts</caption>
+<tbody>
+<tr>
+<td>Austrian/German</td>
+<td>Greek</td>
+<td>Russian</td>
+</tr>
+<tr>
+<td>Belgian/French</td>
+<td>Hebrew</td>
+<td>SCS</td>
+</tr>
+<tr>
+<td>British</td>
+<td>Hungarian</td>
+<td>Slovak</td>
+</tr>
+<tr>
+<td>Canadian-French/English</td>
+<td>Italian</td>
+<td>Spanish</td>
+</tr>
+<tr>
+<td>Czech</td>
+<td>North American</td>
+<td>Swedish</td>
+</tr>
+<tr>
+<td>Danish</td>
+<td>Norwegian</td>
+<td>Swiss-French</td>
+</tr>
+<tr>
+<td>Dutch</td>
+<td>Polish</td>
+<td>Swiss-German</td>
+</tr>
+<tr>
+<td>Finnish</td>
+<td>Portuguese</td>
+<td>Turkish F</td>
+</tr>
+<tr>
+<td>Flemish</td>
+<td>Romanian</td>
+<td>Turkish Q</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#T8-8">Table 8–8</a> lists the keyboard languages available for the PC terminal.</p>
+<table id="T8-8" class="truled">
+<caption><span class="tabfigid">Table 8–8</span> Enhanced PC Keyboard Layouts</caption>
+<tbody>
+<tr>
+<td>Belgian</td>
+<td>Greek</td>
+<td>Romanian</td>
+</tr>
+<tr>
+<td>British</td>
+<td>Hebrew</td>
+<td>Russian</td>
+</tr>
+<tr>
+<td>Czech</td>
+<td>Hungarian</td>
+<td>SCS</td>
+</tr>
+<tr>
+<td>Danish</td>
+<td>Italian</td>
+<td>Slovak</td>
+</tr>
+<tr>
+<td>Dutch</td>
+<td>Latin American</td>
+<td>Spanish</td>
+</tr>
+<tr>
+<td>Finnish</td>
+<td>North American</td>
+<td>Swedish</td>
+</tr>
+<tr>
+<td>French</td>
+<td>Norwegian</td>
+<td>Swiss-French</td>
+</tr>
+<tr>
+<td>French-Canadian</td>
+<td>Polish</td>
+<td>Swiss-German</td>
+</tr>
+<tr>
+<td>German</td>
+<td>Portuguese</td>
+<td>Turkish</td>
+</tr>
+</tbody>
+</table>
+<h2 id="S8.11">8.11 Switching Between Keyboard Languages</h2>
+<p>The VT510 allows the user to easily switch between two different keyboard
+layouts for several languages (English and Hebrew, for example). This feature
+allows the VT510 to support both existing conventions and emerging standards
+for extending the graphic input repertoire and/or switching between languages in
+dual language environments.</p>
+<p>The primary keyboard language corresponds to "Group 1" and generally
+references the legends on the left portion of the keyboard.</p>
+<p>The secondary keyboard language corresponds to "Group 2" and generally
+references the legends on the right portion of the keyboard.</p>
+<p>Unless otherwise overridden, <span class="keyname">Ctrl/Alt/F1</span> activates the primary keyboard language
+(locking shift), and <span class="keyname">Ctrl/Alt/F2</span> activates the secondary keyboard language. These
+factory defaults are standard on PCs.</p>
+<p>Selecting a new Keyboard Dialect in Set-Up resets the keyboard group shift
+state to Group 1 and automatically initializes the keyboard character set and VT
+default character set as shown in table <a href="#T8-9">Table 8–9</a>. The keyboard character set is
+initialized to match the VT default character set.</p>
+<table id="T8-9" class="truled">
+<caption><span class="tabfigid">Table 8–9</span> Default Character Set when changing Keyboard Language</caption>
+<thead>
+<tr>
+<th>Keyboard Language</th>
+<th>VT Default Character Set</th>
+<th>If desired, change to ...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Austrian/German,
+Belgian/French, British,
+Canadian-English,
+Canadian-French, Flemish,
+Danish, Dutch, Finnish, Italian,
+Portuguese, North American,
+Norwegian, Spanish, Swedish,
+Swiss-French, Swiss-German.</td>
+<td>DEC MCS or ISO Latin-1</td>
+<td>ISO Latin-1</td>
+</tr>
+<tr>
+<td>Czech, Hungarian, Polish,
+Romanian, SCS, or Slovak</td>
+<td>ISO Latin-2</td>
+<td>ISO Latin-1</td>
+</tr>
+<tr>
+<td>Greek</td>
+<td>DEC Greek or ISO Latin-Greek</td>
+<td>ISO Latin-Greek</td>
+</tr>
+<tr>
+<td>Hebrew</td>
+<td>DEC Hebrew or ISO Latin-Hebrew</td>
+<td>ISO Latin-Hebrew</td>
+</tr>
+<tr>
+<td>Russian</td>
+<td>KOI-8 Cyrillic or ISO Latin-Cyrillic</td>
+<td>ISO Latin-Cyrillic</td>
+</tr>
+<tr>
+<td>Turkish</td>
+<td>DEC Turkish or ISO Latin-Turkish</td>
+<td>ISO Latin-Turkish</td>
+</tr>
+</tbody>
+</table>
+<p>If 7-bit NRCS characters is selected, then the following corresponding NRC sets
+are available on the VT keyboards:</p>
+<p><b>VT keyboards:</b></p>
+<ul>
+<li>Austrian/German - German NRC</li>
+<li>Belgian/French - French NRC</li>
+<li>British - U.K. NRC</li>
+<li>Canadian-English - French Canadian NRC</li>
+<li>Canadian-French - French Canadian NRC</li>
+<li>Danish - Norwegian/Danish NRC</li>
+<li>Finnish - Finnish NRC</li>
+<li>Flemish - French NRC</li>
+<li>Greek - DEC Greek NRC</li>
+<li>Hebrew - DEC 7-bit Hebrew</li>
+<li>Italian - Italian NRC</li>
+<li>Norwegian - Norwegian/Danish NRC</li>
+<li>Portuguese - Portuguese NRC</li>
+<li>Russian - DEC Russian NRC</li>
+<li>SCS - SCS NRC</li>
+<li>Spanish - Spanish NRC</li>
+<li>Swedish - Swedish NRC</li>
+<li>Swiss-French - Swiss NRC</li>
+<li>Swiss-German - Swiss NRC</li>
+<li>Turkish F - DEC 7-bit Turkish</li>
+<li>Turkish Q - DEC 7-bit Turkish</li>
+</ul>
+<p>The 7-bit NRCS character sets are not available on the following keyboards:</p>
+<ul>
+<li>Czech</li>
+<li>Dutch</li>
+<li>Hungarian</li>
+<li>North American</li>
+<li>Polish</li>
+<li>Romanian</li>
+<li>Slovak</li>
+</ul>
+<p>If 7-bit NRCS characters is selected, then the following corresponding NRC sets
+are available on the enhanced PC keyboards:</p>
+<p><b>Enhanced PC Keyboards</b></p>
+<ul>
+<li>Belgian - French NRC</li>
+<li>British - U.K. NRC</li>
+<li>Danish - Norwegian/Danish NRC</li>
+<li>Finnish - Finnish NRC (same KB as Sweden)</li>
+<li>French - French NRC</li>
+<li>French Canadian - French Canadian NRC</li>
+<li>German - Austrian/German NRC</li>
+<li>Greek - DEC Greek NRC</li>
+<li>Hebrew - DEC 7-bit Hebrew</li>
+<li>Italian - Italian NRC</li>
+<li>Latin American - Spanish NRC</li>
+<li>Norwegian - Norwegian/Danish NRC</li>
+<li>Portuguese - Portuguese NRC</li>
+<li>Russian - DEC Russian NRC</li>
+<li>SCS - SCS NRC</li>
+<li>Spanish - Spanish NRC</li>
+<li>Swedish - Swedish NRC (same KB as Finland)</li>
+<li>Swiss-French - Swiss NRC (Swiss Fr./Gr. is a single PC keyboard)</li>
+<li>Swiss-German - Swiss NRC (Swiss Fr./Gr. is a single PC keyboard)</li>
+<li>Turkish - DEC Turkish NRC</li>
+</ul>
+<p>The 7-bit NRCS character sets are not available on the following enhanced PC
+keyboards:</p>
+<ul>
+<li>Czech</li>
+<li>Dutch</li>
+<li>Hungarian</li>
+<li>North American</li>
+<li>Polish</li>
+<li>Romanian</li>
+<li>Slovak</li>
+</ul>
+<h3 id="S8.11.1">8.11.1 Non-Spacing Accent Marks</h3>
+<p>Accented characters that do not appear directly on a keyboard can often be
+entered by typing a non-spacing diacritical mark followed by a base character.</p>
+<table id="T8-10" class="truled">
+<caption><span class="tabfigid">Table 8–10</span> Non-Spacing Accent Marks</caption>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Non-Spacing Accent Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>´</td>
+<td>Acute accent</td>
+</tr>
+<tr>
+<td>˘</td>
+<td>Breve</td>
+</tr>
+<tr>
+<td>ˇ</td>
+<td>Hacek (caron)</td>
+</tr>
+<tr>
+<td>¸</td>
+<td>Cedilla</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Circumflex accent</td>
+</tr>
+<tr>
+<td>¨</td>
+<td>Diaeresis (umlaut)</td>
+</tr>
+<tr>
+<td>˙</td>
+<td>Dot above</td>
+</tr>
+<tr>
+<td>˝</td>
+<td>Double acute accent</td>
+</tr>
+<tr>
+<td>`</td>
+<td>Grave accent</td>
+</tr>
+<tr>
+<td>΄</td>
+<td>Greek Tonos</td>
+</tr>
+<tr>
+<td>¯</td>
+<td>Macron</td>
+</tr>
+<tr>
+<td>˛</td>
+<td>Ogonek</td>
+</tr>
+<tr>
+<td>°</td>
+<td>Ring above</td>
+</tr>
+<tr>
+<td>~</td>
+<td>Tilde</td>
+</tr>
+</tbody>
+</table>
+<p>Keystrokes assigned non-spacing accent marks do not send any character
+code immediately, but are used instead to modify the code transmitted by the
+subsequent keystroke. If a keystroke that has been assigned a non-spacing accent
+mark is followed immediately by a graphic character, then this forms a valid
+character in the keyboard character set, and the corresponding character code is
+transmitted.</p>
+<p>When a non-spacing diacritical key is pressed, "Compose" appears on the
+keyboard indicator line until the next subsequent keystroke.</p>
+<p>If the keystroke immediately following the non-spacing diacritical keystroke
+does not form a valid character in the keyboard character set, then the non-spacing
+diacritical mark is converted to the corresponding character, if any, and
+transmitted from the current keyboard character set. The second keystroke is
+then processed normally. This "error recovery" is different from previous VT
+auto-compose processing; however, this process follows the emerging standard
+used on personal computers.</p>
+<h3 id="S8.11.2">8.11.2 German</h3>
+<p>For German keyboards, the <span class="keyname">Group Shift</span> (left Compose) key functions as the
+keyboard repertoire extension mechanism. Group 1 and Group 2 are defined
+within the German keyboard dialect and are used whenever the keyboard
+language is set to German. <span class="keyname">Group Shift</span> operates as a single shift prefix if pressed
+and released or as a modifier key if pressed and held.</p>
+<h3 id="S8.11.3">8.11.3 Hebrew</h3>
+<p>When Hebrew is selected as the Keyboard Dialect, the <span class="keyname">Ctrl/Hebrew</span> key toggles
+between the primary and secondary keyboard language.</p>
+<p>When switching into 7-bit Hebrew, lowercase English letters are swapped with
+their corresponding Hebrew characters throughout the display. The <span class="keyname">Shift/Hebrew</span>
+key also performs this swapping function at any time.</p>
+<h2 id="S8.12">8.12 Keystation Numbers</h2>
+<p><a href="#F8-4">Figure 8–4</a> shows the keystation numbers for a VT keyboard.</p>
+<table id="F8-4" class="figure">
+<caption><span class="tabfigid">Figure 8–4</span> VT Layout - Keystation Numbers</caption>
+<tbody>
+<tr>
+<td><img src="figure8-4.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#F8-5">Figure 8–5</a> shows a typical legend for a North American VT keyboard.</p>
+<table id="F8-5" class="figure">
+<caption><span class="tabfigid">Figure 8–5</span> VT Layout - Typical North American Key Legends</caption>
+<tbody>
+<tr>
+<td><img src="figure8-5.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="F8-6" class="figure">
+<caption><span class="tabfigid">Figure 8–6</span> Enhanced PC Layout - Map Numbers</caption>
+<tbody>
+<tr>
+<td><img src="figure8-6.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="F8-7" class="figure">
+<caption><span class="tabfigid">Figure 8–7</span> Enhanced PC Layout - Typical North American Key Legends</caption>
+<tbody>
+<tr>
+<td><img src="figure8-7.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S8.13">8.13 Scan Codes Sent in PCTerm Mode for EPC Keyboards</h2>
+<p>The following keys send the corresponding scan codes, regardless of any modifiers
+that may be in effect.</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend (U.S.)</th>
+<th>Scan Code<br/>Make/Break¹</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span class="keyname">`</span></td>
+<td>29/A9</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="keyname">1</span></td>
+<td>02/82</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="keyname">2</span></td>
+<td>03/83</td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="keyname">3</span></td>
+<td>04/84</td>
+</tr>
+<tr>
+<td>5</td>
+<td><span class="keyname">4</span></td>
+<td>05/85</td>
+</tr>
+<tr>
+<td>6</td>
+<td><span class="keyname">5</span></td>
+<td>06/86</td>
+</tr>
+<tr>
+<td>7</td>
+<td><span class="keyname">6</span></td>
+<td>07/87</td>
+</tr>
+<tr>
+<td>8</td>
+<td><span class="keyname">7</span></td>
+<td>08/88</td>
+</tr>
+<tr>
+<td>9</td>
+<td><span class="keyname">8</span></td>
+<td>09/89</td>
+</tr>
+<tr>
+<td>10</td>
+<td><span class="keyname">9</span></td>
+<td>0A/8A</td>
+</tr>
+<tr>
+<td>11</td>
+<td><span class="keyname">0</span></td>
+<td>0B/8B</td>
+</tr>
+<tr>
+<td>12</td>
+<td><span class="keyname">-</span></td>
+<td>0C/8C</td>
+</tr>
+<tr>
+<td>13</td>
+<td><span class="keyname">=</span></td>
+<td>0D/8D</td>
+</tr>
+<tr>
+<td>14</td>
+<td></td>
+<td>7D/FD²</td>
+</tr>
+<tr>
+<td>15</td>
+<td><span class="keyname">Backspace</span></td>
+<td>0E/8E</td>
+</tr>
+<tr>
+<td>16</td>
+<td><span class="keyname">Tab</span></td>
+<td>0F/8F</td>
+</tr>
+<tr>
+<td>17</td>
+<td><span class="keyname">Q</span></td>
+<td>10/90</td>
+</tr>
+<tr>
+<td>18</td>
+<td><span class="keyname">W</span></td>
+<td>11/91</td>
+</tr>
+<tr>
+<td>19</td>
+<td><span class="keyname">E</span></td>
+<td>12/92</td>
+</tr>
+<tr>
+<td>20</td>
+<td><span class="keyname">R</span></td>
+<td>13/93</td>
+</tr>
+<tr>
+<td>21</td>
+<td><span class="keyname">T</span></td>
+<td>14/94</td>
+</tr>
+<tr>
+<td>22</td>
+<td><span class="keyname">Y</span></td>
+<td>15/95</td>
+</tr>
+<tr>
+<td>23</td>
+<td><span class="keyname">U</span></td>
+<td>16/96</td>
+</tr>
+<tr>
+<td>24</td>
+<td><span class="keyname">I</span></td>
+<td>17/97</td>
+</tr>
+<tr>
+<td>25</td>
+<td><span class="keyname">O</span></td>
+<td>18/98</td>
+</tr>
+<tr>
+<td>26</td>
+<td><span class="keyname">P</span></td>
+<td>19/99</td>
+</tr>
+<tr>
+<td>27</td>
+<td><span class="keyname">[</span></td>
+<td>1A/9A</td>
+</tr>
+<tr>
+<td>28</td>
+<td><span class="keyname">]</span></td>
+<td>1B/9B</td>
+</tr>
+<tr>
+<td>29</td>
+<td><span class="keyname">\</span></td>
+<td>2B/AB†</td>
+</tr>
+<tr>
+<td>30</td>
+<td><span class="keyname">Caps Lock</span></td>
+<td>3A/BA</td>
+</tr>
+<tr>
+<td>31</td>
+<td><span class="keyname">A</span></td>
+<td>1E/9E</td>
+</tr>
+<tr>
+<td>32</td>
+<td><span class="keyname">S</span></td>
+<td>1F/9F</td>
+</tr>
+<tr>
+<td>33</td>
+<td><span class="keyname">D</span></td>
+<td>20/A0</td>
+</tr>
+<tr>
+<td>34</td>
+<td><span class="keyname">F</span></td>
+<td>21/A1</td>
+</tr>
+<tr>
+<td>35</td>
+<td><span class="keyname">G</span></td>
+<td>22/A2</td>
+</tr>
+<tr>
+<td>36</td>
+<td><span class="keyname">H</span></td>
+<td>23/A3</td>
+</tr>
+<tr>
+<td>37</td>
+<td><span class="keyname">J</span></td>
+<td>24/A4</td>
+</tr>
+<tr>
+<td>38</td>
+<td><span class="keyname">K</span></td>
+<td>25/A5</td>
+</tr>
+<tr>
+<td>39</td>
+<td><span class="keyname">L</span></td>
+<td>26/A6</td>
+</tr>
+<tr>
+<td>40</td>
+<td><span class="keyname">;</span></td>
+<td>27/A7</td>
+</tr>
+<tr>
+<td>41</td>
+<td><span class="keyname">'</span></td>
+<td>28/A8</td>
+</tr>
+<tr>
+<td>42</td>
+<td></td>
+<td>2B/AB‡</td>
+</tr>
+<tr>
+<td>43</td>
+<td><span class="keyname">Return</span></td>
+<td>1C/9C</td>
+</tr>
+<tr>
+<td>44</td>
+<td><span class="keyname">Shift</span></td>
+<td>2A/AA</td>
+</tr>
+<tr>
+<td>45</td>
+<td></td>
+<td>56/D6‡</td>
+</tr>
+<tr>
+<td>46</td>
+<td><span class="keyname">Z</span></td>
+<td>2C/AC</td>
+</tr>
+<tr>
+<td>47</td>
+<td><span class="keyname">X</span></td>
+<td>2D/AD</td>
+</tr>
+<tr>
+<td>48</td>
+<td><span class="keyname">C</span></td>
+<td>2E/AE</td>
+</tr>
+<tr>
+<td>49</td>
+<td><span class="keyname">V</span></td>
+<td>2F/AF</td>
+</tr>
+<tr>
+<td>50</td>
+<td><span class="keyname">B</span></td>
+<td>30/B0</td>
+</tr>
+<tr>
+<td>51</td>
+<td><span class="keyname">N</span></td>
+<td>31/B1</td>
+</tr>
+<tr>
+<td>52</td>
+<td><span class="keyname">M</span></td>
+<td>32/B2</td>
+</tr>
+<tr>
+<td>53</td>
+<td><span class="keyname">,</span></td>
+<td>33/B3</td>
+</tr>
+<tr>
+<td>54</td>
+<td><span class="keyname">.</span></td>
+<td>34/B4</td>
+</tr>
+<tr>
+<td>55</td>
+<td><span class="keyname">/</span></td>
+<td>35/B5</td>
+</tr>
+<tr>
+<td>56</td>
+<td></td>
+<td>73/F3²</td>
+</tr>
+<tr>
+<td>57</td>
+<td><span class="keyname">Shift</span></td>
+<td>36/B6</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Left <span class="keyname">Ctrl</span></td>
+<td>1D/9D</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Left <span class="keyname">Alt</span></td>
+<td>38/B8</td>
+</tr>
+<tr>
+<td>61</td>
+<td><span class="keyname">Space</span></td>
+<td>39/B9</td>
+</tr>
+<tr>
+<td>62</td>
+<td>Right <span class="keyname">Alt</span></td>
+<td>E0 38/E0 B8</td>
+</tr>
+<tr>
+<td>64</td>
+<td>Right <span class="keyname">Ctrl</span></td>
+<td>E0 1D/E0 9D</td>
+</tr>
+<tr>
+<td>90</td>
+<td><span class="keyname">Num Lock</span></td>
+<td>45/C5</td>
+</tr>
+<tr>
+<td>91</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">7<br/>Home</td>
+</tr>
+</tbody>
+</table></td>
+<td>47/C7</td>
+</tr>
+<tr>
+<td>92</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">4<br/><span title="Left">⇐</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>4B/CB</td>
+</tr>
+<tr>
+<td>93</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">1<br/>End</td>
+</tr>
+</tbody>
+</table></td>
+<td>4F/CF</td>
+</tr>
+<tr>
+<td>94</td>
+<td></td>
+<td>7C/FC²</td>
+</tr>
+<tr>
+<td>96</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">8<br/><span title="Up">⇑</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>48/C8</td>
+</tr>
+<tr>
+<td>97</td>
+<td>Keypad <span class="keyname">5</span></td>
+<td>4C/CC</td>
+</tr>
+<tr>
+<td>98</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">2<br/><span title="Down">⇓</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>50/D0</td>
+</tr>
+<tr>
+<td>99</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">0<br/>Ins</td>
+</tr>
+</tbody>
+</table></td>
+<td>52/D2</td>
+</tr>
+<tr>
+<td>100</td>
+<td>Keypad <span class="keyname">*</span></td>
+<td>37/B7</td>
+</tr>
+<tr>
+<td>101</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">9<br/>PgUp</td>
+</tr>
+</tbody>
+</table></td>
+<td>49/C9</td>
+</tr>
+<tr>
+<td>102</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">6<br/><span title="Right">⇒</span></td>
+</tr>
+</tbody>
+</table></td>
+<td>4D/CD</td>
+</tr>
+<tr>
+<td>103</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">3<br/>PgDn</td>
+</tr>
+</tbody>
+</table></td>
+<td>51/D1</td>
+</tr>
+<tr>
+<td>104</td>
+<td><table class="keyname2">
+<tbody>
+<tr>
+<td class="keyname">.<br/>Del</td>
+</tr>
+</tbody>
+</table></td>
+<td>53/D3</td>
+</tr>
+<tr>
+<td>105</td>
+<td>Keypad <span class="keyname">-</span></td>
+<td>4A/CA</td>
+</tr>
+<tr>
+<td>106</td>
+<td>Keypad <span class="keyname">+</span></td>
+<td>4E/CE</td>
+</tr>
+<tr>
+<td>107</td>
+<td></td>
+<td>7E/FE²</td>
+</tr>
+<tr>
+<td>108</td>
+<td><span class="keyname">Enter</span></td>
+<td>E0 1C/E0 9C</td>
+</tr>
+<tr>
+<td>109</td>
+<td></td>
+<td>78/F8²</td>
+</tr>
+<tr>
+<td>110</td>
+<td><span class="keyname">Esc</span></td>
+<td>01/81</td>
+</tr>
+<tr>
+<td>112</td>
+<td><span class="keyname">F1</span></td>
+<td>3B/BB</td>
+</tr>
+<tr>
+<td>113</td>
+<td><span class="keyname">F2</span></td>
+<td>3C/BC</td>
+</tr>
+<tr>
+<td>114</td>
+<td><span class="keyname">F3</span></td>
+<td>3D/BD</td>
+</tr>
+<tr>
+<td>115</td>
+<td><span class="keyname">F4</span></td>
+<td>3E/BE</td>
+</tr>
+<tr>
+<td>116</td>
+<td><span class="keyname">F5</span></td>
+<td>3F/BF</td>
+</tr>
+<tr>
+<td>117</td>
+<td><span class="keyname">F6</span></td>
+<td>40/C0</td>
+</tr>
+<tr>
+<td>118</td>
+<td><span class="keyname">F7</span></td>
+<td>41/C1</td>
+</tr>
+<tr>
+<td>119</td>
+<td><span class="keyname">F8</span></td>
+<td>42/C2</td>
+</tr>
+<tr>
+<td>120</td>
+<td><span class="keyname">F9</span></td>
+<td>43/C3</td>
+</tr>
+<tr>
+<td>121</td>
+<td><span class="keyname">F10</span></td>
+<td>44/C4</td>
+</tr>
+<tr>
+<td>122</td>
+<td><span class="keyname">F11</span></td>
+<td>57/D7</td>
+</tr>
+<tr>
+<td>123</td>
+<td><span class="keyname">F12</span></td>
+<td>58/D8</td>
+</tr>
+<tr>
+<td>125</td>
+<td><span class="keyname">Scroll Lock</span></td>
+<td>46/C6</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3"><p>¹Make means when the key is pressed; Break means when the key is released.</p>
+<p>²Not used on 101/102 keyboard layout.</p>
+<p>†101 keyboard layout only</p>
+<p>‡102 keyboard layout only</p></td>
+</tr>
+</tfoot>
+</table>
+<p>The keys in the following table send different series of scan codes depending on the modifier
+state in effect (Shift, Control, Alt, and/or Num Lock). Many of them have a base scan code that
+is identical to another key. To make each key unique, some have an extra byte hex 'E0' or hex
+'E1' added to their scan code sequence.</p></div>
+<table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend<br/>(U.S.)</th>
+<th>Base Case<br/>Make/Break</th>
+<th>Shift Case Make/Break</th>
+<th>Num Lock ON Make/Break</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>75</td>
+<td><span class="keyname">Ins</span></td>
+<td>E0 52/E0 D2</td>
+<td>E0 AA E0 52/E0 D2 E0 2A*</td>
+<td>E0 2A E0 52/E0 D2 E0 AA</td>
+</tr>
+<tr>
+<td>76</td>
+<td><span class="keyname">Del</span></td>
+<td>E0 53/E0 D3</td>
+<td>E0 AA E0 53/E0 D3 E0 2A*</td>
+<td>E0 2A E0 53/E0 D3 E0 AA</td>
+</tr>
+<tr>
+<td>79</td>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td>E0 4B/E0 CB</td>
+<td>E0 AA E0 4B/E0 CB E0 2A*</td>
+<td>E0 2A E0 4B/E0 CB E0 AA</td>
+</tr>
+<tr>
+<td>80</td>
+<td><span class="keyname">Home</span></td>
+<td>E0 47/E0 C7</td>
+<td>E0 AA E0 47/E0 C7 E0 2A*</td>
+<td>E0 2A E0 47/E0 C7 E0 AA</td>
+</tr>
+<tr>
+<td>81</td>
+<td><span class="keyname">End</span></td>
+<td>E0 4F/E0 CF</td>
+<td>E0 AA E0 4F/E0 CF E0 2A*</td>
+<td>E0 2A E0 4F/E0 CF E0 AA</td>
+</tr>
+<tr>
+<td>83</td>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td>E0 48/E0 C8</td>
+<td>E0 AA E0 48/E0 C8 E0 2A*</td>
+<td>E0 2A E0 48/E0 C8 E0 AA</td>
+</tr>
+<tr>
+<td>84</td>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td>E0 50/E0 D0</td>
+<td>E0 AA E0 50/E0 D0 E0 2A*</td>
+<td>E0 2A E0 50/E0 D0 E0 AA</td>
+</tr>
+<tr>
+<td>85</td>
+<td><span class="keyname">Pg Up</span></td>
+<td>E0 49/E0 C9</td>
+<td>E0 AA E0 49/E0 C9 E0 2A*</td>
+<td>E0 2A E0 49/E0 C9 E0 AA</td>
+</tr>
+<tr>
+<td>86</td>
+<td><span class="keyname">Pg Dn</span></td>
+<td>E0 51/E0 D1</td>
+<td>E0 AA E0 51/E0 D1 E0 2A*</td>
+<td>E0 2A E0 51/E0 D1 E0 AA</td>
+</tr>
+<tr>
+<td>89</td>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td>E0 4D/E0 CD</td>
+<td>E0 AA E0 4D/E0 CD E0 2A*</td>
+<td>E0 2A E0 4D/E0 CD E0 AA</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="5"><p>*When the left <span class="keyname">Shift</span> key is pressed, the AA-2A shift break and make should envelope the base codes as shown in the
+previous table. When the right <span class="keyname">Shift</span> key is pressed, the code B6 (right shift break) is sent in place of AA and the code
+36 (right shift make) is sent in place of 2A. If both right and left <span class="keyname">Shift</span> keys are pressed, then both B6 and AA are sent
+where AA is shown, and both 36 and 2A are sent where 2A is shown.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend (U.S.)</th>
+<th>Scan Code Make/Break</th>
+<th>Shift Case Make/Break</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>95</td>
+<td>Keypad <span class="keyname">/</span></td>
+<td>E0 35/E0 B5</td>
+<td>E0 AA E0 35/E0 B5 E0 2A*</td>
+</tr>
+</tbody>
+</table>
+<p>The marker code Hex 'E0' precedes shift codes that are artificially produced by
+the keyboard logic. These artificially produced shift codes are not repeated during
+typamatic (auto repeat) operation of the corresponding key. Only the unique base
+code is repeated at the auto repeat rate. The terminal must ensure that both
+shift states are restored when all shift-dependent keys are released.</p></div>
+<table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend (U.S.)</th>
+<th>Scan Code Make/Break</th>
+<th>Ctrl Case and Shift<br/>Case Make/Break</th>
+<th>Alt Case Make/Break</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">124</td>
+<td>PrtSc</td>
+<td>E0 2A E0 37/E0 B7 E0 AA</td>
+<td>E0 37/E0 B7</td>
+<td></td>
+</tr>
+<tr>
+<td>SysRq</td>
+<td></td>
+<td></td>
+<td>54/D4</td>
+</tr>
+</tbody>
+</table>
+<div class="main"><p>Notice there are two base scan codes associated with keystation 124. To ensure the make/break
+sequence, the code associated with the break must reflect the make code regardless of the Alt
+state at the time of the break.</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend (U.S.)</th>
+<th>Scan Code Make</th>
+<th>Ctrl down Make</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">126</td>
+<td>Pause</td>
+<td>E1 1D 45 E1 9D C5</td>
+<td></td>
+</tr>
+<tr>
+<td>Break</td>
+<td></td>
+<td>E0 46 E0 C6</td>
+</tr>
+</tbody>
+</table>
+<p>The Pause/Break key is a make-only key, meaning it generates a code when
+pressed, not when released. All scan codes or actions associated with this key
+occur with the make of the key.</p>
+<h2 id="S8.14">8.14 Scan Codes Sent in PCTerm Mode for VT Keyboards</h2>
+<p>All keystrokes send scan codes except:</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Key</th>
+<th>Which sends . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Caps Lock</span> <span class="keyname">F1</span></td>
+<td>Hold</td>
+</tr>
+<tr>
+<td><span class="keyname">Caps Lock</span> <span class="keyname">F2</span></td>
+<td>Print</td>
+</tr>
+<tr>
+<td><span class="keyname">Caps Lock</span> <span class="keyname">F3</span></td>
+<td>Enter Set-Up</td>
+</tr>
+<tr>
+<td><span class="keyname">Caps Lock</span> <span class="keyname">F5</span></td>
+<td>Send Break</td>
+</tr>
+</tbody>
+</table>
+<p>All keys including Shift, Alt, and Ctrl send make codes immediately upon being
+pressed, except the Caps Lock key. The make code for the Caps Lock key is sent
+after the Caps Lock key is released. The following keys send the corresponding
+scan codes, regardless of any modifiers that may be in effect.</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Key #</th>
+<th>Legend (U.S.)</th>
+<th>Scan Code<br/>Make/Break</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>42</td>
+<td><span class="keyname">\</span></td>
+<td>2B/AB</td>
+</tr>
+<tr>
+<td>107</td>
+<td><span class="keyname">-</span>¹</td>
+<td>7E/FE</td>
+</tr>
+<tr>
+<td>124</td>
+<td><span class="keyname">F13</span></td>
+<td>E0 3D/E0 BD</td>
+</tr>
+<tr>
+<td>125</td>
+<td><span class="keyname">F14</span></td>
+<td>E0 3E/E0 BE</td>
+</tr>
+<tr>
+<td>126</td>
+<td><span class="keyname">Help</span></td>
+<td>E0 3F/E0 BF</td>
+</tr>
+<tr>
+<td>127</td>
+<td><span class="keyname">Do</span></td>
+<td>01/81 (Like <span class="keyname">Esc</span> key on PC keyboard)</td>
+</tr>
+<tr>
+<td>130</td>
+<td><span class="keyname">F17</span></td>
+<td>E0 41/E0 C1</td>
+</tr>
+<tr>
+<td rowspan="2">131</td>
+<td><span class="keyname">Print Screen</span></td>
+<td>E0 2A E0 37/E0 B7 E0 AA<br/>
+Ctrl or Shift E0 37/E0 B7</td>
+</tr>
+<tr>
+<td><span class="keyname">Sys Rq</span></td>
+<td>Alt 54/D4</td>
+</tr>
+<tr>
+<td>132</td>
+<td><span class="keyname">Scroll Lock</span></td>
+<td>46/C6</td>
+</tr>
+<tr>
+<td rowspan="2">133</td>
+<td><span class="keyname">Pause</span>²</td>
+<td>E1 1D 45 E1 9D C5</td>
+</tr>
+<tr>
+<td><span class="keyname">Break</span>²</td>
+<td>Ctrl E0 46 E0 C6</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3"><p>¹On Numeric keypad.</p>
+<p>²This is a make-only key; code is sent only when key is pressed.</p></td>
+</tr>
+</tfoot>
+</table></div>
+<footer>
+<nav class="sections"><a href="chapter7.html">Chapter 7</a><a href="contents.html">Contents</a><a href="chapter9.html">Chapter 9</a></nav>
+</footer>
+</body>
+</html>

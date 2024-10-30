@@ -1,0 +1,1597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Digital VT220 Programmer Reference Manual</title>
+<link href="vt220-rm.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT220 Programmer Reference Manual
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</header>
+<h1 id="S3">3 Transmitted Codes</h1>
+<h2 id="S3.1">3.1 General</h2>
+<p>This chapter describes the codes that the terminal sends to a
+program. The chapter assumes that you are familiar with the
+character encoding concepts described in <a href="chapter2.html">Chapter 2</a>.</p>
+<p>Key codes generated in VT52 mode are listed if they differ from
+those generated in the ANSI-compatible (VT200 and VT100) modes.</p>
+<p>The terminal can use 15 different national keyboards. This chapter
+describes significant differences among the keyboards.</p>
+<h2 id="S3.2">3.2 Keyboard Codes</h2>
+<p>The terminal keyboard (<a href="#F3-1">Figure 3-1</a>) consists of a main keypad, an
+editing keypad, an auxiliary keypad, and the top-row function
+keys.</p>
+
+<figure id="F3-1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1144 520" version="1.1" id="f3-1-img">
+  <title>VT220 Keyboard</title>
+  <style>
+#f3-1-img {
+
+    &amp; text { font-family: Helvetica, sans-serif; font-style: normal; font-weight: normal }
+    .led-label { font-size: 8px; fill: black; text-anchor: middle }
+    .letter-cap { font-size: 18px; fill: black; font-weight: bold; text-anchor: start }
+    .text-cap { font-size: 8px; fill: black; font-weight: normal }
+    .double-cap { font-size: 18px; fill: black; font-weight: bold; text-anchor: start }
+    .led { fill: #c40; stroke: #000; stroke-width: 1px }
+    .key { fill: none; stroke: black; stroke-width: 1px }
+    .border { fill: none; stroke: black; stroke-width: 1px; opacity: 1.0 }
+    .drawpart { font-size: 11px }
+  }
+</style>
+  <g id="layer1">
+
+    <rect id="bg" x="0" y="0" width="1144" height="520" fill="none"/>
+    <path class="border" d="m 54,188 h 640 v 44 h 8 v 92 h -20 v 44 h -112 v 44 h -496 v -44 h -56 v -92 h 36 z m 712 0 h 136 v 92 h -44 v 40 h 44 v 48 h -136 v -48 h 44 v -40 h -44 z m 176 0 h 180 v 224 h -180 z" fill="none" stroke="none"/>
+    <path class="border" d="m 18 84 h 1104 v 70 h -180 v -40 h -40 v 40 h -136 v -40 h -40 v 40 h -180 v -40 h -40 v 40 h -224 v -40 h -40 v 40 h -224 z"/>
+
+    <g id="strip" transform="translate(22, 88)">
+      <rect class="strip" width="1096" height="22" stroke="black" stroke-width="1" fill="none"/>
+      <text class="text-cap" x="6" y="9"><tspan>Hold</tspan><tspan x="6" dy="9">Screen</tspan></text>
+      <text class="text-cap" x="50" y="9"><tspan>Print</tspan><tspan x="50" dy="9">Screen</tspan></text>
+      <text class="text-cap" x="94" y="13.5"><tspan>Set-Up</tspan></text>
+      <text class="text-cap" x="138" y="9"><tspan>Data/</tspan><tspan x="138" dy="9">Talk</tspan></text>
+      <text class="text-cap" x="182" y="13.5"><tspan>Break</tspan></text>
+
+      <text class="text-cap" x="284" y="13.5" text-anchor="middle"><tspan>F6</tspan></text>
+      <text class="text-cap" x="328" y="13.5" text-anchor="middle"><tspan>F7</tspan></text>
+      <text class="text-cap" x="372" y="13.5" text-anchor="middle"><tspan>F8</tspan></text>
+      <text class="text-cap" x="416" y="13.5" text-anchor="middle"><tspan>F9</tspan></text>
+      <text class="text-cap" x="460" y="13.5" text-anchor="middle"><tspan>F10</tspan></text>
+
+      <text class="text-cap" x="548" y="9" text-anchor="middle"><tspan>F11</tspan><tspan x="548" dy="9">(ESC)</tspan></text>
+      <text class="text-cap" x="592" y="9" text-anchor="middle"><tspan>F12</tspan><tspan x="592" dy="9">(BS)</tspan></text>
+      <text class="text-cap" x="636" y="9" text-anchor="middle"><tspan>F13</tspan><tspan x="636" dy="9">(LF)</tspan></text>
+      <text class="text-cap" x="680" y="13.5" text-anchor="middle"><tspan>F14</tspan></text>
+
+      <path transform="translate(750,15)" d="m -3 -3 a 3 3 0 0 0 0 6 h 6 a 3 3 0 0 0 0 -6 z"/>
+      <path transform="translate(790,15)" d="m -3 -3 a 3 3 0 0 0 0 6 h 6 a 3 3 0 0 0 0 -6 z"/>
+      <path transform="translate(830,15)" d="m -3 -3 a 3 3 0 0 0 0 6 h 6 a 3 3 0 0 0 0 -6 z"/>
+      <path transform="translate(870,15)" d="m -3 -3 a 3 3 0 0 0 0 6 h 6 a 3 3 0 0 0 0 -6 z"/>
+
+      <text class="text-cap" x="750" y="9" text-anchor="middle"><tspan>Hold Screen</tspan></text>
+      <text class="text-cap" x="790" y="9" text-anchor="middle"><tspan>Lock</tspan></text>
+      <text class="text-cap" x="830" y="9" text-anchor="middle"><tspan>Compose</tspan></text>
+      <text class="text-cap" x="870" y="9" text-anchor="middle"><tspan>Wait</tspan></text>
+
+      <text class="text-cap" x="944" y="13.5" text-anchor="middle"><tspan>F17</tspan></text>
+      <text class="text-cap" x="988" y="13.5" text-anchor="middle"><tspan>F18</tspan></text>
+      <text class="text-cap" x="1032" y="13.5" text-anchor="middle"><tspan>F19</tspan></text>
+      <text class="text-cap" x="1076" y="13.5" text-anchor="middle"><tspan>F20</tspan></text>
+
+
+      <g id="keyf1" transform="translate(0,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf2" transform="translate(44,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf3" transform="translate(88,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf4" transform="translate(132,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf5" transform="translate(176,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+
+      <g id="keyf6" transform="translate(264,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf7" transform="translate(308,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf8" transform="translate(352,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf9" transform="translate(396,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf10" transform="translate(440,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+
+      <g id="keyf11" transform="translate(528,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf12" transform="translate(572,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf13" transform="translate(616,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+      <g id="keyf14" transform="translate(660,30)">
+        <rect class="key" width="40" height="32" x="0" y="0"/>
+      </g>
+
+      <g id="keyhelp" transform="translate(748,30)">
+      <rect class="key" width="40" height="32" x="0" y="0"/>
+      <text class="text-cap" x="20" y="19" text-anchor="middle"><tspan>Help</tspan></text>
+    </g>
+    <g id="keydo" transform="translate(792,30)">
+      <rect class="key" width="84" height="32" x="0" y="0"/>
+      <text class="text-cap" x="44" y="19" text-anchor="middle"><tspan>Do</tspan></text>
+    </g>
+
+    <g id="keyf17" transform="translate(924,30)">
+      <rect class="key" width="40" height="32" x="0" y="0"/>
+    </g>
+    <g id="keyf18" transform="translate(968,30)">
+      <rect class="key" width="40" height="32" x="0" y="0"/>
+    </g>
+    <g id="keyf19" transform="translate(1012,30)">
+      <rect class="key" width="40" height="32" x="0" y="0"/>
+    </g>
+    <g id="keyf20" transform="translate(1056,30)">
+      <rect class="key" width="40" height="32" x="0" y="0"/>
+    </g>
+    </g>
+
+
+    <g id="mainarray" transform="translate(10,120)">
+    <g id="keygrave" transform="translate(48,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">`</tspan><tspan x="4" dy="-18" font-size="14">~</tspan></text>
+    </g>
+    <g id="key1" transform="translate(92,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>1</tspan><tspan x="6" dy="-20" font-size="14">!</tspan></text>
+    </g>
+    <g id="key2" transform="translate(136,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>2</tspan><tspan x="3" dy="-20" font-size="14">@</tspan></text>
+    </g>
+    <g id="key3" transform="translate(180,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>3</tspan><tspan x="6" dy="-20" font-size="14">#</tspan></text>
+    </g>
+    <g id="key4" transform="translate(224,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>4</tspan><tspan x="6" dy="-20" font-size="14">$</tspan></text>
+    </g>
+    <g id="key5" transform="translate(268,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>5</tspan><tspan x="4" dy="-20" font-size="14">%</tspan></text>
+    </g>
+    <g id="key6" transform="translate(312,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>6</tspan><tspan x="5" dy="-20" font-size="14">^</tspan></text>
+    </g>
+    <g id="key7" transform="translate(356,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>7</tspan><tspan x="4" dy="-20" font-size="14">&amp;</tspan></text>
+    </g>
+    <g id="key8" transform="translate(400,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>8</tspan><tspan x="6" dy="-20" font-size="14">*</tspan></text>
+    </g>
+    <g id="key9" transform="translate(444,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>9</tspan><tspan x="6" dy="-20" font-size="14">(</tspan></text>
+    </g>
+    <g id="key0" transform="translate(488,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="36"><tspan>0</tspan><tspan x="6" dy="-20" font-size="14">)</tspan></text>
+    </g>
+    <g id="keyminusund" transform="translate(532,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="6" y="34"><tspan font-size="14">-</tspan><tspan x="4" dy="-22" font-size="14">_</tspan></text>
+    </g>
+    <g id="keyequalplus" transform="translate(576,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="34"><tspan font-size="16">=</tspan><tspan x="4" dy="-18" font-size="16">+</tspan></text>
+    </g>
+    <g id="keydelete" transform="translate(620,72)">
+      <rect class="key" width="60" height="40" x="0" y="0"/>
+      <path transform="translate(18,18)" d="m -4 -4 l 8 -8 m -8 0 l 8 8 m 2 2 v -12 h -12 l -8 6 l 8 6 z" stroke="black" stroke-width="1" fill="none"/>
+    </g>
+
+    <g id="keyfind" transform="translate(760,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="14" text-anchor="middle"><tspan>Find</tspan></text>
+    </g>
+    <g id="keyinsert" transform="translate(804,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="14"><tspan>Insert</tspan><tspan x="8" dy="10">Here</tspan></text>
+    </g>
+    <g id="keyremove" transform="translate(848,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="14"><tspan>Re-</tspan><tspan x="8" dy="10">move</tspan></text>
+    </g>
+
+    <g id="keypf1" transform="translate(936,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>PF1</tspan></text>
+    </g>
+    <g id="keypf2" transform="translate(980,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>PF2</tspan></text>
+    </g>
+    <g id="keypf3" transform="translate(1024,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>PF3</tspan></text>
+    </g>
+    <g id="keypf4" transform="translate(1068,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>PF4</tspan></text>
+    </g>
+
+    <g id="keytab" transform="translate(48,116)">
+      <rect class="key" width="60" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Tab</tspan></text>
+    </g>
+    <g id="keyq" transform="translate(112,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">Q</text>
+    </g>
+    <g id="keyw" transform="translate(156,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">W</text>
+    </g>
+    <g id="keye" transform="translate(200,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">E</text>
+    </g>
+    <g id="keyr" transform="translate(244,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">R</text>
+    </g>
+    <g id="keyt" transform="translate(288,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">T</text>
+    </g>
+    <g id="keyy" transform="translate(332,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">Y</text>
+    </g>
+    <g id="keyu" transform="translate(376,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">U</text>
+    </g>
+    <g id="keyi" transform="translate(420,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">I</text>
+    </g>
+    <g id="keyo" transform="translate(464,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">O</text>
+    </g>
+    <g id="keyp" transform="translate(508,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">P</text>
+    </g>
+    <g id="keylbrack" transform="translate(552,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">[</tspan><tspan x="4" dy="-18" font-size="14">{</tspan></text>
+    </g>
+    <g id="keyrbrack" transform="translate(596,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">]</tspan><tspan x="4" dy="-18" font-size="14">}</tspan></text>
+    </g>
+    <g id="keyreturn" transform="translate(640,116)">
+      <path class="key" d="m 0,0 h 48 v 84 h -40 v -44 h -8 z"/>
+      <text class="text-cap" x="4" y="10"><tspan>Return</tspan></text>
+    </g>
+
+    <g id="keyselect" transform="translate(760,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="14" text-anchor="middle"><tspan>Select</tspan></text>
+    </g>
+    <g id="keyprevscreen" transform="translate(804,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="14"><tspan>Prev</tspan><tspan x="8" dy="10">Screen</tspan></text>
+    </g>
+    <g id="keynextscreen" transform="translate(848,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="14"><tspan>Next</tspan><tspan x="8" dy="10">Screen</tspan></text>
+    </g>
+
+    <g id="keyn7" transform="translate(936,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">7</text>
+    </g>
+    <g id="keyn8" transform="translate(980,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">8</text>
+    </g>
+    <g id="keyn9" transform="translate(1024,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">9</text>
+    </g>
+    <g id="keynminus" transform="translate(1068,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="12">-</text>
+    </g>
+
+
+    <g id="keyctrl" transform="translate(12,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Ctrl</tspan></text>
+    </g>
+    <g id="keycaps" transform="translate(56,160)">
+      <rect class="key" width="60" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Lock</tspan></text>
+    </g>
+    <g id="keya" transform="translate(120,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">A</text>
+    </g>
+    <g id="keys" transform="translate(164,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">S</text>
+    </g>
+    <g id="keyd" transform="translate(208,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">D</text>
+    </g>
+    <g id="keyf" transform="translate(252,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">F</text>
+    </g>
+    <g id="keyg" transform="translate(296,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">G</text>
+    </g>
+    <g id="keyh" transform="translate(340,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">H</text>
+    </g>
+    <g id="keyj" transform="translate(384,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">J</text>
+    </g>
+    <g id="keyk" transform="translate(428,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">K</text>
+    </g>
+    <g id="keyl" transform="translate(472,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">L</text>
+    </g>
+    <g id="keysemi" transform="translate(516,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">;</tspan><tspan x="4" dy="-18" font-size="14">:</tspan></text>
+    </g>
+    <g id="keyquote" transform="translate(560,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">'</tspan><tspan x="4" dy="-18" font-size="14">"</tspan></text>
+    </g>
+    <g id="keybackslash" transform="translate(604,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan rotate="-10" font-size="14">\</tspan><tspan x="4" dy="-18" font-size="14">|</tspan></text>
+    </g>
+
+    <g id="keyup" transform="translate(804,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path transform="translate(20,20) scale(0.7)" d="m -10 12.5 h 20 v -10 h 5 l -15 -15 l -15 15 h 5 z"/>
+    </g>
+
+    <g id="keyn4" transform="translate(936,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">4</text>
+    </g>
+    <g id="keyn5" transform="translate(980,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">5</text>
+    </g>
+    <g id="keyn6" transform="translate(1024,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">6</text>
+    </g>
+    <g id="keyncomma" transform="translate(1068,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="12">,</text>
+    </g>
+
+    <g id="keylshift" transform="translate(12,204)">
+      <rect class="key" width="84" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Shift</tspan></text>
+    </g>
+    <g id="keylessgreater" transform="translate(100,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">&lt;</tspan><tspan x="4" dy="-18" font-size="14">&gt;</tspan></text>
+    </g>
+    <g id="keyz" transform="translate(144,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">Z</text>
+    </g>
+    <g id="keyx" transform="translate(188,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">X</text>
+    </g>
+    <g id="keyc" transform="translate(232,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">C</text>
+    </g>
+    <g id="keyv" transform="translate(276,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">V</text>
+    </g>
+    <g id="keyb" transform="translate(320,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">B</text>
+    </g>
+    <g id="keyn" transform="translate(364,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">N</text>
+    </g>
+    <g id="keym" transform="translate(408,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">M</text>
+    </g>
+    <g id="keycomma" transform="translate(452,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">,</tspan><tspan x="4" dy="-20" font-size="14">,</tspan></text>
+    </g>
+    <g id="keystop" transform="translate(496,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan font-size="14">.</tspan><tspan x="4" dy="-20" font-size="14">.</tspan></text>
+    </g>
+    <g id="keyslash" transform="translate(540,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="4" y="32"><tspan rotate="10" font-size="14">/</tspan><tspan x="3" dy="-18" font-size="14">?</tspan></text>
+    </g>
+    <g id="keyrshift" transform="translate(584,204)">
+      <rect class="key" width="84" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Shift</tspan></text>
+    </g>
+
+    <g id="keyleft" transform="translate(760,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path transform="translate(20,20) scale(0.7) rotate(-90)" d="m -10 12.5 h 20 v -10 h 5 l -15 -15 l -15 15 h 5 z"/>
+    </g>
+    <g id="keydown" transform="translate(804,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path transform="translate(20,20) scale(0.7) rotate(180)" d="m -10 12.5 h 20 v -10 h 5 l -15 -15 l -15 15 h 5 z"/>
+    </g>
+    <g id="keyright" transform="translate(848,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path transform="translate(20,20) scale(0.7) rotate(90)" d="m -10 12.5 h 20 v -10 h 5 l -15 -15 l -15 15 h 5 z"/>
+    </g>
+
+    <g id="keyn1" transform="translate(936,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">1</text>
+    </g>
+    <g id="keyn2" transform="translate(980,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">2</text>
+    </g>
+    <g id="keyn3" transform="translate(1024,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">3</text>
+    </g>
+    <g id="keynenter" transform="translate(1068,204)">
+      <rect class="key" width="40" height="84" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Enter</tspan></text>
+    </g>
+
+    <g id="keycompose" transform="translate(68,248)">
+      <rect class="key" width="84" height="40" x="0" y="0"/>
+      <text class="text-cap" x="4" y="10"><tspan>Compose</tspan><tspan x="4" dy="10">Character</tspan></text>
+    </g>
+    <g id="keyspace" transform="translate(156,248)"> <!-- seems to left align wih "W" -->
+      <rect class="key" width="400" height="40" x="0" y="0"/>
+    </g>
+
+    <g id="keyn0" transform="translate(936,248)">
+      <rect class="key" width="84" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="18">0</text>
+    </g>
+    <g id="keyndot" transform="translate(1024,248)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="4" y="12">.</text>
+    </g>
+</g>
+
+    <g id="legends" transform="translate(10,120)">
+      <path d="m 0 -40 a 5 10 0 0 1 5 -10 h 550 a 5 10 0 0 0 5 -10 a 5 10 0 0 0 5 10 h 550 a 5 10 0 0 1 5 10" stroke="black" stroke-width="2" fill="none"/>
+      <text class="legend" x="480" y="-90" font-size="20"><tspan>TOP ROW</tspan><tspan x="480" dy="24">FUNCTION KEYS</tspan></text>
+      <path d="m 0 300 a 5 10 0 0 0 5 10 h 340 a 5 10 0 0 1 5 10 a 5 10 0 0 1 5 -10 h 340 a 5 10 0 0 0 5 -10" stroke="black" stroke-width="2" fill="none"/>
+      <text class="legend" x="320" y="340" font-size="20"><tspan>MAIN</tspan><tspan x="320" dy="24">ARRAY</tspan></text>
+      <path d="m 750 260 a 5 10 0 0 0 5 10 h 65 a 5 10 0 0 1 5 10 a 5 10 0 0 1 5 -10 h 65 a 5 10 0 0 0 5 -10" stroke="black" stroke-width="2" fill="none"/>
+      <path transform="translate(817,320) rotate(10)" d="m -1 0 h 2 v -20 h 4 l -5 -18 l -5 18 h 4 z" stroke="none" fill="black"/>
+      <text class="legend" x="770" y="340" font-size="20"><tspan>EDITING</tspan><tspan x="770" dy="24">KEYPAD</tspan></text>
+      <path d="m 926 300 a 5 10 0 0 0 5 10 h 90 a 5 10 0 0 1 5 10 a 5 10 0 0 1 5 -10 h 90 a 5 10 0 0 0 5 -10" stroke="black" stroke-width="2" fill="none"/>
+      <text class="legend" x="980" y="340" font-size="20"><tspan>AUXILIARY</tspan><tspan x="980" dy="24">KEYPAD</tspan></text>
+    </g>
+    <text class="drawpart" x="1138" y="510" text-anchor="end">MA-0967-83</text>
+  </g>
+</svg>
+<figcaption>Figure 3-1 Key Groupings (North American Keyboard)</figcaption>
+</figure>
+
+<h3 id="S3.2.1">3.2.1 Main Keypad</h3>
+<p>The main keypad consists of standard keys (used to generate
+letters, numbers, and symbols) and function keys (used to generate
+special function codes).</p>
+<h4 id="S3.2.1.1">3.2.1.1 Standard Keys</h4>
+<p>The standard keys generate alphanumeric
+characters, either singly or in combination with other keys.</p>
+<p>On the North American keyboard, the standard keys show only ASCII
+characters and generate only ASCII codes. There are no DEC
+supplemental characters among the standard keys. This is a special
+case, since most keyboards have some standard keys that generate
+DEC supplemental characters as well as ASCII characters.</p>
+<p>The standard-key patterns vary among keyboards. Some graphic
+characters (either special symbols or characters with diacritical
+marks) may or may not be available as standard keys on particular
+keyboards. However, you can create any DEC multinational graphic
+character that is not available on a standard key, by typing a
+valid compose sequence.</p>
+<p>Regardless of which keyboard you use and how you create a graphic
+character, each character is represented by a unique code. The
+code is based on the character's position in the code table. You
+can use all GL characters in both 7-bit (VT52 mode, VT100 mode, or
+7-bit host line) and 8-bit (VT200 mode, 8-bit host line)
+environments. You can only use GR characters in an 8-bit
+environment.</p>
+<p>All keyboards (except the North American Keyboard) have one or
+more standard keys that send different graphic characters (and
+corresponding codes). The graphic character sent depends on
+whether you selected "Typewriter Keys" or "Data Processing Keys"
+in the Keyboard Set-Up screen. (See <a href="#F3-2">Figure 3-2</a> for an example).</p>
+<p>All keys affected by "Typewriter Keys" or "Data Processing Keys"
+have more than two characters shown on their keycaps. The key
+sends the character on the right side of the keycap when you
+select "Data Processing Keys", and the character on the left side
+of the keycap when you select "Typewriter Keys". You can select
+either shifted (upper) or unshifted (lower) character codes for these
+keys in the same way as for other nonalphabetic keys.</p>
+
+<figure id="F3-2">
+<img src="ma-0968-83.png" alt="" height="336" width="629"/>
+<figcaption>Figure 3-2 French/Belgian Keyboard</figcaption>
+</figure>
+
+<h4 id="S3.2.1.2">3.2.1.2 Function Keys</h4>
+<p>This section describes the main keypad
+function keys. The column/row notation used in the descriptions
+refers to <a href="chapter2.html#T2-1">Table 2-1</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;X]</td>
+<td>The &lt;X] (Delete) key sends a DEL character (7/15).</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td>The <b class="keyname">Tab</b> key sends an HT character (0/9).</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>The <b class="keyname">Return</b> key sends either a CR character
+(0/13) or a CR character (0/13) and an LF
+character (0/10), depending on the set/reset
+state of line feed/new line mode (LNM). (See
+<a href="chapter4.html">Chapter 4</a>).</td>
+</tr>
+<tr>
+<td>Ctrl</td>
+<td>The <b class="keyname">Ctrl</b> key alone does not send a code.
+It is always used in combination with another
+key to send a control code.</td>
+</tr>
+<tr>
+<td>Lock</td>
+<td>The <b class="keyname">Lock</b> key alone does not send a code.
+It is used in combination with the "Caps Lock"
+and "Shift Lock" field selected in the
+Keyboard Set-Up screen. <b class="keyname">Lock</b> sets or clears
+the "Caps Lock" (or "Shift Lock") state.</td>
+</tr>
+<tr>
+<td>Shift<br/>(2 keys)</td>
+<td>The <b class="keyname">Shift</b> key alone does not send a code.
+It is used in combination with other standard
+keys to generate uppercase characters. <b class="keyname">Shift</b> is
+also used in combination with nonalphabetic
+keys to send the top character shown on those
+keys.</td>
+</tr>
+<tr>
+<td>Space bar</td>
+<td>The space bar sends an SP character (2/0).</td>
+</tr>
+<tr>
+<td>Compose Character</td>
+<td>The <b class="keyname">Compose Character</b> key does not send a
+code. Pressing <b class="keyname">Compose Character</b> starts a
+compose sequence, which is used to create
+characters that cannot be typed directly from
+the keyboard.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S3.2.2">3.2.2 Editing Keypad</h3>
+<p>The editing keypad includes editing keys and cursor control keys.
+<a href="#T3-1">Table 3-1</a> defines the codes generated by the editing keys, and <a href="#T3-2">Table
+3-2</a> defines the codes sent by the cursor control keys.</p>
+
+<table id="T3-1">
+<caption>Table 3-1 Codes Generated by Editing Keys</caption>
+<thead>
+<tr>
+<td></td>
+<th colspan="2">Code Generated</th>
+</tr>
+<tr>
+<th>Key</th>
+<th>VT200 Mode</th>
+<th>VT100, VT52 Modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FIND</td>
+<td><pre>9/11 3/1  7/14
+CSI  1    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>INSERT HERE</td>
+<td><pre>9/11 3/2  7/14
+CSI  2    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>REMOVE</td>
+<td><pre>9/11 3/3  7/14
+CSI  3    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>SELECT</td>
+<td><pre>9/11 3/4  7/14
+CSI  4    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>PREV SCREEN</td>
+<td><pre>9/11 3/5  7/14
+CSI  5    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>NEXT SCREEN</td>
+<td><pre>9/11 3/6  7/14
+CSI  6    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td colspan="3">In VT100 or VT52 modes the editing keys do not generate codes.</td>
+</tr>
+</tbody>
+</table>
+
+<table id="T3-2">
+<caption>Table 3-2 Codes Generated by Cursor Control Keys</caption>
+<thead>
+<tr>
+<td></td>
+<th colspan="2">ANSI Mode*</th>
+<th colspan="2">VT52 Mode*</th>
+</tr>
+<tr>
+<th>Key</th>
+<th>Cursor Key Mode Reset<br/>Normal</th>
+<th>Cursor Key Mode Set<br/>(Application)</th>
+<th>Normal</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="arrowup.png" alt="↑" height="30" width="30"/></td>
+<td><pre>9/11  4/1
+CSI   A</pre></td>
+<td><pre>8/15  4/1
+SS3   A</pre></td>
+<td><pre>1/11  4/1
+ESC   A</pre></td>
+<td><pre>1/11  4/1
+ESC   A</pre></td>
+</tr>
+<tr>
+<td><img src="arrowdown.png" alt="↓" height="30" width="30"/></td>
+<td><pre>9/11  4/2
+CSI   B</pre></td>
+<td><pre>8/15  4/2
+SS3   B</pre></td>
+<td><pre>1/11  4/2
+ESC   B</pre></td>
+<td><pre>1/11  4/2
+ESC   B</pre></td>
+</tr>
+<tr>
+<td><img src="arrowright.png" alt="→" height="30" width="30"/></td>
+<td><pre>9/11  4/3
+CSI   C</pre></td>
+<td><pre>8/15  4/3
+SS3   C</pre></td>
+<td><pre>1/11  4/3
+ESC   C</pre></td>
+<td><pre>1/11  4/3
+ESC   C</pre></td>
+</tr>
+<tr>
+<td><img src="arrowleft.png" alt="←" height="30" width="30"/></td>
+<td><pre>9/11  4/4
+CSI   D</pre></td>
+<td><pre>8/15  4/4
+SS3   D</pre></td>
+<td><pre>1/11  4/4
+ESC   D</pre></td>
+<td><pre>1/11  4/4
+ESC   D</pre></td>
+</tr>
+<tr>
+<td colspan="5">* ANSI mode applies to VT200 and VT100 modes. VT52 mode is
+an ANSI-incompatible mode.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="S3.2.3">3.2.3 Auxiliary Keypad</h3>
+<p>The characters sent by the auxiliary keypad keys depend on the
+setting of two features, the operating mode (ANSI or VT52) and the
+keypad (application or numeric) features. The application keypad
+feature is usually selected only by the computer, but can be
+selected in the General Set-Up screen. See <a href="chapter4.html">Chapter 4</a> for more
+information about keypad character selection.</p>
+<p><a href="#T3-3">Table 3-3</a> lists the character codes generated by the auxiliary
+keypad in ANSI (VT100, VT200) mode and in VT52 mode.</p>
+
+<table id="T3-3">
+<caption>Table 3-3 Codes Generated by Auxiliary Keypad Keys</caption>
+<thead>
+<tr>
+<td></td>
+<th colspan="2">VT100/VT200<br/>ANSI Mode*</th>
+<th colspan="2">VT52 Mode*</th>
+</tr>
+<tr>
+<th>Key</th>
+<th>Keypad<br/>Numeric Mode</th>
+<th>Keypad<br/>Application Mode</th>
+<th>Keypad<br/>Numeric Mode</th>
+<th>Keypad<br/>Application Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><pre>3/0
+0</pre></td>
+<td><pre>8/15  7/0
+SS3   p</pre></td>
+<td><pre>3/0
+0</pre></td>
+<td><pre>1/11  3/15  7/0
+ESC   ?     p</pre></td>
+</tr>
+<tr>
+<td>1</td>
+<td><pre>3/1
+1</pre></td>
+<td><pre>8/15  7/1
+SS3   q</pre></td>
+<td><pre>3/1
+1</pre></td>
+<td><pre>1/11  3/15  7/1
+ESC   ?     q</pre></td>
+</tr>
+<tr>
+<td>2</td>
+<td><pre>3/2
+2</pre></td>
+<td><pre>8/15  7/2
+SS3   r</pre></td>
+<td><pre>3/2
+2</pre></td>
+<td><pre>1/11  3/15  7/2
+ESC   ?     r</pre></td>
+</tr>
+<tr>
+<td>3</td>
+<td><pre>3/3
+3</pre></td>
+<td><pre>8/15  7/3
+SS3   s</pre></td>
+<td><pre>3/3
+3</pre></td>
+<td><pre>1/11  3/15  7/3
+ESC   ?     s</pre></td>
+</tr>
+<tr>
+<td>4</td>
+<td><pre>3/4
+4</pre></td>
+<td><pre>8/15  7/4
+SS3   t</pre></td>
+<td><pre>3/4
+4</pre></td>
+<td><pre>1/11  3/15  7/4
+ESC   ?     t</pre></td>
+</tr>
+<tr>
+<td>5</td>
+<td><pre>3/5
+5</pre></td>
+<td><pre>8/15  7/5
+SS3   u</pre></td>
+<td><pre>3/5
+5</pre></td>
+<td><pre>1/11  3/15  7/5
+ESC   ?     u</pre></td>
+</tr>
+<tr>
+<td>6</td>
+<td><pre>3/6
+6</pre></td>
+<td><pre>8/15  7/6
+SS3   v</pre></td>
+<td><pre>3/6
+6</pre></td>
+<td><pre>1/11  3/15  7/6
+ESC   ?     v</pre></td>
+</tr>
+<tr>
+<td>7</td>
+<td><pre>3/7
+7</pre></td>
+<td><pre>8/15  7/7
+SS3   w</pre></td>
+<td><pre>3/7
+7</pre></td>
+<td><pre>1/11  3/15  7/7
+ESC   ?     w</pre></td>
+</tr>
+<tr>
+<td>8</td>
+<td><pre>3/8
+8</pre></td>
+<td><pre>8/15  7/8
+SS3   x</pre></td>
+<td><pre>3/8
+8</pre></td>
+<td><pre>1/11  3/15  7/8
+ESC   ?     x</pre></td>
+</tr>
+<tr>
+<td>9</td>
+<td><pre>3/9
+9</pre></td>
+<td><pre>8/15  7/9
+SS3   y</pre></td>
+<td><pre>3/9
+9</pre></td>
+<td><pre>1/11  3/15  7/9
+ESC   ?     y</pre></td>
+</tr>
+<tr>
+<td>-</td>
+<td><pre>2/13
+- (minus)</pre></td>
+<td><pre>8/15  6/13
+SS3   m</pre></td>
+<td><pre>2/13
+-</pre></td>
+<td><pre>1/11  3/15  6/13†
+ESC   ?     m</pre></td>
+</tr>
+<tr>
+<td>,</td>
+<td><pre>2/12
+, (comma)</pre></td>
+<td><pre>8/15  6/12
+SS3   l</pre></td>
+<td><pre>2/12
+,</pre></td>
+<td><pre>1/11  3/15  6/12†
+ESC   ?     l</pre></td>
+</tr>
+<tr>
+<td>.</td>
+<td><pre>2/14
+. (period)</pre></td>
+<td><pre>8/15  6/14
+SS3   n</pre></td>
+<td><pre>2/14
+.</pre></td>
+<td><pre>1/11  3/15  6/14
+ESC   ?     n</pre></td>
+</tr>
+<tr>
+<td>Enter‡</td>
+<td><pre>0/13
+CR</pre></td>
+<td><pre>8/15  4/13
+SS3   M</pre></td>
+<td><pre>0/13
+CR</pre></td>
+<td><pre>1/11  3/15  4/13
+ESC   ?     M</pre></td>
+</tr>
+<tr>
+<td>or</td>
+<td><pre>0/13  0/10
+CR    LF</pre></td>
+<td>or</td>
+<td><pre>0/13  0/10
+CR    LF</pre></td>
+<td></td>
+</tr>
+<tr>
+<td>PF1</td>
+<td><pre>8/15  5/0
+SS3   P</pre></td>
+<td><pre>8/15  5/0
+SS3   P</pre></td>
+<td><pre>1/11  5/0
+ESC   P</pre></td>
+<td><pre>1/11  5/0
+ESC   P</pre></td>
+</tr>
+<tr>
+<td>PF2</td>
+<td><pre>8/15  5/1
+SS3   Q</pre></td>
+<td><pre>8/15  5/1
+SS3   Q</pre></td>
+<td><pre>1/11  5/1
+ESC   Q</pre></td>
+<td><pre>1/11  5/1
+ESC   Q</pre></td>
+</tr>
+<tr>
+<td>PF3</td>
+<td><pre>8/15  5/2
+SS3   R</pre></td>
+<td><pre>8/15  5/2
+SS3   R</pre></td>
+<td><pre>1/11  5/2
+ESC   R</pre></td>
+<td><pre>1/11  5/2
+ESC   R</pre></td>
+</tr>
+<tr>
+<td>PF4</td>
+<td><pre>8/15  5/3
+SS3   S</pre></td>
+<td><pre>8/15  5/3
+SS3   S</pre></td>
+<td><pre>1/11  5/3
+ESC   S</pre></td>
+<td><pre>1/11  5/3‡
+ESC   S</pre></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td>*</td>
+<td colspan="4">ANSI mode applies to VT200 and VT100 modes. VT52 mode is an ANSI-incompatible
+mode.</td>
+</tr>
+<tr>
+<td>†</td>
+<td colspan="4">You cannot generate these sequences on a VT52 terminal.</td>
+</tr>
+<tr>
+<td>‡</td>
+<td colspan="4">Keypad Numeric Mode. ENTER generates the same codes as RETURN. You can change
+the code generated by RETURN with the Linefeed/New Line Mode. When reset, the
+Linefeed/New Line Mode causes RETURN to generate a single control character
+(CR). When set, the mode causes RETURN to generate two control characters (CR,
+LF).</td>
+</tr>
+</tfoot>
+</table>
+<h3 id="S3.2.4">3.2.4 Top-Row Function Keys</h3>
+<p>There are 20 top-row function keys, F1 through F20. The first five
+keys (F1 through F5) labeled <b class="keyname">Hold Screen</b>, <b class="keyname">Print Screen</b>, <b class="keyname">Set-Up</b>,
+<b class="keyname">Data/Talk</b>, and <b class="keyname">Break</b>, do not send codes; they are local function
+keys. Keys <b class="keyname">F6</b> through <b class="keyname">F20</b> send the codes defined in <a href="#T3-4">Table 3-4</a>.</p>
+
+<table id="T3-4">
+<caption>Table 3-4 Codes Generated by Top Row Function Keys</caption>
+<thead>
+<tr>
+<td></td>
+<td></td>
+<th colspan="2">Code Generated</th>
+</tr>
+<tr>
+<th>Name on Legend Strip</th>
+<th>Generic Name</th>
+<th>VT200 Mode</th>
+<th>VT100, VT52 Modes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HOLD SCREEN</td>
+<td>(F1)*</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>PRINT SCREEN</td>
+<td>(F2)*</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>SET-UP</td>
+<td>(F3)*</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>DATA/TALK</td>
+<td>(F4)*</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>BREAK</td>
+<td>(F5)*</td>
+<td>--</td>
+<td>--</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>F6</td>
+<td><pre>9/11  3/1   3/7  7/14
+CSI   1     7    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>F7</td>
+<td><pre>9/11  3/1   3/8  7/14
+CSI   1     8    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>F8</td>
+<td><pre>9/11  3/1   3/9  7/14
+CSI   1     9    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>F9</td>
+<td><pre>9/11  3/2   3/0  7/14
+CSI   2     0    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F10</td>
+<td>F10</td>
+<td><pre>9/11  3/2   3/1  7/14
+CSI   2     1    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F11 (ESC)</td>
+<td>F11</td>
+<td><pre>9/11  3/2   3/3  7/14
+CSI   2     3    ~</pre></td>
+<td><pre>1/11
+ESC</pre></td>
+</tr>
+<tr>
+<td>F12 (BS)</td>
+<td>F12</td>
+<td><pre>9/11  3/2   3/4  7/14
+CSI   2     4    ~</pre></td>
+<td><pre>0/8
+BS</pre></td>
+</tr>
+<tr>
+<td>F13 (LF)</td>
+<td>F13</td>
+<td><pre>9/11  3/2   3/5  7/14
+CSI   2     5    ~</pre></td>
+<td><pre>0/10
+LF</pre></td>
+</tr>
+<tr>
+<td>F14</td>
+<td>F14</td>
+<td><pre>9/11  3/2   3/6  7/14
+CSI   2     6    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>HELP</td>
+<td>(F15)</td>
+<td><pre>9/11  3/2   3/8  7/14
+CSI   2     8    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>DO</td>
+<td>(F16)</td>
+<td><pre>9/11  3/2   3/9  7/14
+CSI   2     9    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F17</td>
+<td>F17</td>
+<td><pre>9/11  3/3   3/1  7/14
+CSI   3     1    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F18</td>
+<td>F18</td>
+<td><pre>9/11  3/3   3/2  7/14
+CSI   3     2    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F19</td>
+<td>F19</td>
+<td><pre>9/11  3/3   3/3  7/14
+CSI   3     3    ~</pre></td>
+<td>--</td>
+</tr>
+<tr>
+<td>F20</td>
+<td>F20</td>
+<td><pre>9/11  3/3   3/4  7/14
+CSI   3     4    ~</pre></td>
+<td>--</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="4">* F1 through F5 are local function keys and do not generate codes.</td>
+</tr>
+</tfoot>
+</table>
+
+<h3 id="S3.2.5">3.2.5 Control Codes</h3>
+<p><a href="#T3-5">Table 3-5</a> lists the keys and key combinations used to send control
+codes. These keys and combinations are valid on all keyboards.
+The control codes are C0 7-bit control characters; there is no
+similar mechanism for sending C1 8-bit control characters.</p>
+
+<table id="T3-5" style="max-width:60em">
+<caption>Table 3-5 Keys Used to Generate 7-Bit Control Characters</caption>
+<thead>
+<tr>
+<th>Control Character Mnemonic</th>
+<th>Code</th>
+<th>Key Pressed with CTRL (All Modes)</th>
+<th>Dedicated Function Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUL</td>
+<td>0/00</td>
+<td>2, space</td>
+<td></td>
+</tr>
+<tr>
+<td>SOH</td>
+<td>0/01</td>
+<td>A</td>
+<td></td>
+</tr>
+<tr>
+<td>STX</td>
+<td>0/02</td>
+<td>B</td>
+<td></td>
+</tr>
+<tr>
+<td>ETX</td>
+<td>0/03</td>
+<td>C</td>
+<td></td>
+</tr>
+<tr>
+<td>EOT</td>
+<td>0/04</td>
+<td>D</td>
+<td></td>
+</tr>
+<tr>
+<td>ENQ</td>
+<td>0/05</td>
+<td>E</td>
+<td></td>
+</tr>
+<tr>
+<td>ACK</td>
+<td>0/06</td>
+<td>F</td>
+<td></td>
+</tr>
+<tr>
+<td>BEL</td>
+<td>0/07</td>
+<td>G</td>
+<td></td>
+</tr>
+<tr>
+<td>BS</td>
+<td>0/08</td>
+<td>H</td>
+<td>F12 (BS)*</td>
+</tr>
+<tr>
+<td>HT</td>
+<td>0/09</td>
+<td>I</td>
+<td>TAB</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>0/10</td>
+<td>J</td>
+<td>F13 (LF)*</td>
+</tr>
+<tr>
+<td>VT</td>
+<td>0/11</td>
+<td>K</td>
+<td></td>
+</tr>
+<tr>
+<td>FF</td>
+<td>0/12</td>
+<td>L</td>
+<td></td>
+</tr>
+<tr>
+<td>CR</td>
+<td>0/13</td>
+<td>M</td>
+<td>RETURN</td>
+</tr>
+<tr>
+<td>SO</td>
+<td>0/14</td>
+<td>N</td>
+<td></td>
+</tr>
+<tr>
+<td>SI</td>
+<td>0/15</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>DLE</td>
+<td>1/00</td>
+<td>P</td>
+<td></td>
+</tr>
+<tr>
+<td>DC1</td>
+<td>1/01</td>
+<td>Q**</td>
+<td></td>
+</tr>
+<tr>
+<td>DC2</td>
+<td>1/02</td>
+<td>R</td>
+<td></td>
+</tr>
+<tr>
+<td>DC3</td>
+<td>1/03</td>
+<td>S**</td>
+<td></td>
+</tr>
+<tr>
+<td>DC4</td>
+<td>1/04</td>
+<td>T</td>
+<td></td>
+</tr>
+<tr>
+<td>NAK</td>
+<td>1/05</td>
+<td>U</td>
+<td></td>
+</tr>
+<tr>
+<td>SYN</td>
+<td>1/06</td>
+<td>V</td>
+<td></td>
+</tr>
+<tr>
+<td>ETB</td>
+<td>1/07</td>
+<td>W</td>
+<td></td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>1/08</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>EM</td>
+<td>1/09</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>1/10</td>
+<td>Z</td>
+<td></td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>1/11</td>
+<td>3,[</td>
+<td>F11 (ESC)*</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>1/12</td>
+<td>4,/</td>
+<td></td>
+</tr>
+<tr>
+<td>GS</td>
+<td>1/13</td>
+<td>5,]</td>
+<td></td>
+</tr>
+<tr>
+<td>RS</td>
+<td>1/14</td>
+<td>6,~</td>
+<td></td>
+</tr>
+<tr>
+<td>US</td>
+<td>1/15</td>
+<td>7,?</td>
+<td></td>
+</tr>
+<tr>
+<td>DEL</td>
+<td>7/15</td>
+<td>8</td>
+<td>DELETE</td>
+</tr>
+<tr>
+<td colspan="4">* Keys F11, F12, and F13 generate these 7-bit control characters
+only when the terminal is operated in VT100 mode or VT52 mode.</td>
+</tr>
+<tr>
+<td colspan="4">** These keystrokes are enabled only if XOFF support is disabled.
+If XOFF support is enabled, then CTRL-S is a "hold screen"
+local function and CTRL-Q is an "unhold screen" local function.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="S3.3">3.3 Enabling and Disabling Auto Repeat</h2>
+<p>You can enable and disable the auto repeat feature from the
+keyboard, using the Keyboard Set-Up screen or the DECARM escape
+sequence (<a href="chapter4.html">Chapter 4</a>). If the terminal receives the DECARM sequence
+to turn auto repeat off while an auto repeat is in progress, the
+key stops auto repeating. If the terminal receives the escape
+sequence to turn auto repeat on while a key that has been auto
+repeating is still held down, the key immediately auto repeats.
+Keys which can auto repeat usually start auto repeating after a
+delay of 0.5 seconds.</p>
+<p>The auto repeat speed is a function of the host transmit speed.
+This gives a constant repeat rate at all transmit speeds. At
+speeds of 2400 baud or above, all keys auto repeat at 30
+keystrokes per second. For the purpose of the auto repeat
+feature, the keyboard is divided into the following three groups.</p>
+<pre>    Group A  Main typing array
+    Group B  Cursor keys and keypad keys
+    Group C  Top-row function keys and editing keys</pre>
+<p>Every key in each group auto repeats at the fixed rate set by the
+transmit speed, regardless of how many codes the key actually
+sends.</p>
+<table>
+<thead>
+<tr>
+<th rowspan="2">Host Transmit Speed (Baud)</th>
+<th colspan="3">Auto Repeat Rate (Keys/Sec)</th>
+</tr>
+<tr>
+<th>Group A</th>
+<th>Group B</th>
+<th>Group C</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&gt;=2400</td>
+<td>30</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>1200</td>
+<td>30</td>
+<td>30</td>
+<td>24</td>
+</tr>
+<tr>
+<td>600</td>
+<td>30</td>
+<td>20</td>
+<td>12</td>
+</tr>
+<tr>
+<td>300</td>
+<td>30</td>
+<td>12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>150</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>110</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+<tr>
+<td>75</td>
+<td>6</td>
+<td>6</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>In general, the "Transmit Rate Limit" feature (in the
+Communications Set-Up screen) does not affect auto repeat rates,
+since all 5 codes can be sent at the limited speed of 150
+characters per second at most baud rates. In local mode, keys will
+auto repeat at 30 keystrokes per second.</p>
+<p>The following keys do not auto repeat: <b class="keyname">Hold Screen</b>, <b class="keyname">Print Screen</b>,
+<b class="keyname">Set-Up</b>, <b class="keyname">Data/Talk</b>, <b class="keyname">Break</b>, <b class="keyname">Compose Character</b>, <b class="keyname">Shift</b>, <b class="keyname">Return</b>, <b class="keyname">Lock</b>,
+and <b class="keyname">Ctrl</b>. Shifted or controlled keys will auto repeat.</p>
+<h2 id="S3.4">3.4 Keyboard Lock and Unlock</h2>
+<p>The following conditions may cause the keyboard to lock.</p>
+<ul>
+<li>If the program sends a command to set the keyboard action
+mode (KAM) as described in <a href="chapter4.html">Chapter 4</a></li>
+<li>If the keyboard output buffer is full</li>
+</ul>
+<p>When the keyboard is locked, all keyboard keys except <b class="keyname">Hold Screen</b>,
+<b class="keyname">Print Screen</b>, <b class="keyname">Set-Up</b>, <b class="keyname">Data/Talk</b>, and <b class="keyname">Break</b> are disabled, and the
+keyboard Wait indicator turns on.</p>
+<p>If the keyboard is locked, any of the following events can unlock
+it.</p>
+<ul>
+<li>The output buffer becomes less than full (assuming KAM,
+keyboard action mode, is not set).</li>
+<li>A KAM reset sequence is received when the output buffer
+is not full (<a href="chapter4.html">Chapter 4</a>). Also the DECSTR sequence, and
+set-up "Reset Terminal" field reset KAM.</li>
+<li>You select "Clear Comm", "Reset Terminal", "Recall", or
+"Default" fields in set-up. (Entering set-up unlocks the
+keyboard while the terminal is in set-up. If you do not
+select these functions in set-up, the keyboard locks
+again when you exit set-up).</li>
+<li>The terminal performs the power-up self-test (DECTST) or
+a hard reset (RIS).</li>
+</ul>
+<footer>
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</footer>
+</body>
+</html>

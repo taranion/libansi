@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter3.html">Chapter 3</a><a href="contents.html">Contents</a><a href="chapter5.html">Chapter 5</a></nav>
+</header>
+<h1 id="S4"><span class="chapnum">4</span><br/>The Keyboard and Indicators</h1>
+<p>This chapter describes the basic function of each keyboard key and
+indicator. The chapter also describes two status lines you can display on
+the screen, the terminal status line and keyboard indicator line. Later
+chapters provide more information on keys with special functions.</p>
+<p class="note">NOTE: A list of common keyboard functions appears at the end of this
+guide. You can keep a copy of the list near the terminal, as a
+quick-reference tool.</p>
+<h2 id="S4.1">LK401 Keyboard</h2>
+<p>The VT420 uses Digital's LK401, keyboard, which comes in many models
+for use in different countries. Most models are available in a standard or
+word processing (WPS) version. The only physical difference between all
+keyboards are the legends on the keys. <a href="appendixd.html">Appendix D</a> shows the standard
+versions and the WPS version of the North American/United Kingdom
+dialect.</p>
+<p>The figures in this chapter show the North American/United Kingdom
+version of the standard LK401 keyboard, unless otherwise noted.</p>
+<h3 id="S4.1.1">Keyboard Dialect</h3>
+<p>The VT420 has a <strong>keyboard dialect</strong> feature that is initially set to
+the <code>North American Keyboard</code>. If you have a keyboard for a different
+country or want to use the British dialect, you must change the setting
+of <strong>keyboard dialect</strong> feature in the Set-Up Directory screen. <a href="chapter3.html">Chapter 3</a>
+describes how to select the correct keyboard dialect.</p>
+<h3 id="S4.1.2">Layout</h3>
+<p>The LK401 keyboard has four groups of keys and two indicator lights.
+The keys are grouped by function.</p>
+<ul>
+<li>Main keypad</li>
+<li>Editing keypad</li>
+<li>Numeric keypad</li>
+<li>Top-row function keys</li>
+</ul>
+<p>The LK410 keyboard also has two audible indicators, a keyclick and bell.</p>
+<p><img src="gsf_0627_89.png" alt=""/></p>
+<h3 id="S4.1.3">Main Keypad</h3>
+<p>The layout of the main keypad is similar to a typewriter keyboard, with
+alphanumeric characters, punctuation marks, and <span class="keyname">Shift</span> keys. The main
+keypad also has a number of keys not found on a typewriter, such as
+the <span class="keyname">Ctrl</span> modifier key and the <span class="keyname">Compose Character</span> prefix keys. The
+German keyboard has a <span class="keyname">Group Shift</span> key and <span class="keyname">Alternate Shift</span> key instead
+of <span class="keyname">Compose Character</span> keys.</p>
+<p><dfn><a href="glossary.html#MODIFIER">Modifier keys</a></dfn> are pressed in combination with another key, to modify the
+code sent by that key. <dfn><a href="glossary.html#PREFIX">Prefix keys</a></dfn> are pressed and released before pressing
+another key, to change the function of one or more keystrokes.</p>
+<p><img src="gsf_0628_89.png" alt=""/></p>
+<h4>Special-Function Keys</h4>
+<p>The main keypad has the following special-function keys:</p>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">Tab</span></td>
+<td>Pressing <span class="keyname">Tab</span> sends a horizontal tab, which normally moves
+the cursor to the next tab stop. You can select the tab stops
+on the Tab Set-Up screen (<a href="chapter5.html">Chapter 5</a>). Applications can
+also change tab stops.</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span></td>
+<td><p>Holding down <span class="keyname">Ctrl</span> and pressing another key sends a control
+code to the host.</p>
+<p>For example, <span class="keyname">Ctrl</span> <span class="keyname">Z</span> means to hold down <span class="keyname">Ctrl</span> and press
+the <span class="keyname">Z</span> key.</p></td>
+</tr>
+<tr>
+<td><img src="lock.png" alt="[Lock]"/></td>
+<td><p>Pressing the lock key down puts the keyboard in caps lock
+mode or shift lock mode. You can select the mode from
+Keyboard Set-Up screen (<a href="chapter5.html">Chapter 5</a>). The default setting is
+caps lock mode.</p>
+<ul>
+<li>In <strong>caps lock mode</strong>, the alphabetic keys send their
+uppercase or shifted character when pressed alone.
+You can use a <span class="keyname">Shift</span> key to send the shifted character
+on other keys. You turn caps lock mode on and off by
+pressing and releasing the lock key.</li>
+<li>In <strong>shift lock mode</strong>, all keys on the main keypad send
+their shifted character. You can turn shift lock mode on
+by pressing the lock key. You can turn it off by pressing
+either the lock key or <span class="keyname">Shift</span> key.</li>
+</ul>
+<p>When the lock key is down, the lock indicator turns on and
+the lock symbol (or the word <code class="screen">Lock</code>) appears on the keyboard
+indicator line.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Shift</span> (left and right)</td>
+<td><p>Holding down <span class="keyname">Shift</span> and pressing a standard key sends the
+shifted (top) character on the key.</p>
+<p>Holding down <span class="keyname">Shift</span> and pressing a special-function key
+starts a predefined control function. For example, <span class="keyname">Shift</span>
+<span class="keyname">F2</span> (Print) means to hold down <span class="keyname">Shift</span> while pressing the <span class="keyname">F2</span>
+(Print) key.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Return</span></td>
+<td><p>Pressing <span class="keyname">Return</span> sends either a carriage return or a carriage
+return and a line feed (selected in the General Set-Up
+screen, <a href="chapter5.html">Chapter 5</a>).</p>
+<p>Pressing <span class="keyname">Return</span> normally moves the cursor to the
+beginning of the next line.</p></td>
+</tr>
+<tr>
+<td>⌫ backarrow key</td>
+<td><p>Pressing the ⌫ key normally sends a DEL (delete)
+character. Many applications use DEL to erase one
+character to the left of the cursor.</p>
+<p>You can make the ⌫ send a BS (backspace) character
+instead of DEL. You use the <strong>backarrow key</strong> feature in the
+Keyboard Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</p></td>
+</tr>
+<tr>
+<td>Space bar</td>
+<td>Pressing the space bar sends an SP (space) character. You
+use spaces to separate words or move the cursor forward.</td>
+</tr>
+<tr>
+<td><span class="keyname">Compose Character</span> (left and right)</td>
+<td><p>These are prefix keys, used to generate characters that
+do not appear as standard keys on your keyboard. See
+<a href="chapter6.html">Chapter 6</a>.</p>
+<p>On the German keyboard, the <span class="keyname">Compose Character</span> key is
+replaced by <span class="keyname">Group Shift</span> and <span class="keyname">Alternate Shift</span>.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Group Shift</span> <span class="keyname">Alternate Shift</span> (German)</td>
+<td><p>You use <span class="keyname">Group Shift</span> as a prefix or modifier key, to type the
+characters on the right half of keycaps. See <a href="chapter6.html">Chapter 6</a>.</p>
+<p><span class="keyname">Alternate Shift</span> is a modifier key, used to generate a no
+break space (NBSP) or soft hyphen (SHY) character.</p>
+<p><span class="keyname">Alternate Shift</span> + space bar = NBSP character.<br/>
+<span class="keyname">Alternate Shift</span> + <span class="keyname">-</span> = SHY character.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Alt Function</span> (left and right)</td>
+<td>You use <span class="keyname">Alt Function</span> with other keys, to select alternate
+functions defined by your application software. The
+<span class="keyname">Alt Function</span> keys send unique function sequences to
+the host, when they are pressed or released. For more
+information, see the <cite>VT420 Programmer Reference Manual</cite>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S4.1.4">Editing Keypad</h3>
+<p>The editing keypad has four arrow keys and six editing keys.</p>
+<p>Pressing an arrow key normally moves the cursor in the direction of the
+arrow. For example, pressing the <span class="keyname"><img src="arrowdown.png" alt="[Down]"/></span> key moves the cursor down one line.</p>
+<p>You can use the editing keys in several ways.</p>
+<ul>
+<li>For set-up functions (<a href="chapter5.html">Chapter 5</a>)</li>
+<li>For copying and pasting text between sessions (<a href="chapter7.html">Chapter 7</a>)</li>
+<li>For panning up or down on a page, or for changing the size of a
+window on the screen (<a href="chapter7.html">Chapter 7</a>)</li>
+<li>For special functions defined by application software</li>
+</ul>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0629_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S4.1.5">Numeric Keypad</h3>
+<p>Numeric keypad keys often have functions assigned by application
+software, especially <span class="keyname">PF1</span> to <span class="keyname">PF4</span>. See your application software manuals
+for information about those keys.</p>
+<p>You can use the numeric keypad to enter numeric data as you would
+with a calculator. Programmers can use this keypad to do hexadecimal
+compose sequences. See "<a href="chapter6.html#S6.6">Hexadecimal Key Sequences</a>" at the end of
+<a href="chapter6.html">Chapter 6</a>.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0630_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">Enter</span></td>
+<td>The <span class="keyname">Enter</span> key on the numeric keypad has several
+functions
+<ul>
+<li>Normally, <span class="keyname">Enter</span> works like the <span class="keyname">Return</span> key. <span class="keyname">Enter</span>
+sends a carriage return, or a carriage return and a
+line feed (Keyboard Set-Up, <a href="chapter5.html">Chapter 5</a>).</li>
+<li>In set-up, you can use <span class="keyname">Enter</span> to select features in
+set-up screens (<a href="chapter5.html">Chapter 5</a>).</li>
+</ul>
+<p>Application software may use <span class="keyname">Enter</span> as a special-function
+key.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">,</span> (Comma)<br/>
+<span class="keyname">.</span> (Period)</td>
+<td>If you use the <code class="screen">German Keyboard</code>, <code class="screen">Spanish Keyboard</code>, or
+<code class="screen">Portuguese Keyboard</code> setting for the <strong>keyboard dialect</strong>
+feature in the Set-Up Directory, the <span class="keyname">.</span> (period) and <span class="keyname">,</span>
+(comma) keys on the numeric keypad are reversed to
+match the European convention for numeric entry.</td>
+</tr>
+</tbody>
+</table>
+<p>You can choose the <strong>keypad mode</strong> from the General Set-Up screen.</p>
+<p class="note">NOTE: The German keyboard dialect does not affect the application
+keypad mode.</p>
+<h3 id="S4.1.6">Top-Row Function Keys</h3>
+<h4>Predefined Keys</h4>
+<p>The first five top-row keys, <span class="keyname">F1</span> to <span class="keyname">F5</span>, are predefined to perform the
+following functions. Normally, you do not change these functions. If
+needed, you can change the functions from the Keyboard Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>).</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0631_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">F1</span> (Hold)</td>
+<td><p>Pressing <span class="keyname">F1</span> (Hold) puts the screen display on hold. This
+stops the scrolling of text on the screen, for easy reading.
+The hold indicator turns on and <code class="screen">Hold</code> appears on the
+keyboard indicator line. Pressing <span class="keyname">F1</span> (Hold) again releases
+the screen display and allows scrolling to resume.</p>
+<p><em>With Two Sessions</em></p>
+<p>When you run two sessions (<a href="chapter7.html">Chapter 7</a>), <span class="keyname">F1</span> (Hold) only
+affects the active session.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F1</span></td>
+<td><p>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F1</span> (Hold) puts the screen display for the
+inactive session on hold. Pressing <span class="keyname">Ctrl</span> <span class="keyname">F1</span> again releases the
+screen display for the inactive session.</p>
+<p class="note">NOTE: The hold function does not work if you set the XOFF
+feature to <code class="screen">No XOFF</code> in the Communications Set-Up screen
+(<a href="chapter9.html">Chapter 9</a>).</p></td>
+</tr>
+<tr>
+<td><span class="keyname">F1</span> and editing keys</td>
+<td>Pressing <span class="keyname">F1</span> (Hold) with specific keys on the editing keypad
+performs the copy and paste operation. See "<a href="chapter7.html#S7.8">Copying and
+Pasting Text</a>" in <a href="chapter7.html">Chapter 7</a>.</td>
+</tr>
+<tr>
+<td><span class="keyname">F2</span> (Print)</td>
+<td><p>Pressing <span class="keyname">F2</span> (Print) sends a page of text from the current
+session to the printer connected to the rear of the VT420. The
+terminal sends the page that contains the cursor.</p>
+<p><strong>A page may or may not correspond to the screen
+display.</strong></p>
+<p>This depends on the set-up settings for page size, font size,
+and page coupling features, as well as the size of the screen
+window for the current session. You can change the page
+size and other features from the Display Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>).</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F2</span></td>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F2</span> (Print) turns auto print mode on or off. In auto print
+mode, you can automatically print each line of text as it is
+received from the host system. See "<a href="chapter8.html#S8.3">Selecting a Print Mode</a>"
+in <a href="chapter8.html">Chapter 8</a>.</td>
+</tr>
+<tr>
+<td><span class="keyname">F3</span> (Set-Up)</td>
+<td>You press <span class="keyname">F3</span> (Set-Up) to enter or leave set-up. When you
+enter set-up, the terminal displays the Set-Up Directory
+screen. You can leave set-up from any set-up screen.
+<a href="chapter5.html">Chapter 5</a> describes set-up.</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F3</span></td>
+<td><p>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F3</span> (Set-Up) while in set-up causes the terminal
+to perform a power-up reset. This resets many set-up
+features for <strong>both</strong> sessions to their saved settings.</p>
+<p>For more information, see the reset to initial state (RIS)
+function in the <cite>VT420 Programmer Reference Manual</cite>.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">F4</span> (Session)</td>
+<td><p>Pressing <span class="keyname">F4</span> (Session) changes the active session when you
+use two sessions. You can switch from session 1 to session 2,
+or from session 2 to session 1.</p>
+<p><span class="keyname">F4</span> (Session) does not work when</p>
+<ul>
+<li>You are using set-up.</li>
+<li>The <strong>F4 =</strong> feature (Keyboard Set-Up screen) is set to <code class="screen">F4 =
+Ignore</code>.</li>
+<li>The use of two sessions has not been enabled in Global
+Set-Up, by using the <code class="screen">S1=Comm1</code> setting.</li>
+</ul></td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F4</span></td>
+<td><p>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session) lets you divide the screen into two
+windows. Windows let you display two sessions at one time.</p>
+<p>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session):</p>
+<ul>
+<li>One time gives you two windows.</li>
+<li>A second time returns you to a full-screen display. The
+terminal only displays the active session.</li>
+</ul>
+<p>See "<a href="chapter7.html#S7.6">Windows</a>" in <a href="chapter7.html">Chapter 7</a>.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">F5</span> (Break)</td>
+<td>Pressing <span class="keyname">F5</span> (Break) generates a break signal on the
+communication port associated with the current session.
+Some communication equipment recognizes break as a
+special attention signal. See your communication equipment
+manual for details.</td>
+</tr>
+<tr>
+<td><span class="keyname">Shift</span> <span class="keyname">F5</span></td>
+<td>Pressing <span class="keyname">Shift</span> <span class="keyname">F5</span> (Break) performs a disconnect on the serial
+communication port associated with the current session. A
+disconnect normally ends communication with a modem to
+prepare for another call.</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F5</span></td>
+<td><p>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F5</span> (Break) sends the answerback message
+to the active session. See the Keyboard Set-Up screen in
+<a href="chapter5.html">Chapter 5</a>.</p>
+<p class="note">NOTE: <span class="keyname">Ctrl</span> <span class="keyname">F5</span> (Break) sends the answerback message even
+if you set the conceal answerback message feature in
+the Communication Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</p></td>
+</tr>
+</tbody>
+</table>
+<h4>User-Defined Keys and Application-Specific Keys</h4>
+<p>The function of the remaining top-row keys (<span class="keyname">F6</span> to <span class="keyname">F20</span>) often depends on
+your application software. Refer to your application software manuals for
+a description of key functions. You can also define the function of these
+keys yourself.</p>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">F6</span> to <span class="keyname">F20</span></td>
+<td><p>When pressed alone, these keys send predefined
+programming sequences to the host system (<a href="chapter9.html">Chapter 9</a>).
+Applications that recognize these sequences can use the keys
+to perform various functions.</p>
+<p><strong>In VT100 and VT52 modes</strong><br/>
+Keys <span class="keyname">F11</span>, <span class="keyname">F12</span>, and <span class="keyname">F13</span> send control characters ESC, BS,
+and LF respectively. Keys <span class="keyname">F6</span> to <span class="keyname">F10</span> and <span class="keyname">F14</span> to <span class="keyname">F20</span> do not
+function.</p>
+<p class="note">NOTE: In VT400 mode, you can use the <span class="keyname">~</span> key to send the
+ESC character. See the Keyboard Set-Up screen in
+<a href="chapter5.html">Chapter 5</a>.</p></td>
+</tr>
+<tr>
+<td><span class="keyname">Shift</span> <span class="keyname">F6</span>
+to
+<span class="keyname">Shift</span> <span class="keyname">F20</span></td>
+<td><p><strong>User-defined keys (UDKs)</strong><br/>
+Pressing <span class="keyname">Shift</span> and one of these keys sends the user-defined
+function for that key. You can define keys <span class="keyname">F6</span> to <span class="keyname">F20</span> by
+using programming sequences. You can use any sequence
+of characters in your definitions. Definitions are loaded
+from the host system. See the <cite>VT420 Programmer Reference
+Manual</cite> for details.</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S4.1.7">Data Processing Keys</h3>
+<p>Most versions of the LK401 keyboard have some keys with characters
+on the left half and right half of their keycap. Normally, you use the
+characters on the left half of the key. These are called typewriter
+characters. The characters on the right half are for data processing
+use.</p>
+<p>You can set these keys to send their typewriter or data processing
+characters, by using the <strong>typewriter/data processing</strong> feature on
+the Keyboard Set-Up screen (<a href="chapter5.html">Chapter 5</a>). One exception is the North
+American/United Kingdom keyboard.</p>
+<h4><span class="keyname"># £</span> Key</h4>
+<p>The North American/United Kingdom standard keyboard has only one
+key with three characters.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_1364_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>To use the £ symbol, you select the <code class="screen">British Keyboard</code> setting in the Set-Up
+Directory screen. To use the # symbol, you select the <code class="screen">North American
+Keyboard</code> setting. There are no separate data processing legends on the
+North American/United Kingdom keyboard.</p>
+<h3 id="S4.1.8">Compose Characters</h3>
+<p>You can type compose sequences to display many more characters than
+those shown on the keycaps. For example, you can display accented
+letters. <a href="chapter6.html">Chapter 6</a> describes how to use compose sequences.</p>
+<h2 id="S4.2">Indicator Lights</h2>
+<p>The keyboard has two indicator lights, hold and lock. When they are
+activated, <code class="screen">Hold</code> and <code class="screen">Lock</code> appear on the keyboard indicator line.</p>
+<table>
+<tbody>
+<tr>
+<td><img src="hold-ind.png" alt=""/></td>
+<td>Turns on or off when you press the <span class="keyname">F1</span> (Hold) key.</td>
+</tr>
+<tr>
+<td><img src="lock-ind.png" alt=""/></td>
+<td>Turns on or off when you press the lock key.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="S4.3">Audible Indicators</h2>
+<p>The keyboard has two audible indicators, a keyclick and a bell. You can
+use a margin bell, warning bell, or both. You select the keyclick and bell
+setting from the Keyboard Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</p>
+<h3 id="S4.3.1">Keyclick</h3>
+<p>You hear the keyclick sound each time you press a key that sends a
+code or causes the terminal to take some immediate action. If a key is
+autorepeating, the keyclick will repeat once for each character or key
+sequence sent. Keys do not click under the following conditions:</p>
+<ul>
+<li>You press <span class="keyname">Shift</span> or <span class="keyname">Ctrl</span>. These keys never click except when <span class="keyname">Shift</span> is
+leaving the shift-lock state.</li>
+<li>You select <code class="screen">Keyclick Off</code> in the Keyboard Set-Up screen.</li>
+<li>You press a key or key combination that does not have a function
+under the current operating conditions. Examples: <span class="keyname">F6</span> to <span class="keyname">F10</span> in
+VT100 mode; invalid control combinations; and keys that generate
+8-bit codes, when you use 7-bit national replacement character sets.</li>
+<li>The keyboard <code class="screen">Wait</code> indicator is on. The terminal is not accepting
+keystrokes because the host has reset keyboard action mode, or sent
+XOFF to the terminal and the keyboard input silo is full. You can
+manually clear the wait condition by selecting <code class="screen">Clear Comm</code> in the
+Set-Up Directory screen.</li>
+</ul>
+<h3 id="S4.3.2">Bell</h3>
+<p>The bell tone is a beeping sound. You can use the bell as a margin bell,
+warning bell, or both.</p>
+<h4>Margin Bell</h4>
+<p>This bell sounds when the cursor is eight characters from the right margin.</p>
+<h4>Warning Bell</h4>
+<p>This bell sounds for any of the following conditions:</p>
+<ul>
+<li>During the power-up self-test</li>
+<li>When the terminal receives a bell (BEL) character from the host
+system</li>
+<li>After a compose character error</li>
+<li>When SSU errors occur (The bell rings twice.)</li>
+<li>If an <code class="screen">NVR error</code> message appears at the bottom of the screen (See Table 4-2.)</li>
+</ul>
+<h2 id="S4.4">Keyboard Indicator Line</h2>
+<p>The keyboard indicator line appears at the bottom of the screen, below
+the status line. When you use two sessions, there is only one keyboard
+indicator line for both sessions.</p>
+<p>The keyboard indicator line displays text in the smaller, 132-column font
+and appears in the same video background as the main display.</p>
+<h4>Keyboard Indicator Line Fields</h4>
+<p>The keyboard indicator line has six fields that show you:</p>
+<ul>
+<li>Which session the keyboard is connected to (the active session)</li>
+<li>Whether or not the inactive session has been updated</li>
+<li>When the screen is on hold or in a wait state</li>
+<li>When the <span class="keyname">F1</span> (Hold), <span class="keyname">Compose Character</span>, <span class="keyname">Group Shift</span> (German
+keyboard), or lock keys are active</li>
+</ul>
+<p>Table 4-1 describes each field.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0633_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="T4-1">
+<caption>Table 4-1 Keyboard Indicator Line Fields</caption>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="6">1</td>
+<td></td>
+<td><strong>Active session</strong></td>
+</tr>
+<tr>
+<td>Session 1</td>
+<td>Session 1 is active</td>
+</tr>
+<tr>
+<td>Session 2</td>
+<td>Session 2 is active</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Inactive session activity</strong>*</td>
+</tr>
+<tr>
+<td>Session <span class="rev">1</span></td>
+<td>Session 1 is active. Session 2's page memory is being
+updated since it was last active.</td>
+</tr>
+<tr>
+<td>Session <span class="rev">2</span></td>
+<td>Session 2 is active. Session 1's page memory is being
+updated since it was last active.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Copy</td>
+<td>A copy and paste operation is in progress.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hold</td>
+<td>The screen is on hold.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lock</td>
+<td><code class="screen">Caps-Lock</code> or <code class="screen">Shift-Lock</code> in the Keyboard Set-Up
+screen is in effect.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Compose</td>
+<td>A compose sequence is in progress.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Wait</td>
+<td>The keyboard is in a wait state and unable to accept
+typed keystrokes.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">* This field appears in reverse video of the keyboard indicator line.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S4.5">Status Line</h2>
+<p>The VT420 screen can display a status line that provides information
+about the terminal's current operations. If you are running one session,
+the status line appears at the bottom of the screen. If you run two
+sessions, a default status line appears at the bottom of each session. By
+default, the status line is disabled.</p>
+<p>You can select when to display the status line. You can also let host
+applications write messages on the status line. To make these selections,
+you use the <strong>status display</strong> feature in the Display Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>).</p>
+<p>The <strong>status display</strong> feature has three settings.</p>
+<table>
+<tbody>
+<tr>
+<td>No status display (default)</td>
+<td>The status line appears when
+<ul>
+<li>You select a set-up screen, or</li>
+<li>The host system selects the status line.</li>
+</ul></td>
+</tr>
+<tr>
+<td>Indicator status display</td>
+<td>The status line appears at all times, providing
+information on the screen (Table 4-2).</td>
+</tr>
+<tr>
+<td>Host-writable status display</td>
+<td>Applications can write messages on the status
+line.</td>
+</tr>
+</tbody>
+</table>
+<p class="note">NOTE: The VT420 uses separate set-up settings for each session. Any
+changes you make only apply to the session you are in. If you
+want to change a set-up setting for two sessions, you must make
+the change in each session.</p>
+<h4>Status Line Fields</h4>
+<p>The default status line has four fields that show you:</p>
+<ul>
+<li>The page number of the page displayed</li>
+<li>Cursor position</li>
+<li>Printer status</li>
+<li>Modem status</li>
+</ul>
+<p>Table 4-2 describes each field. When you select a <em>host-writable status
+line</em>, applications on your host system can use the status line to send you
+messages.</p>
+<p>You can display the status line in English, French, or German. Use the
+<strong>set-up language</strong> feature in the Set-Up Directory screen to select the
+dialect.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0632_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="T4-2">
+<caption>Table 4-2 Status Line Fields</caption>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+<th>Indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="7">1</td>
+<td></td>
+<td><strong>Page displayed on screen (from page memory)</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Page 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Page 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Page 3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Page 4*</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Page 5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Page 6*</td>
+</tr>
+<tr>
+<td rowspan="5">2</td>
+<td></td>
+<td><strong>Cursor position</strong></td>
+</tr>
+<tr>
+<td rowspan="3">(x,y)</td>
+<td>Text cursor position</td>
+</tr>
+<tr>
+<td>x = row (1 to 144).</td>
+</tr>
+<tr>
+<td>y = column (1 to 132).</td>
+</tr>
+<tr>
+<td></td>
+<td>You can use the <strong>80/132 column mode</strong> feature in the
+Display Set-Up screen to select 80 or 132 columns.</td>
+</tr>
+<tr>
+<td rowspan="8">3</td>
+<td></td>
+<td><strong>Printer Status</strong></td>
+</tr>
+<tr>
+<td>Printer: Ready</td>
+<td>The printer can receive data for printing (on-line).</td>
+</tr>
+<tr>
+<td>Printer: Not Ready</td>
+<td>The printer is not ready to receive data for printing
+(off-line).</td>
+</tr>
+<tr>
+<td>Printer: None</td>
+<td>The printer is off or not connected to the VT420.</td>
+</tr>
+<tr>
+<td>Printer: Auto Print</td>
+<td><p>The VT420 is in auto print mode. The terminal sends
+the current display line to the printer when the
+cursor moves to the next line.</p>
+<p>To select auto print mode, press <span class="keyname">Ctrl</span> <span class="keyname">F2</span> (Print). See
+<a href="chapter8.html">Chapter 8</a>.</p></td>
+</tr>
+<tr>
+<td>Printer: Controller</td>
+<td>The VT420 is in printer controller mode. You cannot
+select this mode from the terminal. The host system
+selects printer controller mode.</td>
+</tr>
+<tr>
+<td>Printer: Busy</td>
+<td>The printer is busy printing data from the other
+session.</td>
+</tr>
+<tr>
+<td>Printer: Assigned to 1 (or 2)</td>
+<td>The printer is assigned to the other session.</td>
+</tr>
+<tr>
+<td colspan="3"><p class="note">NOTE: Use the printer assignment feature in the Global Set-Up screen to assign
+the printer.</p></td>
+</tr>
+<tr>
+<td rowspan="3">4</td>
+<td></td>
+<td><strong>Modem status</strong>†</td>
+</tr>
+<tr>
+<td>Modem: DSR</td>
+<td>There is a call connected on the modem.</td>
+</tr>
+<tr>
+<td>Modem: No DSR</td>
+<td>The terminal can send commands to the modem, but
+there is no call connected.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">*These page numbers never appear when you use two sessions. Each session can only use
+three pages.</td>
+</tr>
+<tr>
+<td colspan="3">†Field 4 is blank, unless you have a modem connected to the Comm1 RS-232 connector and
+<code class="screen">Modem Control</code> is selected in the Communication Set-Up screen.</td>
+</tr>
+</tfoot>
+</table>
+<footer>
+<nav class="sections"><a href="chapter3.html">Chapter 3</a><a href="contents.html">Contents</a><a href="chapter5.html">Chapter 5</a></nav>
+</footer>
+</body>
+</html>

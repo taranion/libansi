@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>DECUDK—User Defined Keys</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="DECTST.html">DECTST</a><a href="contents.html">Contents</a><a href="DECVCCM.html">DECVCCM</a></nav>
+</header>
+<div class="main"><h2 id="NDECUDK">DECUDK—User Defined Keys</h2>
+<p>DECUDK downloads definitions for user-defined keys.</p>
+<h3>Format</h3>
+<table class="ctrlseq">
+<tbody>
+<tr>
+<td><span class="lit">DCS</span><br/>9/0<br/>Device<br/>Control<br/>String<br/>Introducer</td>
+<td><var>Ps1 ; Ps2 ; Ps3</var><br/> <br/>Clear,<br/>Lock, and<br/>Modifier<br/>Parameters</td>
+<td><span class="lit">|</span><br/>7/12<br/>Final<br/>Character</td>
+<td><var>D . . . D</var><br/> <br/>Key Definition String</td>
+<td><span class="lit">ST</span><br/>9/12<br/>String<br/>Terminator</td>
+</tr>
+</tbody>
+</table>
+<h3>Parameters</h3>
+<p><b class="parahead">Ps1</b></p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>Ps1</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 (default) or none</td>
+<td>Clear all keys before loading new values.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Load new UDK values; clear old values only when redefined.</td>
+</tr>
+</tbody>
+</table>
+<p>When <var>Ps1</var> is 1, the terminal only clears the keys you are loading. By using a <var>Ps1</var>
+value of 1, you can redefine some keys without redefining them all.</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>There are 804 bytes of memory for all user-defined keys. A key definition
+can only use the number of bytes available when that key is loaded.</p></div></div>
+<p><b class="parahead">Programming Tip</b><br/>
+If <var>Ps1</var> is 1, a key load may fail because no memory space is available. The reason
+for this is as follows:</p>
+<p>With <var>Ps1</var> set to 1, keys are cleared and loaded sequentially. If the new definition
+for a key is larger than the old one, then you may exceed the 804 byte limit.</p>
+<p>For example, suppose <span class="keyname">F6</span> contains 412 bytes, <span class="keyname">F7</span> contains 366 bytes, and <span class="keyname">F8</span>
+contains 20 bytes. You try to load <span class="keyname">F8</span> with 40 bytes, <span class="keyname">F6</span> with one byte, and <span class="keyname">F7</span>
+with one byte, in that order. This works if all keys are cleared first (<var>Ps1</var> is 0), but
+not if keys are cleared one at a time (<span class="keyname">Ps1</span> is 1). When you try to load <span class="keyname">F8</span> with 40
+bytes, the load fails because only 26 bytes are free at that time.</p>
+<p>804 (maximum) - 412 ( <span class="keyname">F6</span> ) - 366 ( <span class="keyname">F7</span> ) = 26</p>
+<p><b class="parahead">Ps2</b><br/>
+is the <dfn>lock parameter</dfn>. <var>Pl</var> determines whether the key definitions are locked or
+unlocked after you load them.</p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>Ps2</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 or none</td>
+<td>Lock the keys. If you want to load new values into the keys, then
+you must unlock the keys by using Set-Up.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Do not lock the keys against future redefinition.</td>
+</tr>
+</tbody>
+</table>
+<p>If <var>Ps2</var> is 1 and the keys are already locked, then nothing happens.</p>
+<p>The terminal uses a special lock to prevent or allow the programming of user-defined
+keys. You can turn on this lock from Set-Up or from the host (with a
+DECUDK device control string). The lock affects all programmable keys. When
+you use the lock, you should follow these guidelines:</p>
+<ul>
+<li><b>Unlock the keys to define them.</b>
+<p>The keys must be unlocked before you can define them. You can only unlock
+the keys from set-up. If a key is locked and an application tries to redefine
+the key with a DECUDK sequence, then the terminal ignores the sequence.</p></li>
+<li><b>Lock the keys to prevent redefinition.</b>
+<p>You can lock the keys from Set-Up or from the host by sending a DECUDK
+sequence. New key definitions are locked by default.</p></li>
+</ul>
+<p><b class="parahead">Ps3</b><br/>
+is the <dfn>modifier parameter</dfn>. <var>Ps3</var> designates whether the key is shifted or unshifted.</p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>Ps3</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0, 2, or none</td>
+<td>Defines the shifted function key.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Defines the unshifted function key.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Defines the alternate unshifted function key.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Defines the alternate shifted function key.</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">|</b><br/>
+is the <dfn>final character</dfn>. The vertical bar (7/12) identifies this control string as a
+DECUDK.</p>
+<p><b class="parahead">D ... D</b><br/>
+are the <dfn>key definition strings</dfn> such as:</p>
+<div class="elaboration"><p><i>Key1/Mod1/Function #/UDS/UDS Direction;<br/>
+Key2/Mod2/Function #/UDS/UDS Direction;........;</i></p></div>
+<p>You include these strings between the final character ( | ) and the string
+terminator (ST). Each string consists of a key selector number (<var>Kyn</var>), a string
+parameter (<var>Stn</var>), a slash (/) (2/15), and a direction (<var>Dir</var>). A semicolon (;) (3/11)
+separates different strings.</p>
+<ul>
+<li><b>Kyn</b> is the key selector number of the key you are defining. Tables <a href="#T5-11">5–11</a> and
+<a href="#T5-11">5–12</a> list the definable keys and their identifying values. <a href="#T5-13">Table 5–13</a> compares
+the function keys on the VT keyboard to equivalent keys on the PC keyboard.</li>
+<li><b>Stn</b> is the string parameters, which are the encoded definition of the keys,
+consisting of hex pairs in the following ranges:
+<p>3/0 through 3/9 (0 through 9)<br/>
+4/1 through 4/6 (A through F)<br/>
+6/1 through 6/6 (a through f)</p>
+<p>When you combine these hex values, they represent an 8-bit quantity.</p>
+<p>This method lets you use any of the 256 character codes in the key string.
+You can enter key definition strings in any order.</p>
+<p>Default: Empty. The key is undefined.</p></li>
+<li><p><b>Dir</b> is the user-defined sequence (UDS) direction.</p>
+<table class="truled">
+
+
+
+<thead>
+<tr>
+<th>Dir</th>
+<th>Direction</th>
+<th>UDS is sent to . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0, none</td>
+<td>Normal</td>
+<td>Host and/or the terminal, depending on the setting of
+the COMM mode parameter. The UDS is directed to:
+<ul>
+<li>The host for full-duplex mode.</li>
+<li>The screen for half-duplex mode.</li>
+</ul></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Local</td>
+<td>Terminal screen only.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Remote</td>
+<td>Host only.</td>
+</tr>
+</tbody>
+</table>
+<p>Default: None (Normal)</p></li>
+</ul>
+<table id="T5-11" class="truled">
+<caption><span class="tabfigid">Table 5–11</span> VT Keyboards</caption>
+
+
+
+<thead>
+<tr>
+<th rowspan="2">Kyn</th>
+<th class="spanning">Pm = 1</th>
+<th class="spanning">Pm = none, 0, or 2</th>
+</tr>
+<tr>
+<th>Key</th>
+<th>Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Shift/F1</span></td>
+</tr>
+<tr>
+<td>12</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">Shift/F2</span></td>
+</tr>
+<tr>
+<td>13</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">Shift/F3</span></td>
+</tr>
+<tr>
+<td>14</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">Shift/F4</span></td>
+</tr>
+<tr>
+<td>15</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">Shift/F5</span></td>
+</tr>
+<tr>
+<td>17</td>
+<td><span class="keyname">F6</span></td>
+<td><span class="keyname">Shift/F6</span></td>
+</tr>
+<tr>
+<td>18</td>
+<td><span class="keyname">F7</span></td>
+<td><span class="keyname">Shift/F7</span></td>
+</tr>
+<tr>
+<td>19</td>
+<td><span class="keyname">F8</span></td>
+<td><span class="keyname">Shift/F8</span></td>
+</tr>
+<tr>
+<td>20</td>
+<td><span class="keyname">F9</span></td>
+<td><span class="keyname">Shift/F9</span></td>
+</tr>
+<tr>
+<td>21</td>
+<td><span class="keyname">F10</span></td>
+<td><span class="keyname">Shift/F10</span></td>
+</tr>
+<tr>
+<td>23</td>
+<td><span class="keyname">F11</span></td>
+<td><span class="keyname">Shift/F11</span></td>
+</tr>
+<tr>
+<td>24</td>
+<td><span class="keyname">F12</span></td>
+<td><span class="keyname">Shift/F12</span></td>
+</tr>
+<tr>
+<td>25</td>
+<td><span class="keyname">F13</span></td>
+<td><span class="keyname">Shift/F13</span></td>
+</tr>
+<tr>
+<td>26</td>
+<td><span class="keyname">F14</span></td>
+<td><span class="keyname">Shift/F14</span></td>
+</tr>
+<tr>
+<td>28</td>
+<td><span class="keyname">F15</span></td>
+<td><span class="keyname">Shift/F15</span></td>
+</tr>
+<tr>
+<td>29</td>
+<td><span class="keyname">F16</span></td>
+<td><span class="keyname">Shift/F16</span></td>
+</tr>
+<tr>
+<td>31</td>
+<td><span class="keyname">F17</span></td>
+<td><span class="keyname">Shift/F17</span></td>
+</tr>
+<tr>
+<td>32</td>
+<td><span class="keyname">F18</span></td>
+<td><span class="keyname">Shift/F18</span></td>
+</tr>
+<tr>
+<td>33</td>
+<td><span class="keyname">F19</span></td>
+<td><span class="keyname">Shift/F19</span></td>
+</tr>
+<tr>
+<td>34</td>
+<td><span class="keyname">F20</span></td>
+<td><span class="keyname">Shift/F20</span></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Pm values of 3 and 4 are specific to the PC keyboard.
+They are ignored when you use a VT keyboard.</p></div></div></td>
+</tr>
+</tbody>
+</table>
+<table id="T5-12" class="truled">
+<caption><span class="tabfigid">Table 5–12</span> PC Keyboards</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2">Kyn</th>
+<th class="spanning" colspan="4">Pm Value</th>
+</tr>
+<tr>
+<th>1</th>
+<th>None, 0 or 2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">Shift/F1</span></td>
+<td><span class="keyname">Alt/F1</span></td>
+<td><span class="keyname">Alt/Shift/F1</span></td>
+</tr>
+<tr>
+<td>12</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">Shift/F2</span></td>
+<td><span class="keyname">Alt/F2</span></td>
+<td><span class="keyname">Alt/Shift/F2</span></td>
+</tr>
+<tr>
+<td>13</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">Shift/F3</span></td>
+<td><span class="keyname">Alt/F3</span></td>
+<td><span class="keyname">Alt/Shift/F3</span></td>
+</tr>
+<tr>
+<td>14</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">Shift/F4</span></td>
+<td><span class="keyname">Alt/F4</span></td>
+<td><span class="keyname">Alt/Shift/F4</span></td>
+</tr>
+<tr>
+<td>15</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">Shift/F5</span></td>
+<td><span class="keyname">Alt/F5</span></td>
+<td><span class="keyname">Alt/Shift/F5</span></td>
+</tr>
+<tr>
+<td>17</td>
+<td><span class="keyname">F6</span></td>
+<td><span class="keyname">Shift/F6</span></td>
+<td><span class="keyname">Alt/F6</span></td>
+<td><span class="keyname">Alt/Shift/F6</span></td>
+</tr>
+<tr>
+<td>18</td>
+<td><span class="keyname">F7</span></td>
+<td><span class="keyname">Shift/F7</span></td>
+<td><span class="keyname">Alt/F7</span></td>
+<td><span class="keyname">Alt/Shift/F7</span></td>
+</tr>
+<tr>
+<td>19</td>
+<td><span class="keyname">F8</span></td>
+<td><span class="keyname">Shift/F8</span></td>
+<td><span class="keyname">Alt/F8</span></td>
+<td><span class="keyname">Alt/Shift/F8</span></td>
+</tr>
+<tr>
+<td>20</td>
+<td><span class="keyname">F9</span></td>
+<td><span class="keyname">Shift/F9</span></td>
+<td><span class="keyname">Alt/F9</span></td>
+<td><span class="keyname">Alt/Shift/F9</span></td>
+</tr>
+<tr>
+<td>21</td>
+<td><span class="keyname">F10</span></td>
+<td><span class="keyname">Shift/F10</span></td>
+<td><span class="keyname">Alt/F10</span></td>
+<td><span class="keyname">Alt/Shift/F10</span></td>
+</tr>
+<tr>
+<td>23</td>
+<td><span class="keyname">F11</span></td>
+<td><span class="keyname">Shift/F11</span></td>
+<td><span class="keyname">Alt/F11</span></td>
+<td><span class="keyname">Alt/Shift/F11</span></td>
+</tr>
+<tr>
+<td>24</td>
+<td><span class="keyname">F12</span></td>
+<td><span class="keyname">Shift/F12</span></td>
+<td><span class="keyname">Alt/F12</span></td>
+<td><span class="keyname">Alt/Shift/F12</span></td>
+</tr>
+</tbody>
+</table>
+<table id="T5-13" class="truled">
+<caption><span class="tabfigid">Table 5–13</span> VT and PC Keyboard Function Keys Compared</caption>
+
+
+
+<thead>
+<tr>
+<th rowspan="2">Kyn</th>
+<th colspan="2">Keyboard</th>
+</tr>
+<tr>
+<th>VT</th>
+<th>PC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">F1</span></td>
+</tr>
+<tr>
+<td>12</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">F2</span></td>
+</tr>
+<tr>
+<td>13</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">F3</span></td>
+</tr>
+<tr>
+<td>14</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">F4</span></td>
+</tr>
+<tr>
+<td>15</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">F5</span></td>
+</tr>
+<tr>
+<td>17</td>
+<td><span class="keyname">F6</span></td>
+<td><span class="keyname">F6</span></td>
+</tr>
+<tr>
+<td>18</td>
+<td><span class="keyname">F7</span></td>
+<td><span class="keyname">F7</span></td>
+</tr>
+<tr>
+<td>19</td>
+<td><span class="keyname">F8</span></td>
+<td><span class="keyname">F8</span></td>
+</tr>
+<tr>
+<td>20</td>
+<td><span class="keyname">F9</span></td>
+<td><span class="keyname">F9</span></td>
+</tr>
+<tr>
+<td>21</td>
+<td><span class="keyname">F10</span></td>
+<td><span class="keyname">F10</span></td>
+</tr>
+<tr>
+<td>23</td>
+<td><span class="keyname">F11</span></td>
+<td><span class="keyname">F11</span></td>
+</tr>
+<tr>
+<td>24</td>
+<td><span class="keyname">F12</span></td>
+<td><span class="keyname">F12</span></td>
+</tr>
+<tr>
+<td>25</td>
+<td><span class="keyname">F13</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>26</td>
+<td><span class="keyname">F14</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>28</td>
+<td><span class="keyname">F15</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>29</td>
+<td><span class="keyname">F16</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>31</td>
+<td><span class="keyname">F17</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>32</td>
+<td><span class="keyname">F18</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>33</td>
+<td><span class="keyname">F19</span></td>
+<td>–</td>
+</tr>
+<tr>
+<td>34</td>
+<td><span class="keyname">F20</span></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<h3>Description</h3>
+<p>DCS (9/0) indicates the beginning of a device control string. DCS is an 8-bit C1
+character. You can use ESC P (1/11 5/0) for a 7-bit environment.</p>
+<p>ST is the <dfn>string terminator</dfn>. ST (9/12) is a C1 8-bit character. You can use ESC \
+(1/11, 5/12) for a 7-bit environment.</p>
+<h3>General Guidelines When Loading UDKs</h3>
+<ul>
+<li><p>Clear UDK memory space before loading new definitions.</p>
+<p>Use a DECUDK string to clear keys without locking them. Then you can use
+another DECUDK string to redefine the keys and lock them.</p></li>
+<li>If you redefine a key, then the old definition is lost. This clears space if the
+new definition uses less bytes than the old one.</li>
+<li><p>There is only one way to unlock UDKs.</p>
+<p>To unlock a UDK, use Set-Up.</p></li>
+<li>When you clear a UDK, the key definition is empty.</li>
+<li><p>An invalid hex pair in a DECUDK string stops a UDK sequence.</p>
+<p>When a load sequence stops (error or other cause), the terminal saves keys
+already loaded and sends the rest of DECUDK to the screen.</p></li>
+<li>You can disable the local function keys by redefining them with DECUDK.</li>
+<li>DECUDK works in all VT modes except VT52 mode.</li>
+</ul>
+<h3>Examples of DECUDK Device Control Strings</h3>
+<p>The following sequence clears unshifted UDKs:</p>
+<p><code>DCS 0 ; 1 ; 1 | ST</code></p>
+<p>The following sequence locks unshifted UDKs:</p>
+<p><code>DCS 1 ; 0 ; 1 | ST</code></p>
+<p>Suppose you want to define the unshifted <span class="keyname">F20</span> key to be "PRINT", without clearing
+or locking any other keys. The first part of your sequence would look like this:</p>
+<p><code>DCS 1 ; 1 ; 1 | 3 4 /</code></p>
+<p><b>34</b> is the code for the <span class="keyname">F20</span> key.</p>
+<p>After the slash character (/) (2/15), you include the definition. The rest of the
+sequence after the slash character would look like this:</p>
+<p><code>5 0 5 2 4 9 4 E 5 4 ST</code></p>
+<p>The hex encoding for "PRINT" is as follows:</p>
+<table>
+<tbody>
+<tr>
+<td>50</td>
+<td>=</td>
+<td>P</td>
+</tr>
+<tr>
+<td>52</td>
+<td>=</td>
+<td>R</td>
+</tr>
+<tr>
+<td>49</td>
+<td>=</td>
+<td>I</td>
+</tr>
+<tr>
+<td>4E</td>
+<td>=</td>
+<td>N</td>
+</tr>
+<tr>
+<td>54</td>
+<td>=</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<p>The ST character (9/12) marks the end of the control string:</p>
+<p><code>DCS 1 ; 1 ; 1 | 34 / 50 52 49 4E 54 ST</code></p></div>
+<footer>
+<nav class="sections"><a href="DECTST.html">DECTST</a><a href="contents.html">Contents</a><a href="DECVCCM.html">DECVCCM</a></nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Digital VT220 Programmer Reference Manual Contents</title>
+<link href="vt220-rm.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT220 Programmer Reference Manual
+<nav class="sections"><a href="./">Cover</a><a></a><a href="introduction.html">Introduction</a></nav>
+</header>
+<h1>Contents</h1>
+<p><strong><a href="introduction.html">Introduction</a></strong></p>
+<p><strong>Chapter 1 - <a href="chapter1.html">Terminal Overview</a></strong></p>
+<ul>
+<li>1.1 <a href="chapter1.html#S1.1">General</a></li>
+<li>1.2 <a href="chapter1.html#S1.2">Terminal Characteristics and Capabilities</a>
+<ul>
+<li>1.2.1 <a href="chapter1.html#S1.2.1">Display Characteristics and Capabilities</a></li>
+<li>1.2.2 <a href="chapter1.html#S1.2.2">Text Capabilities</a></li>
+</ul></li>
+<li>1.3 <a href="chapter1.html#S1.3">Communication Environment</a></li>
+<li>1.4 <a href="chapter1.html#S1.4">Major Operating States</a></li>
+<li>1.5 <a href="chapter1.html#S1.5">Major Operating Modes</a></li>
+</ul>
+<p><strong>Chapter 2 - <a href="chapter2.html">Character Encoding</a></strong></p>
+<ul>
+<li>2.1 <a href="chapter2.html#S2.1">General</a></li>
+<li>2.2 <a href="chapter2.html#S2.2">Coding Standards</a></li>
+<li>2.3 <a href="chapter2.html#S2.3">Code Table</a>
+<ul>
+<li>2.3.1 <a href="chapter2.html#S2.3.1">7-Bit ASCII Code Table</a></li>
+<li>2.3.2 <a href="chapter2.html#S2.3.2">8-Bit Code Table</a></li>
+</ul></li>
+<li>2.4 <a href="chapter2.html#S2.4">Character Sets</a>
+<ul>
+<li>2.4.1 <a href="chapter2.html#S2.4.1">DEC Multinational Character Set</a></li>
+<li>2.4.2 <a href="chapter2.html#S2.4.2">U.K. National Set</a></li>
+<li>2.4.3 <a href="chapter2.html#S2.4.3">DEC Special Graphics Set</a></li>
+<li>2.4.4 <a href="chapter2.html#S2.4.4">Down-Line Loadable Character Set</a></li>
+</ul></li>
+<li>2.5 <a href="chapter2.html#S2.5">Control Functions</a>
+<ul>
+<li>2.5.1 <a href="chapter2.html#S2.5.1">Escape Sequences</a></li>
+<li>2.5.2 <a href="chapter2.html#S2.5.2">Control Sequences</a></li>
+<li>2.5.3 <a href="chapter2.html#S2.5.3">Device Control Strings</a></li>
+</ul></li>
+<li>2.6 <a href="chapter2.html#S2.6">Working with 7- and 8-Bit Environments</a>
+<ul>
+<li>2.6.1 <a href="chapter2.html#S2.6.1">Conventions for Codes Transmitted to the Terminal</a></li>
+<li>2.6.2 <a href="chapter2.html#S2.6.2">Conventions for Codes Transmitted by the Terminal</a></li>
+</ul></li>
+<li>2.7 <a href="chapter2.html#S2.7">Display Controls Mode</a></li>
+</ul>
+<p><strong>Chapter 3 - <a href="chapter3.html">Transmitted Codes</a></strong></p>
+<ul>
+<li>3.1 <a href="chapter3.html#S3.1">General</a></li>
+<li>3.2 <a href="chapter3.html#S3.2">Keyboard Codes Generated</a>
+<ul>
+<li>3.2.1 <a href="chapter3.html#S3.2.1">Main Keypad</a>
+<ul>
+<li>3.2.1.1 <a href="chapter3.html#S3.2.1.1">Standard Keys</a></li>
+<li>3.2.1.2 <a href="chapter3.html#S3.2.1.2">Function Keys</a></li>
+</ul></li>
+<li>3.2.2 <a href="chapter3.html#S3.2.2">Editing Keypad</a></li>
+<li>3.2.3 <a href="chapter3.html#S3.2.3">Auxiliary Keypad</a></li>
+<li>3.2.4 <a href="chapter3.html#S3.2.4">Top-Row Function Keys</a></li>
+<li>3.2.5 <a href="chapter3.html#S3.2.5">Control Codes Generated</a></li>
+</ul></li>
+<li>3.3 <a href="chapter3.html#S3.3">Enabling and Disabling Autorepeat</a></li>
+<li>3.4 <a href="chapter3.html#S3.4">Keyboard Lock and Unlock</a></li>
+</ul>
+<p><strong>Chapter 4 - <a href="chapter4.html">Received Codes</a></strong></p>
+<ul>
+<li>4.1 <a href="chapter4.html#S4.1">General</a></li>
+<li>4.2 <a href="chapter4.html#S4.2">Control Characters</a></li>
+<li>4.3 <a href="chapter4.html#S4.3">Compatibility Level (DECSCL)</a></li>
+<li>4.4 <a href="chapter4.html#S4.4">Character Set Selection (SCS)</a>
+<ul>
+<li>4.4.1 <a href="chapter4.html#S4.4.1">Designating "Hard" Character Sets</a></li>
+<li>4.4.2 <a href="chapter4.html#S4.4.2">Designating "Soft" (Down-Line Loadable) Character Sets</a></li>
+<li>4.4.3 <a href="chapter4.html#S4.4.3">Invoking Character Sets Using Locking Shifts</a></li>
+<li>4.4.4 <a href="chapter4.html#S4.4.4">Invoking Character Sets Using Single Shifts</a>
+<ul>
+<li>4.4.4.1 <a href="chapter4.html#S4.4.4.1">SS2 -- Single Shift G2</a></li>
+<li>4.4.4.2 <a href="chapter4.html#S4.4.4.2">SS3 -- Single Shift G3</a></li>
+</ul></li>
+</ul></li>
+<li>4.5 <a href="chapter4.html#S4.5">Select C1 Controls</a>
+<ul>
+<li>4.5.1 <a href="chapter4.html#S4.5.1">Select 7-Bit C1 Control Transmission (S7C1T)</a></li>
+<li>4.5.2 <a href="chapter4.html#S4.5.2">Select 8-Bit C1 Control Transmission (S8C1T)</a></li>
+</ul></li>
+<li>4.6 <a href="chapter4.html#S4.6">Terminal Modes</a>
+<ul>
+<li>4.6.1 <a href="chapter4.html#S4.6.1">Set Mode (SM)</a></li>
+<li>4.6.2 <a href="chapter4.html#S4.6.2">Reset Mode (RM)</a></li>
+<li>4.6.3 <a href="chapter4.html#S4.6.3">Keyboard Action Mode (KAM)</a></li>
+<li>4.6.4 <a href="chapter4.html#S4.6.4">Insert/Replacement Mode (IRM)</a></li>
+<li>4.6.5 <a href="chapter4.html#S4.6.5">Send-Receive Mode (SRM)</a></li>
+<li>4.6.6 <a href="chapter4.html#S4.6.6">Line Feed/New Line Mode (LNM)</a></li>
+<li>4.6.7 <a href="chapter4.html#S4.6.7">Text Cursor Enable Mode (DECTCEM)</a></li>
+<li>4.6.8 <a href="chapter4.html#S4.6.8">Cursor Key Mode (DECCKM)</a></li>
+<li>4.6.9 <a href="chapter4.html#S4.6.9">ANSI/VT52 Mode (DECANM)</a></li>
+<li>4.6.10 <a href="chapter4.html#S4.6.10">Column Mode (DECCOLM)</a></li>
+<li>4.6.11 <a href="chapter4.html#S4.6.11">Scrolling Mode (DECSCLM)</a></li>
+<li>4.6.12 <a href="chapter4.html#S4.6.12">Screen Mode (DECSCNM)</a></li>
+<li>4.6.13 <a href="chapter4.html#S4.6.13">Origin Mode (DECOM)</a></li>
+<li>4.6.14 <a href="chapter4.html#S4.6.14">Auto Wrap Mode (DECAWM)</a></li>
+<li>4.6.15 <a href="chapter4.html#S4.6.15">Auto Repeat (DECARM)</a></li>
+<li>4.6.16 <a href="chapter4.html#S4.6.16">Print Form Feed Mode (DECPFF)</a></li>
+<li>4.6.17 <a href="chapter4.html#S4.6.17">Print Extent Mode (DECPEX)</a></li>
+<li>4.6.18 <a href="chapter4.html#S4.6.18">Keypad Mode (DECKPAM/DECPNM)</a></li>
+</ul></li>
+<li>4.7 <a href="chapter4.html#S4.7">Cursor Positioning</a></li>
+<li>4.8 <a href="chapter4.html#S4.8">Tab Stops</a></li>
+<li>4.9 <a href="chapter4.html#S4.9">Character Rendition and Attributes</a>
+<ul>
+<li>4.9.1 <a href="chapter4.html#S4.9.1">Select Graphic Rendition (SGR)</a></li>
+<li>4.9.2 <a href="chapter4.html#S4.9.2">Select Character Attributes (DECSCA)</a></li>
+</ul></li>
+<li>4.10 <a href="chapter4.html#S4.10">Line Attributes</a>
+<ul>
+<li>4.10.1 <a href="chapter4.html#S4.10.1">Double Height Line (DECDHL)</a></li>
+<li>4.10.2 <a href="chapter4.html#S4.10.2">Single-Width Line (DECSWL)</a></li>
+<li>4.10.3 <a href="chapter4.html#S4.10.3">Double-Width Line (DECDWL)</a></li>
+</ul></li>
+<li>4.11 <a href="chapter4.html#S4.11">Editing</a></li>
+<li>4.12 <a href="chapter4.html#S4.12">Erasing</a></li>
+<li>4.13 <a href="chapter4.html#S4.13">Scrolling Margins (Top and Bottom)</a>
+<ul>
+<li>4.14 <a href="chapter4.html#S4.14">Set Top and Bottom Margins (DECSTBM)</a></li>
+</ul></li>
+<li>4.14 <a href="chapter4.html#S4.14">Printing</a></li>
+<li>4.15 <a href="chapter4.html#S4.15">User Defined Keys (DECUDK)</a>
+<ul>
+<li>4.15.1 <a href="chapter4.html#S4.15.1">DECUDK Device Control String Format</a></li>
+<li>4.15.2 <a href="chapter4.html#S4.15.2">Things to Keep in Mind When Loading Keys</a></li>
+<li>4.15.3 <a href="chapter4.html#S4.15.3">Examples and Recommendations for Using DECUDK</a></li>
+</ul></li>
+<li>4.16 <a href="chapter4.html#S4.16">Down-Line Loadable Character Set</a>
+<ul>
+<li>4.16.1 <a href="chapter4.html#S4.16.1">Designing a Character Set</a></li>
+<li>4.16.2 <a href="chapter4.html#S4.16.2">Down-Line Loading DRCS Characters</a></li>
+<li>4.16.3 <a href="chapter4.html#S4.16.3">DECDLD Example</a></li>
+<li>4.16.4 <a href="chapter4.html#S4.16.4">Clearing a Down-Line Loaded Character Set</a></li>
+</ul></li>
+<li>4.17 <a href="chapter4.html#S4.17">Reports</a>
+<ul>
+<li>4.17.1 <a href="chapter4.html#S4.17.1">Device Attributes (DA)</a></li>
+<li>4.17.2 <a href="chapter4.html#S4.17.2">Device Status Report (DSR)</a></li>
+<li>4.17.3 <a href="chapter4.html#S4.17.3">Identification (DECID)</a></li>
+</ul></li>
+<li>4.18 <a href="chapter4.html#S4.18">Terminal Reset (DECSTR and RIS)</a>
+<ul>
+<li>4.18.1 <a href="chapter4.html#S4.18.1">Soft Terminal Reset (DECSTR)</a></li>
+<li>4.18.2 <a href="chapter4.html#S4.18.2">Hard Terminal Reset (RIS)</a></li>
+</ul></li>
+<li>4.19 <a href="chapter4.html#S4.19">Tests and Adjustments (DECTST and DECALN)</a>
+<ul>
+<li>4.19.1 <a href="chapter4.html#S4.19.1">Tests (DECTST)</a></li>
+<li>4.19.2 <a href="chapter4.html#S4.19.2">Adjustments (DECALN)</a></li>
+</ul></li>
+<li>4.20 <a href="chapter4.html#S4.20">VT52 Mode Escape Sequences</a></li>
+</ul>
+<p><strong>Appendix A - <a href="appendixa.html">VT220/VT102 Differences</a></strong></p>
+<p><strong>Appendix B - <a href="appendixb.html">Additional VT220 Documentation</a></strong></p>
+<p><strong>Tables</strong></p>
+<ul>
+<li>2-1 <a href="chapter2.html#T2-1">7-Bit ASCII Code Table</a></li>
+<li>2-2 <a href="chapter2.html#T2-2">8-Bit Code Table</a></li>
+<li>2-3 <a href="chapter2.html#T2-3">DEC Multinational Character Set</a></li>
+<li>2-4 <a href="chapter2.html#T2-4">DEC Special Graphics Character Set</a></li>
+<li>2-5 <a href="chapter2.html#T2-5">British NRC Set</a></li>
+<li>2-6 <a href="chapter2.html#T2-6">Dutch NRC Set</a></li>
+<li>2-7 <a href="chapter2.html#T2-7">Finnish NRC Set</a></li>
+<li>2-8 <a href="chapter2.html#T2-8">French NRC Set</a></li>
+<li>2-9 <a href="chapter2.html#T2-9">French Canadian NRC Set</a></li>
+<li>2-10 <a href="chapter2.html#T2-10">German NRC Set</a></li>
+<li>2-11 <a href="chapter2.html#T2-11">Italian NRC Set</a></li>
+<li>2-12 <a href="chapter2.html#T2-12">Norwegian/Danish NRC Set</a></li>
+<li>2-13 <a href="chapter2.html#T2-13">Spanish NRC Set</a></li>
+<li>2-14 <a href="chapter2.html#T2-14">Swedish NRC Set</a></li>
+<li>2-15 <a href="chapter2.html#T2-15">Swiss NRC Set</a></li>
+<li>2-16 <a href="chapter2.html#T2-16">Display Controls Font</a></li>
+<li>3-1 <a href="chapter3.html#T3-1">Codes Generated by Editing Keys</a></li>
+<li>3-2 <a href="chapter3.html#T3-2">Codes Generated by Cursor Control Keys</a></li>
+<li>3-3 <a href="chapter3.html#T3-3">Codes Generated by Auxiliary Keypad Keys</a></li>
+<li>3-4 <a href="chapter3.html#T3-4">Codes Generated by Top Row Function Keys</a></li>
+<li>3-5 <a href="chapter3.html#T3-5">Keys Used to Generate 7-Bit Control Characters</a></li>
+<li>4-1 <a href="chapter4.html#T4-1">C0 (ASCII) Control Characters Recognized</a></li>
+<li>4-2 <a href="chapter4.html#T4-2.html">C1 Control Characters Recognized</a></li>
+<li>4-3 <a href="chapter4.html#T4-3.html">Level 1-Level 2 Compatibility Comparison</a></li>
+<li>4-4 <a href="chapter4.html#T4-4.html">Designating "Hard" Character Sets</a></li>
+<li>4-5 <a href="chapter4.html#T4-5.html">Invoking Characters Sets Using Lock Shifts</a></li>
+<li>4-6 <a href="chapter4.html#T4-6.html">Selectable Modes Summary</a></li>
+<li>4-7 <a href="chapter4.html#T4-7.html">ANSI-Standardized Modes</a></li>
+<li>4-8 <a href="chapter4.html#T4-8.html">ANSI-Compatible DEC Private Modes</a></li>
+<li>4-9 <a href="chapter4.html#T4-9.html">DECDLD Parameter Characters</a></li>
+<li>4-10 <a href="chapter4.html#T4-10.html">Soft Terminal Reset (DECSTR) States</a></li>
+<li>4-11 <a href="chapter4.html#T4-11.html">VT52 Escape Sequences</a></li>
+</ul>
+<p><strong>Figures</strong></p>
+<ul>
+<li>1-1 <a href="chapter1.html#F1-1">VT220 Video Display Terminal</a></li>
+<li>2-1 <a href="chapter2.html#F2-1">7-Bit Code</a></li>
+<li>2-2 <a href="chapter2.html#F2-2">8-Bit Code</a></li>
+<li>3-1 <a href="chapter3.html#F3-1">Key Grouping (North American Keyboard)</a></li>
+<li>3-2 <a href="chapter3.html#F3-2">French/Belgian Keyboard</a></li>
+<li>4-1 <a href="chapter4.html#F4-1">Character Set Selection</a></li>
+<li>4-2 <a href="chapter4.html#F4-2">Locking and Single-Shift Commands (VT100 Mode)</a></li>
+<li>4-3 <a href="chapter4.html#F4-3">Locking and Single-Shift Commands (VT200 Mode)</a></li>
+<li>4-4 <a href="chapter4.html#F4-4">Cell and Normal Character Cell Size Relationship</a></li>
+<li>4-5 <a href="chapter4.html#F4-5">Example of an "A" Character</a></li>
+<li>4-6 <a href="chapter4.html#F4-6">Example of an "A" Divided Into Columns</a></li>
+<li>4-7 <a href="chapter4.html#F4-7">Column Codes for Example 80-Column Font Character A</a></li>
+</ul>
+<footer>
+<nav class="sections"><a href="./">Cover</a><a></a><a href="introduction.html">Introduction</a></nav>
+</footer>
+</body>
+</html>

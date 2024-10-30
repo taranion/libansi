@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html><head> <title>ANSI terminal control strings used  with terminal emulators </title>
+<meta name="author" content="Dennis German">
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta http-equiv="content-language" content="en">
+<meta name="description" content="ANSI control characters for data terminals like VT100">
+<meta name="keywords" content="darwin linux ">
+<meta name="robots" content="index,follow">
+<meta name="distribution" content="GLOBAL">
+<meta name="revisit" content="300 days">
+
+<link rel="stylesheet" href="ANSI%20terminal%20control%20strings%20used%20with%20terminal%20emulators-Dateien/style.css" type="text/css" media="">
+<link rel="stylesheet" href="ANSI%20terminal%20control%20strings%20used%20with%20terminal%20emulators-Dateien/top.css" type="text/css" media="">
+
+<style>
+span {font-family:sans-serif}
+s    {font-family:sans-serif}
+tt   {font-size:110%}    
+tt.o {color:silver}
+.cc {font-size:300%;vertical-align:middle;}
+pre.samp    {background-color:azure; padding:0;padding-left:1em;padding-bottom:.5em }
+</style>
+<!-- .cc {font-family:monospace;font-size:160%;} -->
+
+</head><body>
+
+<h1 align="center">ANSI standards for ASCII terminals</h1>       Joe Smith, 18-May-84,
+With additions by Dennis German<br>
+OFFICIAL <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/FIPS/fipspub86.pdf">ANSI X3.64-1979</a>
+<p>
+These sequences are usually implemented in the terminal emulator in the system's BIOS (?) and 
+are available in DOS, <big>£</big>inux console, windows command modes and mac os terminal.
+<br>
+In *nix systems, <a href="https://www.real-world-systems.com/docs/termcap.1.html">termcap</a>, <a href="https://www.real-world-systems.com/docs/terminfo.1.html">terminfo</a> and 
+    <a href="https://www.real-world-systems.com/docs/curses.1.html">curses</a> are involved in displaying character sequences.</p><p> 
+
+  <script src="ANSI%20terminal%20control%20strings%20used%20with%20terminal%20emulators-Dateien/top.js"></script>  
+In this document the symbol £ indicates sequences supported by <big>£</big>inux <code>TERM=ansi</code><br>
+From the bash command line <code>echo $'\e'</code> outputs the 
+<span style="font-size:200%;vertical-align:middle;">&#9243;</span> lead-in required by many ANSI terminal control strings.
+</p><ul>Interesting ones include:
+<li><a href="#dh" style="text-decoration:none">Double height line</a>
+</li><li>Single width line
+</li><li><a href="#dw" style="text-decoration:none">Double width line</a>
+<code>echo $'\e'#5abcdefg echo $'\e'#6abcdefg</code>
+</li><li><a href="#n132" style="text-decoration:none">132 characters per line</a>
+</li><li><a href="#bridim" style="text-decoration:none"><b>bright</b><span style="color:gray"> dim</span>
+
+<c style="color:red">Colors</c>, <c style="background-color:magenta">backgrounds</c>
+<u>underscore</u>, blink</a>
+</li><li><a href="#form" style="text-decoration:none">Single character communications codes and Form Characters</a>
+&#9618;&#9225;&#9228;&#9229;&#9226;°±&#9252;&#9227;&#9496;&#9488;&#9484;&#9492;&#9547;-_-_-_&#9507;&#9515;&#9531;&#9523;
+</li><li><a href="#scrollregion" style="text-decoration:none">Set scrolling <b>r</b>egion</a>
+</li><li><a href="#cursor">cursor addressing</a>
+
+</li></ul>
+
+<ol>
+<li> <a href="#top" style="text-decoration:none">Overview and Definitions</a>
+</li><li> <a href="#Esc" style="text-decoration:none">General rules for interpreting an ESCape Sequence</a>
+</li><li> <a href="#Control" style="text-decoration:none">General rules for interpreting a Control Sequence</a>
+</li><li> <a href="#C0C1" style="text-decoration:none"><b>C<z>0</z></b> and <b>C1</b> control codes in numeric order</a>
+</li><li> <a href="#numericOrder23" style="text-decoration:none">Two and three-character ESCape Sequences in numeric order</a>
+</li><li> <a href="#numericOrder" style="text-decoration:none">Control Sequences in numeric order</a>
+</li><li> <a href="#VT100reqr" style="text-decoration:none">VT100 emulation requirements</a>
+</li><li> <a href="#SGR" style="text-decoration:none">Set Graphic Rendition</a><a>
+</a></li><li><a> </a><a href="#CSSS" style="text-decoration:none">Character set selection sequences</a>
+</li></ol>
+
+
+<p>
+Definitions:
+
+</p><p>
+</p><ol>
+<table>
+  <tbody><tr><td>Control&nbsp;Character </td><td> A single character with an ASCII code within the ranges: <z>00-1F and 80-9F .
+
+  </z></td></tr><tr><td valign="middle" height="10px">Escape&nbsp;Sequence </td><td valign="top"> 2 or 3 character string staring <!-- with<span class=cc>&#x241B;</span> 
+
+-->
+  </td></tr><tr><td><p>Control&nbsp;Sequence </p></td><td> A string starting with <code>CSI</code> ( 9B ) or
+  with <code style="color:brown"><span class="cc">&#9243;</span>[</code> (Left-Bracket) and terminated by an alphabetic character.<br>
+  Any number of parameter characters (digits 0 to 9, semicolon, and question mark) may appear within the Control Sequence.<br>
+  The terminating character may be preceded by an intermediate character (such as space).
+</td></tr></tbody></table>
+
+<p>
+Character classifications<sup class="h" title="see Special characters table"><sup>£</sup>:
+
+</sup></p><table border="1" cellspacing="0">
+<tbody><tr><td></td><td><small> octal<br>range</small></td><td>Hex<br>range</td><td>&nbsp;
+</td></tr></tbody><tbody bgcolor="azure">
+<tr><td><code><b>C<z>0</z></b> Control  </code></td><td><small><z>000-037 </z></small></td><td> <z>00-1F</z></td><td> <z> (<b>G0</b> is <small>041-176 octal,</small> 21-7E hex)
+</z></td></tr><tr><td><code> &nbsp;SPACE       </code></td><td><small><z>040+240 </z></small></td><td><z> 20 &amp; A0</z></td><td> 
+</td></tr><tr><td><code> &nbsp;Intermediate  </code></td><td><small><z>  040-057 </z></small></td><td><z> 20-2F</z></td><td>   <code>!"#$%&amp;'()*+,-./</code>
+</td></tr><tr><td><code> &nbsp;Parameters  </code></td><td><small><z>060-077 </z></small></td><td><z> 30-3F</z></td><td>  <code><z>0123456789:;&lt;=&gt;
+</z></code></td></tr><tr><td><code> &nbsp;Alphabetic  </code></td><td><small><z>100-176 </z></small></td><td><z> 40-7E</z></td><td>  (all of upper and lower case)
+</td></tr><tr><td><code> &nbsp;&nbsp;Uppercase   </code></td><td><small><z>100-137 </z></small></td><td><z> 40-5F</z></td><td> <code> @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_</code>
+</td></tr><tr><td><code> &nbsp;&nbsp;Lowercase  </code></td><td><small><z>140-176 </z></small></td><td><z> 60-7E  </z></td><td> <code>`abcdefghijlkmnopqrstuvwxyz{|}~</code>
+</td></tr><tr><td><code> &nbsp;Delete</code></td><td> <small> <z>177 </z></small></td><td><z>    7F</z></td><td>  ignored
+</td></tr></tbody><tbody bgcolor="linen">
+<tr><td><code><a href="#C1"><b>C1</b></a> Control  </code></td><td><small><z>200-237 </z></small></td><td><z> 80-9F</z></td><td>  (lead in with <span class="cc">&#9243;</span> ) 32 additional control characters
+</td></tr></tbody><tbody bgcolor="cornsilk">
+<tr><td><code>G1 Displayable</code></td><td><small><z> 241-376 </z></small></td><td> A1-FE</td><td>   94 additional displayable characters
+</td></tr><tr><td><code>Special     </code></td><td><small><z>240 &amp; 377 </z></small></td><td><z> A0 &amp; FF</z></td><td>  Same as SPACE and DELETE
+
+</td></tr></tbody></table>
+
+<p>
+In this document, the terms uppercase, lowercase, and alphabetics include more characters than just A to Z.
+</p><p id="Esc">
+</p><h3>ESCape Sequence</h3> 
+Starts with the <span class="cc">&#9243;</span> character ( 1B hex).<br>
+The length depends on the character that immediately follows the <span class="cc">&#9243;</span>.<br>
+If the next character is:
+<table>
+   <tbody><tr><td><b><z>C0</z></b> control</td><td>   Interpret the character, then resume processing the sequence.<br>
+     Example:  <samp>CR</samp>, <samp>LF</samp>, <samp>XON</samp>, and <samp>XOFF</samp> work as normal within an ESCape sequence.
+   </td></tr><tr><td>Intermediate</td><td> Expect zero or more intermediates, a parameter terminates<br>
+     a private function, an alphabetic terminates a standard sequence.<br>
+     Example:  <samp><span class="cc">&#9243;</span><code>(A</code> </samp> defines standard character set, <samp><span class="cc">&#9243;</span>(0</samp> a DEC set.
+   </td></tr><tr><td>Parameter</td><td>    End of a private 2-character escape sequence.<br>
+     Example:  <samp><span class="cc">&#9243;</span><code>=</code></samp>  sets special keypad mode, <samp><span class="cc">&#9243;</span> &gt; </samp>clears it.
+   </td></tr><tr><td>Uppercase</td><td>    Translate it into a <b>C1</b> control character and act on it.<br>
+     Example:  <samp><span class="cc">&#9243;</span> <code>D</code></samp> does indexes down, <samp><span class="cc">&#9243;</span>M</samp> indexes up.  (CSI is special)
+   </td></tr><tr><td>Lowercase</td><td>    End of a standard 2-character escape sequence.<br>
+     Example:  <samp><span class="cc">&#9243;</span><code> c</code></samp> resets the terminal.
+   </td></tr><tr><td>Delete</td><td>   Ignore it, and continue interpreting the ESCape sequence<br>
+   <b>C1</b> and <b>G1</b>:    Treat the same as their 7-bit counterparts
+</td></tr></tbody></table>
+<p>
+</p><h3>Control Sequence</h3>
+<p> 
+</p><ol>
+<li> Starts with <code>CSI</code>, the Control Sequence Introducer.
+  <a id="CSI"> the <b>C0</b> two-character sequence <code><b>ESC[</b></code> or 
+             the 8-bit <b>C1</b> code <code><b>[</b></code>.
+</a></li><li><a id="CSI"> Contains any number of parameter characters (0123456789:;&lt;=&gt;?).
+</a></li><li><a id="CSI"> Terminates with an alphabetic character.
+</a></li><li><a id="CSI"> Intermediate characters may precede the terminator.
+</a></li></ol><a id="CSI">
+
+The terminal should expect any number of numeric parameters, separated by semicolons ( <code>3B</code> ).  <br>
+Only after the terminating alphabetic character is received should the terminal act on the Control Sequence.<p><br></p></a><p><a id="CSI">
+
+</a><a id="C0C1">
+    </a></p><h2 align="center"><a id="C0C1"><z>C0</z> set of 7-bit control characters </a></h2><a id="C0C1">(from ANSI X3.4-1977)
+
+<table cellpadding="0" cellspacing="0" border="1">
+<tbody><tr><td style="color:silver" width="8em"><small>Oct</small></td><td style="width:3em">Hex
+    </td><td style="width:3em"><small>control</small></td><td style="width:3em"><small>Name </small></td><td colspan="9"> <sup>
+    *<small> <small>functions used in DEC VT series or LA series terminals</small></small></sup>
+</td></tr><tr><td style="color:silver"><small><z>000</z></small></td><td>00</td><td>@</td><td>NUL</td><td width="1em">*</td><td> <b>Null</b> filler
+</td></tr><tr><td style="color:silver"><small>001</small></td><td>01</td><td>A</td><td>SOH</td><td></td><td>  <b>Start of Header
+</b></td></tr><tr><td style="color:silver"><small>002</small></td><td>02</td><td>B</td><td>STX</td><td></td><td>  <b>Start of Text</b>, implied end of header
+</td></tr><tr><td style="color:silver"><small>003</small></td><td>03</td><td>C</td><td>ETX</td><td></td><td>  <b>End of Text</b>, respond with ACK or NAK
+</td></tr><tr><td style="color:silver"><small>004</small></td><td>04</td><td>D</td><td>EOT</td><td></td><td>  <b>End of Transmission
+</b></td></tr><tr><td style="color:silver"><small>005</small></td><td>05</td><td>E</td><td>ENQ</td><td>*</td><td> <b>Enquiry</b>, <code>ANSWER-BACK ID  <br>(load answerback esc^mmmmmCTRLY; not <big>£</big>inux)
+</code></td></tr><tr><td style="color:silver"><small>006</small></td><td>06</td><td>F</td><td>ACK</td><td></td><td>  <b>Acknowledge</b>, response to ETX
+</td></tr><tr><td style="color:silver"><small>007</small></td><td>07</td><td>G</td><td>BEL</td><td>*</td><td> <b>Bell</b>
+</td></tr><tr><td style="color:silver"><small>010</small></td><td>08</td><td>H</td><td>BS</td><td>*</td><td> <b>Backspace</b>
+</td></tr><tr><td style="color:silver"><small>011</small></td><td>09</td><td>I</td><td>HT</td><td>*</td><td> <b>Horizontal Tabulation</b>, <code style="color:green">move</code> to next TAB position
+</td></tr><tr><td style="color:silver"><small>012</small></td><td>0A</td><td>J</td><td>LF</td><td>*</td><td> <b>Linefeed</b>, <code style="color:green">move</code> to same position on next line (see also NL)
+</td></tr><tr><td style="color:silver"><small>013</small></td><td>0B</td><td>K</td><td>VT</td><td>*</td><td> <b>Vertical Tabulation, <code style="color:green">move</code> to next predetermined line
+</b></td></tr><tr><td style="color:silver"><small>014</small></td><td>0C</td><td>L</td><td>FF</td><td>*</td><td> <b>Form Feed, <code style="color:green">slew</code></b> to next form or page
+</td></tr><tr><td style="color:silver"><small>015</small></td><td>0D</td><td>M</td><td>CR</td><td>*</td><td> <b>Carriage Return, <code style="color:green">move</code> to first character of current line
+</b></td></tr><tr><td style="color:silver"><small>016</small></td><td>0E</td><td>N</td><td>SO</td><td>*</td><td> Shift Out, switch to <b>G1</b> (other half of character set)
+</td></tr><tr><td style="color:silver"><small>017</small></td><td>0F</td><td>O</td><td>SI</td><td>*</td><td> Shift In&nbsp; , switch to <b>G<z>0 </z></b>(normal half of character set)
+</td></tr><tr><td style="color:silver"><small>020</small></td><td>10</td><td>P</td><td>DLE</td><td></td><td>  Data Link Escape, interpret <b>next control character specially</b>
+</td></tr><tr><td style="color:silver"><small>021</small></td><td>11</td><td>Q</td><td>XON</td><td>*</td><td> (DC1) <b>resume </b>transmitting
+</td></tr><tr><td style="color:silver"><small>022</small></td><td>12</td><td>R</td><td>DC2</td><td></td><td>  (DC2) <b>activate reader</b>
+</td></tr><tr><td style="color:silver"><small>023</small></td><td>13</td><td>S</td><td>XOFF</td><td>*</td><td>(DC3) <b> pause</b> transmitting
+</td></tr><tr><td style="color:silver"><small>024</small></td><td>14</td><td>T</td><td>DC4</td><td></td><td>  (DC4) <b>deactivate reader
+</b></td></tr><tr><td style="color:silver"><small>025</small></td><td>15</td><td>U</td><td>NAK</td><td></td><td>  <b>Negative Acknowledge</b>, with ETX and ACK
+</td></tr><tr><td style="color:silver"><small>026</small></td><td>16</td><td>V</td><td>SYN</td><td></td><td>  Synchronous <b>Idle</b>, maintain timing in Sync communication
+</td></tr><tr><td style="color:silver"><small>027</small></td><td>17</td><td>W</td><td>ETB</td><td></td><td>  <b>End of Transmission</b> block
+</td></tr><tr><td style="color:silver"><small>030</small></td><td>18</td><td>X</td><td>CAN</td><td>*</td><td> Cancel <b>abort current escape sequence 
+</b></td></tr><tr><td style="color:silver"><small>031</small></td><td>19</td><td>Y</td><td>EM</td><td></td><td>   <b>End of Medium
+</b></td></tr><tr><td style="color:silver"><small>032</small></td><td>1A</td><td>Z</td><td>SUB</td><td>*</td><td> <b>Substitute</b> (Display parity errors)
+</td></tr><tr><td style="color:silver"><small>033</small></td><td>1B</td><td>[</td><td>ESC</td><td>*</td><td> <b>Prefix to an ESCape sequence
+</b></td></tr><tr><td style="color:silver"><small>034</small></td><td>1C</td><td>\</td><td>FS</td><td></td><td>   <b>File </b>Separator
+</td></tr><tr><td style="color:silver"><small>035</small></td><td>1D</td><td>]</td><td>GS</td><td></td><td>   <b>Group </b>Separator
+</td></tr><tr><td style="color:silver"><small>036</small></td><td>1E</td><td>^</td><td>RS</td><td>*</td><td>  <b>Record</b> Separator (sent by VT132 in block-transfer mode)
+</td></tr><tr><td style="color:silver"><small>037</small></td><td>1F</td><td>_</td><td>US</td><td></td><td>   <b>Unit</b> Separator
+</td></tr><tr><td style="color:silver"><small>040</small></td><td>20</td><td></td><td>SP</td><td>*  </td><td> <b>Space 
+</b></td></tr><tr><td style="color:silver"><small>177</small></td><td>7F</td><td></td><td>DEL</td><td>*</td><td> <b>Delete</b>, ignored by terminal
+</td></tr><tr><td colspan="6">If the first character after <code>CSI</code> is one of <code style="color:brown"> " &lt; = &gt;</code> (<code>3C-3F</code> ),
+it is to be interpreted according to private standards (such as setting and resetting modes not defined by ANSI).  <br>
+
+</td></tr></tbody></table>
+<p>
+
+    </p><h2 align="center">C1 set of 8-bit control characters (from ANSI X3.64-1979)</h2>
+Lead in with ESC <span style="margin-top:5">&#9243;</span> --&gt; </a><a href="https://www.real-world-systems.com/docs/Characters.html" title="see Special characters table">
+usual graphic</a> 
+<pre style="margin-top:3px">        t
+        e
+        x
+Oct Hex t Name *  <sup>*<small> <small style="font-family:sans-serif">marks function used in DEC VT series or LA series terminals)</small></small></sup>
+--- -- - --- -  --------------------------------------------------------------
+<tt style="color:silver">200</tt> 80  @         Reserved for future standardization
+<tt style="color:silver">201</tt> 81  A         Reserved
+<tt style="color:silver">202</tt> 82  B         Reserved
+<tt style="color:silver">203</tt> 83  C         Reserved
+<tt style="color:silver">204</tt> 84  D IND *  <b>Index</b>, <code style="color:green">move</code>s down same column regardless of NL
+<tt style="color:silver">205</tt> 85  E NEL *  <b>New Line</b>, <code style="color:green">move</code>s dowe one line and to first column (CR+LF)
+<tt style="color:silver">206</tt> 86  F SSA    <b>Start of Selected Area</b> to be sent to auxiliary output device
+<tt style="color:silver">207</tt> 87  G ESA    End  
+<tt style="color:silver">210</tt> 88  H HTS *  Horizontal <b>Tabulation Set</b> at current position
+<tt style="color:silver">211</tt> 89  I HTJ    Horizontal Tab Justify, <code style="color:green">move</code>s string to next tab position
+<tt style="color:silver">212</tt> 8A  J VTS    <b>Vertical Tabulation Set</b> at current line
+<tt style="color:silver">213</tt> 8B  K PLD    Partial Line Down (<b>subscript</b>)
+<tt style="color:silver">214</tt> 8C  L PLU    Partial Line Up   (<b>superscript</b>)
+<tt style="color:silver">215</tt> 8D  M RI  *  Reverse Index, go <b>up one</b> line, reverse scroll if necessary
+<tt style="color:silver">216</tt> 8E  N SS2 *  Single Shift(i.e. next character) to <b>G2</b> (i.e. alternate graphic rendition)
+<tt style="color:silver">217</tt> 8F  O SS3 *  Single Shift to <b>G3</b> (VT100 uses this for sending PF keys)
+<tt style="color:silver">220</tt> 90  P DCS *  Device Control String, terminated by ST (VT125 enters graphics)
+<tt style="color:silver">221  91  Q  PU1       Private Use 1</tt> 
+<tt style="color:silver">222  92  R  PU2       Private Use 2</tt>
+<tt style="color:silver">223</tt> 93  S STS    Set Transmit State
+<tt style="color:silver">224</tt> 94  T CCH    Cancel CHaracter, ignore previous character
+<tt style="color:silver">225</tt> 95  U MW     Message Waiting, turns on an indicator on the terminal
+<tt style="color:silver">226</tt> 96  V SPA    Start of Protected Area
+<tt style="color:silver">227</tt> 97  W EPA    End  "    " 
+<tt style="color:silver">230  98  X  SOS       Reserved for for future standard (Start of string)</tt>
+<tt style="color:silver">231  99  Y            Reserved</tt>
+<tt style="color:silver">232</tt> 9A  Z     *  DECID   (response VT102:<code>ESC [ ? 6 c </code>
+<tt style="color:silver">233</tt> 9B  [ CSI *  <a href="#CSI">Control Sequence Introducer</a> 
+<tt style="color:silver">234</tt> 9C  \ ST  *  <b>String Terminator</b> (VT125 exits graphics)
+<tt style="color:silver">235</tt> 9D  ] OSC<sup style="color:green" title="see below">£inux</sup>   Operating System Command (reprograms intelligent terminal)
+<tt style="color:silver">236</tt> 9E  ^ PM     Privacy Message (password verification), terminated by ST
+<tt style="color:silver">237</tt> 9F  _ APC    Application Program Command (to word processor), term by ST
+
+<big>£</big>inux 
+ESC]0            Operating System Command
+ESC]0;<em>string</em>BEL  Set icon name and window title to string 
+ESC]1;<em>string</em>BEL  Set icon name to string 
+ESC]2;<em>string</em>BEL  Set window title to string
+ESC]P <em>nrrggbb</em>   
+ESC]R                       reset palette
+
+
+</pre>
+<a name="numericOrder23">
+</a><a name="CSSS"><p>
+    </p><h3>Character set selection sequences </h3>
+<small>(from ANSI X3.41-1974)</small><br>
+    All are 3 characters long (including the ESCape).  <br>
+Alphabetic characters as 3rd character are defined by ANSI, <br>
+parameter characters as 3rd character may be interpreted differently by each terminal manufacturer.
+</a><a name="dh">       
+</a><pre><a name="dh">        t
+        e
+        x
+<tt style="color:silver">Oct</tt> Hex  t    example  x'<code>1B2330'  ESC #3</code>  set DoubleHeight top half (send bottom half next)
+--- -- -- - ------------------------------------------------------------------
+<tt style="color:silver">040</tt> 20      ANNOUNCER - Determines whether to use 7-bit or 8-bit ASCII
+        A   G0 only will be used.                            Ignore SI, SO, and G1.  (Graphic characters)
+        B   G0 and G1 used internally.  SI and SO affect G0, Ignore G1 
+        C   G0 and G1 in an 8-bit only environment.          Ignore SI and SO 
+        D   G0 and G1 are used, SI and SO affect G0.
+        E
+        F * 7-bit transmission, VT240/PRO350 sends CSI as two characters<code> ESC [</code>
+        G * 8-bit transmission, VT240/PRO350 sends CSI as single 8-bit character
+        L   ANSI conformance level 1
+        M                          2 dpANS x3.134.1
+        N                          3
+<tt style="color:silver">041</tt> 21  !    Select <b>C0</b> control set (choice of 63 standard, 16 private)
+<tt style="color:silver">042</tt> 22  "    Select <b>C1</b> control set (choice of 63 standard, 16 private)
+
+<tt style="color:silver">04</tt>3 23  #    Translate next character to a special single character
+       <b>#3 * DECDHL1 - <span>Double height line, top half</span>
+       #4 * DECDHL2 - <span>Double height line, bottom half</span> <blockquote>
+<tt>echo $'\e'#3abcdefg; echo $'\e'#4abcdefg</tt>     ( OK on Mac os in terminal)
+<tt style="font-size:200%">abcdefg</tt> </blockquote>
+       #5 * DECSWL - <span>Single width line</span>
+       #6 * DECDWL - <span>Double width line</span></b> <blockquote>
+<tt>echo $'\e'#5bcdefg; </tt>
+<tt>echo $'\e'#6bcdefg; </tt>
+<tt style="font-stretch:expanded;color:red">abcdefg</tt> </blockquote> 
+       #7 * DECHCP - Make a hardcopy of the graphics screen (GIGI,VT125,VT241)
+       #8£* DECALN - Alignment display, fill screen with "E" to adjust focus EEEEE
+
+<tt style="color:silver">044</tt> 24 $    MULTIBYTE CHARACTERS - Displayable characters require 2-bytes each
+
+<tt style="color:silver">045</tt> 25 %    SPECIAL INTERPRETATION - Such as 9-bit data
+       %              Start sequence selecting character set (<big>£</big>)
+       % @               Select default (ISO 646 / ISO 8859-1)
+       % G               Select UTF-8
+       % 8               Select UTF-8 (obsolete)
+<tt style="color:silver">04</tt>7 27 '    Reserved for future standardization
+<tt style="color:silver">05</tt>0 28 (  * SCS - Select G0 character set (choice of 63 standard, 16 private)
+       (0 £ DEC VT100 line drawing set (affects lowercase characters) </a><a name="form">
+       <b>(1 * DEC Alternate character ROM set (RAM set on GIGI and VT220)</b>
+<pre class="samp">&#9618;&#9225;&#9228;&#9229;&#9226;°   ±&#9252;&#9227;&#9496;&#9488;&#9484;&#9492;&#9547;-_-_-_&#9507;&#9515;&#9531;&#9523;    £inux
+abcdef   ghijklmnopqrstuvwxyz0|}
+</pre>
+       (2 * DEC Alternate character ROM set with line drawing
+       (5 * DEC Finnish on LA100
+       (C * ISO Finnish on LA120
+       (6 * DEC Norwegian/Danish on LA100
+       (E * ISO Norwegian/Danish on LA120
+       (7 * DEC Swedish on LA100
+       (H * ISO Swedish on LA120
+       (9 * DEC French Canadian
+       (R * ISO French on LA100,LA120
+       (&lt; * DEC supplemental graphics (everything not in USASCII)
+       (A * UKASCII (British pound sign)
+       <b>(B * USASCII (American pound sign)</b>
+       (K * ISO German on LA100,LA120
+       (Y * ISO Italian on LA100
+       (Z * ISO Spanish on LA100
+       (&lt; * DEC supplementary char set VT200 
+
+                    <span style="color:green" ;="">£inux</span>
+       ( B               Select default (ISO 8859-1 mapping)
+       ( 0               Select VT100 graphics mapping
+       ( U               Select null mapping - straight to character ROM
+       ( K               Select user mapping - the map that is loaded by the utility mapscrn(8).
+
+<tt style="color:silver">051</tt> 29 )  * SCS - Select G1 character set (choice of 63 standard, 16 private) (same character sets as listed under G0)
+<tt style="color:silver">052</tt> 2A *  * SCS - Select G2 character set (same character sets as listed under G0)
+<tt style="color:silver">053</tt> 2B +  * SCS - Select G3 character set (same character sets as listed under G0)
+<tt style="color:silver">054</tt> 2C ,    SCS - Select G0 character set (additional 63+16 sets)
+<tt style="color:silver">055</tt> 2D -    SCS - Select G1 character set (additional 63+16 sets)
+<tt style="color:silver">056</tt> 2E .    SCS - Select G2 character set
+<tt style="color:silver">057</tt> 2F /    SCS - Select G3 character set </a></pre><a name="form"> 
+    <small><small>Private two-character escape sequences (allowed by 
+ANSI X3.41-1974) These can be defined differently by each terminal 
+manufacturer.</small></small>
+
+<pre><tt style="color:silver">Oct</tt> Hex 
+<tt style="color:silver">---</tt> -- - - ------------------------------------------------------------------
+<tt style="color:silver">060</tt> 30 0
+<tt style="color:silver">061</tt> 31 1   DECGON - graphics on  VT105, DECHTS   horiz tab set for LA34/LA120
+<tt style="color:silver">062</tt> 32 2   DECGOFF -graphics off VT105, DECCAHT clear all horz tabs LA34/LA120
+<tt style="color:silver">063</tt> 33 3   DECVTS  - set vertical tab for LA34/LA120
+<tt style="color:silver">064</tt> 34 4   DECCAVT - clear all vertical tabs for LA34/LA120
+<tt style="color:silver">065</tt> 35 5 * DECXMT  - Host requests that VT132 transmit as if ENTER were pressed
+<tt style="color:silver">066</tt> 36 6   DECBI  - back index
+<tt style="color:silver">067</tt> 37 7 * DECSC   - Save cursor position and character attributes
+<tt style="color:silver">070</tt> 38 8 * DECRC   - Restore cursor and attributes to previously saved position
+<tt style="color:silver">071</tt> 39 9   DECFI   - forwared index
+<tt style="color:silver">072</tt> 3A :
+<tt style="color:silver">073</tt> 3B ;
+<tt style="color:silver">074</tt> 3C &lt; * DECANSI - Switch from VT52 mode to VT100 mode
+<tt style="color:silver">075</tt> 3D =  * DECKPAM - Set keypad to applications mode (ESCape instead of digits)
+<tt style="color:silver">076</tt> 3E &gt; * DECKPNM - Set keypad to numeric mode (digits intead of ESCape seq)
+<tt style="color:silver">077</tt> 3F ?
+</pre>
+
+    DCS Device Control Strings used by DEC terminals (ends with ST) 
+<pre>Pp   Start ReGIS graphics (VT125, GIGI, VT240, PRO350)
+Pq   Start SIXEL graphics (screen dump to LA34, LA100, screen load to VT125)
+Pr   SET-UP data for GIGI, $PrVC0$\ disables both visible cursors.
+Ps   Reprogram keys on the GIGI, $P0sDIR&lt;&lt;CR&gt;$\ makes keypad 0 send "DIR&lt;CR&gt;"
+    0-9=digits on keypad, 10=ENTER, 11=minus, 12=comma, 13=period,
+    14-17=PF1-PF4, 18-21=cursor keys.  Enabled by $[?23h (PK1).
+Pt   Start VT105 graphics on a VT125
+</pre>
+Standard two-character escape sequences (defined by ANSI X3.64-1979) 
+</a><pre><a name="form"><tt style="color:silver">100</tt> 40 @ See description of <b>C1</b> control characters
+     An ESCape followed by one of these uppercase characters is translated
+     to an 8-bit <b>C1</b> control character before being interpreted.
+<tt style="color:silver">133</tt> 5B [ CSI - </a><a href="#CSI">Control Sequence Introducer </a>
+
+<tt style="color:silver">136</tt> 5E ] OSC  (<big>£inux</big>  Operating system command) 
+            <span class="cc">&#9243;</span>]P nrrggbb: set palette, with parameter given in 7 hex digits 
+                    n is the color (0-15), and rrggbb indicates the red/green/blue values (0-255).  
+            <span class="cc">&#9243;</span>]R: reset palette
+<tt style="color:silver">137</tt> 5F _ See description of <b>C1</b> control characters
+<tt style="color:silver">220</tt> 90 P DCS - Device Control String, terminated by ST - see table above.
+</pre>
+
+
+<hr>
+
+
+    Indepenent control functions <small>(from Appendix E of X3.64-1977)</small>.<br>
+    These four controls have the same meaning regardless of the current definition of the C0 and <b>C1</b> control sets.  <br>
+Each control is a two-character ESCape sequence, the 2<sup>nd</sup> is lowercase.
+
+<pre>Oct Hex  *      (* marks function used in DEC VT series or LA series terminals)
+--- -- - - --------------------------------------------------------------------
+<tt style="color:silver">140</tt> 60 `   DMI - Disable Manual Input
+<tt style="color:silver">141</tt> 61 a   INT - INTerrupt the terminal and do special action
+<tt style="color:silver">142</tt> 62 b   EMI - Enable Manual Input
+<tt style="color:silver">143</tt> 63 c * RIS - Reset to Initial State (VT100 does a power-on reset)
+<tt style="color:silver;font-size:97%">...            The remaining lowercase characters are reserved by ANSI.</tt>
+<tt style="color:silver">153 </tt>6B k   NAPLPS lock-shift G1 to GR
+<tt style="color:silver">154 </tt>6C l   NAPLPS lock-shift G2 to GR
+<tt style="color:silver">155 </tt>6D m   NAPLPS lock-shift G3 to GR
+<tt style="color:silver">156</tt> 6E n * LS2       - Shift G2 to GL (extension of SI) VT240,NAPLPS
+<tt style="color:silver">157 </tt>6F o * LS3       - Shift G3 to GL (extension of SO) VT240,NAPLPS
+  <tt style="color:silver;font-size:97%">...            The remaining lowercase characters are reserved by ANSI.</tt>
+<tt style="color:silver">174 </tt>7C | * LS3R - lock-shift G3 to GR VT240
+<tt style="color:silver">175 </tt>7D } * LS2R - lock-shift G2 to GR VT240
+<tt style="color:silver">176</tt> 7E ~ * LS1R - lock-shift G1 to GR VT240
+</pre>
+
+<p>
+</p><hr>
+    Control Sequences (defined by ANSI X3.64-1979)
+
+<p>
+</p><ul>
+<li>Started by <code>ESC[</code> <sup><small>(<tt>CSI</tt>, 1B 5B)</small></sup> and terminated by an alphabetic character (<small>100 to 176 octal</small>, 40 to 7E hex).  <br>
+</li><li>Intermediate characters are space through <code>/</code> (<small>40 to 57 octal</small>, 20 to 2F hex) <br>
+</li><li>Parameter characters are <code>0</code> <code>?</code> (<small>60 to 77 octal</small>, 30 to 3F hex, including digits and semicolon).  <br>
+Parameters consist of zero or more decimal numbers separated by semicolons.  <br>
+Leading zeros are optional, leading blanks are not allowed.  <br>
+If no digits precede the final character, the default parameter is used.  <br>
+Many functions treat a parameter of 0 as if it were 1.<br>
+</li></ul>
+*nix shell command: <code>echo $'\e'</code> can be used as the <code>ESC</code> lead-in 
+required by many ANSI terminal control 
+
+<!--    <pre>   -->
+<table id="cursor" border="1" cellpadding="0" cellspacing="0">
+<tbody><tr><td colspan="2"><tt class="o">Oct</tt><tt> Hex 
+</tt></td></tr><tr><td><tt class="o">100</tt><tt> 40 @   ICH </tt> <span style="font-family:sans-serif"> Insert CHaracter </span></td><td>[10@ <span style="font-family:sans-serif"> Make room for 10 characters at current position
+</span></td></tr><tr><td><tt class="o">101</tt><tt> 41 A   CUU </tt> <span style="font-family:sans-serif"> CUrsor Up * £</span></td><td>[A   <span style="font-family:sans-serif"><code style="color:green">move</code> up one line, stop at top of screen, [9A = <code style="color:green">move up</code> 9
+</span></td></tr><tr><td><tt class="o">102</tt><tt> 42 B   CUD </tt> <span style="font-family:sans-serif"> CUrsor Down * £ </span></td><td>[B   <span style="font-family:sans-serif"><code style="color:green">move</code> down one line, stop at bottom of screen
+</span></td></tr><tr><td><tt class="o">103</tt><tt> 43 C   CUF </tt> <span style="font-family:sans-serif"> CUrsor Forward * £ </span></td><td>[C   <span style="font-family:sans-serif"><code style="color:green">move forward</code> one position, stop at right edge of screen
+</span></td></tr><tr><td><tt class="o">104</tt><tt> 44 D   CUB </tt> <span style="font-family:sans-serif"> CUrsor Backward * £ </span></td><td>[D   <span style="font-family:sans-serif">Same as <code style="color:green">BackSpace</code>, stop at left edge of screen
+</span></td></tr><tr><td><tt class="o">105</tt><tt> 45 E   CNL </tt> <span style="font-family:sans-serif"> Cursor to Next Line £ </span></td><td>[5E  <span style="font-family:sans-serif"> <code style="color:green">move to</code> first position of 5th line down
+</span></td></tr><tr><td><tt class="o">106</tt><tt> 46 F   CPL </tt> <span style="font-family:sans-serif"> Cursor to Previous Line £ </span></td><td>[5F  <span style="font-family:sans-serif"><code style="color:green">move to</code> first position of 5th line previous
+</span></td></tr><tr><td><nobr><tt class="o">107</tt><tt> 47 G   CHA </tt> <span style="font-family:sans-serif"> Cursor Horizontal position Absolute £</span></nobr></td><td>[40G <span style="font-family:sans-serif"><code style="color:green">move to column</code> 40 of current line
+</span></td></tr><tr><td><tt class="o">110</tt><tt> 48 H   CUP </tt> <span style="font-family:sans-serif"> CUrsor Position * £</span></td><td>[H   Home, [24;80H = Row 24, Column 80
+</td></tr><tr><td><tt class="o">111</tt><tt> 49 I   CHT </tt> <span style="font-family:sans-serif"> Cursor Horizontal Tabulation</span></td><td>[I   as HT (Control-I)not linux, [3I = <span style="font-family:sans-serif">Go forward 3 tabs
+</span></td></tr><tr><td><tt class="o">112</tt><tt> 4A J   ED  </tt> <span style="font-family:sans-serif"> <b>erase</b> in Display (cursor does not <code style="color:green">move</code>)* £ </span></td><td>[J  [0J = <span style="font-family:sans-serif"><b>erase</b> from current position to end (inclusive)
+[1J  <span style="font-family:sans-serif"><b>erase</b> from beginning to current position (inclusive)
+[2J  <span style="font-family:sans-serif"><b>erase</b> entire display
+[3J  ~<span style="font-family:sans-serif"><b>erase</b> whole display including scroll-back buffer(<big>£</big>)
+[?0J <span style="font-family:sans-serif">Selective <b>erase</b> in display ([?1J, [?2J similar)
+</span></span></span></span></span></td></tr><tr><td><tt class="o">113</tt><tt> 4B K   EL  - <span style="font-family:sans-serif"><b>erase</b> in Line (cursor does not <code style="color:green">move</code>) * £ </span></tt></td><td>
+[K   [0K = <span style="font-family:sans-serif"><b>erase</b> from current position to end (inclusive)
+[1K   <span style="font-family:sans-serif"><b>erase</b> from beginning to current position
+[2K   <span style="font-family:sans-serif"><b>erase</b> entire current line
+[?0K  <span style="font-family:sans-serif">Selective <b>erase</b> to end of line ([?1K, [?2K similar)
+
+</span></span></span></span></td></tr><tr><td><nobr><tt class="o">114</tt><tt> 4C L * IL <span style="font-family:sans-serif"> Insert Line, current line <code style="color:green">move</code>s down (VT102 series)£ </span></tt></nobr></td><td>[3L   Insert 3 lines if currently in scrolling region
+</td></tr><tr><td><nobr><tt class="o">115</tt><tt> 4D M * DL <span style="font-family:sans-serif">Delete Line, lines below current <code style="color:green">move</code> up (VT102 series)£ </span></tt></nobr></td><td>[2M   Delete 2 lines if currently in scrolling region
+</td></tr><tr><td><tt class="o">116</tt><tt> 4E N   EF <span style="font-family:sans-serif"><b>erase</b> in Field 
+                        (as bounded by protected fields)</span></tt></td><td>[0N, [1N, [2N act like [L but within currend field
+</td></tr><tr><td><tt class="o">117</tt><tt> 4F O   EA <span style="font-family:sans-serif"><b>erase</b> in qualified Area (defined by DAQ)</span></tt></td><td>[0O, [1O, [2O act like [J but within current area
+</td></tr><tr><td><tt class="o">120</tt><tt> 50 P * DCH <span style="font-family:sans-serif">Delete Character, from current position to end of field </span></tt></td><td>[4P   Delete 4 characters, VT102 series
+</td></tr><tr><td><tt class="o">121</tt><tt> 51 Q   SEM <span style="font-family:sans-serif">Set Editing extent Mode (limits ICH &amp; DCH)</span></tt></td><td>[0Q   [Q = Insert/delete character affects rest of display
+[1Q   ICH/DCH affect the current line only
+[2Q   ICH/DCH affect current field (between tab stops) only
+[3Q   ICH/DCH affect qualified area (between protected fields)
+</td></tr><tr><td><nobr><tt class="o">122</tt><tt> 52 R * CPR <span style="font-family:sans-serif">Cursor Position Report (from terminal to host) *</span></tt></nobr></td><td>[24;80R   Cursor is positioned at line 24 column 80
+</td></tr><tr><td><tt class="o">123</tt><tt> 53 S   SU <span style="font-family:sans-serif"> Scroll up,
+           entire display is <code style="color:green">move</code>d up, new lines at bottom</span></tt></td><td>[3S   <code style="color:green">move</code> everything up 3 lines, bring in 3 new lines
+</td></tr><tr><td><tt class="o">124</tt><tt> 54 T   SD  <span style="font-family:sans-serif">Scroll down, 
+          new lines inserted at top of screen</span></tt></td><td>[4T   Scroll down 4, bring previous lines back into view
+</td></tr><tr><td><tt class="o">125</tt><tt> 55 U   NP   <span style="font-family:sans-serif"> Next Page
+           (if terminal has more than 1 page of memory) </span></tt></td><td>[2U   Scroll forward 2 pages
+</td></tr><tr><td><tt class="o">126</tt><tt> 56 V   PP  <span style="font-family:sans-serif"> Previous Page
+                 (if terminal remembers lines scrolled off top)
+</span></tt></td><td>[1V   Scroll backward 1 page
+</td></tr><tr><td><tt class="o">127</tt><tt> 57 W   CTC </tt><span style="font-family:sans-serif">Cursor Tabulation Control 
+</span></td><td>[0W <span style="font-family:sans-serif">  Set horizontal tab for current line at current position
+[1W <span style="font-family:sans-serif"> Set vertical tab stop for current line of current page<br>
+[2W <span style="font-family:sans-serif"> Clear horiz tab stop at current position of current line<br>
+[3W <span style="font-family:sans-serif"> Clear vert tab stop at current line of current page<br>
+[4W <span style="font-family:sans-serif"> Clear all horiz tab stops on current line only<br>
+[5W <span style="font-family:sans-serif"> Clear all horiz tab stops for the entire terminal<br>
+[6W <span style="font-family:sans-serif"> Clear all vert tabs stops for the entire terminal<br>
+</span></span></span></span></span></span></span></td></tr><tr><td><tt class="o">130</tt><tt> 58 X   ECH <span style="font-family:sans-serif"><b>erase</b> CHaracter </span></tt></td><td>[4X   Change next 4 characters to "<b>erase</b>d" state
+</td></tr><tr><td><tt class="o">131</tt><tt> 59 Y   CVT <span style="font-family:sans-serif">Cursor Vertical Tab </span></tt></td><td>[2Y   <code style="color:green">move</code> forward to 2nd following vertical tab stop
+</td></tr><tr><td><tt class="o">132</tt><tt> 5A Z   CBT <span style="font-family:sans-serif">Cursor Back Tab </span></tt></td><td>[3Z   <code style="color:green">move</code> backwards to 3rd previous horizontal tab stop
+</td></tr><tr style="color:silver"><td><tt>133 5B [    <small>Reserved for future standardization   
+</small></tt></td></tr><tr style="color:silver"><td><tt>134 5C \    Reserved                             
+</tt></td></tr><tr style="color:silver"><td><tt>135 5D ]    Reserved                            
+</tt></td></tr><tr style="color:silver"><td><tt>136 5E ^    Reserved                           
+</tt></td></tr><tr style="color:silver"><td><tt>137 5F _    Reserved                          
+</tt></td></tr><tr><td colspan="6"><hr>
+</td></tr><tr><td><tt class="o">140</tt><tt> 60 ` * HPA <span style="font-family:sans-serif;font-size:80%"> Horizontal Position Absolute (depends on PUM) </span>
+</tt></td><td>[720`   <code style="color:green">move</code> to 720 decipoints (1 inch) from left margin<br>
+[80`   <code style="color:green">move</code> to column 80 on LA120
+
+
+
+</td></tr><tr><td><tt class="o">141</tt><tt> 61 a * HPR <span style="font-family:sans-serif;font-size:80%">  Horizontal Position Relative(depends on PUM) </span>
+</tt></td><td>[360a   <code style="color:green">move</code> 360 decipoints (1/2 inch) from current position<br>
+[40a   <code style="color:green">move</code> 40 columns to right of current position on LA120
+</td></tr><tr><td><tt class="o">142</tt><tt> 62 b   REP <small><span style="font-family:sans-serif">REPeat previous displayable character
+</span></small></tt></td><td>[<em>nn</em>b   Repeat character following <code>b</code>  <em>nn</em> times  £
+
+</td></tr><tr><td><tt class="o">143</tt><tt> 63 c * DA  Device Attributes</tt></td><td>
+[c   Terminal will identify itself (Does not prevent disconnect!)<br> 
+<big>£</big> ansi reports <code>6c</code><br>
+[?1;2c   Terminal is saying it is a VT100 with AVO<br>
+[&gt;0c   Secondary DA request     (distinguishes VT240 from VT220)<br>
+
+</td></tr><tr><td><tt class="o">144</tt><tt> 64 d * VPA <span style="font-family:sans-serif"> Vertical Position Absolute(depends on PUM)
+</span></tt></td><td>[90d   <code style="color:green">move</code> to 90 decipoints (1/8 inch) from top margin
+[10d   <code style="color:green">move</code> to line 10 if before that else line 10 next page
+</td></tr><tr><td><tt class="o">145</tt><tt> 65 e * VPR <span style="font-family:sans-serif"> Vertical Position Relative(depends on PUM)
+</span></tt></td><td>[720e   <code style="color:green">move</code> 720 decipoints (1 inch) down from current position<br>
+[6e   Advance 6 lines forward on LA120
+</td></tr><tr><td><tt class="o">146</tt><tt> 66 f * HVP  <small><span style="font-family:sans-serif">Horizontal and Vertical Position(depends on PUM)
+</span></small></tt></td><td>[720,1440f   <code style="color:green">move</code> to 1 inch down and 2 inches over (decipoints)<br>
+[24;80f   <code style="color:green">move</code> to row 24 column 80 if PUM is set to character
+</td></tr><tr><td><tt class="o">147</tt><tt> 67 g * TBC - Tabulation Clear</tt></td><td>[0g   Clear horizontal tab stop at current position
+[1g   Clear vertical tab stop at current line (LA120)<br>
+[2g   Clear all horizontal tab stops on current line only LA120<br>
+[3g   Clear all horizontal tab stops in the terminal
+
+
+
+
+</td></tr><tr id="setmode"><td id="h">
+<tt class="o">150</tt><tt> 68 h * SM  - Set Mode  ( <a href="#resetmode">l</a> <br>
+[0h   Error, ignored<br>
+[1h   GATM   <span style="font-family:sans-serif;font-size:80%">Guarded Area Transmit Mode, send all (VT132)   </span><br>
+[2h   KAM   <span style="font-family:sans-serif;font-size:80%">Keyboard Action Mode, disable keyboard input   </span><br>
+ <a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Bracketed-Paste-Mode"><code>xterm</code></a><small>
+<s>Bracketed Paste Mode: pasted text is bracketed with control
+sequences<br> so that the program can differentiate pasted text from typed-
+in text.  <br>
+When bracketed paste mode is set, the program will receive:</s><br>
+   ESC [ 2 0 0 ~ ,<br>
+<s>followed by the pasted text, followed by</s>
+   ESC [ 2 0 1 ~ .<br>
+For background and discussion, see the FAQ:</small><br>
+[3h   CRM   <span style="font-family:sans-serif;font-size:80%">Control Representation Mode, show all control chars   </span><br>
+[4h   IRM   <span style="font-family:sans-serif;font-size:80%">Insertion/Replacement Mode, set insert mode (VT102)   </span><br>
+[5h   SRTM   <span style="font-family:sans-serif;font-size:80%">Status Report Transfer Mode, report after DCS   </span><br>
+[6h   ERM   <span style="font-family:sans-serif;font-size:80%">ERasure Mode, <b>erase</b> protected and unprotected   </span><br>
+[7h   VEM   <span style="font-family:sans-serif;font-size:80%">Vertical Editing Mode, IL/DL affect previous lines   </span><br>
+[8h reserved   <br>
+[9h reserved   <br>
+[10h   HEM   <span style="font-family:sans-serif;font-size:80%">Horizontal Editing mode, ICH/DCH/IRM go backwards   </span><br>
+[11h   PUM   <span style="font-family:sans-serif;font-size:80%">Positioning Unit Mode, use decipoints for HVP/etc   </span><br>
+[12h   SRM   <span style="font-family:sans-serif;font-size:80%">Send Receive Mode, transmit without local echo   </span><br>
+[13h   FEAM   <span style="font-family:sans-serif;font-size:80%">Format Effector Action Mode, FE's are stored   </span><br>
+[14h   FETM   <span style="font-family:sans-serif;font-size:80%">Format Effector Transfer Mode, send only if stored   </span><br>
+[15h   MATM   <span style="font-family:sans-serif;font-size:80%">Multiple Area Transfer Mode, send all areas   </span><br>
+[16h   TTM   <span style="font-family:sans-serif;font-size:80%">Transmit Termination Mode, send scrolling region   </span><br>
+[17h   SATM   <span style="font-family:sans-serif;font-size:80%">Send Area Transmit Mode, send entire buffer   </span><br>
+[18h   TSM   <span style="font-family:sans-serif;font-size:80%">Tabulation Stop Mode, lines are independent   </span><br>
+[19h   EBM   <span style="font-family:sans-serif;font-size:80%">Editing Boundry Mode, all of memory affected   </span><br>
+[20h   LNM   <span style="font-family:sans-serif;font-size:80%">Linefeed Newline Mode, LF interpreted as CR LF    </span><br>
+   <br>
+[?1h    DECCKM <span style="font-family:sans-serif;font-size:80%">  Cursor Keys Mode, send ESC O A for cursor up</span><br>
+[?2h    DECANM <span style="font-family:sans-serif;font-size:80%">  ANSI Mode, use ESC &lt; to switch VT52 to ANSI</span><br>
+<a name="n132"><b>[?3h    DECCOLM <span style="font-family:sans-serif;font-size:80%">  COLumn mode, 132 characters per line</span></b><br>
+[?4h    DECSCLM <span style="font-family:sans-serif;font-size:80%">  SCrolL Mode, smooth scrolling</span><br>
+<span style="color:white;background-color:black;font-family:monospace">[?5h    DECSCNM <span style="font-family:sans-serif;font-size:80%">  ScreeN Mode,  white on black background</span></span><br>
+[?6h    DECOM <span style="font-family:sans-serif;font-size:80%">  Origin Mode, line 1 is relative to scroll region</span><br>
+[?7h    DECAWM <span style="font-family:sans-serif;font-size:80%">  AutoWrap Mode, start newline after column 80</span><br>
+[?8h    DECARM <span style="font-family:sans-serif;font-size:80%">  Auto Repeat Mode, key will autorepeat</span><br>
+[?9h    DECINLM <span style="font-family:sans-serif;font-size:80%">  INterLace Mode, interlaced for taking photos</span><br>
+[?10h   DECEDM <span style="font-family:sans-serif;font-size:80%">  EDit Mode, VT132 is in EDIT mode</span><br>
+[?11h   DECLTM <span style="font-family:sans-serif;font-size:80%">  Line Transmit Mode, ignore TTM, send line</span><br>
+[?12h   ?<br>
+[?13h   DECSCFDM <span style="font-family:sans-serif;font-size:80%">  Space Compression/Field Delimiting on,</span><br>
+[?14h   DECTEM <span style="font-family:sans-serif;font-size:80%">  Transmit Execution Mode, transmit on ENTER</span><br>
+[?15h   ?<br>
+[?16h   DECEKEM <span style="font-family:sans-serif;font-size:80%">  Edit Key Execution Mode, EDIT key is local</span><br>
+[?17h   ?<br>
+[?18h   DECPFF <span style="font-family:sans-serif;font-size:80%">  Print FormFeed mode, send FF after printscreen</span><br>
+[?19h   DECPEXT <span style="font-family:sans-serif;font-size:80%">  Print Extent mode, print entire screen</span><br>
+[?20h   OV1 <span style="font-family:sans-serif;font-size:80%">  Overstrike, overlay characters on GIGI</span><br>
+[?21h   BA1 <span style="font-family:sans-serif;font-size:80%">  Local BASIC, GIGI to keyboard and screen</span><br>
+[?22h   BA2 <span style="font-family:sans-serif;font-size:80%">  Host BASIC, GIGI to host computer</span><br>
+[?23h   PK1 <span style="font-family:sans-serif;font-size:80%">  GIGI numeric keypad sends reprogrammable sequences</span><br>
+[?24h   AH1 <span style="font-family:sans-serif;font-size:80%">  Autohardcopy before erasing or rolling GIGI screen</span><br>
+[?25h   ??? <span style="font-family:sans-serif;font-size:80%">  show cursor <!-- from https://github.com/nottwo/BasicTerm --></span><br>
+[?29h- Use only the proper pitch for the LA100 font<br>
+<p>
+[?38h   DECTEK <span style="font-family:sans-serif;font-size:80%">  TEKtronix mode graphics</span><br>
+<br></p><p><b>Mac OS terminal specials:</b><br>
+[? 1004 h Enable reporting focus. Reports when terminal emulator enters/exits focus <br>
+as ESC [I and ESC [O.<br>
+    (Causes mac os terminal to "alert" when  gaining/loosing focus)<br>
+[? 1049 h Enable alternative screen buffer, from xterm<br>
+[? 2004 h Turn on bracketed paste mode.<br>
+
+[34] In bracketed paste mode, text pasted into the terminal will be surrounded <br>
+by ESC [200~ and ESC [201~; <bnr>
+programs running in the terminal should not treat characters bracketed by those sequences as commands <br>
+(Vim, for example, does not treat them as commands).<br>
+[35] From xterm[36]<br>
+[?2004h                    <br>
+[?1004h focus notify disable<br>
+[?2004h 
+
+
+</bnr></p></a></tt></td><td valign="top"><tt class="o">151</tt> 69    i *<br>
+    <br>
+[1i  <span style="font-family:sans-serif;font-size:80%"> Transmit only unprotected characters (VT132)</span> GATM<br>
+[2i  <span style="font-family:sans-serif;font-size:80%"> Enable input from keyboard</span> KAM<br>
+<br><br><br><br><br><br>
+[3i  <span style="font-family:sans-serif;font-size:80%"> Control characters are not displayable characters</span> CRM<br>
+[4i  <span style="font-family:sans-serif;font-size:80%"> Reset to replacement mode (VT102)</span> IRM<br>
+[5i  <span style="font-family:sans-serif;font-size:80%"> Report only on command (DSR)</span> SRTM<br>
+[6i  <span style="font-family:sans-serif;font-size:80%"> <b>erase</b> only unprotected fields</span> ERM<br>
+[7i  <span style="font-family:sans-serif;font-size:80%"> IL/DL affect lines after current line</span> VEM<br>
+[8i  reserved <br>
+[9i  reserved <br>
+[10i  <span style="font-family:sans-serif;font-size:80%"> ICH and IRM shove characters forward, DCH pulls</span> HEM<br>
+[11i  <span style="font-family:sans-serif;font-size:80%"> Use character positions for HPA/HPR/VPA/VPR/HVP</span> PUM<br>
+[12i  <span style="font-family:sans-serif;font-size:80%"> Local echo - input from keyboard sent to screen</span> SRM<br>
+[13i  <span style="font-family:sans-serif;font-size:80%"> HPA/VPA/SGR/etc are acted upon when received</span> FEAM<br>
+[14i  <span style="font-family:sans-serif;font-size:80%"> Format Effectors are sent to the printer</span> FETM<br>
+[15i  <span style="font-family:sans-serif;font-size:80%"> Send only current area if SATM is reset</span> MATM<br>
+[16i  <span style="font-family:sans-serif;font-size:80%"> Transmit partial page, up to cursor position</span> TTM<br>
+[17i  <span style="font-family:sans-serif;font-size:80%"> Transmit areas bounded by SSA/ESA/DAQ</span> SATM<br>
+[18i  <span style="font-family:sans-serif;font-size:80%"> Setting a tab stop on one line affects all lines</span> TSM<br>
+[19i  <span style="font-family:sans-serif;font-size:80%"> Insert does not overflow to next page</span> EBM<br>
+[20i  <span style="font-family:sans-serif;font-size:80%"> Linefeed does not change horizontal position</span> LNM<br>
+<br>
+[?1i  <span style="font-family:sans-serif;font-size:80%"> Cursor keys send ANSI cursor position commands</span> DECCKM<br>
+[?2i  <span style="font-family:sans-serif;font-size:80%"> Use VT52 emulation instead of ANSI mode</span> DECANM<br>
+[?3i  <span style="font-family:sans-serif;font-size:80%"> 80 characters per line (<b>erase</b>s screen)</span> DECCOLM<br>
+[?4i  <span style="font-family:sans-serif;font-size:80%"> Jump scrolling</span> DECSCLM<br>
+[?5i  <span style="font-family:sans-serif;font-size:80%"> black on white background)</span> DEC SCNM<br>
+[?6i  <span style="font-family:sans-serif;font-size:80%"> Line numbers are independent of scrolling region</span> DECOM<br>
+[?7i  <span style="font-family:sans-serif;font-size:80%"> Cursor remains at end of line after column 80</span> DECAWM<br>
+[?8i  <span style="font-family:sans-serif;font-size:80%"> Keys do not repeat when held down</span> DECARM<br>
+[?9i  <span style="font-family:sans-serif;font-size:80%"> Display is not interlaced to avoid flicker</span> DECINLM<br>
+[?10i <span style="font-family:sans-serif;font-size:80%"> VT132 transmits all key presses</span> DECEDM<br>
+[?11i <span style="font-family:sans-serif;font-size:80%"> Send page or partial page depending on TTM</span> DECLTM<br>
+[?12i <br>
+[?13i  <span style="font-family:sans-serif;font-size:80%"> Don't suppress trailing spaces on transmit</span> DECSCFDN<br>
+[?14i  <span style="font-family:sans-serif;font-size:80%"> ENTER sends ESC S (STS) a request to send</span> DECTEM<br>
+[?15i  <br>
+[?16i  <span style="font-family:sans-serif;font-size:80%"> EDIT key transmits either $[10h or $[10l</span> DECEKEM<br>
+[?17i  <br>
+[?18i  <span style="font-family:sans-serif;font-size:80%"> Don't send a formfeed after printing screen</span> DECPFF<br>
+[?19i  <span style="font-family:sans-serif;font-size:80%"> Print only the lines within the scroll region</span> DECPEXT<br>
+[?20i  OV0<span style="font-family:sans-serif;font-size:80%"> Space is destructive, replace not overstrike, GIGI</span> OV0<br>
+[?21i  BA0<span style="font-family:sans-serif;font-size:80%"> No BASIC, GIGI is On-Line or Local</span> BA0<br>
+[?22i  BA0<span style="font-family:sans-serif;font-size:80%"> No BASIC, GIGI is On-Line or Local</span> BA0<br>
+[?23i  PK0<span style="font-family:sans-serif;font-size:80%"> Ignore reprogramming on GIGI keypad and curso PK0rs</span><br>
+[?24i  AH0<span style="font-family:sans-serif;font-size:80%"> No auto-hardcopy when GIGI screen <b>erase</b>d</span> AH0<br>
+[?25i  ???<span style="font-family:sans-serif;font-size:80%"> hide cursor <!-- from https://github.com/nottwo/BasicTerm --></span><br>
+[?29i  <span style="font-family:sans-serif;font-size:80%"> Allow all character pitches on the LA100</span><br><br>
+[?38i  <span style="font-family:sans-serif;font-size:80%"> Ignore TEKtronix graphics commands</span><br>
+<p>
+ 
+
+
+
+
+</p><p><br></p><p>
+
+
+<tt class="o">151</tt><tt> 69 i * MC  -&gt; Media Copy <br>
+(printer port on VT102)<br>
+[0i  <span style="font-family:sans-serif;font-size:80%">  Send contents of text screen to printer<br>
+[1i  <span style="font-family:sans-serif;font-size:90%">  Fill screen from auxiliary input (printer's keyboard)  </span><br>
+[2i  <span style="font-family:sans-serif;font-size:90%">  Send screen to secondary output device  </span><br>
+[3i  <span style="font-family:sans-serif;font-size:90%">  Fill screen from secondary input device  </span><br>
+[4i  <span style="font-family:sans-serif;font-size:90%">  Turn on copying received data to primary output (VT125)  </span><br>
+[4i  <span style="font-family:sans-serif;font-size:90%">  Received data goes to VT102 screen, not to its printer  </span><br>
+[5i  <span style="font-family:sans-serif;font-size:90%">  Turn off copying received data to primary output (VT125)  </span><br>
+[5i  <span style="font-family:sans-serif;font-size:90%">  Received data goes to VT102's printer, not its screen  </span><br>
+[6i  <span style="font-family:sans-serif;font-size:90%">  Turn off copying received data to secondary output (VT125)  </span><br>
+[7i  <span style="font-family:sans-serif;font-size:90%">  Turn on copying received data to secondary output (VT125)  </span><br>
+[?0i  <span style="font-family:sans-serif;font-size:90%">  Graphics screen dump goes to graphics printer VT125,VT240  </span><br>
+[?1i  <span style="font-family:sans-serif;font-size:90%">  Print cursor line, terminated by CR LF  </span><br>
+[?2i  <span style="font-family:sans-serif;font-size:90%">  Graphics screen dump goes to host computer VT125,VT240  </span><br>
+[?4i  <span style="font-family:sans-serif;font-size:90%">  Disable auto print  </span><br>
+[?5i  <span style="font-family:sans-serif;font-size:90%">  Auto print, send a line at a time when linefeed received  </span><br>
+
+
+
+
+</span></tt></p></td></tr><tr><td><tt class="o">152</tt> 6A j PageFormatSelect<br><small><small><a href="http://odl.sysworks.biz/disk$cddoc03jul11/decw$book/d33vaaa2.p218.decw$book">sysworks.biz DEC book</a></small></small>   <br><br>
+[0j  <span style="font-family:sans-serif;font-size:90%">  Portrait    Normal text N. American letter No  </span><br>
+[1j  <span style="font-family:sans-serif;font-size:90%">    Landscape Normal text N. American letter No  </span><br>
+[2j  <span style="font-family:sans-serif;font-size:90%">  Portrait    Normal A4 No  </span><br>
+[3j  <span style="font-family:sans-serif;font-size:90%">    Landscape Normal A4 No  </span><br>
+[4j  <span style="font-family:sans-serif;font-size:90%">  Portrait    Normal N. American letter No  </span><br>
+[5j  <span style="font-family:sans-serif;font-size:90%">    Landscape Normal N. American letter No  </span><br>
+[6j  <span style="font-family:sans-serif;font-size:90%">  Portrait    Extended A4 No  </span><br>
+[7j  <span style="font-family:sans-serif;font-size:90%">    Landscape Extended A4 No  </span><br>
+[8j  <span style="font-family:sans-serif;font-size:90%">  Portrait    Extended Legal No  </span><br>
+[9j  <span style="font-family:sans-serif;font-size:90%">    Landscape Extended Legal No   </span><br>
+[?20j  <span style="font-family:sans-serif;font-size:90%">Portrait    Extended N. American letter Yes  </span><br>
+[?21j  <span style="font-family:sans-serif;font-size:90%">  Landscape Extended N. American letter Yes  </span><br>
+[?22j  <span style="font-family:sans-serif;font-size:90%">Portrait    Extended A4 Yes  </span><br>
+[?23j  <span style="font-family:sans-serif;font-size:90%">  Landscape Extended A4 Yes  </span><br>
+[?24j  <span style="font-family:sans-serif;font-size:90%">Portrait    Extended Legal Yes  </span><br>
+[?25j  <span style="font-family:sans-serif;font-size:90%">  Landscape Extended Legal Yes  </span><br>
+[?26j  <span style="font-family:sans-serif;font-size:90%">Portrait    Extended B Yes  </span><br>
+[?27j  <span style="font-family:sans-serif;font-size:90%">  Landscape Extended B Yes   </span><br>
+  <span style="font-family:sans-serif;font-size:90%">       </span><br>
+  <span style="font-family:sans-serif;font-size:90%">    Normal sets PageHome 1/2 inch below top margin and   </span><br>
+  <span style="font-family:sans-serif;font-size:90%">                PageEnd  5/6 inch above bottom margin  </span><br>
+  <br>
+     Extended    PageHome at top margin<br>
+                 PageEnd  at bottom margin<br>
+  text format printable area  is 3/10 in. (2160 centipoints) narrower than normal <br>
+N. American letter format
+
+
+
+</td><td><span style="color:silver"><tt>153 6B k</tt> <small>Reserved for future standardization </small></span><small>
+<p><br></p><p>
+
+<tt class="o">154</tt><tt> 6C l * RM  <s>Reset Mode ( permanently reset on VT100)<br>
+
+
+</s></tt></p><p><tt><s>
+
+    See Set Mode</s><tt> <a href="#h"> [<var>x</var>h </a>
+
+</tt></tt></p><p><tt><tt>
+[? 1004 l <s>Disable reporting focus</s><br>
+[? 1049 l <s>Disable alternative screen buffer, from xterm</s>.<br>
+
+[? 2004 l <s>Turn off bracketed paste mode</s><br>.
+
+
+</tt></tt></p><p><tt><tt>
+
+</tt></tt></p></small></td></tr><tr><td><tt><p name="SGR"><a name="bridim">
+<tt class="o">155</tt> 6D m * SGR <s>Set Graphics Rendition  based on parameter <br>
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(affects character attributes)</s></a></p><p><a name="bridim">
+<tt>
+[0m  <s>Clear all special attributes</s><br>
+[1m  <b>Bold or increased intensity </b><br>
+
+To produce: <b> &nbsp;--warning: not network connection</b> i.e. bold</tt></a></p><p><a name="bridim"><tt>
+</tt></a></p><pre class="samp"><a name="bridim"><tt><small>echo  $'\e'\[1m --warning: not network connection  $'\e'\[0m
+      <sub style="color:brown">^^^^^
+       <sup>esc</sup> </sub></small></tt></a></pre><a name="bridim"><tt>
+Change a section of output(from <b>log</b> to end of line) to bold:<br>
+ <pre class="samp"><small>… |sed --unbuffered "s/<u>log</u>/<u>&amp;</u>$\e[1m/; s/$/'\e[0m/"</small></pre>
+
+
+[2<var>X</var> <s>cancels <var>X</var> attribute (except bold)</s><br>
+[2m  <span style="color:gray;">dim</span> or secondary color on GIGI (superscript on XXXXXX)<br>
+[22m Cancel bold or dim attribute (VT220)<p>
+
+[3m  <span style="font-style:oblique">Italic</span>                          (subscript on XXXXXX)<br>
+[23m cancel Italic</p><p>
+
+[4m  <u>Underscore, $'\e[0;4m' = Clear, then set underline only</u> <br>
+[24m Cancel underline attribute only (VT220) </p><p>
+
+[5m  Slow blink                                         <br>
+[6m  Fast blink  (<small> not on Mac OS terminal</small>)                    (overscore on XXXXXX)<br>
+[25m Cancel fast or slow blink attribute only (VT220)</p><p>
+
+</p><p>
+    Bold, italic, underscore and bink rate may be combined</p><p>
+<span style="background-color:black;color:white"> [7m    Negative image</span><br>
+<b style="background-color:black;color:white"> [1;7m = Bold + Inverse  </b>         <br>
+[27m Cancel negative image attribute only (VT220)</p></tt></a><tt><p><a name="bridim">
+
+[8m  Concealed (do not display character echoed locally)<br>
+<span style="color:silver">   [9m    Reserved for future standardization<br>
+
+[10m Select primary font (LA100)<br>
+[11m Selete alternate font (LA100 has 11 thru 14) <br>
+   [19m   <br>
+   <span style="color:silver">[20m </span></span></a><a href="https://en.wikipedia.org/wiki/Fraktur" target="f">FRAKTUR</a>  26 characters include &#946;, umlauts...<br>
+
+</p><table>
+<tbody><tr><td>-foreground- </td><td>   -background-
+</td></tr><tr><td><code style="color:black;">[30m black </code></td><td>    <code> [40m <span style="background-color:black;"> red&nbsp;</span>
+</code></td></tr><tr><td><code style="color:red;">[31m red </code></td><td>   <code>  [41m <span style="background-color:red;"> red&nbsp;</span>
+</code></td></tr><tr><td><code style="color:green;">[32m green </code></td><td> <code>  [42m <span style="background-color:green;"> green&nbsp;</span>
+</code></td></tr><tr><td><code style="color:yellow;">[33m yellow </code></td><td> <code> [43m <span style="background-color:yellow;"> yellow&nbsp;</span>
+</code></td></tr><tr><td><code style="color:blue;">[34m blue </code></td><td><code>    [44m <span style="background-color:blue;"> blue&nbsp;</span>
+</code></td></tr><tr><td><code style="color:magenta;">[35m magenta </code></td><td><code>  [45m <span style="background-color:magenta;"> magenta&nbsp;</span>
+</code></td></tr><tr><td><code style="color:cyan;">[36m cyan </code></td><td> <code>   [46m <span style="background-color:cyan;"> cyan&nbsp;</span>
+</code></td></tr><tr><td><code>[37m white                            </code></td><td><code> [47m  white  
+</code></td></tr><tr><td colspan="2"><small style="color:silver"> [38m, [39m, [48m, [49m are reserved</small>
+</td></tr></tbody></table>
+
+
+</tt></tt></td><td><tt>156 6E n * DSR <span style="font-family:sans-serif"> Device Status Report<br>
+[0n   Terminal is ready, no malfunctions<br>
+[1n   Terminal is busy, retry later<br>
+[2n   Terminal is busy, sends DSR when ready<br>
+[3n   Malfunction, try again<br>
+[4n   Malfunction, sends DSR when ready<br>
+
+[5n   report status<br>
+[6n   report cursor position (CPR)<br>
+
+[?10n   OK, <br>
+[?11n = not OK, <br>
+[?13n = no printer.<br>
+[?15n   report printer status, returns:<br>
+[?25n   "Are User Defined Keys Locked?" (VT220)
+
+</span></tt></td></tr><tr><td><tt>157 6F o   DAQ - <span style="font-family:sans-serif">Define Area Qualification 
+starting at current position<br>
+ [0o   Accept all input, transmit on request<br>
+ [1o   Protected and guarded, accept no input, do not transmit<br>
+ [2o   Accept any printing character in this field<br>
+ [3o   Numeric only field<br>
+ [4o   Alphabetic (A-Z and a-z) only<br>
+ [5o   Right justify in area<br>
+ [3;6o Zero fill in area<br>
+ [7o   Set horizontal tab stop, this is the start of the field<br>
+ [8o   Protected and unguarded, accept no input, do transmit<br>
+ [9o   Space fill in area<br>
+
+</span></tt></td><td colspan="2">Private Control Sequences (allowed by ANSI X3.41-1974).<br>
+<tt class="o">160</tt> 70 p  DECSTR - Soft Terminal Reset      [!p 
+
+</td></tr><tr><td><tt class="o">161</tt> 71 q DECLL - Load LEDs<br>
+[0 q Turn off all, [1;4q turns on L1 and L4,  <br>
+(<big>£</big>inux supports L1 as scroll lock, L2 NumLock, L3 as Caps lock  , )<br>
+[154;155;157q   VT100 goes bonkers<br>
+[2;23!q   Partial screen dump from GIGI to graphics printer<br>
+[0"q DECSCA - Select Character Attributes off<br>
+[1"q DECSCA - Designate set as non-erasable<br>
+[2"q DECSCA - Designate set as erasable<p>
+
+                 see  <a href="http://vim.wikia.com/wiki/Configuring_the_cursor">vim.wikia.com/wiki/Configuring_the_cursor</a>
+  .- <span style="font-family:sans-serif">don't omit space</span><br>
+[0 q blinking block<br>
+[1 q blinking block<br>
+[2 q solid block<br>
+[3 q blinking underscore<br>
+[4 q solid underscore<br>
+[5 q blinking vertile<br>
+[6 q solid verticle<br>
+
+
+</p><pre><a name="scrollregion">
+</a></pre></td></tr><tr><td><tt class="o">162</tt> 72 r  DECSTBM <span style="font-family:sans-serif"> top and bottom margins (scroll region on VT100)
+                            [4;20r   top margin at line 4 and bottom at line 20
+</span></td><td><tt class="o">163</tt> 73 s  DECSTRM <span style="font-family:sans-serif"> left and right margins on LA100,LA120
+                            [5;130s   left margin at column 5 and right at column 130
+</span></td></tr><tr><td><tt class="o">164</tt> 74 t  DECSLPP <span style="font-family:sans-serif"> physical lines per page
+                            [66t   Paper has 66 lines (11 inches at 6 per inch)
+
+</span></td></tr><tr><td colspan="3">
+<table bgcolor="lightCyan"><tbody><tr><td style="font-family:sans-serif" colspan="3">
+<h3 style="font-family:sans-serif">GUI window position &amp; size</h3>
+<code style="color:green">$'\e[1<b>t</b>'</code> Restore ;
+<code style="color:green">$'\e[2<b>t</b>'</code>  Minimize ;
+<code style="color:green">$'\e[9;1<b>t</b>'</code> Maximize ;<br>
+<code style="color:green">$'\e[3;0;0t'</code> window to Home (top, left(i.e. 0;0)) ;<br>
+<code style="color:green">$'\e[5t'</code>     bring to Foreground ;<br>
+<code style="color:green">$'\e[8;<var>hh;ww</var>t'</code> set window size <!-- see <code>resize</code>      -->
+
+<span style="font-family:sans-serif">
+mac book pro: font:Andale mono 14: max width is width of screen i.e. 158. <br>
+mac os keystrokes:<br>
+Increase font size: <code> &#8984;+ </code>. When the window reaches the screen size, reduces columns <br>
+Reduce &nbsp;font size <code>&#8984;-</code> , which permits more rows and columns.<br>
+Restore <code>&#8984;0</code> but does NOT restore columns!
+
+
+</span></td></tr></tbody></table>
+</td></tr><tr><td><tt class="o">165</tt> 75 u  DECSHTS <span style="font-family:sans-serif"> many horizontal tab stops at once on LA100
+                            </span></td><td>[9;17;25;33;41;49;57;65;73;81u standard tab stops
+</td></tr><tr><td><tt class="o">166</tt> 76 v  DECSVTS <span style="font-family:sans-serif"> many vertical tab stops at once on LA100
+                            </span></td><td>[1;16;31;45v   vert tabs every 15 lines
+</td></tr><tr><td><tt class="o">167</tt> 77 w  DECSHORP <span style="font-family:sans-serif"> horizontal pitch on LAxxx printers
+                            </span></td><td>[1w   10 characters per inch, [2w = 12 characters per inch
+[0w=10, [3w=13.2, [4w=16.5, [5w=5, [6w=6, [7w=6.6, [8w=8.25
+</td></tr><tr><td><tt class="o">170</tt> 78 x  DECREQTPARM <span style="font-family:sans-serif"> Request terminal parameters
+                            </span></td><td>[3;5;2;64;64;1;0x   Report, 7 bit Even, 1200 baud, 1200 baud
+</td></tr><tr><td><tt class="o">171</tt> 79 y  DECTST <span style="font-family:sans-serif">  Invoke confidence test
+        </span></td><td>[2;1y   Power-up test on VT100 series (and VT100 part of VT125)
+[3;1y   Power-up test on GIGI (VK100)
+[4;1y   Power-up test on graphics portion of VT125
+</td></tr><tr><td><tt class="o">172</tt> 7A z  DECVERP <span style="font-family:sans-serif">  Set vertical pitch on LA100
+        </span></td><td>[1z   6 lines per inch, [2z = 8 lines per inch
+[0z=6, [3z=12, [4z=3, [5z=3, [6z=4
+</td></tr><tr><td><tt class="o">173</tt> 7B {   Private
+</td></tr><tr><td><tt class="o">174</tt> 7C |  DECTTC <span style="font-family:sans-serif">  Transmit Termination Character
+        </span></td><td>[0|   No extra characters, [1| = terminate with FF
+</td></tr><tr><td><tt class="o">175</tt> 7D }  DECPRO <span style="font-family:sans-serif">  Define protected field on VT132
+        </span></td><td>[0}   No protection, [1;4;5;7} = Any attribute is protected
+[254}   Characters with no attributes are protected
+</td></tr><tr><td><tt class="o">176</tt> 7E ~  DECKEYS <span style="font-family:sans-serif">  Sent by special function keys
+        </span></td><td>[1~=FIND, [2~=INSERT, [3~=RE<code style="color:green">move</code>, [4~=SELECT, [5~=PREV, [6~=NEXT
+[11~=F1… [17~=F6…[34~=F20 ([23~=ESC,[24~=BS,[25~=LF,[28~=HELP,[29~=DO)
+</td></tr><tr><td><tt class="o">177</tt> 7F DELETE <span style="font-family:sans-serif"> is always ignored
+</span></td></tr></tbody></table>
+
+
+<p>
+
+</p><hr>
+    Control Sequences with intermediate characters (from ANSI X3.64-1979).<br>
+    Note that there is a SPACE character before the terminating alphabetic.
+
+<pre><tt class="o">Oct</tt> Hex 
+--- -- - - --------------------------------------------------------------------
+<tt class="o">100</tt> 40 @   SL  - Scroll Left
+                            [4 @   <code style="color:green">move</code> everything over 4 columns, 4 new columns at right
+<tt class="o">101</tt> 41 A   SR  - Scroll Right
+                            [2 A   <code style="color:green">move</code> everything over 2 columns, 2 new columns at left
+<tt class="o">102</tt> 42 B   GSM - Graphic Size Modification
+                            [110;50 B   Make 110% high, 50% wide
+<tt class="o">103</tt> 43 C   GSS - Graphic Size Selection
+                            [120 C   Make characters 120 decipoints (1/6 inch) high
+<tt class="o">104</tt> 44 D   FNT - FoNT selection (used by SGR, [10m thru [19m)
+                            [0;23 D   Make primary font be registered font #23
+<tt class="o">105</tt> 45 E   TSS - Thin Space Specification
+                            [36 E   Define a thin space to be 36 decipoints (1/20 inch)
+<tt class="o">106</tt> 46 F   JFY - JustiFY, done by the terminal/printer
+        [0 F   No justification
+        [1 F   Fill, bringing words up from next line if necessary
+        [2 F   Interword spacing, adjust spaces between words
+        [3 F   Letter spacing, adjust width of each letter
+        [4 F   Use hyphenation
+        [5 F   Flush left margin
+        [6 F   Center following text between margins (until [0 E)
+        [7 F   Flush right margin
+        [8 F   Italian form (underscore instead of hyphen)
+<tt class="o">107</tt> 47 G   SPI - SPacing Increment (in decipoints)
+                            [120;72 G   6 per inch vertical, 10 per inch horizontal
+<tt class="o">110</tt> 48 H   QUAD- Do quadding on current line of text (typography)
+        [0 H   Flush left,  [1 H   Flush left and fill with leader
+        [2 H   Center,      [3 H   Center and fill with leader
+        [4 H   Flush right, [5 H   Flush right and fill with leader
+<tt class="o">111</tt> 49 I   <small>Reserved for future standardization</small>
+
+<tt class="o">157</tt> 67 o   <small>Reserved for future standardization</small>
+
+<tt class="o">160</tt> 70 p   <small>Private use</small>
+  ..71-7D. May be defined by the printer manufacturer
+
+<tt class="o">176 </tt>7E ~   <small>Private use</small>
+<tt class="o">177 </tt>7F DELETE is always ignored
+</pre>
+<p>
+</p><hr>
+<table bgcolor="mistyRose"><tbody><tr><td>
+Minimum requirements for VT100 emulation:
+
+<p>
+</p><ol>
+ <li>To act as a passive display, implement the 4 cursor commands, the 2 <b>erase</b>
+   commands, direct cursor addressing, and at least inverse characters.<br>
+   The software should be capable of handling strings with 16 numeric parameters
+   with values in the range of 0 to 255.
+
+<pre>  [A      <code style="color:green">move</code> cursor up one row, stop if a top of screen
+  [B      <code style="color:green">move</code> cursor down one row, stop if at bottom of screen
+  [C      <code style="color:green">move</code> cursor forward one column, stop if at right edge of screen
+  [D      <code style="color:green">move</code> cursor backward one column, stop if at left edge of screen
+  [H      Home to row 1 column 1 (also [1;1H)
+  [J      Clear from current position to bottom of screen
+  [K      Clear from current position to end of line
+  [24;80H Position to line 24 column 80 (any line 1 to 24, any column 1 to 132)
+  [0m     Clear attributes to normal characters
+  [7m     Add the inverse video attribute to succeeding characters
+  [0;7m   Set character attributes to inverse video only
+</pre>
+</li><li> To enter data in VT100 mode, implement the 4 cursor keys and the 4 PF keys.<br>
+   It must be possible to enter ESC, TAB, BS, DEL, and LF from the keyboard.
+
+<pre>  [A       Sent by the up-cursor key (alternately ESC O A)
+  [B       Sent by the down-cursor key (alternately ESC O B)
+  [C       Sent by the right-cursor key (alternately ESC O C)
+  [D       Sent by the left-cursor key (alternately ESC O D)
+  OP       PF1 key sends ESC O P
+  OQ       PF2 key sends ESC O Q
+  OR       PF3 key sends ESC O R
+  OS       PF3 key sends ESC O S
+  [c       Request for the terminal to identify itself
+  [?1;0c   VT100 with memory for 24 by 80, inverse video character attribute
+  [?1;2c   VT100 capable of 132 column mode, with bold+blink+underline+inverse
+
+</pre>
+</li><li> When doing full-screen editing on a VT100, implement directed <b>erase</b>, the
+   numeric keypad in applications mode, and <br>
+the limited scrolling region.<br>
+   The latter is needed to do insert/delete line functions without rewriting
+   the screen.
+
+<pre>  [0J     <b>erase</b> from current position to bottom of screen inclusive
+  [1J     <b>erase</b> from top of screen to current position inclusive
+  [2J     <b>erase</b> entire screen (without moving the cursor)
+  [0K     <b>erase</b> from current position to end of line inclusive
+  [1K     <b>erase</b> from beginning of line to current position inclusive
+  [2K     <b>erase</b> entire line (without moving cursor)
+<a name="scrollRegion">
+ £  [12;24r   Set scrolling region to lines 12 thru 24.  <br>
+If a linefeed or an INDex is received while on line 24, the former line 12 is deleted
+            and rows 13-24 <code style="color:green">move</code> up.  <br>
+If a RI (reverse Index) is received while
+            on line 12, a blank line is inserted there as rows 12-13 <code style="color:green">move</code> down.<br>
+All VT100 compatible terminals (except GIGI) have this feature.
+
+  ESC     Set numeric keypad to applications mode
+  ESC &gt;   Set numeric keypad to numbers mode
+  OA      Up-cursor key    sends ESC O A after ESC   ESC [ ? 1 h
+  OB      Down-cursor key  sends ESC O B    "      "         "
+  OC      Right-cursor key sends ESC O B    "      "         "
+  OB      Left-cursor key  sends ESC O B    "      "         "
+  OM      ENTER key        sends ESC O M after ESC =
+  Ol      COMMA on keypad  sends ESC O l    "      "   (that's lowercase L)
+  Om      MINUS on keypad  sends ESC O m    "      "
+  Op      ZERO on keypad   sends ESC O p    "      "
+  Oq      ONE on keypad    sends ESC O q    "      "
+  Or      TWO on keypad    sends ESC O r    "      "
+  Os      THREE on keypad  sends ESC O s    "      "
+  Ot      FOUR on keypad   sends ESC O t    "      "
+  Ou      FIVE on keypad   sends ESC O u    "      "
+  Ov      SIX on keypad    sends ESC O v    "      "
+  Ow      SEVEN on keypad  sends ESC O w    "      "
+  Ox      EIGHT on keypad  sends ESC O x    "      "
+  Oy      NINE on keypad   sends ESC O y    "      "
+</a></pre><a name="scrollRegion">
+
+</a></li><li><a name="scrollRegion"> If the hardware is capable of double width/double height:
+
+<pre>  #3     Top half of a double-width double-height line
+  #4     Bottom half of a double-width double-height line
+  #5     Make line single-width (lines are set this way when cleared by ESC [ J)
+  #6     Make line double-width normal height (40 or 66 characters)
+</pre>
+
+
+</a></li><li><a name="scrollRegion"> If the terminal emulator is capable of insert/delete characters,
+insert/delete lines, insert/replace mode, and <br>
+can do a full-screen dump to the printer (in text mode), then it should identify itself as a VT102
+
+<pre>  [c     Request for the terminal to identify itself
+  [?6c   VT102 (printer port, 132 column mode, and ins/del standard)
+  [1@    Insert a blank character position (shift line to the right)
+  [1P    Delete a character position (shift line to the left)
+  [1L    Insert blank line at current row (shift screen down)
+  [1M    Delete the current line (shift screen up)
+  [4h    Set insert mode, new characters shove existing ones to the right
+  [4l    Reset insert mode, new characters replace existing ones
+  [0i    Print screen (all 24 lines) to the printer
+  [4i    All received data goes to the printer (nothing to the screen)
+  [5i    All received data goes to the screen (nothing to the printer)
+</pre>
+
+</a></li></ol></td></tr></tbody></table>
+<h2>see <a href="http://invisible-island.net/xterm/ctlseqs/ctlseqs.html" target="xt">XTerm Control Sequences</a></h2>
+
+The VT100 USER GUIDE and ANSI standard X3.64-1979 both list the ANSI ESCape sequences in alphabetic order by mnemonic, 
+but do not have a have a cross reference in order by ASCII code.  
+This document lists the combination of all definitions from the three ANSI standards in numeric order.  
+For a description of the advantages of using these standards, see the article "Toward
+Standardized Video Terminals" in the April-1984 issue of BYTE magazine.
+<p>
+ANSI X3.41-1974 introduces an 8-bit ASCII character set (<b>C1</b> and G1
+in addition to the existing C0 and G0).  
+It describes how to use the 8-bit features in a 7-bit environment.  
+Defines the format of all ESCape
+sequences, but only the 3-character ones with a parameter character in the middle.  
+HThese instruct the terminal how to interpret the C0, G0, <b>C1</b>,
+and G1 characters (such as by selecting different character-set ROMs).  
+</p><p>
+NAPLPS does videotex graphics by redefining the <b>C1</b> set and selecting alternate G0, G1, G2, and G3 sets.
+  See the February 1983 issue of BYTE magazine for details.
+</p><p>
+ANSI X3.4-1977 defined the 7-bit ASCII character set (C0 and G0)
+in 1968, revised in 1977, and explains the decisions made in laying out the ASCII code.  
+It explains why ANSI chose to make ASCII incompatible with EBCDIC in order to make it self-consistant.
+
+</p><p>
+ANSI X3.64-1979 defines the remaining ESCape sequences.  the <b>C1</b>
+control characters, and specifies that certain two-character ESCape sequences
+in the 7-bit environment are to act exactly like the 8-bit <b>C1</b> control set.
+X3.64 introduces a Control-Sequence, which starts with CSI
+character, has an indefinite length, and is terminated by an alphabetic
+character.  The VT100 was one of the first terminals to implement this standard. 
+</p><p>
+ECMA-48 (aka "ISO 6429")
+
+<a href="https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h2-Bracketed-Paste-Mode">XTERM</a></p><p>
+</p><h3>See also</h3><a href="http://man7.org/linux/man-pages/man4/console_codes.4.html">Console Codes</a> linux Man page 
+<script src="ANSI%20terminal%20control%20strings%20used%20with%20terminal%20emulators-Dateien/endodoc.js"></script>
+
+
+</ol></body></html>

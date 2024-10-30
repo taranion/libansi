@@ -1,0 +1,118 @@
+body {
+    background: #fff none;
+    color: #000;
+    font-family: sans-serif;
+    line-height: 150%;
+}
+
+/* This is the mobile & universal stuff. */
+table { border-collapse: collapse; margin: 1em 0 }
+caption { padding: 0.5em; text-align: left; font-weight: bolder }
+/* Some huge tables have "repeater" headers or sub-heads,
+ * <tr class="th"> that need to align as if they were in thead.
+ */
+table thead tr,
+table tbody tr.th { vertical-align: bottom }
+table tbody tr,
+table tfoot tr { vertical-align: top }
+table th { text-align: left }
+table th, table td { padding: 0.2em 0.5em }
+/* Alignment overrides */
+th.c, td.c { text-align: center }
+th.r, td.r { text-align: right }
+td p:first-child { margin-top: 0 }
+
+/* Images and inlined SVGs should be constrained to document width */
+img, svg { max-width: 100%; height: auto }
+
+/* end of universal */
+
+/* Site style */
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top:    thin solid black; padding: 0.5em 0 0 0 }
+
+/* Site logo has one pixel underneath the text, for alignment with the terminal icon,
+ * so align the text with following text. */
+#vt100-net-site-logo {
+    display: inline-block;
+    position: relative;
+    bottom: -1px
+}
+
+nav.breadcrumbs ol { display: inline; margin: 0; padding: 0 }
+nav.breadcrumbs li { display: inline; list-style-type: none }
+nav.breadcrumbs li + li:before { content: ' › ' }
+
+/* Used for manuals */
+nav.sections a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav.sections a:nth-child(1) { text-align: left }
+nav.sections a:nth-child(2) { text-align: center }
+nav.sections a:nth-child(3) { text-align: right }
+
+h1 { line-height: 150% }
+
+ul.col2 { columns: 2 }
+ul.col3 { columns: 3 }
+ul.bare { list-style-type: none }
+
+.example { margin-left: 3em }
+.note { font-style: italic }
+code { font-style: normal }
+.note em { font-style: normal }
+div { margin-bottom: 0; margin-top: 0 }
+tr.vm { vertical-align: middle }
+figcaption { font-weight: bolder }
+.summarytable { background: #eee none; border: thin solid red }
+.summarytable caption { background: #eee none; border-bottom: #fff thin solid }
+/*.summarytable td { padding-left: 1em; padding-right: 1em }*/
+.majortable { background: #eee none }
+.majortable caption { background: inherit }
+.majortable caption,
+.majortable > thead,
+.majortable > tbody { border-bottom: medium solid white }
+dt { font-weight: bolder }
+.figure { }
+
+.command-example { font-family: sans-serif }
+.command-example thead,
+.command-example tbody { border: thin solid black }
+.command-example td { text-align: left }
+.chapnum { font-size: 200% }
+table.figure { margin-left: auto; margin-right: auto }
+table.figure caption { caption-side: bottom }
+
+.identity { margin-top: 0px; text-align: right; }
+.bit { font-size: xx-small; }
+.c0c,.c1c { text-align: center; }
+.c0n,.c1n { text-align: right; font-size: xx-small; }
+.glc,.grc { text-align: center; }
+.gln,.grn { text-align: right; font-size: xx-small; }
+
+.roman { font-style: normal }
+.padded td { padding: 4px 1em }
+.padded td.first { padding: 4px 1em 4px 0 }
+.padded th { padding: 4px 1em }
+.padded th.first { padding: 4px 1em 4px 0 }
+
+table.dpadded { margin-left: 2em }
+.dpadded td { padding: 4px 1em }
+.dpadded th { padding: 4px 1em }
+
+/* Set all four because this could be nested,
+   and we don't want to inherit other padding. */
+table.codeseq { margin-bottom: 0 }
+.codeseq td { padding: 0 1em 0 0 }
+.codeseq th { padding: 0 1em 0 0 }
+
+#BOOKTITLE { text-align: center }
+#TS0211,#TS0212,#TS0221,#TS0222,#TS0231,#TS0232,#TS1341,#TS1342,#TS1351 { text-align: center; border-bottom: #000 thin solid }
+#COVER { text-align: center }
+.navbar table { margin-bottom: 0 }
+div.centrefig { text-align: center }
+ol ol { list-style: lower-alpha }
+table.command-example caption { caption-side: bottom }
+img.button { border: none }
+div.navbot { text-align: right }
+
+.arrow-col { width: 1.5em }
+.dynarrow path { stroke: #000; stroke-width: 1 }

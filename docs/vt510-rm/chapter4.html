@@ -1,0 +1,6869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>ANSI Control Functions Summary</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="part2.html">Part II</a><a href="contents.html">Contents</a><a href="chapter5.html">Chapter 5</a></nav>
+</header>
+<h1 id="S4"><span>4</span> ANSI Control Functions Summary</h1>
+<div class="main"><h2 id="S4.1">4.1 Introduction</h2>
+<p>This chapter provides a general description of ANSI escape and control sequences,
+defining control characters, control functions, escape sequences, and device
+control strings. This chapter provides information on working with 7- and 8-bit
+environments and the conventions used in each, and it describes the <b class="feature">Show
+control characters</b> Set-Up feature. In addition, this chapter provides summary
+tables of the ANSI control functions.</p>
+<h2 id="S4.2">4.2 Control Characters</h2>
+<p>The purpose of a control character is to control an action such as line spacing,
+paging, or data flow. The terminal does not display control characters unless you
+select <b class="feature">Show control characters</b> from the <b class="feature">Display</b> Set-Up menu. There are two
+groups of control characters.</p>
+<div class="elaboration"><table>
+<tbody>
+<tr>
+<td>C0</td>
+<td>7-bit control characters, in columns 0 and 1
+of the 8-bit code table</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>8-bit control characters, in columns 8 and 9
+of the 8-bit code table</td>
+</tr>
+</tbody>
+</table></div>
+<p><a href="#T4-1">Table 4–1</a> lists the C0 control characters the VT510 recognizes. <a href="#T4-2">Table 4–2</a>
+lists the C1 control characters the VT510 recognizes. You can also code C1
+control characters as 7-bit escape sequences. <a href="#T4-3">Table 4–3</a> lists the equivalent 7-bit
+sequences for 8-bit control characters. All three tables give column/row locations
+to help you find the characters in the character sets.</p>
+<table id="T4-1" class="truled">
+<caption><span class="tabfigid">Table 4–1</span> C0 (7-Bit) Control Characters Recognized</caption>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Mnemonic<br/>
+Column/Row</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null</td>
+<td><span class="lit">NUL</span><br/>0/0</td>
+<td>NUL has no function (ignored by the
+terminal).</td>
+</tr>
+<tr>
+<td>Enquiry</td>
+<td><span class="lit">ENQ</span><br/>0/5</td>
+<td>Sends the answerback message.<br/>
+(Communications Set-Up)</td>
+</tr>
+<tr>
+<td>Bell</td>
+<td><span class="lit">BEL</span><br/>0/7</td>
+<td>Sounds the bell tone if the bell is enabled
+in Keyboard Set-Up.</td>
+</tr>
+<tr>
+<td>Backspace</td>
+<td><span class="lit">BS</span><br/>0/8</td>
+<td>Moves the cursor one character position to
+the left. If the cursor is at the left margin,
+no action occurs.</td>
+</tr>
+<tr>
+<td>Horizontal tab</td>
+<td><span class="lit">HT</span><br/>0/9</td>
+<td>Moves the cursor to the next tab stop. If
+there are no more tab stops, the cursor
+moves to the right margin. HT does not
+cause text to auto wrap.</td>
+</tr>
+<tr>
+<td>Line feed</td>
+<td><span class="lit">LF</span><br/>0/10</td>
+<td>Causes a line feed or a new line operation,
+depending on the setting of line feed/new
+line mode.</td>
+</tr>
+<tr>
+<td>Vertical tab</td>
+<td><span class="lit">VT</span><br/>0/11</td>
+<td>Treated as LF.</td>
+</tr>
+<tr>
+<td>Form feed</td>
+<td><span class="lit">FF</span><br/>0/12</td>
+<td>Treated as LF.</td>
+</tr>
+<tr>
+<td>Carriage return</td>
+<td><span class="lit">CR</span><br/>0/13</td>
+<td>Moves the cursor to the left margin on the
+current line.</td>
+</tr>
+<tr>
+<td>Shift out (locking
+shift 1)</td>
+<td><span class="lit">SO</span> (LS1)<br/>0/14</td>
+<td>Maps the G1 character set into GL. You
+designate G1 by using a select character set
+(SCS) sequence.</td>
+</tr>
+<tr>
+<td>Shift in (locking shift 0)</td>
+<td><span class="lit">SI</span> (LS0)<br/>0/15</td>
+<td>Maps the G0 character set into GL. You
+designate G0 by using a select character set
+(SCS) sequence.</td>
+</tr>
+<tr>
+<td>Device control 1 (XON)</td>
+<td><span class="lit">DC1</span><br/>1/1</td>
+<td>Also known as XON. If XON/XOFF flow
+control is enabled in Communications Set-Up,
+DC1 clears DC3 (XOFF). This action
+causes the VT510 to continue sending
+characters.</td>
+</tr>
+<tr>
+<td>Device control 3 (XOFF)</td>
+<td><span class="lit">DC3</span><br/>1/3</td>
+<td>Also known as XOFF. If XON/XOFF flow
+control is enabled in Communications Set-Up,
+DC3 causes the VT510 to stop sending
+characters. The terminal cannot resume
+sending characters until it receives a DC1
+control character.</td>
+</tr>
+<tr>
+<td>Cancel</td>
+<td><span class="lit">CAN</span><br/>1/8</td>
+<td>Immediately cancels an escape sequence,
+control sequence, or device control string in
+progress. In this case, the VT510 does not
+display any error character.</td>
+</tr>
+<tr>
+<td>Substitute</td>
+<td><span class="lit">SUB</span><br/>1/10</td>
+<td>Immediately cancels an escape sequence,
+control sequence, or device control string in
+progress, and displays a reverse question
+mark as an error character.</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td>Introduces an escape sequence. ESC also
+cancels any escape sequence, control
+sequence, or device control string in
+progress.</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><span class="lit">DEL</span><br/>7/15</td>
+<td>Ignored when received, unless a 96-
+character set is mapped into GL. DEL
+is not used as a fill character. Digital
+does not recommend using DEL as a fill
+character. Use NUL instead.</td>
+</tr>
+</tbody>
+</table>
+<table id="T4-2" class="truled">
+<caption><span class="tabfigid">Table 4–2</span> C1 (8-Bit) Control Characters Recognized</caption>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<thead>
+<tr>
+<th>Name</th>
+<th>Mnemonic<br/>
+Column/Row</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index</td>
+<td><span class="lit">IND</span><br/>8/4</td>
+<td>Moves the cursor down one line in the same
+column. If the cursor is at the bottom margin,
+the page scrolls up.</td>
+</tr>
+<tr>
+<td>Next line</td>
+<td><span class="lit">NEL</span><br/>8/5</td>
+<td>Moves the cursor to the first position on the next
+line. If the cursor is at the bottom margin, the
+page scrolls up.</td>
+</tr>
+<tr>
+<td>Horizontal tab set</td>
+<td><span class="lit">HTS</span><br/>8/8</td>
+<td>Sets a horizontal tab stop at the column where
+the cursor is.</td>
+</tr>
+<tr>
+<td>Reverse index</td>
+<td><span class="lit">RI</span><br/>8/13</td>
+<td>Moves the cursor up one line in the same
+column. If the cursor is at the top margin,
+the page scrolls down.</td>
+</tr>
+<tr>
+<td>Single shift 2</td>
+<td><span class="lit">SS2</span><br/>8/14</td>
+<td>Temporarily maps the G2 character set into GL,
+for the next graphic character. You designate
+the G2 set by using a select character set (SCS)
+sequence.</td>
+</tr>
+<tr>
+<td>Single shift 3</td>
+<td><span class="lit">SS3</span><br/>8/15</td>
+<td>Temporarily maps the G3 character set into GL,
+for the next graphic character. You designate
+the G3 set by using a select character set (SCS)
+sequence.</td>
+</tr>
+<tr>
+<td>Device control string</td>
+<td><span class="lit">DCS</span><br/>9/0</td>
+<td>Introduces a device control string that uses 8-bit
+characters. A DCS control string is used for
+loading function keys or a soft character set.</td>
+</tr>
+<tr>
+<td>Start of string</td>
+<td><span class="lit">SOS</span><br/>9/8</td>
+<td>Ignored.</td>
+</tr>
+<tr>
+<td>VT identification</td>
+<td><span class="lit">DECID</span><br/>9/10</td>
+<td>Makes the terminal send its device attributes
+response to the host (same as an ANSI device
+attributes (DA) sequence). Programs should use
+the ANSI DA sequence instead. If the printer
+is in controller mode, the terminal sends the
+sequence to the printer.</td>
+</tr>
+<tr>
+<td>Control sequence introducer</td>
+<td><span class="lit">CSI</span><br/>9/11</td>
+<td>Introduces a control sequence that uses 8-bit
+characters.</td>
+</tr>
+<tr>
+<td>String terminator</td>
+<td><span class="lit">ST</span><br/>9/12</td>
+<td>Ends a device control string. You use ST in
+combination with DCS.</td>
+</tr>
+<tr>
+<td>Operating system command</td>
+<td><span class="lit">OSC</span><br/>9/13</td>
+<td>Introduces an operating system command.<sup>*</sup></td>
+</tr>
+<tr>
+<td>Privacy message</td>
+<td><span class="lit">PM</span><br/>9/14</td>
+<td>Introduces a privacy message string.<sup>*</sup></td>
+</tr>
+<tr>
+<td>Application program command</td>
+<td><span class="lit">APC</span><br/>9/15</td>
+<td>Introduces an application program command.<sup>*</sup></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">*The VT510 ignores all following characters until it receives a SUB, ST, or any other C1 control
+character.</td>
+</tr>
+</tfoot>
+</table>
+<table id="T4-3" class="truled">
+<caption><span class="tabfigid">Table 4–3</span> 8-Bit Control Characters and Their 7-Bit Equivalents</caption>
+
+
+
+<thead>
+<tr>
+<th>Name</th>
+<th>8-Bit Character</th>
+<th>7-Bit Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Index</td>
+<td><span class="lit">IND</span><br/>8/4</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">D</span><br/>4/4</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Next line</td>
+<td><span class="lit">NEL</span><br/>8/5</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">E</span><br/>4/5</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Horizontal tab set</td>
+<td><span class="lit">HTS</span><br/>8/8</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">H</span><br/>4/8</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Reverse index</td>
+<td><span class="lit">RI</span><br/>8/13</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">M</span><br/>4/13</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Single shift 2</td>
+<td><span class="lit">SS2</span><br/>8/14</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">N</span><br/>4/14</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Single shift 3</td>
+<td><span class="lit">SS3</span><br/>8/15</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">O</span><br/>4/15</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Device control string</td>
+<td><span class="lit">DCS</span><br/>9/0</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">P</span><br/>5/0</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Start of string</td>
+<td><span class="lit">SOS</span><br/>9/8</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">X</span><br/>5/8</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>VT identification</td>
+<td><span class="lit">DECID</span><br/>9/10</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">Z</span><br/>5/10</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Control sequence introducer</td>
+<td><span class="lit">CSI</span><br/>9/11</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">[</span><br/>5/11</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>String terminator</td>
+<td><span class="lit">ST</span><br/>9/12</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">\</span><br/>5/12</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Operating system command</td>
+<td><span class="lit">OSC</span><br/>9/13</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">]</span><br/>5/13</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Privacy message</td>
+<td><span class="lit">PM</span><br/>9/14</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">^</span><br/>5/14</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td>Application program</td>
+<td><span class="lit">APC</span><br/>9/15</td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">_</span><br/>5/15</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S4.3">4.3 Control Functions</h3>
+<p>You use control functions to make the terminal perform special actions in your
+applications. Examples:</p>
+<div class="elaboration"><p>Move the cursor.<br/>
+Delete a line of text.<br/>
+Select bold or underlined text.<br/>
+Change character sets.<br/>
+Make the terminal emulate a VT52 or VT100 terminal.</p></div>
+<p>There are single-character and multiple-character control functions.</p>
+<p>The single-character functions are the C0 and C1 control characters. You can use
+C0 characters in a 7-bit or 8-bit environment. C1 characters provide a few more
+functions than C0 characters, but you can only use C1 characters directly in an
+8-bit environment.</p>
+<p>Multiple-character functions provide many more functions than the C0 and C1
+characters. Multiple-character functions can use control characters and graphic
+characters. There are three basic types of multiple-character functions.</p>
+<div class="elaboration"><p>Escape sequences<br/>
+Control sequences<br/>
+Device control strings</p></div>
+<p>Many sequences are based on ANSI and ISO standards and are used throughout
+the industry. Others are private sequences, created by some manufacturers, for
+specific families of products. ANSI sequences and private sequences follow ANSI
+and ISO standards for control functions.</p>
+<p>In this manual, control functions created for the VT have the prefix DEC in their
+mnemonic name. For example, column mode has the mnemonic DECCOLM. All
+other control functions are standardized.</p>
+<p>The following sections describe the format for escape sequences, control
+sequences, and device control strings.</p>
+<p><b class="parahead">Programming Tip</b><br/>
+When you use control functions, remember that the binary codes define a
+function—not the graphic characters. This manual uses graphic characters
+from a Multinational character set to show control functions. If you use another
+character set, the graphic characters for control functions may change, but the
+code is always the same.</p>
+<h3 id="S4.3.1">4.3.1 Sequence Format</h3>
+<p>This manual shows escape and control sequences in their 8-bit format. You can
+also use equivalent 7-bit sequences (<a href="#T4-3">Table 4–3</a>).</p>
+<p>The 8-bit format uses the C0 and C1 control characters and ASCII characters
+from the Multinational character set. The sequences also show each character's
+column/row position in the character set table, below the character. The column
+/row code eliminates confusion over similar-looking characters such as 0 (3/0) and
+O (4/15).</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Spaces appear between characters in a sequence for clarity. These spaces
+are not part of the sequence. If a space is part of the sequence, the SP
+(2/0) character appears.</p></div></div>
+<h3 id="S4.3.2">4.3.2 Escape Sequences</h3>
+<p>An escape sequence uses two or more bytes to define a specific control function.
+Escape sequences do not include variable parameters, but may include
+intermediate characters. Here is the format for an escape sequence.</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">I</span><br/>2/0 to 2/15</td>
+<td><span class="lit">F</span><br/>3/0 to 7/14</td>
+</tr>
+<tr>
+<td>Escape<br/>character</td>
+<td>Intermediate<br/>characters<br/>(zero or more<br/>characters)</td>
+<td>Final<br/>character<br/>(one character)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="lit">ESC</span> introduces escape sequences. After receiving the ESC control character, the
+terminal interprets the next received characters as part of the sequence.</p>
+<p><span class="lit">I</span> represents zero or more <dfn>intermediate characters</dfn> that can follow the ESC
+character. Intermediate characters come from the 2/0 through 2/15 range of the
+code table.</p>
+<p><span class="lit">F</span> is the <dfn>final character</dfn>. This character indicates the end of the sequence. The
+final character comes from the 3/0 through 7/14 range of the code table. The
+intermediate and final characters together define a single control function.</p>
+<p>For example, the following escape sequence changes the current line of text to
+double-width, single-height characters:</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">#</span><br/>2/3</td>
+<td><span class="lit">6</span><br/>3/6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S4.3.3">4.3.3 Control Sequences</h3>
+<p>A control sequence uses two or more bytes to define a specific control function.
+Control sequences usually include variable parameters. Here is the format for a
+control sequence.</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">CSI</span><br/>9/11</td>
+<td><span class="lit">P...P</span><br/>3/0 to 3/15</td>
+<td><span class="lit">I...I</span><br/>2/0 to 2/15</td>
+<td><span class="lit">F</span><br/>4/0 to 7/14</td>
+</tr>
+<tr>
+<td>Control<br/>sequence<br/>introducer</td>
+<td>Parameter<br/>(zero or more<br/>characters)</td>
+<td>Intermediate<br/>(zero or more<br/>characters)</td>
+<td>Final<br/>(one character)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="lit">CSI</span> is the <dfn>control sequence introducer</dfn>. You can also use the equivalent 7-bit
+sequence, ESC (1/11) [ (5/11), as a substitute for CSI. After receiving CSI, the
+terminal interprets the next received characters as part of the sequence.</p>
+<p><span class="lit">P...P</span> are <dfn>parameter characters</dfn> received after CSI. These characters are in the
+3/0 to 3/15 range in the code table. Parameter characters modify the action or
+interpretation of the sequence. You can use up to 16 parameters per sequence.
+You must use the ; (3/11) character to separate parameters.</p>
+<p>All parameters are unsigned, positive decimal integers, with the most significant
+digit sent first. Any parameter greater than 9999 (decimal) is set to 9999
+(decimal). If you do not specify a value, a 0 value is assumed. A 0 value
+or omitted parameter indicates a <dfn>default value</dfn> for the sequence. For most
+sequences, the default value is 1.</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>All parameters must be positive decimal integers. Do not use a decimal
+point in a parameter—the terminal will ignore the command.</p></div></div>
+<p>If the first character in a parameter string is the ? (3/15) character, it indicates
+that VT parameters follow. The terminal interprets VT parameters according to
+ANSI X3.64 and ISO 6429.</p>
+<p>The VT510 processes two types of parameters, numeric and selective.</p>
+<h4 id="S4.3.3.1">4.3.3.1 Numeric Parameters</h4>
+<p>A numeric parameter indicates a number value such as a margin location. In this
+manual, numeric parameters appear as actual values or as <var>Pn</var>, <var>Pn1</var>, <var>Pn2</var>, and so
+on.</p>
+<p>The following is an example of a control sequence with numeric parameters:</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">CSI</span><br/>9/11</td>
+<td><span class="lit">5</span><br/>3/5</td>
+<td><span class="lit">;</span><br/>3/11</td>
+<td><table>
+
+
+<tbody>
+<tr>
+<td><span class="lit">2</span><br/>3/2</td>
+<td><span class="lit">0</span><br/>3/0</td>
+</tr>
+</tbody>
+</table></td>
+<td><span class="lit">r</span><br/>7/2</td>
+</tr>
+<tr>
+<td>Control<br/>sequence<br/>introducer</td>
+<td>First<br/>numeric<br/>parameter</td>
+<td>Delimiter</td>
+<td>Second<br/>numeric<br/>parameter</td>
+<td>Final<br/>character</td>
+</tr>
+</tbody>
+</table>
+<p>This sequence sets the top and bottom margins of the current page. The top
+margin is at line 5, the bottom is at line 20. The ; (3/11) separates the two
+parameters.</p>
+<h4 id="S4.3.3.2">4.3.3.2 Selective Parameters</h4>
+<p>A selective parameter selects an action associated with the specific parameter. In
+this manual, selective parameters usually appear as <var>Ps</var>, <var>Ps1</var>, <var>Ps2</var>, and so on.</p>
+<p>The following is an example of a control sequence using selective parameters:</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">CSI</span><br/>9/11</td>
+<td><span class="lit">1</span><br/>3/1</td>
+<td><span class="lit">;</span><br/>3/11</td>
+<td><span class="lit">4</span><br/>3/4</td>
+<td><span class="lit">m</span><br/>6/13</td>
+</tr>
+<tr>
+<td>Control<br/>sequence<br/>introducer</td>
+<td>First<br/>selective<br/>parameter</td>
+<td>Delimiter</td>
+<td>Second<br/>selective<br/>parameter</td>
+<td>Final<br/>character</td>
+</tr>
+</tbody>
+</table>
+<p>This control sequence turns on the bold and underline attribute at the cursor
+position. The parameters are 1 (indicating the bold attribute) and 4 (indicating
+the underline attribute). The ; (3/11) delimiter separates the two parameters.</p>
+<p><span class="lit">I...I</span> are zero or more <dfn>intermediate characters</dfn> received after CSI. These characters
+are in the 2/0 to 2/15 range.</p>
+<p><span class="lit">F</span> is the <dfn>final character</dfn> from the 4/0 to 7/14 range. The final character indicates
+the end of the sequence. The intermediate and final characters together define
+a control function. If there are no intermediate characters, the final character
+defines the function.</p>
+<h3 id="S4.3.4">4.3.4 Device Control Strings</h3>
+<p>Device control strings (DCS), like control sequences, use two or more bytes to
+define specific control functions. However, a DCS also includes a data string.
+Here is the format for a device control string.</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">DCS</span><br/>9/0</td>
+<td><span class="lit">P...P</span><br/>3/0<br/>to<br/>3/15</td>
+<td><span class="lit">I...I</span><br/>2/0<br/>to<br/>2/15</td>
+<td><span class="lit">F</span><br/>4/0<br/>to<br/>7/14</td>
+<td><span class="lit">Data string</span><br/>************</td>
+<td><span class="lit">ST</span><br/>9/12</td>
+</tr>
+<tr>
+<td>Device<br/>control<br/>string<br/>introducer</td>
+<td>Zero or<br/>more<br/>para-<br/>meters</td>
+<td>Zero or<br/>more<br/>inter-<br/>mediates</td>
+<td>Final</td>
+<td>String</td>
+<td>String<br/>terminator</td>
+</tr>
+</tbody>
+</table>
+<p><b>DCS</b> is the <dfn>device control string introducer</dfn>. DCS is the C1 control character at
+position 9/0. You can also use the equivalent 7-bit sequence, ESC (1/11) P (5/0).
+After receiving DCS, the terminal processes the next received characters as part
+of the string function.</p>
+<p><b>P...P</b> are <dfn>parameter characters</dfn> received after DCS. The use of parameter
+characters in a device control string is a Digital extension to the ANSI syntax.
+According to ANSI standards, any elements included after DCS are part of the
+data string.</p>
+<p>Parameter characters are in the 3/0 to 3/15 range. They modify the action or
+interpretation of the device control string. You can use up to 16 parameters per
+string. Each parameter is separated with a ; (3/11) character. These characters
+follow the same rules as in a control sequence. See the "<a href="#S4.3.3">Section 4.3.3</a>" section in
+this chapter.</p>
+<p><b>I...I</b> are zero or more intermediate characters received after CSI. These characters
+are in the 2/0 to 2/15 range.</p>
+<p><b>F</b> is the final character in the 4/0 to 7/14 range. The final character indicates
+the end of the string. The intermediate and final characters define the string. If
+there are no intermediates, the final character defines the string.</p>
+<p><b>Data string</b> follows the final character and usually includes several definition
+strings. Each definition string can be several characters in length. Individual
+strings are separated by the ; (3/11) delimiter.</p>
+<p><b>ST</b> is the <dfn>string terminator</dfn>. ST (9/12) indicates the end of a string. You can also
+use the equivalent 7-bit sequence, ESC (1/11) \ (5/12).</p>
+<p>The following is an example of a device control string:</p>
+<table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">DCS</span><br/>9/0</td>
+<td><span class="lit">0</span><br/>3/0</td>
+<td><span class="lit">!</span><br/>2/1</td>
+<td><span class="lit">u</span><br/>7/5</td>
+<td><span class="lit">%</span><br/>2/5</td>
+<td><span class="lit">5</span><br/>3/5</td>
+<td><span class="lit">ST</span><br/>9/12</td>
+</tr>
+<tr>
+<td>Device<br/>control<br/>string<br/>introducer</td>
+<td>Para-<br/>meter</td>
+<td>Inter-<br/>mediate</td>
+<td>Final</td>
+<td>Data<br/>string</td>
+<td></td>
+<td>String<br/>terminator</td>
+</tr>
+</tbody>
+</table>
+<p>This device control string assigns a Supplemental Graphic set as the user-preferred
+supplemental set.</p>
+<h3 id="S4.3.5">4.3.5 Using Control Characters in Sequences</h3>
+<p>You can use control characters—ESC, CAN, and SUB—to interrupt or recover
+from errors in escape sequences, control sequences, and device control strings.</p>
+<ul>
+<li>You can send ESC (1/11) to cancel a sequence in progress and begin a new
+sequence.</li>
+<li>You can send CAN (1/8) to indicate the present data is in error or to cancel a
+sequence in progress. The VT510 interprets the characters following CAN as
+usual.</li>
+<li>You can send SUB (1/10) to cancel a sequence in progress. The VT510
+interprets the characters following SUB as usual.</li>
+</ul>
+<p>The VT510 does not lose data when errors occur in escape or control sequences
+and device control strings. The terminal ignores unrecognized sequences and
+strings, unless they end a current escape sequence.</p>
+<h3 id="S4.3.6">4.3.6 7-Bit Code Extension Technique</h3>
+<p>You can represent all C1 control characters as 7-bit escape sequences. You can
+use the C1 characters indirectly, by representing them as 2-character escape
+sequences. ANSI calls this technique a 7-bit code extension. The 7-bit code
+extension provides a way of using C1 characters in applications written for a 7-bit
+environment. Here are some examples.</p>
+<table>
+
+
+<thead>
+<tr>
+<th>8-Bit<br/>C1 Character</th>
+<th>7-Bit Code Extension<br/>Escape Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">CSI</span><br/>9/11</td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">[</span><br/>5/11</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">SS3</span><br/>8/15</td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">O</span><br/>4/15</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">IND</span><br/>8/4</td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">D</span><br/>4/4</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">DCS</span><br/>9/0</td>
+</tr>
+</tbody>
+</table></td>
+<td><table class="ctrlseqr">
+<tbody>
+<tr>
+<td><span class="lit">ESC</span><br/>1/11</td>
+<td><span class="lit">P</span><br/>5/0</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+<p>In general, you can use the 7-bit code extension technique in two ways.</p>
+<ul>
+<li>You can represent any C1 control character as a 2-character escape sequence.
+The second character of the sequence has a code that is 40 16 or 64 10 less than
+the code of the C1 character.</li>
+<li>You can make any escape sequence whose second character is in the range of
+4/0 through 5/15 one byte shorter by removing the ESC character and adding
+40 16 to the code of the second character. This generates an 8-bit control
+character. For example, you can change <span class="lit">ESC [</span> to <span class="lit">CSI</span> with this method.</li>
+</ul>
+<h2 id="S4.4">4.4 Working with 7-Bit and 8-Bit Environments</h2>
+<p>There are three requirements for using one of the terminal's 8-bit character sets.</p>
+<ul>
+<li>Your program and communication environment must be 8-bit compatible.</li>
+<li>The terminal cannot be in national replacement character set mode
+(DECNRCM).</li>
+<li>The terminal must operate in VT level 4 or PC TERM mode. When the
+terminal operates in VT level 1 mode or VT52 mode, you are limited to
+working in a 7-bit environment.)</li>
+</ul>
+<p>The following sections describe conventions that apply in VT level 4.</p>
+<h3 id="S4.4.1">4.4.1 Conventions for Codes Received by the Terminal</h3>
+<p>The terminal expects to receive character codes in a form compatible with 8-bit
+coding. Your application can use the C0 and C1 control characters, as well as the
+7-bit C1 code extensions, if necessary. The terminal always interprets these codes
+correctly.</p>
+<p>When your program sends GL or GR codes, the terminal interprets the character
+codes according to the graphic character sets in use. When you turn on or reset
+the terminal, you automatically select the ASCII character set in GL and the
+current user-preferred character set in GR. You select the user-preferred set in
+the <b class="feature">Terminal type, VT default character set</b> Set-Up menu. This mapping
+assumes the current terminal mode is VT level 4.</p>
+<h3 id="S4.4.2">4.4.2 Conventions for Codes Sent by the Terminal</h3>
+<p>The terminal can send data to an application in two ways.</p>
+<ul>
+<li>Directly from the keyboard</li>
+<li>In response to commands from the host (application or operating system)</li>
+</ul>
+<p>Most function keys on the keyboard send multiple-character control functions.
+Many of these functions start with CSI (9/11) or SS3 (8/15), which are C1
+characters. If your application cannot handle 8-bit characters, you can make the
+terminal automatically convert all C1 characters to their equivalent 7-bit code
+extensions before sending them to the application. To convert C1 characters, you
+use the DECSCL commands.)</p>
+<p>By default, the terminal is set to automatically convert all C1 characters sent to
+the application to 7-bit code extensions. However, to ensure the correct mode of
+operation, always use the appropriate DECSCL commands.</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>In VT level 4, the terminal can send GR graphic characters to an
+application, even if the application cannot handle 8-bit codes. However,
+in a 7-bit environment, the terminal sends C1 controls as 7-bit escape
+sequences and does not send 8-bit graphic characters.</p>
+<p>New programs should accept both 7-bit and 8-bit forms of the C1 control
+characters.</p></div></div>
+<h2 id="S4.5">4.5 Show Control Characters</h2>
+<p>The VT510 lets you display control characters as graphic characters, when you
+want to debug your applications. With this mode enabled, the terminal does not
+perform all control functions.</p>
+<p>To enable this mode, use the <b class="feature">Display</b> Set-Up menu and enable the checkbox for
+<b class="feature">Show control characters</b>; or you can use the <b class="feature">control representation mode
+(CRM)</b> control sequence. (You cannot select this mode with an escape sequence.)</p>
+<p><b>In VT level 4 mode</b><br/>
+The terminal temporarily loads a special graphic character set into C0, GL, C1,
+and GR. Figures <a href="#F4-1">4–1</a> and <a href="#F4-2">4–2</a> shows this special set, called the display controls
+font. The terminal uses this font to display control characters on the screen.</p>
+<p><b>In VT level 1 or VT52 mode</b><br/>
+The terminal temporarily loads the left half of the display controls font into
+C0 and GL. The terminal uses this half of the font to display all C0 and GL
+characters. (C1 and GR are meaningless in VT52 or VT100 emulations.)</p>
+<p><b>When displaying 36 or more lines on the screen</b><br/>
+When you display 36 or more lines on the screen (DECSNLS), the terminal uses
+a smaller font to display control characters. The smaller font represents each
+control character as a two-character symbol instead of a three-character symbol.
+Figures <a href="#F4-1">4–1</a> and <a href="#F4-2">4–2</a> show what the control characters look like when displaying
+24 or 25 lines on the screen. <a href="#T4-4">Table 4–4</a> shows the abbreviations for the control
+characters in the smaller font.</p>
+<table id="T4-4" class="truled">
+<caption><span class="tabfigid">Table 4–4</span> Control Character Displayed on Screen</caption>
+
+
+
+<thead>
+<tr>
+<th>Control Character<br/>in Large Font</th>
+<th>Control Character<br/>in Small Font</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUL</td>
+<td>NL</td>
+<td>Null</td>
+</tr>
+<tr>
+<td>SOH</td>
+<td>SH</td>
+<td>Start of heading</td>
+</tr>
+<tr>
+<td>STX</td>
+<td>SX</td>
+<td>Start of text</td>
+</tr>
+<tr>
+<td>ETX</td>
+<td>EX</td>
+<td>End of text</td>
+</tr>
+<tr>
+<td>EOT</td>
+<td>ET</td>
+<td>End of transmission</td>
+</tr>
+<tr>
+<td>ENQ</td>
+<td>EN</td>
+<td>Enquire</td>
+</tr>
+<tr>
+<td>ACK</td>
+<td>AK</td>
+<td>Acknowledge</td>
+</tr>
+<tr>
+<td>BEL</td>
+<td>BL</td>
+<td>Bell</td>
+</tr>
+<tr>
+<td>BS</td>
+<td>BS</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>HT</td>
+<td>HT</td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>LF</td>
+<td>Line feed</td>
+</tr>
+<tr>
+<td>VT</td>
+<td>VT</td>
+<td>Vertical tab</td>
+</tr>
+<tr>
+<td>FF</td>
+<td>FF</td>
+<td>Form feed</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>CR</td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td>SO</td>
+<td>SO</td>
+<td>Shift out</td>
+</tr>
+<tr>
+<td>SI</td>
+<td>SI</td>
+<td>Shift in</td>
+</tr>
+<tr>
+<td>DLE</td>
+<td>DE</td>
+<td>Data link escape</td>
+</tr>
+<tr>
+<td>DC1</td>
+<td>D1</td>
+<td>Device control 1 (XON)</td>
+</tr>
+<tr>
+<td>DC2</td>
+<td>D2</td>
+<td>Device control 2</td>
+</tr>
+<tr>
+<td>DC3</td>
+<td>D3</td>
+<td>Device control 3 (XOFF)</td>
+</tr>
+<tr>
+<td>DC4</td>
+<td>D4</td>
+<td>Device control 4</td>
+</tr>
+<tr>
+<td>NAK</td>
+<td>NK</td>
+<td>Negative acknowledge</td>
+</tr>
+<tr>
+<td>SYN</td>
+<td>SY</td>
+<td>Synchronous idle</td>
+</tr>
+<tr>
+<td>ETB</td>
+<td>EB</td>
+<td>End of transmission block</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>CA</td>
+<td>Cancel</td>
+</tr>
+<tr>
+<td>EM</td>
+<td>EM</td>
+<td>End of medium</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>SB</td>
+<td>Substitute</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>EC</td>
+<td>Escape</td>
+</tr>
+<tr>
+<td>FS</td>
+<td>FS</td>
+<td>Field separator</td>
+</tr>
+<tr>
+<td>GS</td>
+<td>GS</td>
+<td>Group separator</td>
+</tr>
+<tr>
+<td>RS</td>
+<td>RS</td>
+<td>Record separator</td>
+</tr>
+<tr>
+<td>US</td>
+<td>US</td>
+<td>Unit separator</td>
+</tr>
+<tr>
+<td>IND</td>
+<td>IN</td>
+<td>Index</td>
+</tr>
+<tr>
+<td>NEL</td>
+<td>NE</td>
+<td>Next line</td>
+</tr>
+<tr>
+<td>SSA</td>
+<td>SA</td>
+<td>Start selected area</td>
+</tr>
+<tr>
+<td>ESA</td>
+<td>EA</td>
+<td>End selected area</td>
+</tr>
+<tr>
+<td>HTS</td>
+<td>HS</td>
+<td>Horizontal tab set</td>
+</tr>
+<tr>
+<td>HTJ</td>
+<td>HJ</td>
+<td>Horizontal tab with justify</td>
+</tr>
+<tr>
+<td>VTS</td>
+<td>VS</td>
+<td>Vertical tab set</td>
+</tr>
+<tr>
+<td>PLD</td>
+<td>PD</td>
+<td>Partial line down</td>
+</tr>
+<tr>
+<td>PLU</td>
+<td>PU</td>
+<td>Partial line up</td>
+</tr>
+<tr>
+<td>RI</td>
+<td>RI</td>
+<td>Reverse index</td>
+</tr>
+<tr>
+<td>SS2</td>
+<td>S2</td>
+<td>Single shift 2</td>
+</tr>
+<tr>
+<td>SS3</td>
+<td>S3</td>
+<td>Single shift 3</td>
+</tr>
+<tr>
+<td>DCS</td>
+<td>DC</td>
+<td>Device control string</td>
+</tr>
+<tr>
+<td>PU1</td>
+<td>P1</td>
+<td>Private use 1</td>
+</tr>
+<tr>
+<td>PU2</td>
+<td>P2</td>
+<td>Private use 2</td>
+</tr>
+<tr>
+<td>STS</td>
+<td>SS</td>
+<td>Set transmit state</td>
+</tr>
+<tr>
+<td>CCH</td>
+<td>CC</td>
+<td>Cancel character</td>
+</tr>
+<tr>
+<td>MW</td>
+<td>MW</td>
+<td>Message waiting</td>
+</tr>
+<tr>
+<td>SPA</td>
+<td>SP</td>
+<td>Start protected area</td>
+</tr>
+<tr>
+<td>EPA</td>
+<td>EP</td>
+<td>End protected area</td>
+</tr>
+<tr>
+<td>CSI</td>
+<td>CS</td>
+<td>Control sequence introducer</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>ST</td>
+<td>String terminator</td>
+</tr>
+<tr>
+<td>OSC</td>
+<td>OS</td>
+<td>Operating system command</td>
+</tr>
+<tr>
+<td>PM</td>
+<td>PM</td>
+<td>Private message</td>
+</tr>
+<tr>
+<td>APC</td>
+<td>AP</td>
+<td>Application program command</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>NS</td>
+<td>No-break space</td>
+</tr>
+</tbody>
+</table>
+<p><em>Exceptions</em><br/>
+Some control functions still work in this mode.</p>
+<ul>
+<li>LF, FF, and VT cause a carriage return and line feed (CR LF) that move the
+cursor to a new line. The terminal displays the LF, FF, or VT character before
+performing the new line function.</li>
+<li>XOFF (DC3) and XON (DC1) maintain flow control, if enabled in set-up. The
+terminal displays the DC1 or DC3 character after performing the control
+function.</li>
+<li>The terminal does not display SSU session management commands.</li>
+</ul>
+<table id="F4-1" class="figure">
+<caption><span class="tabfigid">Figure 4–1</span> Show Control Characters Font (Left Half)</caption>
+<tbody>
+<tr>
+<td><img src="figure4-1.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="F4-2" class="figure">
+<caption><span class="tabfigid">Figure 4–2</span> Show Control Characters Font (Right Half)</caption>
+<tbody>
+<tr>
+<td><img src="figure4-2.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S4.6">4.6 ANSI Control Function Tables</h2>
+<p>The tables in this section summarize the ANSI Control Functions for ANSI-compatible
+VT mode and PCTerm mode. Default conditions are in boldface type.
+<a href="chapter5.html">Chapter 5</a> describes all the ANSI control functions in alphabetical order by
+mnemonic.</p>
+<p><a href="#T4-5">Table 4–5</a> lists the text processing control functions; <a href="#T4-6">Table 4–6</a>, the reports control
+functions; <a href="#T4-7">Table 4–7</a>, the terminal management control functions; <a href="#T4-8">Table 4–8</a>, the
+keyboard processing control functions; and <a href="#T4-9">Table 4–9</a>, the communications control
+functions. In these tables, the word "same" signifies the same control sequences
+as in the VT510 column.</p></div>
+<table id="T4-5" class="truled">
+<caption><span class="tabfigid">Table 4–5</span> Text Processing Control Functions</caption>
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2" colspan="2">Active Position and Cursor</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">Auto Resize Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECARSM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (enable):</td>
+<td>CSI ? 98 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (disable):</b></td>
+<td><b class="default">CSI ? 98 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Backspace</td>
+<td>BS</td>
+<td>same</td>
+<td>same</td>
+<td>BS</td>
+</tr>
+<tr>
+<td colspan="2">Carriage Return</td>
+<td>CR</td>
+<td>same</td>
+<td>same</td>
+<td>CR</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Backward</td>
+<td>CSI <var>Pc</var> D</td>
+<td>same</td>
+<td>same</td>
+<td>CUB</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Backward Tabulation</td>
+<td>CSI <var>Pn</var> Z</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>CBT</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Down</td>
+<td>CSI <var>Pl</var> B</td>
+<td>same</td>
+<td>same</td>
+<td>CUD</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Forward</td>
+<td>CSI <var>Pc</var> C</td>
+<td>same</td>
+<td>same</td>
+<td>CUF</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Horizontal Absolute</td>
+<td>CSI <var>Pn</var> G</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>CHA</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Horizontal Forward Tab</td>
+<td>CSI <var>Pn</var> I</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>CHT</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Information Report</td>
+<td>DCS 1$u D.....D ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECCIR</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Next Line</td>
+<td>CSI <var>Pn</var> E</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>CNL</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Previous Line</td>
+<td>CSI <var>Pn</var> F</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>CPL</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Position</td>
+<td>CSI <var>Pl ; Pc</var> H</td>
+<td>same</td>
+<td>same</td>
+<td>CUP</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Position Report</td>
+<td>CSI 6 n</td>
+<td>same</td>
+<td>same</td>
+<td>CPR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6">(Also see DECCIR, DECXCPR, and DSR.)</td>
+</tr>
+<tr>
+<td></td>
+<td class="sub">Response:</td>
+<td>CSI <var>Pl; Pc</var> R</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td class="sub"><var>Pl</var></td>
+<td colspan="5">No. of lines</td>
+</tr>
+<tr>
+<td class="sub"><var>Pc</var></td>
+<td colspan="5">No. of columns</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Up</td>
+<td>CSI <var>Pl</var> A</td>
+<td>same</td>
+<td>same</td>
+<td>CUU</td>
+</tr>
+<tr>
+<td colspan="2">Extended Cursor Position Report</td>
+<td>CSI ? 6 n</td>
+<td rowspan="2">same</td>
+<td rowspan="2">n/a</td>
+<td rowspan="2">DECXCPR</td>
+</tr>
+<tr>
+<td></td>
+<td class="sub">Response:</td>
+<td>CSI <var>Pl; Pc; Pp</var> R</td>
+</tr>
+<tr>
+<td class="sub"><var>Pl</var></td>
+<td colspan="5">Line</td>
+</tr>
+<tr>
+<td class="sub"><var>Pc</var></td>
+<td colspan="5">Column</td>
+</tr>
+<tr>
+<td class="sub"><var>Pp</var></td>
+<td colspan="5">Page</td>
+</tr>
+<tr>
+<td colspan="2">Form Feed</td>
+<td>FF</td>
+<td>same</td>
+<td>same</td>
+<td>FF</td>
+</tr>
+<tr>
+<td colspan="2">Horizontal Tab</td>
+<td>HT</td>
+<td>same</td>
+<td>same</td>
+<td>HT</td>
+</tr>
+<tr>
+<td colspan="2">Horizontal/Vertical Position</td>
+<td>CSI <var>Pl ; Pc</var> f</td>
+<td>same</td>
+<td>same</td>
+<td>HVP</td>
+</tr>
+<tr>
+<td class="sub"><var>Pl</var></td>
+<td colspan="5">No. of lines to move to</td>
+</tr>
+<tr>
+<td class="sub"><var>Pc</var></td>
+<td colspan="5">No. of columns to move to</td>
+</tr>
+<tr>
+<td colspan="2">Horizontal Position Absolute</td>
+<td>CSI <var>Pn</var> `</td>
+<td>same</td>
+<td>same</td>
+<td>HPA</td>
+</tr>
+<tr>
+<td colspan="2">Horizontal Position Relative</td>
+<td>CSI <var>Pn</var> a</td>
+<td>same</td>
+<td>same</td>
+<td>HPR</td>
+</tr>
+<tr>
+<td colspan="2">Line Feed</td>
+<td>LF</td>
+<td>same</td>
+<td>same</td>
+<td>LF</td>
+</tr>
+<tr>
+<td colspan="2">Line Feed/New Line Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">LNM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (NL):</td>
+<td>CSI 20 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (LF):</b></td>
+<td><b class="default">CSI 20 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Next Line</td>
+<td>ESC E</td>
+<td>same</td>
+<td>same</td>
+<td>NEL</td>
+</tr>
+<tr>
+<td colspan="2">No clear screen on column change</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECNCSM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Do not clear:</td>
+<td>CSI ? 95 h</td>
+</tr>
+<tr>
+<td><b class="default">Clear screen:</b></td>
+<td><b class="default">CSI ? 95 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Restore Cursor</td>
+<td>ESC 8</td>
+<td>same</td>
+<td>same</td>
+<td>DECRC</td>
+</tr>
+<tr>
+<td colspan="2">Restore Saved Cursor (SCO)</td>
+<td>CSI u</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>SCORC</td>
+</tr>
+<tr>
+<td colspan="2">Right-to-Left Copy</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECRLCM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 96 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 96 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Right-to-Left Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECRLM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 34 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 34 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Save Cursor</td>
+<td>ESC 7</td>
+<td>same</td>
+<td>same</td>
+<td>DECSC</td>
+</tr>
+<tr>
+<td colspan="2">Save Cursor Position (SCO)</td>
+<td>CSI s</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>SCOSC</td>
+</tr>
+<tr>
+<td colspan="2">Set Cursor Style</td>
+<td>CSI <var>Ps</var> SP q</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSCUSR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<td></td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">Blinking block</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Steady block</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Blinking underline</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Steady underline</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Set-Up Language</td>
+<td>CSI <var>Ps</var> p</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSSL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<td></td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">English</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>French</td>
+</tr>
+<tr>
+<td>3</td>
+<td>German</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Spanish</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Italian</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Show Control Character Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">CRM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (show):</td>
+<td>CSI 3 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (interpret):</b></td>
+<td><b class="default">CSI 3 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Text Cursor Enable Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECTCEM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (visible):</b></td>
+<td><b class="default">CSI ? 25 h</b></td>
+</tr>
+<tr>
+<td>Reset (invisible):</td>
+<td>CSI ? 25 l</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Line Position Absolute</td>
+<td>CSI <var>Pn</var> d</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>VPA</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Line Position Relative</td>
+<td>CSI <var>Pn</var> e</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>VPA</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Tab</td>
+<td>VT</td>
+<td>same</td>
+<td>same</td>
+<td>VT</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Autowrap</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECAWM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (enable):</td>
+<td>CSI ? 7 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (disable):</b></td>
+<td><b class="default">CSI ? 7 l</b></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Horizontal Tabs—Set/Clear</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Set Horizontal Tab</td>
+<td>ESC H</td>
+<td>same</td>
+<td>same</td>
+<td>HTS</td>
+</tr>
+<tr>
+<td colspan="2">Set Tab at every 8 columns</td>
+<td>CSI ? 5 W</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECST8C</td>
+</tr>
+<tr>
+<td colspan="2">Clear Tabs</td>
+<td>CSI <var>Ps</var> g</td>
+<td>same</td>
+<td>same</td>
+<td>TBC</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Clear . . .</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0</td>
+<td>tab at cursor</td>
+</tr>
+<tr>
+<td>3</td>
+<td>all tabs</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr class="th">
+<th rowspan="2" colspan="2">Margins and Scrolling</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Back Index</td>
+<td>ESC 6</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECBI</td>
+</tr>
+<tr>
+<td colspan="2">Forward Index</td>
+<td>ESC 9</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECFI</td>
+</tr>
+<tr>
+<td colspan="2">Index</td>
+<td>ESC D</td>
+<td>same</td>
+<td>same</td>
+<td>IND</td>
+</tr>
+<tr>
+<td colspan="2">Origin Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECOM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (in margins):</td>
+<td>CSI ? 6 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (upper-left):</b></td>
+<td><b class="default">CSI ? 6 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Reverse Index</td>
+<td>ESC M</td>
+<td>same</td>
+<td>same</td>
+<td>RI</td>
+</tr>
+<tr>
+<td colspan="2">Scrolling Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECSCLM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (smooth):</b></td>
+<td><b class="default">CSI ? 4 h</b></td>
+</tr>
+<tr>
+<td>Reset (jump):</td>
+<td>CSI ? 4 l</td>
+</tr>
+<tr>
+<td colspan="2">Set Left and Right Margin</td>
+<td>CSI <var>Pl</var> ; <var>Pr</var> s</td>
+<td>same</td>
+<td>same</td>
+<td>DECSLRM</td>
+</tr>
+<tr>
+<td class="sub"><var>Pl</var></td>
+<td colspan="5">Left column margin<br/>(default = <b class="default">1</b>)</td>
+</tr>
+<tr>
+<td class="sub"><var>Pr</var></td>
+<td colspan="5">Right column margin (default = <b class="default">80</b> or <b class="default">132</b>, depending on page width)</td>
+</tr>
+<tr>
+<td colspan="2">Set Scroll Speed</td>
+<td>CSI <var>Ps</var> SP p</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSSCLS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<td></td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1, 2, 3</td>
+<td><b class="default">Smooth 2</b></td>
+</tr>
+<tr>
+<td>4, 5, 6, 7, 8</td>
+<td>Smooth 4</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Jump</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Set Top and Bottom Margin</td>
+<td>CSI <var>Pt</var> ; <var>Pb</var> r</td>
+<td>same</td>
+<td>same</td>
+<td>DECSTBM</td>
+</tr>
+<tr>
+<td class="sub"><var>Pt</var></td>
+<td colspan="5">Top margin (default = <b class="default">1</b>)</td>
+</tr>
+<tr>
+<td class="sub"><var>Pb</var></td>
+<td colspan="5">Bottom margin (default = <b class="default">lines per screen</b>)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Page Arrangement and Size<sup>1</sup></th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Column Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECCOLM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (132 columns):</td>
+<td>CSI ? 3 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (80 columns):</b></td>
+<td><b class="default">CSI ? 3 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Set Columns per Page</td>
+<td>CSI <var>Ps</var> $ |</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSCPP</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th><strong>Set each page to . . .</strong></th>
+</tr>
+<tr>
+<td>0 or 80</td>
+<td>80 columns</td>
+</tr>
+<tr>
+<td>132</td>
+<td>132 columns</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Set Lines Per Page</td>
+<td>CSI <var>Pn</var> t</td>
+<td>same</td>
+<td>same</td>
+<td>DECSLPP</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Split Screen</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECVSSM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (enable):</td>
+<td>CSI 69 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (disable):</b></td>
+<td><b class="default">CSI 69 l</b></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Page Movement</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Next Page</td>
+<td>CSI <var>Pn</var> U</td>
+<td>same</td>
+<td>same</td>
+<td>NP</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td colspan="5">Number of pages to move (<b class="default">0</b> or 1 = <b class="default">1 page</b>)</td>
+</tr>
+<tr>
+<td colspan="2">Preceding Page</td>
+<td>CSI <var>Pn</var> V</td>
+<td>same</td>
+<td>same</td>
+<td>PP</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td colspan="5">Number of pages to move (<b class="default">0</b> or 1 = <b class="default">1 page</b>)</td>
+</tr>
+<tr>
+<td colspan="2">Page Position Absolute</td>
+<td>CSI <var>Pn</var> SP P</td>
+<td>same</td>
+<td>same</td>
+<td>PPA</td>
+</tr>
+<tr>
+<td colspan="2">Page Position Backward</td>
+<td>CSI <var>Pn</var> SP R</td>
+<td>same</td>
+<td>same</td>
+<td>PPB</td>
+</tr>
+<tr>
+<td colspan="2">Page Position Relative</td>
+<td>CSI <var>Pn</var> SP Q</td>
+<td>same</td>
+<td>same</td>
+<td>PPR</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2">WINDOW MANAGEMENT</th>
+<td colspan="4"></td>
+</tr>
+<tr>
+<th colspan="2">Coupling Mode</th>
+<td colspan="4"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Page Cursor Coupling</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECPCCM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set:</b></td>
+<td><b class="default">CSI ? 64 h</b></td>
+</tr>
+<tr>
+<td>Reset:</td>
+<td>CSI ? 64 l</td>
+</tr>
+<tr>
+<td colspan="2">Vertical Cursor Coupling</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECVCCM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set:</b></td>
+<td><b class="default">CSI ? 61 h</b></td>
+</tr>
+<tr>
+<td>Reset:</td>
+<td>CSI ? 61 l</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Display Extent</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Request Displayed Extent</td>
+<td>CSI " v</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQDE</td>
+</tr>
+<tr>
+<td rowspan="2" colspan="2">Report Displayed Extent</td>
+<td colspan="4">CSI <var>Ph</var> ; <var>Pw</var> ; <var>Pml</var> ; <var>Pmt</var> ; <var>Pmp</var> " w</td>
+</tr>
+<tr>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRPDE</td>
+</tr>
+<tr>
+<td colspan="2">Select number of lines per screen</td>
+<td>CSI <var>Pn</var> * |</td>
+<td>same</td>
+<td>same</td>
+<td>DECSNLS</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2">Pan Direction</th>
+<td colspan="4"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Pan Down</td>
+<td>CSI <var>Pl</var> S</td>
+<td>same</td>
+<td>same</td>
+<td>SD</td>
+</tr>
+<tr>
+<td colspan="2">Pan Up</td>
+<td>CSI <var>Pl</var> T</td>
+<td>same</td>
+<td>same</td>
+<td>SU</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2">Audible and Visual Attributes</th>
+<td colspan="4"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Bell</td>
+<td>BEL</td>
+<td>same</td>
+<td>same</td>
+<td>BEL</td>
+</tr>
+<tr>
+<td colspan="2">Double Height Line Top</td>
+<td>ESC # 3</td>
+<td>same</td>
+<td>same</td>
+<td>DECDHLT</td>
+</tr>
+<tr>
+<td colspan="2">Double Height Line Bottom</td>
+<td>ESC # 4</td>
+<td>same</td>
+<td>same</td>
+<td>DECDHLB</td>
+</tr>
+<tr>
+<td colspan="2">Single Width Line</td>
+<td>ESC # 5</td>
+<td>same</td>
+<td>same</td>
+<td>DECSWL</td>
+</tr>
+<tr>
+<td colspan="2">Double Width Line</td>
+<td>ESC # 6</td>
+<td>same</td>
+<td>same</td>
+<td>DECDWL</td>
+</tr>
+<tr>
+<td colspan="2">Screen Mode – Light/Dark</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECSCNM</td>
+</tr>
+<tr>
+<td class="sub">Set</td>
+<td>(light background):</td>
+<td>CSI ? 5 h</td>
+</tr>
+<tr>
+<td class="sub"><b class="default">Reset</b></td>
+<td><b class="default">(dark background):</b></td>
+<td><b class="default">CSI ? 5 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Select Graphic Rendition<sup>2</sup></td>
+<td>CSI <var>Ps</var> ; <var>Ps</var> m</td>
+<td>same</td>
+<td>same</td>
+<td>SGR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Attribute</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">All attributes off</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bold</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Underline</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blinking</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Negative image</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Invisible image</td>
+</tr>
+<tr>
+<td>10</td>
+<td>ASCII char set (SCO only)<sup>3</sup></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Map 00-7F (SCO only)</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Map 80-FF (SCO only)</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Bold off</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Underline off</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Blinking off</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Negative image off</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Invisible image off</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2">GRAPHIC CHARACTER SETS</th>
+<td colspan="4"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Assign User-Preference Supp Set</td>
+<td>DCS <var>Ps</var> ! u <var>Dscs</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECAUPSS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<td></td>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">94-Character Set</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>96-Character Set</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Dscs</var></th>
+<th>Default 94-Character Set</th>
+<th><var>Dscs</var></th>
+<th>Default 96-Character Set</th>
+</tr>
+<tr>
+<td><b class="default">% 5</b></td>
+<td><b class="default">DEC Supplemental</b></td>
+<td>A</td>
+<td>ISO Latin-1 Supplemental</td>
+</tr>
+<tr>
+<td>" ?</td>
+<td>DEC Greek</td>
+<td>B</td>
+<td>ISO Latin-2 Supplemental</td>
+</tr>
+<tr>
+<td>" 4</td>
+<td>DEC Hebrew</td>
+<td>F</td>
+<td>ISO Greek Supplemental</td>
+</tr>
+<tr>
+<td>% 0</td>
+<td>DEC Turkish</td>
+<td>H</td>
+<td>ISO Hebrew Supplemental</td>
+</tr>
+<tr>
+<td>&amp; 4</td>
+<td>DEC Cyrillic</td>
+<td>L</td>
+<td>ISO Latin-Cyrillic</td>
+</tr>
+<tr>
+<td rowspan="2">&lt;</td>
+<td rowspan="2">User-preferred supplemental</td>
+<td>M</td>
+<td>ISO Latin-5 Supplemental</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>User-preferred supplemental</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Display PC Characters (SCO)</td>
+<td>ESC xx</td>
+<td>n/a</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Select Character Set</td>
+<td>ESC <var>I</var> <var>Dscs</var></td>
+<td>same</td>
+<td>n/a</td>
+<td>SCS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>I</var></th>
+<th>94-Character G-set</th>
+<th><var>I</var></th>
+<th>96-Character G-set</th>
+</tr>
+<tr>
+<td>(</td>
+<td>G0</td>
+<td>-</td>
+<td>G1</td>
+</tr>
+<tr>
+<td>)</td>
+<td>G1</td>
+<td>.</td>
+<td>G2</td>
+</tr>
+<tr>
+<td>*</td>
+<td>G2</td>
+<td>/</td>
+<td>G3</td>
+</tr>
+<tr>
+<td>+</td>
+<td>G3</td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Dscs</var></th>
+<th>Default 94-Character Set</th>
+<th><var>Dscs</var></th>
+<th>Default 96-Character Set</th>
+</tr>
+<tr>
+<td>&amp; 4</td>
+<td>Cyrillic (DEC)</td>
+<td>A</td>
+<td>ISO Latin-1 Supplemental</td>
+</tr>
+<tr>
+<td>A</td>
+<td>British/U.K. NRCS</td>
+<td>B</td>
+<td>ISO Latin-2 Supplemental</td>
+</tr>
+<tr>
+<td>5 or C</td>
+<td>Finnish NRCS</td>
+<td>F</td>
+<td>ISO Greek Supplemental</td>
+</tr>
+<tr>
+<td>R</td>
+<td>French NRCS</td>
+<td>H</td>
+<td>ISO Hebrew Supplemental</td>
+</tr>
+<tr>
+<td>9 or Q</td>
+<td>French Canadian NRCS</td>
+<td>M</td>
+<td>ISO Latin-5 Supplemental</td>
+</tr>
+<tr>
+<td>K</td>
+<td>German NRCS</td>
+<td>L</td>
+<td>ISO Latin-Cyrillic</td>
+</tr>
+<tr>
+<td>" ?</td>
+<td>Greek (DEC)</td>
+<td>&lt;</td>
+<td>User-preferred Supplemental</td>
+</tr>
+<tr>
+<td>" &gt;</td>
+<td>Greek NRCS</td>
+<td rowspan="17" colspan="2"></td>
+</tr>
+<tr>
+<td>" 4</td>
+<td>Hebrew (DEC)</td>
+</tr>
+<tr>
+<td>% =</td>
+<td>Hebrew NRCS</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Italian NRCS</td>
+</tr>
+<tr>
+<td>`, E, or 6</td>
+<td>Norwegian/Danish NRCS</td>
+</tr>
+<tr>
+<td>% 6</td>
+<td>Portuguese NRCS</td>
+</tr>
+<tr>
+<td>&amp; 5</td>
+<td>Russian NRCS</td>
+</tr>
+<tr>
+<td>% 3</td>
+<td>SCS NRCS</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Spanish NRCS</td>
+</tr>
+<tr>
+<td>7 or H</td>
+<td>Swedish NRCS</td>
+</tr>
+<tr>
+<td>=</td>
+<td>Swiss NRCS</td>
+</tr>
+<tr>
+<td>% 0</td>
+<td>Turkish (DEC)</td>
+</tr>
+<tr>
+<td>% 2</td>
+<td>Turkish NRCS</td>
+</tr>
+<tr>
+<td>0</td>
+<td>DEC Special Graphic</td>
+</tr>
+<tr>
+<td>% 5</td>
+<td>DEC Supplemental</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>DEC Technical Character Set</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>User-preferred Supplemental</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Supplemental Character Set</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">National Replacement Character Set Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECNRCM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (National):<br/>(7-bit characters)</td>
+<td>CSI ? 42 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (Multinational):</b><br/>(8-bit characters)</td>
+<td>CSI ? 42 l</td>
+</tr>
+<tr>
+<td colspan="2">Request User-Preference Supplemental Set</td>
+<td>CSI &amp; u</td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td>DECRQUPSS</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Response:</td>
+<td>DEC <var>Ps</var> ! u <var>Dscs</var> ST</td>
+<td rowspan="2">See DECAUPSS</td>
+</tr>
+<tr>
+<td>Parameters:</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Send Control Character to Host</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>7-bit controls</td>
+<td>ESC SP F</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>S7C1T</td>
+</tr>
+<tr>
+<td>8-bit controls</td>
+<td>ESC SP G</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>S8C1T</td>
+</tr>
+<tr>
+<td colspan="2">Single Shift 2</td>
+<td>ESC N</td>
+<td>same</td>
+<td>same</td>
+<td>SS2</td>
+</tr>
+<tr>
+<td colspan="2">Single Shift 3</td>
+<td>ESC O</td>
+<td>same</td>
+<td>same</td>
+<td>SS3</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">EDITING AND TEXT PROCESSING</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Delete Character</td>
+<td>CSI <var>Pn</var> P</td>
+<td>same</td>
+<td>same</td>
+<td>DCH</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of characters to delete (default = 1).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Delete Column</td>
+<td>CSI <var>Pn</var> ' ~</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECDC</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of columns to delete (default = 1).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Delete Line</td>
+<td>CSI <var>Pn</var> M</td>
+<td>same</td>
+<td>same</td>
+<td>DL</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of lines to delete (default = 1).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Erase Character</td>
+<td>CSI <var>Pn</var> X</td>
+<td>same</td>
+<td>n/a</td>
+<td>ECH</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of characters to erase (Pn = 0 or 1 (default) = 1 character).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Erase in Display</td>
+<td>CSI <var>Ps</var> J</td>
+<td>same</td>
+<td>same</td>
+<td>ED</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Erase from . . .</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Cursor to end of display</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Top of display through cursor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Top to bottom of display</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Erase in Line</td>
+<td>CSI <var>Ps</var> K</td>
+<td>same</td>
+<td>same</td>
+<td>EL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Erase from . . .</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Cursor to end of line</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Start of line through cursor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Start to end of line</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Insert Character</td>
+<td>CSI <var>Pn</var> @</td>
+<td>same</td>
+<td>n/a</td>
+<td>ICH</td>
+</tr>
+<tr>
+<td colspan="2">Insert Column</td>
+<td>CSI <var>Pn</var> ' }</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECIC</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of columns to insert (default = 1).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Insert Line</td>
+<td>CSI <var>Pn</var> L</td>
+<td>same</td>
+<td>same</td>
+<td>IL</td>
+</tr>
+<tr>
+<td class="sub"><var>Pn</var></td>
+<td>Number of lines to insert (default = 1).</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Insert/Replacement Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">IRM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (insert):</td>
+<td>CSI 4 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (replace):</b></td>
+<td><b class="default">CSI 4 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Select Character Attribute<sup>4</sup></td>
+<td>CSI <var>Ps</var> " q</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSCA</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>0</td>
+<td>DECSED and DECSEL can erase characters.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>DECSED and DECSEL cannot erase characters.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Same as 0.</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Selective Erase in Display</td>
+<td>CSI ? <var>Ps</var> J</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSED</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Erase from . . .</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Cursor to end of display</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Top of display through cursor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Top to bottom of display</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Selective Erase in Line</td>
+<td>CSI ? <var>Ps</var> K</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSEL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Erase from . . .</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Cursor to end of line</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Start of line through cursor</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Start to end of line</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Rectangle Area Processing</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Change Attribute in Rectangle</td>
+<td colspan="4">CSI <var>Pt;Pl;Pb;Pr; Ps1;...Psn</var> $ r</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECCARA</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Attribute</th>
+<td rowspan="2" colspan="2"></td>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Off</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bold</td>
+<td><var>Pt</var></td>
+<td>Top line</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Underline</td>
+<td><var>Pl</var></td>
+<td>Left column</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blink</td>
+<td><var>Pb</var></td>
+<td>Bottom line</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Negative image</td>
+<td><var>Pr</var></td>
+<td>Right column</td>
+</tr>
+<tr>
+<td>22</td>
+<td>No bold</td>
+<td rowspan="4" colspan="2"></td>
+</tr>
+<tr>
+<td>24</td>
+<td>No underline</td>
+</tr>
+<tr>
+<td>25</td>
+<td>No blink</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Positive image</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Copy Rectangular Area</td>
+<td colspan="4">CSI <var>Pts;Pls;Pbs;Prs;Pps;Ptd;Pld;Ppd</var> $ v</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECCRA</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<td></td>
+<th>Source</th>
+<td></td>
+<th>Destination</th>
+</tr>
+<tr>
+<td><var>Pts</var></td>
+<td>Top line border</td>
+<td><var>Ptd</var></td>
+<td>Top line border</td>
+</tr>
+<tr>
+<td><var>Pls</var></td>
+<td>Left column border</td>
+<td><var>Pld</var></td>
+<td>Left column border</td>
+</tr>
+<tr>
+<td><var>Pbs</var></td>
+<td>Bottom line border</td>
+<td><var>Ppd</var></td>
+<td>Page number</td>
+</tr>
+<tr>
+<td><var>Prs</var></td>
+<td>Right column border</td>
+<td rowspan="2" colspan="2"></td>
+</tr>
+<tr>
+<td><var>Pps</var></td>
+<td>Page number</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Erase Rectangular Area</td>
+<td>CSI <var>Pt;Pl;Pb;Pr</var> $ z</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECERA</td>
+</tr>
+<tr>
+<td colspan="2">Fill Rectangular Area</td>
+<td colspan="4">CSI <var>Pch; Pt;Pl;Pb;Pr</var> $ x</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECFRA</td>
+</tr>
+<tr>
+<td class="sub"><var>Pch</var></td>
+<td colspan="5">Character</td>
+</tr>
+<tr>
+<td colspan="2">Reverse Attribute in Rectangle</td>
+<td colspan="4">CSI <var>Pt;Pl;Pb;Pr Ps1;...Psn</var> $ t</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRARA</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Reverse Attributes</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">All</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bold</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Underline</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blink</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Negative image</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Attribute and Change Extent Mode</td>
+<td>CSI <var>Ps</var> * x</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSACE</td>
+</tr>
+<tr>
+<td colspan="2">Selective Erase Rectangular Area</td>
+<td>CSI <var>Pt;Pl;Pb;Pr</var> $ {</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSERA</td>
+</tr>
+<tr>
+<td colspan="2">Memory Checksum Report or DSR-Memory Checksum</td>
+<td>CSI ? 63; <var>Pid</var> n</td>
+<td>same</td>
+<td>n/a</td>
+<td rowspan="2">DECCKSR or DSR-Mem</td>
+</tr>
+<tr>
+<td></td>
+<td>Response:</td>
+<td colspan="3">DCS <var>Pid</var> ! ~ <var>D...D</var> ST</td>
+</tr>
+<tr>
+<td colspan="2">Request Checksum of Rect Area</td>
+<td colspan="4">CSI <var>Pid;Pp;Pt;Pl;Pb;Pr</var> * y</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQCRA</td>
+</tr>
+<tr>
+<td></td>
+<td>Response:</td>
+<td colspan="4">DCS <var>Pid</var> ! ~ <var>D...D</var> ST</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6"><p><sup>1</sup> The page size can be 24, 25, 36, 42, 48, 52, and 72 lines with 80 or 132 columns.</p>
+<p><sup>2</sup> The ANSI mode supports Bold, Blink, Underline, and Reverse graphic renditions.</p>
+<p><sup>3</sup> See <a href="SGR.html">SGR—Select Graphic Rendition</a> in <a href="chapter5.html">Chapter 5</a>.</p>
+<p><sup>4</sup> DECSCA does not affect visual character attributes set by the select graphic rendition (SGR) function.</p></td>
+</tr>
+</tfoot>
+</table>
+<table id="T4-6" class="truled">
+<caption><span class="tabfigid">Table 4–6</span> Reports Control Functions</caption>
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2" colspan="2">Macro</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">Define Macro</td>
+<td colspan="4">DCS <var>Pid;Pdt;Pen</var> ! z <var>D...D</var> ST</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECDMAC</td>
+</tr>
+<tr>
+<td colspan="2">DSR - Macro Space</td>
+<td>CSI ? 62 n</td>
+<td>same</td>
+<td>n/a</td>
+<td>DSR-MSR</td>
+</tr>
+<tr>
+<td colspan="2">Invoke Macro</td>
+<td>CSI <var>Pid</var> * z</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECINVM</td>
+</tr>
+<tr>
+<td colspan="2">Macro Space Report</td>
+<td>CSI <var>Pn</var> * {</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECMSR, DSR-MSR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table class="eqn">
+<tbody>
+<tr>
+<td><span class="param">Pn</span></td>
+<td>=</td>
+<td><span class="underbar"><i>number of bytes</i></span><br/>16</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2">Reports</th>
+<td colspan="4"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">DSR - Data Integrity Report</td>
+<td>CSI ? 75 n</td>
+<td>same</td>
+<td>n/a</td>
+<td>DSR-Data</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Response:</td>
+<td>CSI ? Ps n</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td class="sub" colspan="2"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>70</td>
+<td>Ready, no power loss or comm errors.</td>
+</tr>
+<tr>
+<td>71</td>
+<td>Malfunction, comm error.</td>
+</tr>
+<tr>
+<td>73</td>
+<td>No reported data loss since last power up.</td>
+</tr>
+</tbody>
+</table></td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Presentation State Report (See DECRQPSR.)</td>
+<td></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECPSR</td>
+</tr>
+<tr>
+<td colspan="2">Report Mode (DECRPM) (See Report Mode (ANSI) below.)</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRPM</td>
+</tr>
+<tr>
+<td colspan="2">Request Mode (ANSI)</td>
+<td>CSI <var>Pa</var> $ p</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQM<sup>1</sup></td>
+</tr>
+<tr>
+<td colspan="2">Request Mode (DEC)</td>
+<td>CSI ? <var>Pd</var> $ p</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQM</td>
+</tr>
+<tr>
+<td colspan="2">Request Presentation State Report</td>
+<td>CSI <var>Ps</var> $ w</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQPSR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Report Requested</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Error, restore ignored.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Cursor information report (DECCIR)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Tab stop report (DECTABSR)</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Report Selection or Setting (See DECRQSS.)</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRPSS</td>
+</tr>
+<tr>
+<td colspan="2">Request Selection or Setting</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQSS</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Request (DECRQSS):</td>
+<td>DCS $ q <var>D...D</var> ST</td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td>Report (DECRPSS):</td>
+<td>DCS Ps $ r <var>D...D</var> ST</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Setting Control Sequence</th>
+<th>Final Characters</th>
+<th>Mnemonic</th>
+</tr>
+<tr>
+<td>Select Active Status Display</td>
+<td>$ g</td>
+<td>DECSASD</td>
+</tr>
+<tr>
+<td>Select Attribute Change Extent</td>
+<td>* x</td>
+<td>DECSACE</td>
+</tr>
+<tr>
+<td>Set Character Attribute</td>
+<td>" q</td>
+<td>DECSCA</td>
+</tr>
+<tr>
+<td>Set Conformance Level</td>
+<td>" p</td>
+<td>DECSCL</td>
+</tr>
+<tr>
+<td>Set Columns Per Page</td>
+<td>$ |</td>
+<td>DECSCPP</td>
+</tr>
+<tr>
+<td>Set Lines Per Page</td>
+<td>t</td>
+<td>DECSLPP</td>
+</tr>
+<tr>
+<td>Set Number of Lines per Screen</td>
+<td>* |</td>
+<td>DECSNLS</td>
+</tr>
+<tr>
+<td>Set Status Line Type</td>
+<td>$ ~</td>
+<td>DECSSDT</td>
+</tr>
+<tr>
+<td>Set Left and Right Margins</td>
+<td>s</td>
+<td>DECSLRM</td>
+</tr>
+<tr>
+<td>Set Top and Bottom Margins</td>
+<td>r</td>
+<td>DECSTBM</td>
+</tr>
+<tr>
+<td>Set Graphic Rendition</td>
+<td>m</td>
+<td>SGR</td>
+</tr>
+<tr>
+<td>Select Set-Up Language</td>
+<td>p</td>
+<td>DECSSL</td>
+</tr>
+<tr>
+<td>Select Printer Type</td>
+<td>$ s</td>
+<td>DECSPRTT</td>
+</tr>
+<tr>
+<td>Select Refresh Rate</td>
+<td>" t</td>
+<td>DECSRFR</td>
+</tr>
+<tr>
+<td>Select Digital Printed Data Type</td>
+<td>) p</td>
+<td>DECSDPT</td>
+</tr>
+<tr>
+<td>Select ProPrinter Character Set</td>
+<td>* p</td>
+<td>DECSPPCS</td>
+</tr>
+<tr>
+<td>Select Communication Speed</td>
+<td>* r</td>
+<td>DECSCS</td>
+</tr>
+<tr>
+<td>Select Communication Port</td>
+<td>* u</td>
+<td>DECSCP</td>
+</tr>
+<tr>
+<td>Set Scroll Speed</td>
+<td>SP p</td>
+<td>DECSSCLS</td>
+</tr>
+<tr>
+<td>Set Cursor Style</td>
+<td>SP q</td>
+<td>DECSCUSR</td>
+</tr>
+<tr>
+<td>Set Key Click Volume</td>
+<td>SP r</td>
+<td>DECSKCV</td>
+</tr>
+<tr>
+<td>Set Warning Bell Volume</td>
+<td>SP t</td>
+<td>DECSWBV</td>
+</tr>
+<tr>
+<td>Set Margin Bell Volume</td>
+<td>SP u</td>
+<td>DECSMBV</td>
+</tr>
+<tr>
+<td>Set Lock Key Style</td>
+<td>SP v</td>
+<td>DECSLCK</td>
+</tr>
+<tr>
+<td>Select Flow Control Type</td>
+<td>* s</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Select Disconnect Delay Time</td>
+<td>$ q</td>
+<td>DECSDDT</td>
+</tr>
+<tr>
+<td>Set Transmit Rate Limit</td>
+<td>" u</td>
+<td>DECSTRL</td>
+</tr>
+<tr>
+<td>Set Port Parameter</td>
+<td>+ w</td>
+<td>DECSPP</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Reports (Cont.)</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Request Terminal State Report</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRQTSR</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Request:</td>
+<td>CSI 1 $ u</td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td>Reply to Host:</td>
+<td>DCS 1 $ s <var>D...D</var> ST</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Effects</strong></td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td class="sub">DDD1</td>
+<td>DECRLM, DECHEBM, and DECHCEM are set.</td>
+<td rowspan="3" colspan="3"></td>
+<td>DDD1</td>
+</tr>
+<tr>
+<td class="sub">DDD2</td>
+<td>DECRLM is reset. ASCII is designated in G1.</td>
+<td>DDD2</td>
+</tr>
+<tr>
+<td class="sub">DDD3</td>
+<td>ASCII is designated in G0.</td>
+<td>DDD3</td>
+</tr>
+<tr>
+<td colspan="2">Restore Presentation State</td>
+<td>DCS <var>Ps</var> $ t <var>D...D</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRSPS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Data String Format</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Error, restore ignored.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Selects the format of the cursor information report (DECCIR).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Selects the format of the tab stop report (DECTABSR).</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub"><var>D...D</var></td>
+<td>Data string of tab stops or cursor position.</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Restore Terminal State</td>
+<td>DCS <var>Ps</var> $ p <var>D...D</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRSTS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Data String Format</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Error, restore ignored.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Selects the format of the terminal state report (DECTSR).</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub"><var>D...D</var></td>
+<td>Data string of restored information.</td>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td colspan="2">Report Mode (ANSI)</td>
+<td>CSI <var>Pa; Ps</var> $ y</td>
+<td>same</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Report Mode (DEC)</td>
+<td>CSI ? <var>Pd; Ps</var> $ y</td>
+<td>same</td>
+<td>n/a</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Reset Mode</td>
+<td>CSI <var>P1.....Pn</var> l</td>
+<td>same</td>
+<td>same</td>
+<td>RM</td>
+</tr>
+<tr>
+<td colspan="2">Set Mode</td>
+<td>CSI <var>P1.....Pn</var> h</td>
+<td>same</td>
+<td>same</td>
+<td>SM</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<thead>
+<tr>
+<th>Mode Description</th>
+<th class="suphead" colspan="2">ANSI Mode</th>
+<th class="suphead" colspan="2">DEC Mode</th>
+<td></td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<th><var>Pa</var></th>
+<th>Mnemonic<sup>2</sup></th>
+<th><var>Pd</var></th>
+<th>Mnemonic</th>
+<th>Mode</th>
+</tr>
+<tr>
+<td>Guarded area transfer</td>
+<td>1</td>
+<td>GATM *</td>
+<td>?1</td>
+<td>DECCKM</td>
+<td>Cursor keys</td>
+</tr>
+<tr>
+<td>Keyboard action</td>
+<td>2</td>
+<td>KAM</td>
+<td>?2</td>
+<td>DECANM</td>
+<td>ANSI/VT52</td>
+</tr>
+<tr>
+<td>Control representation</td>
+<td>3</td>
+<td>CRM</td>
+<td>?3</td>
+<td>DECCOLM</td>
+<td>Column</td>
+</tr>
+<tr>
+<td>Insert/replace</td>
+<td>4</td>
+<td>IRM</td>
+<td>?4</td>
+<td>DECSCLM</td>
+<td>Scrolling</td>
+</tr>
+<tr>
+<td>Status reporting transfer</td>
+<td>5</td>
+<td>SRTM *</td>
+<td>?5</td>
+<td>DECSCNM</td>
+<td>Screen</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>?6</td>
+<td>DECOM</td>
+<td>Origin</td>
+</tr>
+<tr>
+<td>Vertical editing</td>
+<td>7</td>
+<td>VEM *</td>
+<td>?7</td>
+<td>DECAWM</td>
+<td>Autowrap</td>
+</tr>
+<tr>
+<td>Horiz editing</td>
+<td>10</td>
+<td>HEM *</td>
+<td>?8</td>
+<td>DECARM</td>
+<td>Autorepeat</td>
+</tr>
+<tr>
+<td>Positioning unit</td>
+<td>11</td>
+<td>PUM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Send/receive</td>
+<td>12</td>
+<td>SRM</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Format effector action</td>
+<td>13</td>
+<td>FEAM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Format effector transfer</td>
+<td>14</td>
+<td>FETM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Multiple area transfer</td>
+<td>15</td>
+<td>MATM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Transfer termination</td>
+<td>16</td>
+<td>TTM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Selected area transfer</td>
+<td>17</td>
+<td>SATM *</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Tabulation stop</td>
+<td>18</td>
+<td>TSM *</td>
+<td>?18</td>
+<td>DECPFF</td>
+<td>Print form</td>
+</tr>
+<tr>
+<td>Editing boundary</td>
+<td>19</td>
+<td>EBM *</td>
+<td>?19</td>
+<td>DECPEX</td>
+<td>Print extent</td>
+</tr>
+<tr>
+<td>Linefeed/New line</td>
+<td>20</td>
+<td>LNM</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td>Text cursor enable</td>
+<td rowspan="25" colspan="2"></td>
+<td>?25</td>
+<td>DECTCEM</td>
+<td rowspan="25"></td>
+</tr>
+<tr>
+<td>Right-to-left</td>
+<td>?34</td>
+<td>DECRLM</td>
+</tr>
+<tr>
+<td>Hebrew keyboard map</td>
+<td>?35</td>
+<td>DECHEBM</td>
+</tr>
+<tr>
+<td>Hebrew encoding</td>
+<td>?36</td>
+<td>DECHEM</td>
+</tr>
+<tr>
+<td>NRCS characters</td>
+<td>?42</td>
+<td>DECNRCM</td>
+</tr>
+<tr>
+<td>Greek/N.A.</td>
+<td>?57</td>
+<td>DECNAKB</td>
+</tr>
+<tr>
+<td>Horiz cursor coupling</td>
+<td>?60</td>
+<td>DECHCCM *</td>
+</tr>
+<tr>
+<td>Vertical cursor coupling</td>
+<td>?61</td>
+<td>DECVCCM</td>
+</tr>
+<tr>
+<td>Page cursor coupling</td>
+<td>?64</td>
+<td>DECPCCM</td>
+</tr>
+<tr>
+<td>Numeric keypad</td>
+<td>?66</td>
+<td>DECNKM</td>
+</tr>
+<tr>
+<td>Backarrow key</td>
+<td>?67</td>
+<td>DECBKM</td>
+</tr>
+<tr>
+<td>Keyboard usage</td>
+<td>?68</td>
+<td>DECKBUM</td>
+</tr>
+<tr>
+<td>Vertical split screen</td>
+<td>?69</td>
+<td>DECVSSM</td>
+</tr>
+<tr>
+<td>Transmit rate limiting</td>
+<td>?73</td>
+<td>DECXRLMM</td>
+</tr>
+<tr>
+<td>No clear screen</td>
+<td>?95</td>
+<td>DECNCSM</td>
+</tr>
+<tr>
+<td>Right-to-left copy</td>
+<td>?96</td>
+<td>DECRLCM</td>
+</tr>
+<tr>
+<td>CRT save</td>
+<td>?97</td>
+<td>DECCRTSM</td>
+</tr>
+<tr>
+<td>Auto resize</td>
+<td>?98</td>
+<td>DECARSM</td>
+</tr>
+<tr>
+<td>Modem control</td>
+<td>?99</td>
+<td>DECMCM</td>
+</tr>
+<tr>
+<td>Auto answerback</td>
+<td>?100</td>
+<td>DECAAM</td>
+</tr>
+<tr>
+<td>Conceal answerback</td>
+<td>?101</td>
+<td>DECCANSM</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>?102</td>
+<td>DECNULM</td>
+</tr>
+<tr>
+<td>Half-duplex</td>
+<td>?103</td>
+<td>DECHDPXM</td>
+</tr>
+<tr>
+<td>Enable secondary keyboard language</td>
+<td>?104</td>
+<td>DECESKM</td>
+</tr>
+<tr>
+<td>Overscan</td>
+<td>?106</td>
+<td>DECOSCNM</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="sub" colspan="6"><table>
+<thead>
+<tr>
+<th class="suphead">Set/Reset Parameters</th>
+<th class="suphead">ANSI Mode</th>
+<th class="suphead">DEC Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<th><var>Ps</var></th>
+<td></td>
+</tr>
+<tr>
+<td>Not recognized</td>
+<td>0</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>1</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Reset</td>
+<td>2</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Set permanently</td>
+<td>3</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Reset permanently</td>
+<td>4</td>
+<td>same</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Reports (Cont.)</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Set Mode/Reset Mode (See also DECRQM.)</td>
+<td colspan="3"></td>
+<td>SM/RM</td>
+</tr>
+<tr>
+<td colspan="2">Send/Receive Mode (Local Echo)</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">SRM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (Local echo off):</b></td>
+<td><b class="default">CSI 12 h</b></td>
+</tr>
+<tr>
+<td>Reset (Local echo on):</td>
+<td>CSI 12 l</td>
+</tr>
+<tr>
+<td colspan="2">Tabulation Stop Report</td>
+<td>DCS 2 $ u <var>D...D</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECTABSR</td>
+</tr>
+<tr>
+<td class="sub"><var>D...D</var></td>
+<td colspan="5">Column numbers of tab stops.</td>
+</tr>
+<tr>
+<td colspan="2">Terminal State Report (See DECRQTSR.)</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECTSR</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6"><p><sup>1</sup>A DECRQM sequence can only ask about one mode at a time. When the terminal is set to VT52 mode, DECRQM
+provides no report.</p>
+<p><sup>2</sup>The * means this mode is always Reset in the terminal and cannot be changed.</p></td>
+</tr>
+</tfoot>
+</table>
+<table id="T4-7" class="truled">
+<caption><span class="tabfigid">Table 4–7</span> Terminal Management Control Functions</caption>
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2" colspan="2">Purpose</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">CRT Save Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECCRTSM</td>
+</tr>
+<tr>
+<td class="sub" colspan="2"><b class="default">Set (enable CRT saver):</b></td>
+<td><b class="default">CSI ? 97 h</b></td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Reset (disable CRT saver):</td>
+<td>CSI ? 97 l</td>
+</tr>
+<tr>
+<td colspan="2">Device Attributes</td>
+<td>CSI c or CSI 0 c</td>
+<td>same</td>
+<td>same</td>
+<td>DA1</td>
+</tr>
+<tr>
+<td></td>
+<td>Response:</td>
+<td colspan="4">CSI ? <var>Psc ; PS1 ; ... Psn</var> c</td>
+</tr>
+<tr>
+<td class="sub" colspan="6">(See Primary Device Attributes (DA1).)</td>
+</tr>
+<tr>
+<td colspan="2">Secondary Device Attributes</td>
+<td>CSI &gt; c or CSI &gt; 0 c</td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DA2</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>VT Response:</td>
+<td>CSI &gt; 61; <var>Pv</var> ; 0 c</td>
+</tr>
+<tr>
+<td>PC Response:</td>
+<td>CSI &gt; 61; <var>Pv</var> ; 1 c</td>
+</tr>
+<tr>
+<td class="sub" colspan="6">(See Secondary Device Attributes (DA2).)</td>
+</tr>
+<tr>
+<td colspan="2">Tertiary Device Attributes</td>
+<td>CSI = c or CSI = 0 c</td>
+<td>same</td>
+<td>same</td>
+<td>DA3</td>
+</tr>
+<tr>
+<td colspan="2">Device Status Report – ANSI:</td>
+<td>CSI <var>Ps</var> n</td>
+<td>same</td>
+<td>same</td>
+<td>DSR</td>
+</tr>
+<tr>
+<td colspan="2">Device Status Report – DEC:</td>
+<td>CSI ? <var>Ps</var> n</td>
+<td>same</td>
+<td>same</td>
+<td>DSR</td>
+</tr>
+<tr>
+<td colspan="2">Enter/Exit PCTerm Mode or Select ASCII characters or scancodes</td>
+<td>CSI ? <var>Ps1; Ps2</var> r</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECPCTERM</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>VT Emulation Mode</th>
+<th>SCO Console Mode</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0</td>
+<td><b class="default">VT Mode</b></td>
+<td>ASCII characters</td>
+</tr>
+<tr>
+<td>1</td>
+<td>PCTerm Mode</td>
+<td>Scancodes</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps2</var></th>
+<th>Character Set</th>
+<th><var>Ps2</var></th>
+<th>Character Set</th>
+</tr>
+<tr>
+<td>210</td>
+<td>PC Greek</td>
+<td><b class="default">none</b>, 0</td>
+<td><b class="default">No Change</b></td>
+</tr>
+<tr>
+<td>220</td>
+<td>PC Spanish</td>
+<td>1</td>
+<td>PC Multilingual</td>
+</tr>
+<tr>
+<td>437</td>
+<td>PC International</td>
+<td>2</td>
+<td>PC International</td>
+</tr>
+<tr>
+<td>850</td>
+<td>PC Multilingual</td>
+<td>3</td>
+<td>PC Danish/Norwegian</td>
+</tr>
+<tr>
+<td>852</td>
+<td>PC Slavic (Latin 2)</td>
+<td>4</td>
+<td>PC Spanish</td>
+</tr>
+<tr>
+<td>857</td>
+<td>PC Turkish</td>
+<td>5</td>
+<td>PC Portuguese</td>
+</tr>
+<tr>
+<td>860</td>
+<td>PC Portuguese</td>
+<td>6</td>
+<td>DEC Supplemental</td>
+</tr>
+<tr>
+<td>862</td>
+<td>PC Hebrew</td>
+<td>7</td>
+<td>ISO Latin 1</td>
+</tr>
+<tr>
+<td>863</td>
+<td>PC French-Canadian</td>
+<td rowspan="3" colspan="2"></td>
+</tr>
+<tr>
+<td>865</td>
+<td>PC Danish</td>
+</tr>
+<tr>
+<td>866</td>
+<td>PC Cyrillic</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Identify Device</td>
+<td>ESC Z</td>
+<td>n/a</td>
+<td>same</td>
+<td>DECID<sup>1</sup></td>
+</tr>
+<tr>
+<td colspan="2">Invoke Confidence Test<sup>2</sup></td>
+<td>CSI 4 ; <var>Ps ; ... ; Ps</var> y</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECTST</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Test</th>
+</tr>
+<tr>
+<td>0</td>
+<td>"All Tests" (1, 2, 3, 6)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Power-Up Self Test</td>
+</tr>
+<tr>
+<td>2</td>
+<td>RS-232 Port Data Loopback</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Printer Port Loopback</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Speed Select and Indicator</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Reserved - No action</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Modem Loopback Test</td>
+</tr>
+<tr>
+<td>7</td>
+<td>EIA-423 Port Loopback</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Parallel Port Loopback</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Repeat other tests</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Overscan Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECOSCNM</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Set (enable overscan):<sup>3</sup></td>
+<td>CSI ? 106 h</td>
+</tr>
+<tr>
+<td class="sub" colspan="2"><b class="default">Reset (disable overscan):</b></td>
+<td><b class="default">CSI ? 106 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Primary Device Attributes</td>
+<td>CSI c or CSI 0 c</td>
+<td>same</td>
+<td>same</td>
+<td>DA1</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Model</th>
+<th>Response to DA1</th>
+</tr>
+<tr>
+<td>North American</td>
+<td>CSI ? 64;1;2;7;8;9;15;18;21;44;45;46 c</td>
+</tr>
+<tr>
+<td>World-Wide</td>
+<td>CSI ? 64;1;2;7;8;9;12;15;18;21;23;24;42;44;45;46 c</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Ext</th>
+<th>Description</th>
+<th>Ext</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>132 columns</td>
+<td>18</td>
+<td>Windowing capability</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Printer port extension</td>
+<td>21</td>
+<td>Horizontal scrolling</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Sixel extension</td>
+<td>23</td>
+<td>Greek extension</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Selective erase</td>
+<td>24</td>
+<td>Turkish extension</td>
+</tr>
+<tr>
+<td>7</td>
+<td>DRCS</td>
+<td>42</td>
+<td>ISO Latin 2 character set</td>
+</tr>
+<tr>
+<td>8</td>
+<td>UDK</td>
+<td>44</td>
+<td>PCTerm</td>
+</tr>
+<tr>
+<td>9</td>
+<td>NRCS</td>
+<td>45</td>
+<td>Soft key map</td>
+</tr>
+<tr>
+<td>12</td>
+<td>SCS extension</td>
+<td>46</td>
+<td>ASCII emulation</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Technical character set</td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Report Terminal Unit ID</td>
+<td>DCS ! | <var>D...D</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECRPTUI</td>
+</tr>
+<tr>
+<td colspan="2">Reset to Initial state</td>
+<td>ESC c</td>
+<td>same</td>
+<td>same</td>
+<td>RIS</td>
+</tr>
+<tr>
+<td colspan="2">Secondary Device Attributes</td>
+<td>CSI &gt; c or CSI &gt; 0 c</td>
+<td>same</td>
+<td>n/a</td>
+<td>DA2</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Keyboard</th>
+<th>Response</th>
+</tr>
+<tr>
+<td>VT keyboard</td>
+<td>CSI &gt; 61; <var>Pv</var>; 0 c</td>
+</tr>
+<tr>
+<td>PC keyboard</td>
+<td>CSI &gt; 61; <var>Pv</var>; 1 c</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub"><var>Pv</var></td>
+<td colspan="5">Firmware version</td>
+</tr>
+<tr>
+<td colspan="2">Secure Reset</td>
+<td>ESC [ <var>Pr</var> + p</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSR</td>
+</tr>
+<tr>
+<td colspan="2">Secure Reset Confirmation</td>
+<td>ESC [ <var>Pr</var> * q</td>
+<td>same</td>
+<td>same</td>
+<td>DECSRC</td>
+</tr>
+<tr>
+<td colspan="2">Select Conformance (Operating) Level</td>
+<td>CSI 6 <var>Ps1 ; Ps2</var> ; " p</td>
+<td>same</td>
+<td>same</td>
+<td>DECSCL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Level Selected</th>
+<th><var>Ps2</var></th>
+<th>Data Bits</th>
+</tr>
+<tr>
+<td>none,0,1</td>
+<td>1 - VT100</td>
+<td>none, 0, 2</td>
+<td>8-bit controls</td>
+</tr>
+<tr>
+<td>2,3,<b class="default">4</b></td>
+<td><b class="default">4 - VT510</b></td>
+<td><b class="default">1</b></td>
+<td>7-bit controls</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Refresh Rate<sup>3</sup></td>
+<td>CSI <var>Ps</var> " t</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSRFR</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Cursor Style</th>
+</tr>
+<tr>
+<td>1</td>
+<td>50 Hz</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60 Hz</td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0 or 3</td>
+<td>≥ 70 Hz</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Terminal ID<sup>4</sup></td>
+<td>CSI <var>Ps</var> , q</td>
+<td>same</td>
+<td>same</td>
+<td>DECTID</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>ID Type</th>
+<th>Response to DECTID</th>
+<th>Terminal Type</th>
+</tr>
+<tr>
+<td>0</td>
+<td>VT100</td>
+<td>ESC [ ? 1; 2 c</td>
+<td>VT100</td>
+</tr>
+<tr>
+<td>1</td>
+<td>VT101</td>
+<td>ESC [ ? 1; 0 c</td>
+<td>VT101</td>
+</tr>
+<tr>
+<td>2</td>
+<td>VT102</td>
+<td>ESC [ ? 6 c</td>
+<td>VT102</td>
+</tr>
+<tr>
+<td rowspan="2">5</td>
+<td rowspan="2">VT220</td>
+<td>CSI ? 62; 1; 2; 7; 8 c</td>
+<td>VT220 North American</td>
+</tr>
+<tr>
+<td>CSI ? 62; 1; 2; 7; 8; 9 c</td>
+<td>VT220 International</td>
+</tr>
+<tr>
+<td rowspan="2">7</td>
+<td rowspan="2">VT320</td>
+<td>CSI ? 63; 1; 2; 7; 8 c</td>
+<td>VT320 North American</td>
+</tr>
+<tr>
+<td>CSI ? 63; 1; 2; 7; 8; 9 c</td>
+<td>VT320 International</td>
+</tr>
+<tr>
+<td rowspan="2">9</td>
+<td rowspan="2">VT420</td>
+<td>CSI ? 64; 1; 2; 7; 8; 9; 15; 18; 21 c</td>
+<td>VT420 North American</td>
+</tr>
+<tr>
+<td>CSI ? 64; 1; 2; 7; 8; 9; 15; 18; 21 c</td>
+<td>VT420 International</td>
+</tr>
+<tr>
+<td><b class="default">10</b></td>
+<td><b class="default">VT510</b></td>
+<td colspan="2">Refer to DA1 for response.</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Soft Terminal Reset</td>
+<td>CSI ! p</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSTR</td>
+</tr>
+<tr>
+<td colspan="2">Terminal Mode Emulation</td>
+<td>CSI <var>Ps</var> SP ~</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECTME</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Terminal Mode</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0 or 1</td>
+<td><b class="default">VT510 (VT Level 4)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>VT100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VT52</td>
+</tr>
+<tr>
+<td>4</td>
+<td>VT420 PCTerm</td>
+</tr>
+<tr>
+<td>5</td>
+<td>WYSE 60/160</td>
+</tr>
+<tr>
+<td>6</td>
+<td>WYSE 60/160 PCTerm</td>
+</tr>
+<tr>
+<td>7</td>
+<td>WYSE 50+</td>
+</tr>
+<tr>
+<td>8</td>
+<td>WYSE 150/120</td>
+</tr>
+<tr>
+<td>9</td>
+<td>TVI 950</td>
+</tr>
+<tr>
+<td>10</td>
+<td>TVI 925</td>
+</tr>
+<tr>
+<td>11</td>
+<td>TVI 910+</td>
+</tr>
+<tr>
+<td>12</td>
+<td>ADDS A2</td>
+</tr>
+<tr>
+<td>13</td>
+<td>SCO Console</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Exit ANSI (VT52) Mode</td>
+<td>ESC &lt;</td>
+<td>same</td>
+<td>same</td>
+<td>DECANM</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Status Display Extension Functions</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Select Active Status Display</td>
+<td>CSI <var>Ps</var> $ }</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSASD</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Send data to . . .</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Main display only</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Status line only</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Status Display (Line) Type</td>
+<td>CSI <var>Ps</var> $ ~</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSSDT</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Status Line Selected</th>
+</tr>
+<tr>
+<td>0</td>
+<td>No status line</td>
+</tr>
+<tr>
+<td><b class="default">1</b></td>
+<td><b class="default">Indicator status line</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Host-writable status line</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">Desktop Features Control Functions</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Load Time of Day</td>
+<td>CSI <var>Ps1; Ps2</var> , p</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECLTOD</td>
+</tr>
+<tr>
+<td class="sub"><var>Ps1</var></td>
+<td>Hour (decimal number between 00 and 23)</td>
+<td rowspan="2" colspan="4"></td>
+</tr>
+<tr>
+<td class="sub"><var>Ps2</var></td>
+<td>Minutes (decimal number between 00 and 59)</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6"><p><sup>1</sup>DECID may not be supported; use primary device attributes (DA1) instead.</p>
+<p><sup>2</sup> "ESC # 8" invokes the Screen Alignment test. DECTST causes a disconnect; therefore, it should not be used in
+conjunction with a modem.</p>
+<p><sup>3</sup>Overscan and 72 Hz refresh rate cannot co-exist when the terminal is set to 42 or 53 lines per screen. Refer to
+DECSNLS—Set Lines Per Screen for details.</p>
+<p><sup>4</sup>DECTID has no effect when the terminal is in VT52 mode.</p></td>
+</tr>
+</tfoot>
+</table>
+<table id="T4-8" class="truled">
+<caption><span class="tabfigid">Table 4–8</span> Keyboard Processing Control Functions</caption>
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2" colspan="2">Purpose</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">Autorepeat Mode</td>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td>DECARM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (repeat):</b></td>
+<td><b class="default">CSI ? 8 h</b></td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td>Reset (disabled):</td>
+<td>CSI ? 8 l</td>
+</tr>
+<tr>
+<td colspan="2">Backarrow Key Mode</td>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td>DECBKM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (backspace):</td>
+<td>CSI ? 67 h</td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td><b class="default">Reset (delete):</b></td>
+<td><b class="default">CSI ? 67 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Copy Key Default</td>
+<td>DCS " z <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECCKD</td>
+</tr>
+<tr>
+<td class="sub"><var>D...D</var></td>
+<td colspan="5"><var>Key-s/Key-d;Key-s/Key-d...;</var></td>
+</tr>
+<tr>
+<td class="sub"><var>Key-s</var></td>
+<td colspan="5">Source key</td>
+</tr>
+<tr>
+<td class="sub"><var>Key-d</var></td>
+<td colspan="5">Destination key</td>
+</tr>
+<tr>
+<td colspan="2">Cursor Keys Mode</td>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td>DECCKM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (application):</td>
+<td>CSI ? 1 h</td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td>Reset (cursor):</td>
+<td>CSI ? 1 l</td>
+</tr>
+<tr>
+<td colspan="2">Define Function Key (SCO)</td>
+<td>ESC Q <var>Fn string</var></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>SCODFK</td>
+</tr>
+<tr>
+<td colspan="2">Device Status Report (keyboard status)</td>
+<td colspan="3"></td>
+<td rowspan="4">DSR</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Request Keyboard Report:</td>
+<td>CSI ? 26 n</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Reply to Keyboard Request:</td>
+<td colspan="3">CSI ? 27 ; <var>Pn; Pst; Ptyp</var> n</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Pn</var></th>
+<th>Keyboard Language (VT/PC)</th>
+<th><var>Pn</var></th>
+<th>Keyboard Language (VT or PC)</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Unknown</td>
+<td>15</td>
+<td>Spanish</td>
+</tr>
+<tr>
+<td>1</td>
+<td>North American</td>
+<td>16</td>
+<td>Portuguese</td>
+</tr>
+<tr>
+<td>2</td>
+<td>British</td>
+<td>19</td>
+<td>Hebrew</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Belgian (Flemish)</td>
+<td>22</td>
+<td>Greek</td>
+</tr>
+<tr>
+<td>4</td>
+<td>French Canadian</td>
+<td>28</td>
+<td>Canadian English</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Danish</td>
+<td>29</td>
+<td>Turkish Q/Turkish</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Finnish</td>
+<td>30</td>
+<td>Turkish F/Turkish</td>
+</tr>
+<tr>
+<td>7</td>
+<td>German/German</td>
+<td>31</td>
+<td>Hungarian</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Dutch</td>
+<td>33</td>
+<td>Slovak</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Italian</td>
+<td>34</td>
+<td>Czech</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Swiss French</td>
+<td>35</td>
+<td>Polish</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Swiss German</td>
+<td>36</td>
+<td>Romanian</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Swedish</td>
+<td>38</td>
+<td>SCS</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Norwegian</td>
+<td>39</td>
+<td>Russian</td>
+</tr>
+<tr>
+<td>14</td>
+<td>French</td>
+<td>40</td>
+<td>Latin American</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Pst</var></th>
+<th>Keyboard Status</th>
+<th><var>Ptyp</var></th>
+<th>Keyboard Type</th>
+</tr>
+<tr>
+<td>0</td>
+<td>Keyboard Ready</td>
+<td>4</td>
+<td>LK450</td>
+</tr>
+<tr>
+<td>3</td>
+<td>No Keyboard</td>
+<td>5</td>
+<td>PCXAL</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Keyboard Busy</td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Down-line Load</td>
+<td colspan="4">DCS <var>Pfn; Pcn; Pe; Pcmw; Pss; Pu; Pcmh;<br/>Pcss</var> { &lt;Dscs&gt; &lt;sixel-font-patterns&gt; ST</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECDLD</td>
+</tr>
+<tr>
+<td colspan="2">Extended Keyboard Report</td>
+<td>APC : <var>ppp mm</var> ST</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECEKBD</td>
+</tr>
+<tr>
+<td colspan="2">Enable Local Functions</td>
+<td colspan="2">CSI <var>Pf1;Pc1;...Pfn;Pcn</var> + q</td>
+<td>n/a</td>
+<td>DECELF</td>
+</tr>
+<tr>
+<td colspan="2">Enable Secondary Keyboard Language Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECESKM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (secondary):</td>
+<td>CSI ? 104 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (primary):</b></td>
+<td>CSI ? 104 l</td>
+</tr>
+<tr>
+<td colspan="2">Function Key</td>
+<td>CSI <var>Ps1; Ps2</var> ~</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECFNK</td>
+</tr>
+<tr>
+<td class="sub"><var>Ps1</var></td>
+<td>Function key</td>
+<td rowspan="2" colspan="4"></td>
+</tr>
+<tr>
+<td class="sub"><var>Ps2</var></td>
+<td>Modifier</td>
+</tr>
+<tr>
+<td colspan="2">Hebrew Encoding Mode<sup>1</sup></td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECHEM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (8-bit char):</b></td>
+<td><b class="default">CSI ? 36 h</b></td>
+</tr>
+<tr>
+<td>Reset (7-bit char):</td>
+<td>CSI ? 36 l</td>
+</tr>
+<tr>
+<td colspan="2">Hebrew Keyboard Map Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECHEBM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (Hebrew keyboard):</td>
+<td>CSI ? 35 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (North American):</b></td>
+<td><b class="default">CSI ? 35 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Keyboard Action Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">KAM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (lock):</td>
+<td>CSI 2 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (unlock):</b></td>
+<td><b class="default">CSI 2 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Keypad Application Mode</td>
+<td>ESC =</td>
+<td>same</td>
+<td>same</td>
+<td>DECKPAM</td>
+</tr>
+<tr>
+<td colspan="2">Keyboard Language Selection</td>
+<td>CSI <var>Ps1; Ps2</var> SP }</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECKBD</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Keyboard Type</th>
+</tr>
+<tr>
+<td>1,0</td>
+<td>VT keyboard layout</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enhanced PC keyboard layout</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps2</var></th>
+<th>Keyboard Language (VT/PC)</th>
+<th><var>Ps2</var></th>
+<th>Keyboard Language (VT or PC)</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">North American</b></td>
+<td>16</td>
+<td>Portuguese</td>
+</tr>
+<tr>
+<td>2</td>
+<td>British</td>
+<td>19</td>
+<td>Hebrew</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Belgian</td>
+<td>22</td>
+<td>Greek</td>
+</tr>
+<tr>
+<td>4</td>
+<td>French Canadian</td>
+<td>28</td>
+<td>Canadian English</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Danish</td>
+<td>29</td>
+<td>Turkish Q/Turkish</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Finnish</td>
+<td>30</td>
+<td>Turkish F/Turkish</td>
+</tr>
+<tr>
+<td>7</td>
+<td>German</td>
+<td>31</td>
+<td>Hungarian</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Dutch</td>
+<td>33</td>
+<td>Slovak</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Italian</td>
+<td>34</td>
+<td>Czech</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Swiss French</td>
+<td>35</td>
+<td>Polish</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Swiss German</td>
+<td>36</td>
+<td>Romanian</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Swedish</td>
+<td>38</td>
+<td>SCS</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Norwegian</td>
+<td>39</td>
+<td>Russian</td>
+</tr>
+<tr>
+<td>14</td>
+<td>French</td>
+<td>40</td>
+<td>Latin American</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Spanish</td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Keypad Numeric Mode</td>
+<td>ESC &gt;</td>
+<td>same</td>
+<td>same</td>
+<td>DECKPNM</td>
+</tr>
+<tr>
+<td colspan="2">Key Position Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECKPM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (key position):</td>
+<td>CSI ? 81 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (char codes):</b></td>
+<td><b class="default">CSI ? 81 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Keyboard Usage Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECKBUM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (data processing):</td>
+<td>CSI ? 68 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (typewriter):</b></td>
+<td><b class="default">CSI ? 68 l</b></td>
+</tr>
+<tr>
+<td rowspan="2" colspan="2">Local Function Key Control</td>
+<td colspan="4">CSI <var>Pk1; Pf1; Pk2; Pf2...</var> * g</td>
+</tr>
+<tr>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECLFKC</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Pk</var></th>
+<th>Function</th>
+<th>VT Keyboard</th>
+<th>Enhanced PC Keyboard</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Hold</td>
+<td>F1</td>
+<td>Scroll Lock</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Print</td>
+<td>F2</td>
+<td>Print Screen</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Set-Up</td>
+<td>F3</td>
+<td>Cap Lock/Print Screen</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Locking Shift</td>
+<td colspan="3"></td>
+<td rowspan="8">LS</td>
+</tr>
+<tr>
+<td class="sub"><b class="default">LS0</b></td>
+<td><b class="default">Map G0 into GL</b></td>
+<td>SI</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td class="sub">LS1</td>
+<td>Map G1 into GL</td>
+<td>SO</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td class="sub">LS1R</td>
+<td>Map G1 into GR</td>
+<td>ESC ~</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td class="sub">LS2</td>
+<td>Map G2 into GL</td>
+<td>ESC n</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td class="sub">LS2R</td>
+<td>Map G2 into GR</td>
+<td>ESC }</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td class="sub">LS3</td>
+<td>Map G3 into GL</td>
+<td>ESC o</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td class="sub">LS3R</td>
+<td>Map G3 into GR</td>
+<td>ESC |</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td colspan="2">North American/Greek Selection</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECNAKB</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (North American):</b></td>
+<td><b class="default">CSI ? 57 h</b></td>
+</tr>
+<tr>
+<td>Reset (Greek keyboard):</td>
+<td>CSI ? 57 l</td>
+</tr>
+<tr>
+<td colspan="2">Numeric Keypad Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECNKM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (application):</td>
+<td>CSI ? 66 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (numeric):</b></td>
+<td><b class="default">CSI ? 66 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Program Alphanumeric Key</td>
+<td>DCS " y <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECPAK</td>
+</tr>
+<tr>
+<td colspan="2">Program Function Key</td>
+<td>DCS " x <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECPFK</td>
+</tr>
+<tr>
+<td colspan="2">Program Key Action</td>
+<td>CSI <var>Ps</var> + z</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECPKA</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Program Key Action</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0</td>
+<td><b class="default">None</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Lock Keys and Modifiers</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Restore Factory Defaults</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Recall Key Definitions</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Program Key Free Memory Report<sup>2</sup></td>
+<td rowspan="3">CSI <var>Ps1; Ps2</var> + y</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECPKFMR</td>
+</tr>
+<tr>
+<td class="sub"><var>Ps1</var></td>
+<td>Total memory (bytes)</td>
+</tr>
+<tr>
+<td class="sub"><var>Ps2</var></td>
+<td>Free memory</td>
+</tr>
+<tr>
+<td colspan="2">Program Key Free Memory Inquiry</td>
+<td rowspan="2">CSI + x</td>
+<td rowspan="2">n/a</td>
+<td rowspan="2">n/a</td>
+<td rowspan="2">DECRQPKFM</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Response: DECPKFMR</td>
+</tr>
+<tr>
+<td colspan="2">Request Key Type</td>
+<td>CSI <var>Ps</var> , u</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECRQKT</td>
+</tr>
+<tr>
+<td colspan="2">Report Key Type</td>
+<td>CSI <var>Ps1; Ps2</var> , v</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECRPKT</td>
+</tr>
+<tr>
+<td colspan="2">Report Function Key Definition</td>
+<td>DCS " } <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECRPFK</td>
+</tr>
+<tr>
+<td colspan="2">Report Modifiers/Key State</td>
+<td>DCS " ~ <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECRPAK</td>
+</tr>
+<tr>
+<td colspan="2">Set Key Click Volume</td>
+<td>CSI <var>Ps</var> SP r</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSKCV</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Volume</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>2, 3, 4</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 5, 6, 7, 8</td>
+<td><b class="default">High</b></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Set Lock Key Style</td>
+<td>CSI <var>Ps</var> SP v</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSLCK</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Lock Style</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">Caps Lock</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shift Lock</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Reverse Lock</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Num Lock Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECNUMLK</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 108 h</td>
+</tr>
+<tr>
+<td>Reset:</td>
+<td>CSI ? 108 l</td>
+</tr>
+<tr>
+<td colspan="2">Caps Lock Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECCAPSLK</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 109 h</td>
+</tr>
+<tr>
+<td>Reset:</td>
+<td>CSI ? 109 l</td>
+</tr>
+<tr>
+<td colspan="2">Keyboard LEDs Host Indicator Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECKLHIM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 110 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 110 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Load LEDs</td>
+<td>CSI <var>Ps</var> q</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECLL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Volume</th>
+</tr>
+<tr>
+<td><b class="default">0</b></td>
+<td><b class="default">Clear all LEDs</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Light Num Lock</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Light Caps Lock</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Light Scroll Lock</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Extinguish Num Lock</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Extinguish Caps Lock</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Extinguish Scroll Lock</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Set Margin Bell Volume</td>
+<td>CSI <var>Ps</var> SP u</td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSMBV</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Volume</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">Off</b></td>
+</tr>
+<tr>
+<td>2, 3, 4</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>5, 6, 7, 8</td>
+<td>High</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td rowspan="2" colspan="2">Select Modifier Key Reporting (See reference.)</td>
+<td colspan="4">CSI <var>Pm1;Pf1...Pmn;Pfn</var> + r</td>
+</tr>
+<tr>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECSMKR</td>
+</tr>
+<tr>
+<td colspan="2">Set Warning Bell Volume</td>
+<td>CSI <var>Ps</var> SP t</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSWBV</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Volume</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>2, 3, 4</td>
+<td>Low</td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 5, 6, 7, 8</td>
+<td>High</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">User-Defined Keys</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2" colspan="2">User Defined Keys</td>
+<td colspan="4">DCS <var>Ps1; Ps2; Ps3</var> | <var>D...D</var> ST</td>
+</tr>
+<tr>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>DECUDK</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Clear . . .</th>
+</tr>
+<tr>
+<td>none, 0</td>
+<td>All UDKs before loading new values</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Old UDKs only when redefined; load new UDK values.</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps2</var></th>
+<th>Lock . . .</th>
+</tr>
+<tr>
+<td>none, 0</td>
+<td>UDKs against future redefinition</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Don't lock the UDKs against future redefinition.</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps3</var></th>
+<th>Define . . .</th>
+</tr>
+<tr>
+<td>none, 0</td>
+<td>Shifted function key</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Unshifted function key</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Shifted function key</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Alt unshifted function key</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Alt shifted function key</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub"><var>D...D</var></td>
+<td colspan="5"><var>Key1/St1/Dir;Key2/St2/Dir;.......Keyn/Stn/Dir;</var></td>
+</tr>
+<tr>
+<td class="sub"><var>Stn</var></td>
+<td colspan="5">Sequence user-defined key (UDK)</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Keyn</var></th>
+<th>VT Keyboard</th>
+<th>PC Keyboard</th>
+</tr>
+<tr>
+<td>11</td>
+<td>F1</td>
+<td>F1</td>
+</tr>
+<tr>
+<td>12</td>
+<td>F2</td>
+<td>F2</td>
+</tr>
+<tr>
+<td>13</td>
+<td>F3</td>
+<td>F3</td>
+</tr>
+<tr>
+<td>14</td>
+<td>F4</td>
+<td>F4</td>
+</tr>
+<tr>
+<td>15</td>
+<td>F5</td>
+<td>F5</td>
+</tr>
+<tr>
+<td>17</td>
+<td>F6</td>
+<td>F6</td>
+</tr>
+<tr>
+<td>18</td>
+<td>F7</td>
+<td>F7</td>
+</tr>
+<tr>
+<td>19</td>
+<td>F8</td>
+<td>F8</td>
+</tr>
+<tr>
+<td>20</td>
+<td>F9</td>
+<td>F9</td>
+</tr>
+<tr>
+<td>21</td>
+<td>F10</td>
+<td>F10</td>
+</tr>
+<tr>
+<td>23</td>
+<td>F11</td>
+<td>F11</td>
+</tr>
+<tr>
+<td>24</td>
+<td>F12</td>
+<td>F12</td>
+</tr>
+<tr>
+<td>25</td>
+<td>F13</td>
+<td rowspan="8"></td>
+</tr>
+<tr>
+<td>26</td>
+<td>F14</td>
+</tr>
+<tr>
+<td>28</td>
+<td>F15</td>
+</tr>
+<tr>
+<td>29</td>
+<td>F16</td>
+</tr>
+<tr>
+<td>31</td>
+<td>F17</td>
+</tr>
+<tr>
+<td>32</td>
+<td>F18</td>
+</tr>
+<tr>
+<td>33</td>
+<td>F19</td>
+</tr>
+<tr>
+<td>34</td>
+<td>F20</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Dir</var></th>
+<th>Direction<sup>3</sup></th>
+</tr>
+<tr>
+<td>0, <b class="default">none</b></td>
+<td><b class="default">Normal</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Remote</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">DSR - User-Defined Key Request</td>
+<td></td>
+<td rowspan="4">same</td>
+<td rowspan="4">n/a</td>
+<td rowspan="4">DSR-UDK</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Request UDK lock:</td>
+<td>CSI ? 25 n</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Reply to UDK locked status:</td>
+<td>CSI ? 20 n</td>
+</tr>
+<tr>
+<td class="sub" colspan="2">Reply to UDK unlocked status:</td>
+<td>CSI ? 21 n</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6"><p><sup>1</sup>DECHEM is opposite in action to DECNRCM; that is, setting DECHEM has the same result as resetting DECNRCM.</p>
+<p><sup>2</sup>The VT510 reports this sequence upon receiving DECRQPKFM from the host. See reference for limitations.</p>
+<p><sup>3</sup>See DECPFK for direction definitions.</p></td>
+</tr>
+</tfoot>
+</table>
+<table id="T4-9" class="truled">
+<caption><span class="tabfigid">Table 4–9</span> Communications Control Functions</caption>
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2" colspan="2">Printer Port Function</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">DSR - Printer Port Report</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DSR-Print</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Request:</td>
+<td>CSI ? 15 n</td>
+</tr>
+<tr>
+<td>Response:</td>
+<td>CSI ? Ps n</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Printer . . .</th>
+</tr>
+<tr>
+<td>10</td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Not ready</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Off line</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Busy</td>
+</tr>
+<tr>
+<td>19</td>
+<td>On another session.</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Media Copy - Send Screen Data through Host Port</td>
+<td>CSI 2 i</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>MC</td>
+</tr>
+<tr>
+<td colspan="2">Media Copy - Start/Stop Printer-to-Host Session</td>
+<td colspan="3"></td>
+<td rowspan="3">MC</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>ANSI:</td>
+<td>CSI <var>Pa</var> i</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>DEC:</td>
+<td>CSI ? <var>Pd</var> i</td>
+<td>same</td>
+<td>CSI ?8i</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<thead>
+<tr>
+<th colspan="2">ANSI Mode</th>
+<th colspan="2">DEC Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th><var>Pa</var></th>
+<th>Function</th>
+<th><var>Pd</var></th>
+<th>Function</th>
+</tr>
+<tr>
+<td>0, none</td>
+<td>Print page</td>
+<td>1</td>
+<td>Print cursor line</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reset printer controller mode</td>
+<td>4</td>
+<td>Reset autoprint mode</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Set printer controller mode</td>
+<td>5</td>
+<td>Set autoprint mode</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Start printer to host session</td>
+<td>8</td>
+<td>Stop printer to host session</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Stop printer to host session</td>
+<td>9</td>
+<td>Start printer to host session</td>
+</tr>
+<tr>
+<td rowspan="4" colspan="2"></td>
+<td>10</td>
+<td>Print composed main display</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Print all pages</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Assign printer to active host session</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Accept printer commands from sessions</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Print Extent Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECPEX</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (entire page):</td>
+<td>CSI ? 19 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (scroll region):</b></td>
+<td><b class="default">CSI ? 19 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Print Form Feed Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECPFF</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (FF):</td>
+<td>CSI ? 18 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (no FF):</b></td>
+<td><b class="default">CSI ? 18 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Select Digital Printed Data Type<sup>1</sup></td>
+<td>CSI <var>Ps</var> ) p</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSDPT</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Printed Data Type</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">Print National Only</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>National and Line Drawing</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Print Multinational</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Print All Characters</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select Printer Type</td>
+<td>CSI <var>Ps</var> $ s</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSPRTT</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Printer Type</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td>DEC ANSI</td>
+</tr>
+<tr>
+<td>2</td>
+<td>IBM ProPrinter</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DEC + IBM</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Select ProPrinter Character Set</td>
+<td>CSI <var>Pn</var> * p</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSPPCS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Pn</th>
+<th>Printer</th>
+</tr>
+<tr>
+<td>210</td>
+<td>PC Greek</td>
+</tr>
+<tr>
+<td>220</td>
+<td>PC Spanish</td>
+</tr>
+<tr>
+<td>437</td>
+<td>PC International</td>
+</tr>
+<tr>
+<td>850</td>
+<td>PC Multilingual</td>
+</tr>
+<tr>
+<td>852</td>
+<td>PC Slavic (Latin 2)</td>
+</tr>
+<tr>
+<td>857</td>
+<td>PC Turkish</td>
+</tr>
+<tr>
+<td>860</td>
+<td>PC Portuguese</td>
+</tr>
+<tr>
+<td>862</td>
+<td>PC Hebrew</td>
+</tr>
+<tr>
+<td>863</td>
+<td>PC French-Canadian</td>
+</tr>
+<tr>
+<td>865</td>
+<td>PC Danish</td>
+</tr>
+<tr>
+<td>866</td>
+<td>PC Cyrillic</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="6">Start/stop printer; see Media Copy.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2" colspan="2">DEC Printers with ProPrinter Emulation</th>
+<th class="c" colspan="3">Control Function</th>
+<th rowspan="2">Mnemonic</th>
+</tr>
+<tr>
+<th>VT510</th>
+<th>VT420</th>
+<th>VT100</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="3">Enter/Return from IBM ProPrinter Emulation Mode</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECIPEM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Enter:</td>
+<td>CSI ? 58 h</td>
+</tr>
+<tr>
+<td>Return:</td>
+<td>CSI ? 58 l</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="6">Terminal Synchronization</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">Auto Answerback Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">same</td>
+<td rowspan="3">DECAAM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 100 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 100 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Conceal Answerback Message Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECCANSM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 101 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 101 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Communication Port</td>
+<td>CSI <var>Ps1; Ps2</var> * u</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSCP</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Printer Port</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Parallel port</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Comm1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Comm2</td>
+</tr>
+<tr>
+<th>Ps2</th>
+<th>Session 1</th>
+</tr>
+<tr>
+<td>1</td>
+<td>Comm1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Comm2</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Communication Speed</td>
+<td>CSI <var>Ps1; Ps2</var> * r</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSCS</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Comm Line</th>
+<th><var>Ps2</var></th>
+<th>Communication Speed</th>
+</tr>
+<tr>
+<td>none, 0, 1</td>
+<td>Host Transmit</td>
+<td>none, 0</td>
+<td>Use default speed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Host Receive</td>
+<td>1</td>
+<td>300</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Printer</td>
+<td>2</td>
+<td>600</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Modem Hi</td>
+<td>3</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Modem Lo</td>
+<td>4</td>
+<td>2400</td>
+</tr>
+<tr>
+<td rowspan="7" colspan="2"></td>
+<td>5</td>
+<td>4800</td>
+</tr>
+<tr>
+<td>6</td>
+<td>9600</td>
+</tr>
+<tr>
+<td>7</td>
+<td>19200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>38400</td>
+</tr>
+<tr>
+<td>9</td>
+<td>57600</td>
+</tr>
+<tr>
+<td>10</td>
+<td>76800</td>
+</tr>
+<tr>
+<td>11</td>
+<td>115200</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th>Communication Line</th>
+<th>Default Communication Speed</th>
+</tr>
+<tr>
+<td>Host Transmit</td>
+<td>9600</td>
+</tr>
+<tr>
+<td>Host Receive</td>
+<td>Receive=transmit</td>
+</tr>
+<tr>
+<td>Printer</td>
+<td>4800</td>
+</tr>
+<tr>
+<td>Modem Hi</td>
+<td>Ignore</td>
+</tr>
+<tr>
+<td>Modem Lo</td>
+<td>Ignore</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Device Control 1 (XON)</td>
+<td>DC1</td>
+<td>same</td>
+<td>same</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Device Control 3 (XOFF)</td>
+<td>DC3</td>
+<td>same</td>
+<td>same</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Disconnect Delay Time</td>
+<td>CSI <var>Ps</var> $ q</td>
+<td>same</td>
+<td>same</td>
+<td>DECSDDT</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps</var></th>
+<th>Delay Time</th>
+</tr>
+<tr>
+<td>1</td>
+<td>None</td>
+</tr>
+<tr>
+<td>2</td>
+<td>60 ms</td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 3</td>
+<td>2 s</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Flow Control</td>
+<td colspan="4">CSI <var>Ps1; Ps2; Ps3; Ps4</var> * s</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Port Type</th>
+<th><var>Ps3</var></th>
+<th>Flow Control Type</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td><b class="default">Comm Port</b></td>
+<td><b class="default">none</b>, 0 or 1</td>
+<td><b class="default">XON/XOFF</b> or XPC (for receive only)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Printer Port</td>
+<td>2</td>
+<td>DTR</td>
+</tr>
+<tr>
+<td rowspan="2" colspan="2"></td>
+<td>3</td>
+<td>Both</td>
+</tr>
+<tr>
+<td>4</td>
+<td>None</td>
+</tr>
+<tr>
+<th><var>Ps2</var></th>
+<th>Transmit or Receive</th>
+<th><var>Ps4</var></th>
+<th>Flow Control Threshold</th>
+</tr>
+<tr>
+<td>1, 0 or none</td>
+<td>Transmit</td>
+<td><b class="default">none</b>, 0 or 1</td>
+<td><b class="default">Low (64)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Receive</td>
+<td>2</td>
+<td>High (768)</td>
+</tr>
+<tr>
+<td><b class="default">3</b></td>
+<td><b class="default">Transmit and Receive</b></td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Half-Duplex Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECHDPXM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 103 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 103 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Load Answerback Message<sup>2</sup></td>
+<td>DCS <var>Ps</var> v <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECLANS</td>
+</tr>
+<tr>
+<td colspan="2">Load Banner Message</td>
+<td>DCS <var>Ps</var> r <var>D...D</var> ST</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECLBAN</td>
+</tr>
+<tr>
+<td colspan="2">Modem Control Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECMCM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set:</td>
+<td>CSI ? 99 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset:</b></td>
+<td><b class="default">CSI ? 99 l</b></td>
+</tr>
+<tr>
+<td colspan="2">Null Mode</td>
+<td></td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECNULM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td><b class="default">Set (ignore NUL):</b></td>
+<td><b class="default">CSI ? 102 h</b></td>
+</tr>
+<tr>
+<td>Reset (accept NUL):</td>
+<td>CSI ? 102 l</td>
+</tr>
+<tr>
+<td colspan="2">Set Port Parameters</td>
+<td colspan="4">CSI <var>Ps1; Ps2; Ps3; Ps4</var> + w</td>
+</tr>
+<tr>
+<td colspan="3"></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Port</th>
+<th><var>Ps3</var></th>
+<th>Parity</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0 or 1</td>
+<td>Comm Port</td>
+<td><b class="default">none</b>, 0 or 1</td>
+<td>No parity</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Printer Port</td>
+<td>2</td>
+<td>Even</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td>3</td>
+<td>Odd</td>
+</tr>
+<tr>
+<th><var>Ps2</var></th>
+<th>Data</th>
+<td>4†</td>
+<td>Even</td>
+</tr>
+<tr>
+<td>1, 0 or none</td>
+<td>8 bits</td>
+<td>5†</td>
+<td>Odd, unchecked</td>
+</tr>
+<tr>
+<td>2</td>
+<td>7 bits</td>
+<td>6</td>
+<td>Mark</td>
+</tr>
+<tr>
+<td colspan="2"></td>
+<td>7</td>
+<td>Space</td>
+</tr>
+<tr>
+<th><var>Ps4</var></th>
+<th>Stop Bit</th>
+<td rowspan="3" colspan="2"></td>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0 or 1</td>
+<td>1 bit</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2 bits</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Set Transmit Rate Limit</td>
+<td>CSI <var>Ps1; Ps2</var> " u</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>DECSTRL</td>
+</tr>
+<tr>
+<td class="sub" colspan="6"><table>
+<tbody>
+<tr>
+<th><var>Ps1</var></th>
+<th>Key Type</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0 or 1</td>
+<td><b class="default">All keys</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Graphic key</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Function key</td>
+</tr>
+<tr>
+<th><var>Ps2</var></th>
+<th>Characters Per Second</th>
+</tr>
+<tr>
+<td><b class="default">none</b>, 0, 1</td>
+<td>150 cps</td>
+</tr>
+<tr>
+<td>2</td>
+<td>50 cps</td>
+</tr>
+<tr>
+<td>3</td>
+<td>30 cps</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td colspan="2">Transmit Rate Limiting Mode</td>
+<td></td>
+<td rowspan="3">same</td>
+<td rowspan="3">n/a</td>
+<td rowspan="3">DECXRLM</td>
+</tr>
+<tr>
+<td rowspan="2"></td>
+<td>Set (limited):</td>
+<td>CSI ? 73 h</td>
+</tr>
+<tr>
+<td><b class="default">Reset (unlimited):</b></td>
+<td>CSI ? 73 l</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6"><p><sup>1</sup>This sequence takes effect only when a ProPrinter or Digital printer with ProPrinter emulation mode is attached.</p>
+<p><sup>2</sup>The answerback data string may consist of from 0 to 30, 7- or 8-bit characters, which are hex pairs in the 3/0 through
+3/9 (0 through 9) range, 4/1 through 4/6 (A through F) range, and 6/1 through 6/6 (A through F) range. Pressing
+<span class="keyname">Ctrl/Break</span> or receiving an ENQ code causes the VT510 to transmit the answerback message.</p>
+<p>† Not available for the printer port. If specified in the sequence to configure the printer port, the Ps3 value is ignored.</p></td>
+</tr>
+</tfoot>
+</table>
+<footer>
+<nav class="sections"><a href="part2.html">Part II</a><a href="contents.html">Contents</a><a href="chapter5.html">Chapter 5</a></nav>
+</footer>
+</body>
+</html>

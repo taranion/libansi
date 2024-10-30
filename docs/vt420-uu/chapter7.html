@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter6.html">Chapter 6</a><a href="contents.html">Contents</a><a href="chapter8.html">Chapter 8</a></nav>
+</header>
+<h1 id="S7"><span class="chapnum">7</span><br/>Using Two Sessions, Windows, and the Copy and Paste Feature</h1>
+<p>This chapter describes how to:</p>
+<ul>
+<li>Run two computer sessions on your terminal at the same time.</li>
+<li>Select and use windows.</li>
+<li>Copy and paste text between sessions.</li>
+</ul>
+<p>With two sessions, your VT420 becomes two terminals in one. You can
+also use the VT420 as a conventional one-session terminal.</p>
+<p>Running two sessions offers many advantages. For example, you can
+easily display and compare data from two different jobs at the same
+time. To display data from two sessions, you divide the screen into two
+<dfn><a href="glossary.html#WINDOW">windows</a></dfn>. You can also copy and paste text from one session to another.</p>
+<h2 id="S7.1">What Are Sessions?</h2>
+<p>A video terminal lets you exchange information with a computer system.
+In order to communicate with the host system, you must open a session
+from your terminal. A <dfn><a href="glossary.html#SESSION">session</a></dfn> is an active connection between the
+terminal and a host system. On many systems, you open a session by
+logging in to the system.</p>
+<h2 id="S7.2">Two Sessions</h2>
+<p>The VT420 lets you run two sessions at the same time. Opening two
+sessions is easy. After you set up the VT420 for two sessions, you can
+use the <span class="keyname">F4</span> (Session) key to move back and forth between two sessions.
+The session you are using is called the <dfn><a href="glossary.html#ACTIVE">active session</a></dfn>. The next section
+describes how to open two sessions.</p>
+<p>You can connect the VT420 to a host computer, a <dfn><a href="glossary.html#TERMINAL">terminal server</a></dfn>, or a
+<dfn><a href="glossary.html#MODEM">modem</a></dfn>. This means you can run two sessions on the same host system or
+on two different systems.</p>
+<h2 id="S7.3">Opening Two Sessions</h2>
+<p>The VT420 uses a communication cable to exchange information with a
+computer. You can use one or two communication cables for two sessions.
+To use one cable, your system must have Digital's Session Support Utility
+software or a terminal server that supports multiple sessions.</p>
+<p>Chapters <a href="chapter2.html">2</a> and <a href="chapter3.html">3</a> describe how to install communication cables and set
+up the terminal for two sessions. This section describes how to use two
+sessions after you set up the terminal correctly.</p>
+<p>The way you open two sessions depends on how many communication
+cables you use. The following sections describe how to open two sessions
+if you use:</p>
+<ul>
+<li>Two cables</li>
+<li>One cable and SSU software</li>
+<li>One cable and a terminal server that supports multiple sessions</li>
+</ul>
+<h3 id="S7.3.1">If You Use Two Cables</h3>
+<p>This section describes how to open two sessions if you use two
+communication cables.</p>
+<p class="note">IMPORTANT: Make sure your VT420 is set up correctly before you try to open
+two sessions. <a href="chapter3.html">Chapter 3</a> describes how to set up the terminal for
+two sessions using two cables.</p>
+<h4>Session 1</h4>
+<p>You open session 1 the way you normally do on your host system. The
+VT420 always connects you to the system assigned to session 1. This
+assignment is based on the cable connections at the rear of the terminal.
+To assign a system to a session, you use the <strong>terminal comm ports</strong>
+feature in the Global Set-Up screen.</p>
+<h4>Session 2</h4>
+<p>After you open session 1, you press the <span class="keyname">F4</span> (Session) key and open session
+2 the same way you opened session 1. When you press <span class="keyname">F4</span> (Session), the
+VT420 maintains session 1. The session can still receive information from
+the host system. No information is lost.</p>
+<p>If your terminal does not respond correctly when you press <span class="keyname">F4</span> (Session),
+repeat the set-up procedure for two sessions in <a href="chapter3.html">Chapter 3</a>.</p>
+<h4>Example</h4>
+<p>The following example shows you how to open (log in to) two sessions on
+one of Digital's VAX/VMS systems:</p>
+<p class="note">NOTE: The <cite>Guide to Using VMS</cite> provides detailed information on how to
+log in to the VMS operating system.</p>
+<p><strong>To open session 1:</strong></p>
+<ol>
+<li>Turn on the VT420 and wait for the screen to display <code class="screen">VT420 OK</code>.</li>
+<li>Press the <span class="keyname">Return</span> key to tell the system you want to log in.</li>
+<li>The system prompts you for your user name. Enter your <em>user name</em>
+and press <span class="keyname">Return</span>.</li>
+<li>The system prompts you for your password. Enter your <em>password</em> and
+press <span class="keyname">Return</span>.</li>
+</ol>
+<p>The system does not display your password. When you correctly type your
+name and password, the system displays a VAX/VMS version number and
+a $ (dollar sign) prompt. The $ indicates you have logged into session 1
+successfully.</p>
+<p>The login sequence looks like this:</p>
+<p><span class="keyname">Return</span><br/>
+<code class="screen">Username:</code> <kbd>Smith</kbd> <span class="keyname">Return</span><br/>
+<code class="screen">Password: (not displayed)</code> <span class="keyname">Return</span></p>
+<p><strong>To open session 2:</strong> Press the <span class="keyname">F4</span> (Session) key and repeat the login
+sequence.</p>
+<h3 id="S7.3.2">If You Use One Cable</h3>
+<p>If your system has Digital's SSU software or a Digital terminal server
+that supports multiple sessions, you can run two sessions over one
+communication cable. Your system manager can tell you if your system
+has either one.</p>
+<h4>If Your System has SSU Software</h4>
+<p>If your system has Digital's SSU software, use the following procedure to
+run two sessions over one communication cable:</p>
+<p class="note">IMPORTANT: Make sure your VT420 is set up correctly before you try to open
+two sessions. <a href="chapter3.html">Chapter 3</a> describes how to set up the terminal for
+two sessions, using one cable and SSU software.</p>
+<h4>Session 1</h4>
+<p>To open session 1:</p>
+<ol>
+<li>Log into your host system the way you normally do.</li>
+<li><p>Enable SSU with two sessions on your terminal line.</p>
+<p>On a VAX/VMS system, enter the following command at the $ prompt:</p>
+<p><code class="screen">$</code> <kbd>SSU ENABLE</kbd> <span class="keyname">Return</span></p>
+<p>The terminal should display the following response on the status line
+at the bottom of the screen:</p>
+<p><code class="screen">Done</code></p>
+<p>The first session is now open.</p></li>
+</ol>
+<p class="note">NOTE: If you type information before the <code class="screen">Done</code> message appears on the
+status line, the terminal displays the <code class="screen">Service name =</code> prompt.</p>
+<h4>Session 2</h4>
+<p>To open a second session:</p>
+<ol>
+<li>Press the <span class="keyname">F4</span> (Session) key.
+<p class="note">NOTE: If you did not enable SSU in step 2 above, the host system will
+not respond when the terminal tries to open the second session.
+After 10 seconds, the warning bell rings twice and a message
+appears on the status line, indicating that the host did not
+respond.</p></li>
+<li><p>The system prompts you for the service name.</p>
+<p><code class="screen">Service name = ____________________</code></p>
+<p>VAX/VMS systems ignore the service name. Go to the next step.</p></li>
+<li>Press <span class="keyname">Return</span>. The system responds with
+<p><code class="screen">Session Open Request Pending</code></p>
+<p>immediately followed by</p>
+<p><code class="screen">Session Opened</code></p>
+<p>Session 2 is now open. On a VAX/VMS system, you should see a login
+prompt on the screen. On other systems, the system is ready for the
+login procedure.</p></li>
+<li>Type your login procedure before the terminal sends a timeout message.
+If you get a timeout message, go to the previous step and repeat the
+procedure.</li>
+</ol>
+<h4>If Your Terminal Server Supports Multiple Sessions</h4>
+<p>The DECserver 200 and DECserver 300 terminal servers support multiple
+sessions. If your system has one of these terminal servers, you can use
+the following procedures to run two sessions over one communication
+cable. First, you must define your terminal server port for multiple-session
+use.</p>
+<h4>Defining Your Terminal Port for Multiple Sessions</h4>
+<ol>
+<li>Turn on the VT420 and wait for the screen to display <code class="screen">VT420 OK</code>.</li>
+<li>Press the <span class="keyname">Return</span> key twice and log in to your terminal server the way
+you normally do. The <code class="screen">Local&gt;</code> prompt appears.</li>
+<li><p>At the <code class="screen">Local&gt;</code> prompt, enter the following command:</p>
+<p><code class="screen">Local&gt;</code> <kbd>DEFINE PORT MULTISESSIONS ENABLED</kbd> <span class="keyname">Return</span></p>
+<p>The terminal displays the following response on the status line at the
+bottom of the screen:</p>
+<p><code class="screen">Done</code></p></li>
+</ol>
+<p>The terminal server port is now defined for multiple sessions. This
+setting remains in effect after you log out. You do not have to repeat this
+command each time you log in to the terminal server.</p>
+<p>Now, you can open two sessions.</p>
+<h4>Session 1 from the Terminal Server</h4>
+<p>To open session 1:</p>
+<ol>
+<li>Press the <span class="keyname">F4</span> (Session) key. The terminal server prompts you for the
+service name at the bottom of the screen.</li>
+<li><p>At the service name prompt, enter the node name. Your system
+manager can tell you the node name.</p>
+<p><code class="screen">Service name = {Node name}</code> <span class="keyname">Return</span></p>
+<p>The following response appears on the status line at the bottom of the
+screen:</p>
+<p><code class="screen">Session Opened</code></p>
+<p>Session 1 is now open on the terminal server. Now, you should log in to
+your system.</p></li>
+<li>Type your login procedure before the terminal server sends a timeout
+message. If you get a timeout message from the terminal server, go to
+the previous step and repeat the procedure.</li>
+</ol>
+<h4>Session 2 from the Terminal Server</h4>
+<p>To open session 2, repeat the three steps used to open session 1.</p>
+<h4>Disabling Multiple Sessions from the Terminal Server</h4>
+<ol>
+<li><p>Log out from one session the way you normally do.</p>
+<p>The terminal displays a response indicating that you logged out.</p>
+<p>Then the terminal server displays a response that indicates which
+session (1 or 2) you closed:</p>
+<pre>Local -nnn- Session n disconnected from (Node name))
+Local -nnn- 1 other session(s) active</pre></li>
+<li>Press the <span class="keyname">F4</span> (Session) key.</li>
+<li>Repeat step 1 for the second session.</li>
+<li><p>At the <code class="screen">Local&gt;</code> prompt, enter the following command:</p>
+<p><code class="screen">Local&gt;</code> <kbd>DEFINE PORT MULTISESSIONS DISABLED</kbd> <span class="keyname">Return</span></p>
+<p>The terminal displays the following response on the status line at the
+bottom of the screen:</p>
+<p><code class="screen">Done</code></p></li>
+</ol>
+<p>The following response appears after the logout response:</p>
+<p><code class="screen">Local -XXX- Session Management terminated</code></p>
+<p>Multiple sessions are now disabled from your terminal's port on the
+terminal server.</p>
+<h3 id="S7.3.3">Restoring an Interrupted SSU Session</h3>
+<p>You can restore sessions that are interrupted by one of the following
+events:</p>
+<ul>
+<li>Turning the terminal off when it is still connected to the terminal
+server</li>
+<li>A power failure or similar problem</li>
+</ul>
+<p>When a session is interrupted, the VT420 or the host system may lose
+the context of the current session. After the terminal and system regain
+communication, you can restore the context of the interrupted session
+without canceling the session and starting over again.</p>
+<p><strong>To restore a session:</strong> Press the <span class="keyname">F4</span> (Session) key.</p>
+<h3 id="S7.3.4">SSU Screen and Error Messages</h3>
+<p>The VT420 displays SSU screen and error messages on the line at the
+bottom of your screen. The messages disappear when you press any
+keyboard key.</p>
+<p>The following paragraphs describe each SSU message. If the message
+is an error message, the keyboard's warning bell rings twice before the
+message appears.</p>
+<ul>
+<li><p><code class="screen">Sessions not enabled - Unable to run wit host Session Management
+version</code></p>
+<p>The terminal's version of SSU firmware does not match the system's
+version. Check with your system manager.</p></li>
+<li><p><code class="screen">Sessions not enabled - No Session Management response from host</code></p>
+<p>The system's SSU software is not working or is not installed. Also,
+you may have lost your connection with the system. Check with your
+system manager.</p></li>
+<li><p><code class="screen">Sessions enabled - Restarting previous sessions</code></p>
+<p>The host system is servicing an SSU request. Wait briefly for the
+message to disappear.</p></li>
+<li><p><code class="screen">Session open request pending</code></p>
+<p>The host system is servicing an SSU request. Wait briefly for the
+mesage to disappear. If the message is followed by <code class="screen">No response from
+the host for SSU Session Management</code>, check your connection to the
+host. If your terminal has been disconnected from the host, you must
+log in and start your SSU sessions over again.</p></li>
+<li><p><code class="screen">Insufficient host resources to open session</code></p>
+<p>There is an erorr at the host system's end of the SSU session. Contact
+your system manager for help.</p></li>
+<li><p><code class="screen">Data overrun occurred on Session (1 or 2)</code></p>
+<p>A communication error has occurred between the terminal and the host
+system. If this message disappears and does not reappear, the host
+has corrected the error on its own. If the message continues to appear,
+contact your system manager for help.</p></li>
+<li><p><code class="screen">Session (number) terminated abnormally</code></p>
+<p>The host system has ended the session. Try opening the session again.
+If you cannot reopen the session, there is a problem with the host
+system. Check with your system manager.</p></li>
+</ul>
+<h2 id="S7.4">Which Session is Active?</h2>
+<p>You can display information from two sessions at the same time, by using
+windows. However, you can only enter information in one session at a
+time. There are two ways you can tell which session is active.</p>
+<ul>
+<li>Look at the keyboard indicator line. The active session number appears
+in the first field at the left of the line.</li>
+<li><p>Look at the cursors. The active session usually has a blinking cursor.
+The inactive session has a steady cursor.</p>
+<p class="note">NOTE: The cursor blink feature in the Display Set-Up screen lets you
+select a blinking or steady cursor for the current session.</p></li>
+<li>Type a keyboard character. The software application will display the
+character in the active session.</li>
+</ul>
+<h2 id="S7.5">Number of Lines/Screen</h2>
+<p>You can display 24, 25, 36, or 48 lines of information at one time on
+the screen. By default, 24 lines are visible at one time (excluding the
+status line at the bottom of the screen). If you display 36 or 48 lines on
+the screen, the size of the characters will be smaller. The <strong>lines/screen</strong>
+feature in the Display Set-Up screen controls how many lines you can see
+on the screen at one time.</p>
+<p>The number of lines on the screen also depends on the number of lines on
+a page in page memory. For example, if you select 48 lines/screen but the
+page size is 24 lines, then you will only see 24 lines of information from
+that session. This is the case even if there is room for more lines on the
+screen. If you are running two sessions, you can select 48 lines/screen to
+display 24 lines in each session.</p>
+<h3 id="S7.5.1">How to Change the Number of Lines/Screen</h3>
+<p>The number of lines on the screen is a user preference feature. You
+may have terminal management software that automatically selects
+the appropriate number of lines on the screen. However, if you want to
+change the setting manually, use the following procedure:</p>
+<p class="note">NOTE: If you are running two sessions and you want to change the
+number of lines/screen setting for each session, you must make
+the change for each session individually.</p>
+<p>The Display Set-Up screen contains the <strong>lines/screen</strong> feature.</p>
+<ol>
+<li>Press <span class="keyname">F3</span> (Set-Up). The terminal displays the Set-Up Directory.</li>
+<li>Use the arrow key to move to the <code class="screen">Display</code> Set-Up field.</li>
+<li>Press <span class="keyname">Enter</span>. The terminal displays the Display Set-Up screen.</li>
+<li>Use the arrow keys to move to the <code class="screen">24 Lines/Screen</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to change the setting to 36 or 48 lines/screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<h2 id="S7.6">Windows</h2>
+<p>A <dfn><a href="glossary.html#WINDOW">window</a></dfn> is an area of the screen that displays information from one
+session. You can divide the VT420 screen into two windows by opening
+two sessions.</p>
+<p>The amount of information you can display is determined by:</p>
+<ul>
+<li>The number of windows you are using (1 or 2)</li>
+<li>The page size you are using. Pages in screen memory may be larger than
+the number of lines available on the screen.</li>
+<li>The number of lines/screen you choose in the Display Set-Up screen.</li>
+</ul>
+<h3 id="S7.6.1">One Window</h3>
+<p>Normally, the VT420 uses a full-screen window. In this window, you
+can only display one session at a time. A full-screen window lets you
+display 24, 25, 36, or 48 lines of text in 80 or 132 columns. If you use two
+sessions, you can switch between sessions with the <span class="keyname">F4</span> (Session) key.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="7-01.png" alt=""/></td>
+</tr>
+<tr>
+<td>Press <span class="keyname">F4</span> (Session).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S7.6.2">Two Windows</h3>
+<p>The VT420 lets you divide the screen into two windows. When you divide
+the screen into windows, each window can display 12, 18, or 24 lines
+of text in 80 or 132 columns. The default is one-half the number of the
+lines/screen setting you selected.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="7-02.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S7.6.3">How to Select One or Two Windows</h3>
+<p>Before you use two windows, make sure the <strong>terminal comm ports</strong>
+feature in the Global Set-Up screen is set correctly. See Global Set-Up
+screen in <a href="chapter5.html">Chapter 5</a>.</p>
+<p>To select a new window style, press <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session). Each time you press
+<span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session), the style of window on the screen changes.</p>
+<table>
+<thead>
+<tr>
+<th>Pressing <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session)</th>
+<th>Gives You...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One time</td>
+<td>Two windows</td>
+</tr>
+<tr>
+<td>Again</td>
+<td>A full-screen window again</td>
+</tr>
+</tbody>
+</table>
+<p class="note">IMPORTANT: Before you use windows, read the next section on keeping the
+cursor visible.</p>
+<p><strong>To select two windows:</strong></p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="7-03.png" alt=""/></td>
+</tr>
+<tr>
+<td>Press <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session) once...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>To select one full-screen window again:</strong></p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="7-04.png" alt=""/></td>
+</tr>
+<tr>
+<td>Press <span class="keyname">Ctrl</span> <span class="keyname">F4</span> (Session) again.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S7.6.4">Keeping the Cursor Visible</h3>
+<p>When you divide the screen into windows, half of the area for the active
+session may disappear. If the cursor for the active session is in the area
+that disappears, the cursor may also disappear.</p>
+<p>For example, if the screen has 24 lines and you divide the screen
+horizontally, the top window displays only the top 12 lines of that session.
+If the cursor is between lines 13 and 24, you cannot see the cursor.</p>
+<p>To make sure the cursor stays visible, you can use the coupling features
+in the Display Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</p>
+<table>
+<tbody>
+<tr>
+<td>If you use one or two windows</td>
+<td>Make sure the <strong>vertical coupling</strong> feature is set
+to <code class="screen">Vertical Coupling</code>.</td>
+</tr>
+<tr>
+<td>If your application uses multiple pages and you move from page to page in page memory.</td>
+<td>Make sure the <strong>page coupling</strong> feature is set to
+<code class="screen">Page Coupling</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S7.6.5">How to Change Window Sizes</h3>
+<p>When you use two windows, you can change the relative size of the
+windows. The VT420 displays a border between the two windows. You
+can move the border up or down:</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="7-05.png" alt=""/></td>
+</tr>
+<tr>
+<td>Press <span class="keyname">Shift</span> <span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowup.png" alt="[Up]"/></span> to move the border up
+(or <span class="keyname">Shift</span> <span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowdown.png" alt="[Down]"/></span> to move the border down).</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>To move the border...</th>
+<th>Press...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Up</td>
+<td><span class="keyname">Shift</span> <span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowup.png" alt="[Up]"/></span></td>
+</tr>
+<tr>
+<td>Down</td>
+<td><span class="keyname">Shift</span> <span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowdown.png" alt="[Down]"/></span></td>
+</tr>
+</tbody>
+</table>
+<h4>Tips on Using Windows</h4>
+<p>If the <strong>vertical coupling</strong> feature is enabled, data on the screen may
+appear to skip up and down when you move the cursor beyond the top
+and bottom border of a window. The skipping occurs because the VT420
+must update the screen to keep the cursor visible.</p>
+<p>This problem occurs most often with applications that involve frequent
+cursor action (for example, word processors). Here are a few suggested
+solutions:</p>
+<ul>
+<li><p>Disable the <strong>vertical coupling</strong> feature in the Display Set-Up screen.
+This step will stop the skipping motion on the screen. However, the
+cursor will disappear if it moves to an area of the terminal's memory
+that is not on the screen.</p>
+<p>For example, if you split the screen so that each session displays 12
+lines of text, the cursor will disappear if it moves to line 13 in either
+session.</p></li>
+<li><p>Set the application to use only the number of lines actually displayed.
+When you split the screen horizontally, the terminal displays 12 lines
+in each session by default. Many applications have commands to limit
+the number of lines available for editing. Here are two examples.</p>
+<ul>
+<li>Digital's EDT editor has a SET LINES command that lets you specify
+the number of lines available for editing. If you set the number of
+lines to match the <strong>lines/screen</strong> feature in the Display Set-Up screen
+when you use two windows, the skipping motion on the screen stops.</li>
+<li>Digital's VMS operating system has a SET TERMINAL/PAGE=nn
+command. This command lets you specify the number of lines used
+on the screen. Several VMS utilities and applications use this
+information to limit the number of lines used. If you set the PAGE
+to one less than the number of displayed lines, applications such as
+HELP, NOTES, MAIL and the TPU editor (EVE and EDT sections)
+perform well when you use two windows.</li>
+</ul></li>
+</ul>
+<h2 id="S7.7">Panning</h2>
+<p>You can pan the window for the active session, to view more data in page
+memory. <dfn><a href="glossary.html#PANNING">Panning</a></dfn> a window is similar to panning a camera. When you
+pan a camera over a subject, you can see different parts of the subject
+while standing in the same position. When you pan a window, you can see
+another part of page memory without moving the window on the screen.</p>
+<h3 id="S7.7.1">How to Pan</h3>
+<p>You can pan a window up or down. You can also pan to another page in
+page memory. To pan a window, you use the following keystrokes:</p>
+<table>
+<thead>
+<tr>
+<th>To pan...</th>
+<th>Press...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Up</td>
+<td><span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowup.png" alt="[Up]"/></span></td>
+</tr>
+<tr>
+<td>Down</td>
+<td><span class="keyname">Ctrl</span> <span class="keyname"><img src="arrowdown.png" alt="[Down]"/></span></td>
+</tr>
+<tr>
+<td>Back one page</td>
+<td><span class="keyname">Ctrl</span> <span class="keyname">Prev</span></td>
+</tr>
+<tr>
+<td>Forward one page</td>
+<td><span class="keyname">Ctrl</span> <span class="keyname">Next</span></td>
+</tr>
+</tbody>
+</table>
+<h4>The Difference Between Panning and Scrolling</h4>
+<p>Panning directions are the opposite of scrolling directions. For example,
+when you pan up, data appears to scroll down the screen. The
+following figure shows the difference between scrolling and panning.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0606_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h4>Notes About Panning</h4>
+<ul>
+<li>You can only move to another page if memory is divided into more than
+one page.</li>
+<li>In order to pan on a page, the page size must be larger than the
+window. The <strong>page arrangement</strong> feature in the Display Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>) determines the page size.</li>
+<li><p>Your cursor may disappear from the screen when you use panning
+functions. There are two ways you can bring the cursor back on the
+screen.</p>
+<ul>
+<li>Look at the status line. It shows you the cursor location. Then use
+the <span class="keyname">Ctrl</span> and arrow keys to pan the cursor back onto the screen.</li>
+<li>Make sure the the two cursor-coupling features -- <strong>vertical coupling</strong> and
+<strong>page coupling</strong> -- are enabled in the Display Set-Up screen.</li>
+</ul></li>
+</ul>
+<h2 id="S7.8">Copying and Pasting Text</h2>
+<p>The VT420 provides a simple procedure for copying and pasting data
+within an active session or between two active sessions. The VT420 stores
+the copied data in a buffer before sending the data to the host. The paste
+buffer can hold one 24-line page of text data.</p>
+<h3 id="S7.8.1">Copying Text into the Paste Buffer</h3>
+<p>To copy text into the paste buffer:</p>
+<ol>
+<li><p>Press and hold the <span class="keyname">F1</span> (Copy) key down for the rest of the copy
+operation. If the cursor was not visible, it appears when you press
+<span class="keyname">F1</span> (Copy).</p>
+<p class="note">NOTE: Releasing <span class="keyname">F1</span> (Copy) before completing the copy operation
+cancels the operation.</p></li>
+<li>Use the arrow keys to position the cursor at the beginning of the text
+you want to copy.</li>
+<li>With the cursor at the beginning of the text you want to copy, press the
+<span class="keyname">Select</span> key.</li>
+<li>Use the arrow keys to position the cursor one character beyond the
+end of the text you want to copy. As you move the cursor, the terminal
+underlines the text you are copying.</li>
+<li>Press the <span class="keyname">Remove</span> key, then release <span class="keyname">F1</span> (Copy).</li>
+</ol>
+<p>After you complete the copy operation, the terminal places the copied text
+in the paste buffer and erase the underline from the text on the screen.</p>
+<h3 id="S7.8.2">Pasting Text</h3>
+<p>After you copy text to the terminal's paste buffer, you can paste the text
+into an active session. When you paste the text, it appears on the screen
+as if it were typed from the keyboard. You can paste text into a file. To
+paste text:</p>
+<ol>
+<li><p>If you are editing a file, use the arrow keys to position the cursor where
+you want to paste the text.</p>
+<p>If you are at the command level, text will appear on the command line
+when you paste it.</p></li>
+<li>Press and hold the <span class="keyname">F1</span> (Copy) key down while you press the <span class="keyname">Insert</span> key.</li>
+<li>Release <span class="keyname">F1</span> (Copy).</li>
+</ol>
+<p>The terminal sends a copy of the text in the paste buffer to the active
+session. The text also remains in the paste buffer until you:</p>
+<ul>
+<li>Copy additional text, or</li>
+<li>Turn the terminal off.</li>
+</ul>
+<p>The following figure shows an example of copying and pasting text from
+one active session to another:</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0644_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S7.8.3">Notes About Copying and Pasting Text</h3>
+<ul>
+<li>You can copy up to 24 lines of 132 characters at one time.</li>
+<li>If you try to copy non-ASCII characters, such as graphics information,
+the VT420 sends blank spaces in place of those characters.</li>
+<li>If you release the <span class="keyname">F1</span> (Copy) key before completing the copy or paste
+operation, the terminal cancels the operation.</li>
+<li>If you set the transmit baud rate to <code class="screen">Transmit=19200</code> of higher in
+the Communications Set-Up screen, a copy and paste operation may
+send data to the host computer faster than the host can receive the
+data. When you are using the VMS operating system, type the SET
+TERM/HOSTSYNC command to control data flow and prevent the loss
+of data.</li>
+</ul>
+<footer>
+<nav class="sections"><a href="chapter6.html">Chapter 6</a><a href="contents.html">Contents</a><a href="chapter8.html">Chapter 8</a></nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Defining and Loading ASCII Character Fonts</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="chapter12.html">Chapter 12</a><a href="contents.html">Contents</a><a></a></nav>
+</header>
+<h1 id="S13"><span>13</span> Defining and Loading ASCII Character Fonts</h1>
+<div class="main"><p>This chapter defines the ASCII character fonts and describes how to load the
+fonts.</p>
+<h2 id="S13.1">13.1 Character Sets</h2>
+<p>In WYSE mode and ADDS Enhanced mode, desired characters can be acquired
+by loading them from various built-in character sets or by designing them using a
+pixel pattern<sup>*</sup>.</p>
+<h3 id="S13.1.1">13.1.1 PCTerm on US Keyboard</h3>
+<p>The default and only character set supported for PCTerm on the US Keyboard is
+the PC International character set. This is a 256-character set, of which the first
+128 characters form the PC Standard character set<sup>*</sup>.</p>
+<p><sup>*</sup>Refer to the IBM Code Page 437.</p>
+<h3 id="S13.1.2">13.1.2 WYSE and ADDS Enhanced Personalities</h3>
+<p>WYSE mode and ADDS enhanced mode support ten built-in ROM character sets
+and four <dfn>font banks</dfn>, which are physical locations in memory. Each character set
+has 128 characters (Hex 00 to Hex 7F), thus each font bank has the same space
+allocation.</p>
+<p>The character set must be loaded into a font bank to become an "active" character
+set. Characters cannot be displayed directly by calling their physical locations;
+they can only be displayed through a series of steps to make them active. First,
+the primary and secondary logical character sets are defined by pointing to the
+desired font banks. Then, the active character set is defined for the terminal to
+display and receive codes. See <a href="#T13-1">Table 13–1</a> on how to display and load character
+sets.</p>
+<table id="T13-1" class="truled">
+<caption><span class="tabfigid">Table 13–1</span> Display and Load Character Sets</caption>
+<thead>
+<tr>
+<th colspan="2">Step</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">1.</td>
+<td>Load font bank with built-in character set</td>
+<td>Load a target character set from one of the ten built-in character sets into a font bank.</td>
+</tr>
+<tr>
+<td>or Define and load character</td>
+<td>Design a character and load it into a font bank.</td>
+</tr>
+<tr>
+<td>2.</td>
+<td>Define logical character set</td>
+<td>Define primary or secondary character set to point to the font bank.</td>
+</tr>
+<tr>
+<td>3.</td>
+<td>Select active character set</td>
+<td>Set active character set to point to either a primary or a secondary character set.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Notes</span>
+<div class="notebody"><p><b>WYSE 160:</b> You can display all 512 characters in the four font banks on
+the screen at the same time.</p>
+<p><b>WYSE 50+:</b> You can only display one font bank on the screen at a time.</p></div></div>
+<p><a href="#F13-1">Figure 13–1</a> shows the process for selecting character sets.</p>
+<table id="F13-1" class="figure">
+<caption><span class="tabfigid">Figure 13–1</span> Process of Selecting Character Sets</caption>
+<tbody>
+<tr>
+<td><img src="figure13-1.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The VT510 selects a character set from one of the built-in character sets by the
+following process. Refer to <a href="#T13-1">Table 13–1</a> for details.</p>
+<ol>
+<li>Load the character sets into the font banks.</li>
+<li>Define the primary and secondary character set from the font buffers.</li>
+<li>Select which character set will be the active characters set.</li>
+</ol>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Changing a character set in a font bank may change the active character
+set if the active character set and primary/secondary character set happen
+to point to the same font bank.</p></div></div>
+<h2 id="S13.2">13.2 Loading, Defining, and Selecting Character Sets</h2>
+<p><a href="#T13-2">Table 13–2</a> shows how to load, define, and select the character sets. The word
+"same" in <a href="#T13-2">Table 13–2</a> signifies the same control sequences as in the WYSE 160/60
+column.</p>
+<table id="T13-2" class="truled">
+<caption><span class="tabfigid">Table 13–2</span> Loading Font Bank</caption>
+<thead>
+<tr>
+<th rowspan="2">Load Font Bank<sup>1</sup></th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Load ROM-resident character set into one of the four font banks.<sup>2</sup></td>
+<td colspan="8">ESC c @ <var>Bank Charset</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="16"><b>Parameters:</b></td>
+<td class="minhead">Bank</td>
+<td class="minhead" colspan="7">Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Font Bank 0</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">Font Bank 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="7">Font Bank 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="7">Font Bank 3</td>
+</tr>
+<tr>
+<td class="minhead" colspan="3"><var>Charset</var></td>
+<td class="minhead" colspan="5">Character Set Selected</td>
+</tr>
+<tr>
+<td colspan="3">@ (4/0) or ` (6/0)</td>
+<td colspan="5">Native</td>
+</tr>
+<tr>
+<td colspan="3">A (4/1) or a (6/1)</td>
+<td colspan="5">PC Multinational</td>
+</tr>
+<tr>
+<td colspan="3">B (4/2) or c (6/3) or d (6/4)</td>
+<td colspan="5">Standard ASCII</td>
+</tr>
+<tr>
+<td colspan="3">C (4/3)</td>
+<td colspan="5">Graphics 1</td>
+</tr>
+<tr>
+<td colspan="3">D (4/4) or b (6/2)</td>
+<td colspan="5">PC standard</td>
+</tr>
+<tr>
+<td colspan="3">E (4/5)</td>
+<td colspan="5">Graphics 2</td>
+</tr>
+<tr>
+<td colspan="3">F (4/6)</td>
+<td colspan="5">Graphics 3</td>
+</tr>
+<tr>
+<td colspan="3">G (4/7) or H (4/8) or g (6/7)</td>
+<td colspan="5">US ANSI</td>
+</tr>
+<tr>
+<td colspan="3">N (4/14) or j (6/10)</td>
+<td colspan="5">ISO Latin-1 Supplemental</td>
+</tr>
+<tr>
+<td colspan="3">I (4/9) or e (6/5)</td>
+<td colspan="5">ANSI Supplemental</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Define Logical Character Set</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Primary Character Set</td>
+<td>ESC c B <var>Bank</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Secondary Character Set</td>
+<td>ESC c C <var>Bank</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Select Active Character Set<sup>3</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Primary Character Set (default)</td>
+<td>ESC c D</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Secondary Character Set</td>
+<td>ESC c E</td>
+<td>n/a</td>
+<td>same</td>
+<td>same<sup>4</sup></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Automatic Font Loading</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>ESC e O</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>ESC e N</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Clear Font Bank</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Erase a character set from one of the four font banks.<sup>1</sup></td>
+<td>ESC c ? <var>Bank</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>If not redefined, the default primary character set is Native/Wyse 50+ in Font Bank 0; the secondary character set is
+PC Multinational in Font Bank 1.</p>
+<p><sup>2</sup>Example: To load Bank 1 with the Multinational character set, enter: ESC c @ 1 A<br/>
+This sequence is sent to the terminal. If ACK mode is on, the terminal returns an ACK to indicate that the font has
+loaded successfully.</p>
+<p><sup>3</sup>The default active character set, including that for TVI mode, is Native/Wyse 50+.</p>
+<p><sup>4</sup>See Note on the following page.</p></td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S13.3">13.3 Designing a Character Font</h2>
+<p><a href="#T13-3">Table 13–3</a> shows how to design a character font.</p>
+<table id="T13-3" class="truled">
+<caption><span class="tabfigid">Table 13–3</span> Design a Character Font</caption>
+<thead>
+<tr>
+<th rowspan="2">Define and Load a Character</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Design a character font</td>
+<td colspan="8">ESC c A <var>Bank Pp bb..bb</var> Ctrl/Y</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+</table>
+<p>The sequence in <a href="#T13-3">Table 13–3</a> defines the <var>bb..bb</var> string and loads it in the <var>Pp</var>
+position of the <var>Bank</var> font bank.</p>
+<div class="elaboration"><p><var>Bank</var> is the font bank that holds a defined character set. Refer to <a href="#T13-2">Table 13–2</a>.</p>
+<p><var>Pp</var> is a 2-byte Hex code in the range of 00 to 7F specifying a position in that
+font bank.</p>
+<p><var>bb...bb</var> is a Hex code string defining the bit pattern of the defined character.
+The string contains one of the following:</p>
+<ul>
+<li>16 2-byte Hex codes for a 10 × 16 cell size character</li>
+<li>13 2-byte Hex codes for a 10 × 13 cell size character</li>
+<li>10 2-byte Hex codes for a 10 × 10 cell size character</li>
+</ul></div>
+<p>The command aborts if <span class="keyname">Ctrl/Y</span> in the sequence is received before the expected
+number of Hex codes in bb...bb is received.</p>
+<p>Perform the following steps to draw a graphic character in a 10 × 16 cell:</p>
+<ol>
+<li>Divide the cell into 10 × 16 pixels and draw the desired font pattern.
+Observe the following rules:
+<ol>
+<li>Start the pattern from the left column in the cell.</li>
+<li>For an alphanumeric character, the pattern should occupy only the left
+seven columns; for other graphic characters, the pattern can extend to the
+eighth column. (The ninth and tenth column follow whatever you place in
+the eighth column.)</li>
+<li>If possible, leave some space at both the top and bottom pixels to allow for
+spacing.</li>
+</ol></li>
+<li>Turn the font pattern into a value represented as 1s and 0s; where "1"
+represents a filled pixel, and "0" represents an empty pixel.</li>
+<li>Encode the bit pattern, 4 bits (a <dfn>nibble</dfn>) at a time, row by row, into
+hexadecimal numbers 0 to F. (Do not encode the right two columns.)</li>
+<li>Form the two nibbles per row into a 2-byte Hex code.</li>
+<li>Feed the 16 Hex codes into the <var>bb...bb</var> string. See the following example.</li>
+</ol>
+<p>Load the following character into position 31 (Hex) in Font Bank 3.</p>
+<pre>         MSB           LSB
+Bit --&gt;   7 6 5 4 3 2 1 0 A B     Hex Code
+        1                         00
+        2                         00
+        3 X X X X X X X X         FE
+        4 X             X         82
+        5 X             X         82
+        6 X             X         82
+        7 X             X         82
+        8 X X X X X X X X         FE
+        9 X             X         82
+       10 X             X         82
+       11 X             X         82
+       12 X             X         82
+       13 X X X X X X X X         FE
+       14                         00
+       15                         00
+       16                         00
+       17                         00</pre>
+<p>Use the following sequence to load this graphic character:</p>
+<p><code>ESC c A 3 31 00 00 FE 82 82 82 82 FE 82 82 82 82 FE 00 00 00 00 Ctrl/Y</code></p>
+<p>Once loaded, the font remains in the font bank until:</p>
+<ul>
+<li>The terminal is powered off</li>
+<li>This font bank is explicitly re-loaded or cleared</li>
+<li>This font bank is implicitly re-loaded by changing the terminal's personality
+or the terminal changes between a 24-line and a 44-line display while
+Automatic Font Load is on. Refer to <a href="#T13-2">Table 13–2</a>.</li>
+</ul></div>
+<footer>
+<nav class="sections"><a href="chapter12.html">Chapter 12</a><a href="contents.html">Contents</a><a></a></nav>
+</footer>
+</body>
+</html>

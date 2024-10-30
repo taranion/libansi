@@ -1,0 +1,32 @@
+body {
+    font-family: "New Century Schoolbook", Times, serif;
+    background: #fff;
+    color: #000
+}
+
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top: thin solid black; padding: 0.5em 0 0 0 }
+
+nav a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav a:nth-child(1) { text-align: left }
+nav a:nth-child(2) { text-align: center }
+nav a:nth-child(3) { text-align: right }
+
+p { margin-top: 0; margin-bottom: 0.2em }
+
+h1 { font-family: Helvetica, Arial, sans-serif; font-size: 160%; text-align: right; padding-top: 0.2em } /* no top border */
+h2 { font-family: Helvetica, Arial, sans-serif; font-size: 120%; margin-bottom: 0.5em } /* size of H3 of rest of text */
+
+h2 span { float: left; width: 2em }
+h2.part span { padding-right: 2em; width: auto }
+p.d2 { margin-left: 3em }
+p.d2 span { float: left; width: 5em }
+p.d3 { margin-left: 3em }
+p.d3 span { float: left; width: 7em }
+p.d4 { margin-left: 3em }
+p.d4 span { float: left; width: 9em }
+p.d5 { margin-left: 3em }
+p.d5 span { float: left; width: 11em }
+
+img.button { border: none }
+div.navbot { text-align: right }

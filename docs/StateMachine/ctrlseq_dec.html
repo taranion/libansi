@@ -1,0 +1,2231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Private Control Sequences used by DEC</title>
+<link rel="stylesheet" href="../terminal.css"/>
+<style>
+table { border-collapse: collapse; margin: 2em 0 }
+thead tr { vertical-align: bottom }
+tbody tr { vertical-align: top }
+th, td { text-align: left; padding: 0.5em }
+.sequence td { width: 25% }
+.codetable td { border: thin solid #ccc }
+.codetable caption { font-size: larger; font-weight: bolder; text-align: left }
+</style>
+</head>
+<body>
+<header>
+<nav class="breadcrumbs">
+<ol>
+<li><a href="../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a></li>
+<li><a href="./">Emulation</a></li>
+</ol>
+</nav>
+</header>
+
+<h1>Private Control Sequences used by DEC</h1>
+<p>ECMA-48, along with its predecessors and equivalents, ANSI
+X3.64–1979 and ISO 6429, defines control functions for imaging
+devices. It also defines extension mechanisms that can be used by
+manufacturers to control more capable equipment, while still
+allowing less capable equipment to parse and ignore the extensions.
+This document only attempts to cover the extensions to control
+sequences used by Digital Equipment Corporation (DEC) for its
+terminal and printer equipment.</p>
+<p class="caveat">This document is certainly not complete because I
+don’t own reference manuals for all of DEC’s printers or terminals.
+Please <a href="mailto:paul@frixxon.co.uk">send me</a> any
+corrections or additions.</p>
+<h2>Control Sequences</h2>
+<p>This definition of a control sequence is condensed from
+EK-OLN03-RM, <cite>LN03 Programmer Reference Manual</cite>:</p>
+<blockquote class="quotsec">
+<p>A control sequence uses two or more bytes to define a specific
+control function. Control sequences usually include variable
+parameters. Here is the format for a control sequence.</p>
+<table class="sequence">
+<tbody>
+<tr>
+<td><strong>CSI</strong><br/>
+9/11</td>
+<td><strong>P...P</strong><br/>
+3/0 to 3/15</td>
+<td><strong>I...I</strong><br/>
+2/0 to 2/15</td>
+<td><strong>F</strong><br/>
+4/0 to 7/14</td>
+</tr>
+<tr>
+<td>Control sequence introducer</td>
+<td>Parameter<br/>
+(zero or more characters)</td>
+<td>Intermediate<br/>
+(zero or more characters)</td>
+<td>Final<br/>
+(one character)</td>
+</tr>
+</tbody>
+</table>
+<p>The <dfn>control sequence introducer</dfn> is the C1 control
+character CSI (9/11). You can also use the equivalent 7-bit
+sequence, ESC (1/11) [ (5/11).</p>
+<p><dfn>Parameter characters</dfn> are characters received after
+CSI, in the 3/0 to 3/15 range. Parameter characters modify the
+action or interpretation of the sequence.</p>
+<p><dfn>Intermediate characters</dfn> are characters received after
+CSI, in the 2/0 to 2/15 range.</p>
+<p>The <dfn>final character</dfn> comes from the 4/0 to 7/14 range.
+The final character indicates the end of the sequence. The
+intermediate and final characters together define a control
+function. If there are no intermediate characters, the final
+character defines the function.</p>
+</blockquote>
+<h2>Private Control Sequences</h2>
+<p>Private control sequences have final characters in the range 7/0
+to 7/14. Although any number of intermediate characters may precede
+the final character, in practice only zero or one will be present.
+As ECMA-48 notes, using one intermediate character brings the
+number of available control functions to over a thousand, which
+should be enough for anyone. I don’t know of any sequences used by
+DEC where there is more than one intermediate character.</p>
+<p>The tables below name the control functions assigned by DEC to
+control sequences with final bytes in the private range, with
+either zero or one intermediate bytes.</p>
+<p>If a terminal is listed in the “Present” line, it definitely
+supports that control function. However, the absence of a name does
+not mean that the control function is not supported. It might
+simply mean that I’ve not been through the appropriate manual
+thoroughly enough.</p>
+<p>Some of these tables are empty. Perhaps Digital avoided
+populating them because they would break earlier non-ANSI parsers
+in their equipment, or perhaps they are filled by functions
+assigned to equipment for which I don’t have manuals. Who
+knows?</p>
+
+<h3>No intermediate byte</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSSL</td>
+<td><strong>Select Set-Up Language</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-144; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-148; EK-VT520-RM.A01 p.5-148; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-148</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECLL</td>
+<td><strong>Load LEDs</strong><br/>
+<small>Present on VK100, VT100, VT101, VT102, VT105, VT125, VT132, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-0GIGI-RC-001 p.5; EK-VT100-UG-002 p.48; EK-VT105-TM-001 p.2-17; EK-VT125-UG-002 p.84; EK-VT132-UG-002 p.74; EK-VT510-RM.B01 p.5-70; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-71; EK-VT520-RM.A01 p.5-71; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-71</small>
+-->
+</td>
+</tr>
+<tr>
+<td rowspan="2">07/02 (r)</td>
+<td>DECSTBM</td>
+<td><strong>Set Top and Bottom Margins</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA75, LCG01, LJ250, LN01, LN03, LN05, LN07, LN08, LQP02, LQP03, VT100, VT101, VT102, VT105, VT125, VT131, VT132, VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.38; EB-28761-56 p.E10; EB-28761-56 p.E19; EK-LA210-TM-001 p.4-14; EB-28761-56 p.E45; EK-LA34S-TM-001 p.C-5; EK-0LA75-RM-002 p.87; EB-28761-56 p.E134; EB-28761-56 p.E125; EK-LJ250-RM-002 p.4-40; EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.5.3, p.98; EK-0LN03-RM-002 p.169; EK-DECLA-OG-001 p.A-7; EK-DC32P-OP-001 p.A-5; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E101; EK-VT100-UG-002 p.50; EK-VT105-TM-001 p.2-19; EK-VT125-UG-002 p.65; EK-VT131-UG-002 p.6-18; EK-VT132-UG-002 p.77; EK-VT220-RM-001 §4.13, p.4-35; EK-VT240-RM-002 p.87; EK-VT320-UU-001 p.93; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.108; EK-VT382-RM-001 p.6-8; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-30; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.134; EK-VT510-RM.B01 p.5-145; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-149; EK-VT520-RM.A01 p.5-149; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-149</small>
+-->
+</td>
+</tr>
+<tr>
+<td>DECPCTERM</td>
+<td><strong>Enter/Exit PCTerm or Scancode Mode</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.311; EK-VT510-RM.B01 p.5-80; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.5-81; EK-VT520-RM.A01 p.5-81; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.5-81</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECSLRM</td>
+<td><strong>Set Left and Right Margins</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA75, LCG01, LJ250, LN01, LN03, LN05, LN07, LN08, LQP02, LQP03, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.32; EB-28761-56 p.E10; EB-28761-56 p.E20; EK-LA210-TM-001 p.4-12; EB-28761-56 p.E42; EK-LA34S-TM-001 p.C-4; EK-0LA75-RM-002 p.84; EB-28761-56 p.E133; EB-28761-56 p.E125; EK-LJ250-RM-002 p.4-37; EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.5.4, p.100; EK-0LN03-RM-002 p.169; EK-DECLA-OG-001 p.A-7; EK-DC32P-OP-001 p.A-4; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E101; EK-VT420-RM.002 p.133; EK-VT510-RM.B01 p.5-131; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-137; EK-VT520-RM.A01 p.5-137; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-137</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECSLPP</td>
+<td><strong>Set Lines per Physical Page</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA50, LA75, LJ250, LN01, LN03, LN05, LN07, LN08, LQP03, VT330, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.37; EB-28761-56 p.E10; EB-28761-56 p.E19; EK-LA210-TM-001 p.4-14; EB-28761-56 p.E45; EK-LA34S-TM-001 p.C-5; EK-0LA50-RM-002 p.35; EB-28761-56 p.E83; EK-0LA75-RM-002 p.69; EB-28761-56 p.E131; EK-LJ250-RM-002 p.4-23; EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.5.2, p.97; EK-0LN03-RM-002 p.167; EK-DECLA-OG-001 p.A-6; EK-DC32P-OP-001 p.A-3; EB-28761-56 p.E101; EK-VT3XX-TP-002 p.107; EK-VT420-RM.002 p.132; EK-VT510-RM.B01 p.5-130; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-136; EK-VT520-RM.A01 p.5-136; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-136</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECSHTS</td>
+<td><strong>Set Horizontal Tabulation Stops</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA75, LCG01, LJ250, LN01, LN03, LN05, LN07, LN08, LQP02, LQP03</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.33; EB-28761-56 p.E10; EB-28761-56 p.E20; EK-LA210-TM-001 p.4-13; EB-28761-56 p.E44; EK-LA34S-TM-001 p.C-4; EK-0LA75-RM-002 p.86; EB-28761-56 p.E133; EB-28761-56 p.E125; EK-LJ250-RM-002 p.4-39; EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.7.1, p.108; EK-0LN03-RM-002 p.167; EK-DECLA-OG-001 p.A-3; EK-DC32P-OP-001 p.A-10; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E101</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECSVTS</td>
+<td><strong>Set Vertical Tabulation Stops</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA75, LCG01, LJ250, LN01, LN03, LN05, LN07, LN08, LQP02, LQP03</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.38; EB-28761-56 p.E11; EB-28761-56 p.E19; EK-LA210-TM-001 p.4-15; EB-28761-56 p.E45; EK-LA34S-TM-001 p.C-6; EK-0LA75-RM-002 p.91; EB-28761-56 p.E134; EB-28761-56 p.E125; EK-LJ250-RM-002 p.4-44; EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.7.2, p.109; EK-0LN03-RM-002 p.176; EK-DECLA-OG-001 p.A-3; EK-DC32P-OP-001 p.A-10; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E101</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECSHORP</td>
+<td><strong>Set Horizontal Pitch</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA50, LA75, LJ250, LN03, LN05, LN07, LN08, LQP02, LQP03</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.27; EB-28761-56 p.E9; EB-28761-56 p.E20; EK-LA210-TM-001 p.4-12; EB-28761-56 p.E43; EK-LA34S-TM-001 p.C-3; EK-0LA50-RM-002 p.31; EB-28761-56 p.E83; EK-0LA75-UG-002 p.123; EK-0LA75-RM-002 p.64; EB-28761-56 p.E130; EK-LJ250-RM-002 p.4-19; EK-0LN03-RM-002 §5.4.5, p.82; EK-0LN03-RM-002 p.166; EK-DECLA-OG-001 p.A-6; EK-DC32P-OP-001 p.A-7; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E98</small>
+-->
+</td>
+</tr>
+<tr>
+<td rowspan="2">07/08 (x)</td>
+<td>DECREQTPARM</td>
+<td><strong>Request Terminal Parameters</strong><br/>
+<small>Present on VT100, VT105, VT132</small><br/>
+<!--
+<small>EK-VT100-UG-002 p.49; EK-VT105-TM-001 p.2-17; EK-VT132-UG-002 p.75</small>
+-->
+</td>
+</tr>
+<tr>
+<td>DECREPTPARM</td>
+<td><strong>Report Terminal Parameters</strong><br/>
+<small>Present on VT100, VT105, VT132</small><br/>
+<!--
+<small>EK-VT100-UG-002 p.49; EK-VT105-TM-001 p.2-17; EK-VT132-UG-002 p.75</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECTST</td>
+<td><strong>Invoke Confidence Test</strong><br/>
+<small>Present on DTC01, DTC03, LCG01, VK100, VT100, VT101, VT102, VT105, VT125, VT131, VT132, VT220, VT240, VT320, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-DTC01-RM-003 p.54; EK-DTC03-OM-001 p.52; EB-28761-56 p.E125; EK-0GIGI-RC-001 p.7; EK-VT100-UG-002 p.51; EK-VT105-TM-001 p.2-19; EK-VT125-UG-002 p.81; EK-VT131-UG-002 p.6-55; EK-VT132-UG-002 p.78; EK-VT220-RM-001 §4.19.1, p.4-53; EK-VT240-RM-002 p.112; EK-VT320-UU-001 p.98; EK-VT382-RM-001 p.13-4; EK-VT38T-UG-001 p.C-53; EK-VT420-RM.002 p.291; EK-VT510-RM.B01 p.5-153; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-162; EK-VT520-RM.A01 p.5-162; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-162</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECVERP</td>
+<td><strong>Set Vertical Pitch</strong><br/>
+<small>Present on LA100, LA12, LA210, LA34, LA50, LA75, LJ250, LN03, LN05, LN07, LN08, LQP02, LQP03</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.33; EB-28761-56 p.E10; EB-28761-56 p.E19; EK-LA210-TM-001 p.4-14; EB-28761-56 p.E44; EK-LA34S-TM-001 p.C-5; EK-0LA50-RM-002 p.33; EB-28761-56 p.E83; EK-0LA75-RM-002 p.68; EB-28761-56 p.E130; EK-LJ250-RM-002 p.4-20; EK-0LN03-RM-002 §5.4.3, p.80; EK-0LN03-RM-002 p.174; EK-DECLA-OG-001 p.A-8; EK-DC32P-OP-001 p.A-8; EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E98</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECTTC</td>
+<td><strong>Select Transmit Termination Character</strong><br/>Set the character that will be transmitted at the end of a block. In normal mode, the character is selected from a limited list. In extended mode, one or more arbitrary characters can be sent.<br/>
+<small>Present on VT131, VT132, VT330</small><br/>
+<!--
+<small>EK-VT131-UG-002 p.6-49; EK-VT132-UG-002 p.79; EK-VT3XX-TP-002 p.144</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECPRO</td>
+<td><strong>Set Protected Field Attributes</strong><br/>
+<small>Present on VT131, VT132, VT330</small><br/>
+<!--
+<small>EK-VT131-UG-002 p.6-44; EK-VT132-UG-002 p.75; EK-VT3XX-TP-002 p.129</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECFNK</td>
+<td><strong>Function Key</strong><br/>Various function key codes, from terminal to host<br/>
+<small>Present on VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT220-RM-001 p.3-4; EK-VT240-RM-002 p.40; EK-VT320-UU-001 p.87; EK-VT3XX-TP-002 p.51; EK-VT382-RM-001 p.3-4; EK-VT38T-UG-001 p.C-16; EK-VT420-RM.002 p.65; EK-VT510-RM.B01 p.5-53; EK-VT520-RM.A01 p.8-7; EK-VT520-RM.A01 p.8-7</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/00 (SP)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSSCLS</td>
+<td><strong>Set Scroll Speed</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-142; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-146; EK-VT520-RM.A01 p.5-146; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-146</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSCUSR</td>
+<td><strong>Set Cursor Style</strong><br/>Select the style of the cursor on the screen<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-122; EK-VT520-RM.A01 p.4-23; EK-VT520-RM.A01 p.4-23; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-127; EK-VT520-RM.A01 p.5-127; EK-VT520-RM.A01 p.4-23; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-127</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECSKCV</td>
+<td><strong>Set Keyclick Volume</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-128; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-135; EK-VT520-RM.A01 p.5-135; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-135</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECNS</td>
+<td><strong>New Sheet</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-23; EK-DC32P-OP-001 p.A-26</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECSWBV</td>
+<td><strong>Set Warning Bell Volume</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-148; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-154; EK-VT520-RM.A01 p.5-154; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-154</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECSMBV</td>
+<td><strong>Set Margin Bell Volume</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-132; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-138; EK-VT520-RM.A01 p.5-138; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-138</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECSLCK</td>
+<td><strong>Set Lock Key Style</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-129; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-135; EK-VT520-RM.A01 p.5-135; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-135</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECSITF</td>
+<td><strong>Select Input Tray Failover</strong><br/>
+<small>Present on LN05, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-25; EK-DC32P-OP-001 p.A-27</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECSDPM</td>
+<td><strong>Set Duplex Print Mode</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-24; EK-DC32P-OP-001 p.A-26</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECVPFS</td>
+<td><strong>Variable Page Format Select</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-9; EK-DC32P-OP-001 p.A-5</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSSS</td>
+<td><strong>Set Sheet Size</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-25; EK-DC32P-OP-001 p.A-4</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECRVEC</td>
+<td><strong>Draw Relative Vector</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-24; EK-DC32P-OP-001 p.A-20</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECKBD</td>
+<td><strong>Keyboard Language Selection</strong><br/>Select a national keyboard language on either a VT keyboard or an Enhanced PC keyboard<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-61; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.5-63; EK-VT520-RM.A01 p.5-63; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.5-63</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECTME</td>
+<td><strong>Terminal Mode Emulation</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-151; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.5-159; EK-VT520-RM.A01 p.5-159; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.5-159</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/01 (!)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSTR</td>
+<td><strong>Soft Terminal Reset</strong><br/>
+<small>Present on DTC01, DTC03, LA75, LJ250, LN03, LN05, LN07, LN08, VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-DTC01-RM-003 p.54; EK-DTC03-OM-001 p.56; EK-0LA75-RM-002 p.112; EB-28761-56 p.E138; EK-LJ250-RM-002 p.5-9; EK-0LN03-RM-002 §5.13, p.121; EK-0LN03-RM-002 p.172; EK-DECLA-OG-001 p.A-25; EK-DC32P-OP-001 p.A-25#; EK-VT220-RM-001 §4.18.1, p.4-51; EK-VT240-RM-002 p.109; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.242; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.13-1; EK-VT38T-UG-001 p.C-51; EK-VT420-RM.002 p.285; EK-VT510-RM.B01 p.5-146; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-150; EK-VT520-RM.A01 p.5-150; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-150</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>decVKPPI</td>
+<td><strong>Print Partial Image</strong><br/>
+<small>Present on VK100</small><br/>
+<!--
+<small>EK-0GIGI-RC-001 p.7</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECNVR</td>
+<td><strong>Nonvolatile RAM Feature Settings</strong><br/>DECtalk store and restore NVR settings<br/>
+<small>Present on DTC01, DTC03</small><br/>
+<!--
+<small>EK-DTC01-RM-003 p.54; EK-DTC03-OM-001 p.56</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECFIL</td>
+<td><strong>Right Justification</strong><br/>
+<small>Present on LQP02, LQP03</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.178; EB-28761-56 p.E91; EK-0LN03-RM-002 p.178; EB-28761-56 p.E102</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECFNVR</td>
+<td><strong>Loading Factory NVR Settings</strong><br/>
+<small>Present on LA75</small><br/>
+<!--
+<small>EK-0LA75-RM-002 p.112; EB-28761-56 p.E138</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECASFC</td>
+<td><strong>Automatic Sheet Feeder Control</strong><br/>
+<small>Present on LA75, LJ250, LN01, LN05, LN07, LN08, LQP02, LQP03</small><br/>
+<!--
+<small>EK-0LA75-RM-002 p.80; EB-28761-56 p.E133; EK-LJ250-RM-002 p.4-49; EK-0LN03-RM-002 p.178; EK-DECLA-OG-001 p.A-22; EK-DC32P-OP-001 p.A-25#; EK-0LN03-RM-002 p.178; EB-28761-56 p.E90; EK-0LN03-RM-002 p.178; EB-28761-56 p.E103</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECUND</td>
+<td><strong>Programmable Underline Character</strong><br/>
+<small>Present on LQP02, LQP03</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.179; EB-28761-56 p.E90; EK-0LN03-RM-002 p.179; EB-28761-56 p.E102</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECPTS</td>
+<td><strong>Printwheel Table Select</strong><br/>
+<small>Present on LQP02, LQP03</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.179; EB-28761-56 p.E90; EK-0LN03-RM-002 p.179</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECSS</td>
+<td><strong>Set Space Size</strong><br/>
+<small>Present on LQP02, LQP03</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.179; EB-28761-56 p.E91; EK-0LN03-RM-002 p.179; EB-28761-56 p.E98</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECVEC</td>
+<td><strong>Draw Vector</strong><br/>Draws a horizontal or vertical line<br/>
+<small>Present on LN01, LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.179; EK-0LN03-RM-002 §5.12, p.120; EK-0LN03-RM-002 p.164; EK-DECLA-OG-001 p.A-26; EK-DC32P-OP-001 p.A-20</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECFIN</td>
+<td><strong>Document Finishing</strong><br/>Instructs the device whether to change the offset at which paper is delivered to the output tray<br/>
+<small>Present on LN08, LQP03</small><br/>
+<!--
+<small>EK-DC32P-OP-001 p.A-26; EK-0LN03-RM-002 p.178</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/02 (")</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSCL</td>
+<td><strong>Set Conformance Level</strong><br/>Restrict a terminal to behaving as an earlier model<br/>
+<small>Present on DTC03, LA75, LJ250, LN05, LN07, LN08, VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-DTC03-OM-001 p.49; EK-0LA75-RM-002 p.106; EB-28761-56 p.E136; EK-LJ250-RM-002 p.5-3; EK-DECLA-OG-001 p.A-24; EK-DC32P-OP-001 p.A-25#; EK-VT220-RM-001 §4.3, p.4-7; EK-VT240-RM-002 p.54; EK-VT320-UU-001 p.89; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.68; EK-VT382-RM-001 p.4-3; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-21; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.87; EK-VT510-RM.B01 p.5-117; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-122; EK-VT520-RM.A01 p.5-122; EK-VT520-RM.A01 p.4-36; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-122</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSCA</td>
+<td><strong>Select Character Attributes</strong><br/>Sets the current character attribute to protected or unprotected. Only unprotected characters will be affected by selective erase functions.<br/>
+<small>Present on VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT220-RM-001 §4.9.2, p.4-29; EK-VT240-RM-002 p.82; EK-VT320-UU-001 p.94; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.127; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.8-5; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-34; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.155; EK-VT510-RM.B01 p.5-116; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-121; EK-VT520-RM.A01 p.5-121; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-121</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECPWA</td>
+<td><strong>Page Width Alignment</strong><br/>
+<small>Present on LA100, LA210, LA75, LJ250</small><br/>
+<!--
+<small>EK-LA210-TM-001 p.4-12; EK-LA210-TM-001 p.4-12; EB-28761-56 p.E42; EB-28761-56 p.E42; EK-0LA75-RM-002 p.80; EK-0LA75-RM-002 p.80; EB-28761-56 p.E133; EB-28761-56 p.E133; EK-LJ250-RM-002 p.4-35; EK-LJ250-RM-002 p.4-35</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECSRFR</td>
+<td><strong>Select Refresh Rate</strong><br/>
+<small>Present on VT510</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-141</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECSTRL</td>
+<td><strong>Set Transmit Rate Limit</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-147; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-152; EK-VT520-RM.A01 p.5-152; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-152</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECRQDE</td>
+<td><strong>Request Device Extent</strong><br/>
+<small>Present on VT330, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.230; EK-VT420-RM.002 p.271; EK-VT510-RM.B01 p.5-103; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.5-105; EK-VT520-RM.A01 p.5-105; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.5-105</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECRPDE</td>
+<td><strong>Report Device Extent</strong><br/>
+<small>Present on VT330, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.230; EK-VT420-RM.002 p.272; EK-VT510-RM.B01 p.5-93; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.5-95; EK-VT520-RM.A01 p.5-95; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.5-95</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECFCR</td>
+<td><strong>Font Configuration Request</strong><br/>Present on LCP01<br/>
+<small>Present on LCG01, LCP01</small><br/>
+<!--
+<small>EB-28761-56 p.E124</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECDEN</td>
+<td><strong>Select Density</strong><br/>
+<small>Present on LA100, LA210, LA50, LA75</small><br/>
+<!--
+<small>EK-LA100-RM-001 p.20; EB-28761-56 p.E6; EK-LA210-TM-001 p.4-15; EB-28761-56 p.E46; EK-0LA50-RM-002 p.36; EB-28761-56 p.E83; EK-0LA75-UG-002 p.124; EK-0LA75-RM-002 p.76; EB-28761-56 p.E132</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECRFS</td>
+<td><strong>Request Font Status</strong><br/>
+<small>Present on LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 §4.6.1, p.62; EK-0LN03-RM-002 p.164; EK-DECLA-OG-001 p.A-22; EK-DC32P-OP-001 p.A-23</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/03 (#)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/04 ($)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECRQM</td>
+<td><strong>Request Mode Settings</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.218; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-22; EK-VT38T-UG-001 p.C-45; EK-VT420-RM.002 p.257; EK-VT510-RM.B01 p.5-105; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-108; EK-VT520-RM.A01 p.5-108; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-108</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSDDT</td>
+<td><strong>Select Disconnect Delay Time</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-123; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-128; EK-VT520-RM.A01 p.5-128; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-128</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECCARA</td>
+<td><strong>Change Attributes in Rectangular Area</strong><br/>This control function lets you change the visual character attributes (bold, blink, reverse video, and underline) of a specified rectangular area in page memory<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.167; EK-VT510-RM.B01 p.5-24; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-28; EK-VT520-RM.A01 p.5-28; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-28</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECSPRTT</td>
+<td><strong>Select Printer Type</strong><br/>Allow users to select a printer type that matches their environment<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-138; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-144; EK-VT520-RM.A01 p.5-144; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-144</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECRARA</td>
+<td><strong>Reverse Attributes in Rectangular Area</strong><br/>This control function lets you reverse the visual character attributes (bold, blink, reverse video, and underline) of a specified rectangular area in page memory<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.169; EK-VT510-RM.B01 p.5-88; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-90; EK-VT520-RM.A01 p.5-90; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-90</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECRQTSR</td>
+<td><strong>Request Terminal State Report</strong><br/>Request a terminal state report (DECTSR) or a color table report (DECCTR) on terminals that support it<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.96; EK-VT3XX-TP-002 p.206; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-10; EK-VT38T-UG-001 p.C-43; EK-VT420-RM.002 p.245; EK-VT510-RM.B01 p.5-110; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-113; EK-VT520-RM.A01 p.5-113; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-113</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECCRA</td>
+<td><strong>Copy Rectangular Area</strong><br/>This control function copies a rectangular area of characters from one section to another in page memory<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.161; EK-VT510-RM.B01 p.5-35; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-35; EK-VT520-RM.A01 p.5-35; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-35</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECRQPSR</td>
+<td><strong>Request Presentation State Report</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.211; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-13; EK-VT38T-UG-001 p.C-44; EK-VT420-RM.002 p.248; EK-VT510-RM.B01 p.5-108; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-111; EK-VT520-RM.A01 p.5-111; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-111</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECFRA</td>
+<td><strong>Fill Rectangular Area</strong><br/>This control function fills a rectangular area in page memory with a specified character. DECFRA replaces the rectangular area's character positions and attributes with the specified fill character. The fill character assumes the visual character attributes set by the last select graphic rendtion (SGR) command. DECFRA does not change the current line attributes.<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.162; EK-VT510-RM.B01 p.5-55; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-55; EK-VT520-RM.A01 p.5-55; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-55</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECRPM</td>
+<td><strong>Report Mode Settings</strong><br/>Reports the terminal mode in response to a request mode (DECRQM) function. In the response DECRPM informs the host if a certain mode is set (SM - Set Mode) or reset (RM - Reset Mode).<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.221; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-22; EK-VT38T-UG-001 p.C-45; EK-VT420-RM.002 p.261; EK-VT510-RM.B01 p.5-95; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-98; EK-VT520-RM.A01 p.5-98; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-98</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECERA</td>
+<td><strong>Erase Rectangular Area</strong><br/>This control function erases characters from the specified rectangular area in page memory. When an area is erased, DECERA replaces all character positions with the space character (2/0). DECERA erases character values and visual attributes from the specified area. DECERA does not erase line attributes.<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.164; EK-VT510-RM.B01 p.5-51; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-52; EK-VT520-RM.A01 p.5-52; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-52</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSERA</td>
+<td><strong>Selective Erase Rectangular Area</strong><br/>This control function erases all erasable characters from a specified rectangular area in page memory. The select character protection attribute (DECSCA) control function defines whether or not DECSERA can erase characters.<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.165; EK-VT510-RM.B01 p.5-126; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-132; EK-VT520-RM.A01 p.5-132; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-132</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECSCPP</td>
+<td><strong>Set Columns Per Page</strong><br/>Set the terminal to 80 or 132 columns. This is an alternative to DECCOLM.<br/>
+<small>Present on LQP02, VT330, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EB-28761-56 p.E91; EK-VT3XX-TP-002 p.106; EK-VT420-RM.002 p.130; EK-VT510-RM.B01 p.5-120; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-125; EK-VT520-RM.A01 p.5-125; EK-VT520-RM.A01 p.4-24; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-125</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECSASD</td>
+<td><strong>Select Active Status Display</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.93; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.189; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.6-5; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-29; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.219; EK-VT510-RM.B01 p.5-115; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-120; EK-VT520-RM.A01 p.5-120; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-120</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECSSDT</td>
+<td><strong>Select Status Display Type</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.93; EK-VT320-UU-001 p.98; EK-VT3XX-TP-002 p.190; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.6-4; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-29; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.220; EK-VT510-RM.B01 p.5-143; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-147; EK-VT520-RM.A01 p.5-147; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-147</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/05 (%)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/06 (&amp;)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSNC</td>
+<td><strong>Set Number of Copies</strong><br/>
+<small>Present on LCG01, LN05, LN07, LN08</small><br/>
+<!--
+<small>EB-28761-56 p.E125; EK-DECLA-OG-001 p.A-25; EK-DC32P-OP-001 p.A-27</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECRQUPSS</td>
+<td><strong>Request User-Preferred Supplemental Set</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.231; EK-VT382-RM-001 p.11-34; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.273; EK-VT510-RM.B01 p.5-111; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.5-115; EK-VT520-RM.A01 p.5-115; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.5-115</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECLRP</td>
+<td><strong>Locator Report</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECES</td>
+<td><strong>Enable Session</strong><br/>Make the session receiving this command the active session<br/>
+<small>Present on VT330, VT420, VT520, VT525</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.256; EK-VT420-RM.002 p.303; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.5-53; EK-VT520-RM.A01 p.5-53; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.5-53</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECSPO</td>
+<td><strong>Set Page Orientation</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSGD</td>
+<td><strong>Set Graphics Density</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECDLG</td>
+<td><strong>Deleting Logos Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECILG</td>
+<td><strong>Select Logo Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECFMSR</td>
+<td><strong>Request Forms Status</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/07 (')</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECRLGS</td>
+<td><strong>Request Logo Status</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSBCA</td>
+<td><strong>Select Bar Code Attributes</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECBCS</td>
+<td><strong>Setting Block Character Parameters</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECTLTC</td>
+<td><strong>Transmit Line Termination Characters</strong><br/>Set the characters to be transmitted at the end of lines in block mode. The default is CR.<br/>
+<small>Present on VT330</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.146</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECEFR</td>
+<td><strong>Enable Filter Rectangle</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECELR</td>
+<td><strong>Enable Locator Reports</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSLE</td>
+<td><strong>Select Locator Events</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECRQLP</td>
+<td><strong>Request Locator Position</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECIC</td>
+<td><strong>Insert Column</strong><br/>Inserts one or more columns into the scrolling region, starting with the column that has the cursor<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.150; EK-VT510-RM.B01 p.5-58; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-59; EK-VT520-RM.A01 p.5-59; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-59</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECDC</td>
+<td><strong>Delete Column</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.149; EK-VT510-RM.B01 p.5-37; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-37; EK-VT520-RM.A01 p.5-37; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-37</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/08 (()</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/09 ())</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSDPT</td>
+<td><strong>Select Digital Printed Data Type</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-124; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-129; EK-VT520-RM.A01 p.5-129; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-129</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECSTGLT</td>
+<td><strong>Select Text/Graphics Look-Up Table</strong><br/>
+<small>Present on VT330, VT520, VT525</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.187; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.5-151; EK-VT520-RM.A01 p.5-151; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.5-151</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/10 (*)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSPPCS</td>
+<td><strong>Select ProPrinter Character Set</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-137; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-143; EK-VT520-RM.A01 p.5-143; EK-VT520-RM.A01 p.4-33; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-143</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECSRC</td>
+<td><strong>Secure Reset Confirmation</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.289; EK-VT510-RM.B01 p.5-140; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-146; EK-VT520-RM.A01 p.5-146; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-146</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECSCS</td>
+<td><strong>Select Communication Speed</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-121; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-126; EK-VT520-RM.A01 p.5-126; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-126</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECSFC</td>
+<td><strong>Select Flow Control</strong><br/>Select a flow control scheme for the communication port or printer port<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-127; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-133; EK-VT520-RM.A01 p.5-133; EK-VT520-RM.A01 p.4-41; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-133</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECSCP</td>
+<td><strong>Select Communication Port</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-119; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-124; EK-VT520-RM.A01 p.5-124; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-124</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECSACE</td>
+<td><strong>Select Attribute Change Extent</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.166; EK-VT510-RM.B01 p.5-114; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-119; EK-VT520-RM.A01 p.5-119; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-119</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECRQCRA</td>
+<td><strong>Request Checksum of Rectangular Area</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.243; EK-VT510-RM.B01 p.5-102; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-105; EK-VT520-RM.A01 p.5-105; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-105</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECINVM</td>
+<td><strong>Invoke Macro</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.47; EK-VT510-RM.B01 p.5-59; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-61; EK-VT520-RM.A01 p.5-61; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-61</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECMSR</td>
+<td><strong>Macro Space Report</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.240; EK-VT510-RM.B01 p.5-72; EK-VT510-RM.B01 p.5-166; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-73; EK-VT520-RM.A01 p.5-73; EK-VT520-RM.A01 p.5-176; EK-VT520-RM.A01 p.5-176; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-73; EK-VT520-RM.A01 p.5-176</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECSNLS</td>
+<td><strong>Select Number of Lines per Screen</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.218; EK-VT510-RM.B01 p.5-134; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-140; EK-VT520-RM.A01 p.5-140; EK-VT520-RM.A01 p.4-17; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-140</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECLFKC</td>
+<td><strong>Local Function Key Control</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.197; EK-VT510-RM.B01 p.5-69; EK-VT520-RM.A01 p.4-29; EK-VT520-RM.A01 p.4-29; EK-VT520-RM.A01 p.5-70; EK-VT520-RM.A01 p.5-70; EK-VT520-RM.A01 p.4-29; EK-VT520-RM.A01 p.5-70</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/11 (+)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECSR</td>
+<td><strong>Secure Reset</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.288; EK-VT510-RM.B01 p.5-138; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-144; EK-VT520-RM.A01 p.5-144; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.5-144</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECELF</td>
+<td><strong>Enable Local Functions</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.195; EK-VT510-RM.B01 p.5-50; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.5-51; EK-VT520-RM.A01 p.5-51; EK-VT520-RM.A01 p.4-28; EK-VT520-RM.A01 p.5-51</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECSMKR</td>
+<td><strong>Select Modifier Key Reporting</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.198; EK-VT510-RM.B01 p.5-133; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-139; EK-VT520-RM.A01 p.5-139; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-139</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECMM</td>
+<td><strong>Memory Management</strong><br/>
+<small>Present on LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-DECLA-OG-001 p.A-23; EK-DC32P-OP-001 p.A-18</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECSPP</td>
+<td><strong>Set Port Parameter</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-136; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-142; EK-VT520-RM.A01 p.5-142; EK-VT520-RM.A01 p.4-39; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-142</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECRQPKFM</td>
+<td><strong>Program Key Free Memory Inquiry</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-108; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-111; EK-VT520-RM.A01 p.5-111; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-111</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECPKFMR</td>
+<td><strong>Program Key Free Memory Report</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-87; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-88; EK-VT520-RM.A01 p.5-88; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-88</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECPKA</td>
+<td><strong>Program Key Action</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-86; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-87; EK-VT520-RM.A01 p.5-87; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-87</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/12 (,)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECLTOD</td>
+<td><strong>Load Time of Day</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-71; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-72; EK-VT520-RM.A01 p.5-72; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-72</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECTID</td>
+<td><strong>Select Terminal ID</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-150; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-158; EK-VT520-RM.A01 p.5-158; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-158</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECRQKT</td>
+<td><strong>Key Type Inquiry</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-104; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-107; EK-VT520-RM.A01 p.5-107; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-107</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECRPKT</td>
+<td><strong>Report Key Type</strong><br/>DECRPKT (from the terminal) is a response to a key type enquiry (DECRQKT)<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-94; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-96; EK-VT520-RM.A01 p.5-96; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-96</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECRQKD</td>
+<td><strong>Request Key Definition</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-103; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-106; EK-VT520-RM.A01 p.5-106; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-106</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECSPMA</td>
+<td><strong>Session Page Memory Allocation</strong><br/>Allocates 25 line pages to each session according to the corresponding parameters<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-141; EK-VT520-RM.A01 p.5-141; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-141</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECUS</td>
+<td><strong>Update Session</strong><br/>Controls how display memory is updated for this session when it is not active<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.5-169; EK-VT520-RM.A01 p.5-169; EK-VT520-RM.A01 p.4-16; EK-VT520-RM.A01 p.5-169</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECDLDA</td>
+<td><strong>Down Line Load Allocation</strong><br/>Controls the number of soft character sets allowed per session (monochrome terminals only)<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.5-47; EK-VT520-RM.A01 p.5-47; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.5-47</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSZS</td>
+<td><strong>Select Zero Symbol</strong><br/>Selects the style of the zero displayed in text<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-155; EK-VT520-RM.A01 p.5-155; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-155</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECAC</td>
+<td><strong>Assign Color</strong><br/>Selects the colors used for normal text<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-16; EK-VT520-RM.A01 p.5-16; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-16</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECATC</td>
+<td><strong>Alternate Text Color</strong><br/>Selects the colors used for text attribute combinations<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-22; EK-VT520-RM.A01 p.5-22; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-22</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECPS</td>
+<td><strong>Play Sound</strong><br/>Controls the sound frequency of notes (one at a time)<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.5-89; EK-VT520-RM.A01 p.5-89; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.5-89</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/13 (-)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECARR</td>
+<td><strong>Select Auto Repeat Rate</strong><br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.5-20; EK-VT520-RM.A01 p.5-20; EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.5-20</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECCRTST</td>
+<td><strong>CRT Saver Timing</strong><br/>Controls the timing of the CRT screen saver<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-36; EK-VT520-RM.A01 p.5-36; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-36</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECSEST</td>
+<td><strong>Energy Saver Timing</strong><br/>Selects the energy saver timing<br/>
+<small>Present on VT520, VT525</small><br/>
+<!--
+<small>EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-130; EK-VT520-RM.A01 p.5-130; EK-VT520-RM.A01 p.4-34; EK-VT520-RM.A01 p.5-130</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/14 (.)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/15 (/)</h3>
+
+<p>No assigned functions.</p>
+
+
+
+<h2>Sources</h2>
+<p>At least one reference to a Digital document is given for each
+entry. The following documents were used to compile these
+tables:</p>
+<ul>
+<li><a href="https://vt100.net/manx/details/1,22226">EB-28761-56</a>, <cite>Terminals &amp; Printers Handbook 1987</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0gigi-rc/">EK-0GIGI-RC</a>, <cite>GIGI Programming Reference Card</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0la50-rm/">EK-0LA50-RM</a>, <cite>LA50 Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0la75-rm/">EK-0LA75-RM</a>, <cite>LA75 Companion Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0la75-ug/">EK-0LA75-UG</a>, <cite>Installing and Using the LA75 Companion Printer</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0ln03-rm/">EK-0LN03-RM</a>, <cite>LN03 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dc32p-op/">EK-DC32P-OP</a>, <cite>DEClaser 3200 Printer Operator's Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-decla-og/">EK-DECLA-OG</a>, <cite>DEClaser 2100 plus Printer Operator's Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dtc01-rm/">EK-DTC01-RM</a>, <cite>DECtalk DTC01 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dtc03-om/">EK-DTC03-OM</a>, <cite>DECtalk DTC03 Text-to-Speech System Owner's Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la100-rm/">EK-LA100-RM</a>, <cite>LA100-Series Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la210-tm/">EK-LA210-TM</a>, <cite>LA210 Technical Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la34s-tm/">EK-LA34S-TM</a>, <cite>DECwriter IV Series Technical Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-lj250-rm/">EK-LJ250-RM</a>, <cite>LJ250/LJ252 Companion Color Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt100-ug/">EK-VT100-UG</a>, <cite>VT100 User Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt105-tm/">EK-VT105-TM</a>, <cite>VT105 Graphic Terminal Technical Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt125-ug/">EK-VT125-UG</a>, <cite>VT125 Graphics Terminal User Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt131-ug/">EK-VT131-UG</a>, <cite>VT131 Video Terminal User Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt132-ug/">EK-VT132-UG</a>, <cite>VT132 User Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt220-rm/">EK-VT220-RM</a>, <cite>VT220 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt240-rm/">EK-VT240-RM</a>, <cite>VT240 Series Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt320-uu/">EK-VT320-UU</a>, <cite>Installing and Using the VT320 Video Terminal (Worldwide Model)</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt382-rm/">EK-VT382-RM</a>, <cite>VT382 Kanji Display Terminal Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt38t-ug/">EK-VT38T-UG</a>, <cite>VT382 Thai Display Terminal Installing and Using Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt3xx-tp/">EK-VT3XX-TP</a>, <cite>VT330/VT340 Programmer Reference Manual, Volume 1: Text Programming</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt420-rm/">EK-VT420-RM</a>, <cite>VT420 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt510-rm/">EK-VT510-RM</a>, <cite>VT510 Video Terminal Programmer Information</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt520-rm/">EK-VT520-RM</a>, <cite>VT520/VT525 Video Terminal Programmer Information</cite></li>
+
+<li><a href="/manx/part/dec/ek-vt320-uu/" data-ver="-001">EK-VT320-UU</a>, <cite>Installing and Using the VT320 Video Terminal</cite></li>
+<li><a href="/manx/part/dec/ek-vt3xx-hr/" data-ver="-001">EK-VT3XX-HR</a>, <cite>VT330/VT340 Programmer Pocket Guide</cite></li>
+<li><a href="/manx/part/dec/ek-pplv2-pm/" data-ver=".B01">EK-PPLV2-PM</a>, <cite>Digital ANSI-Compliant Printing Protocol Level 2 Programming Reference Manual</cite></li>
+<li>DEC PPL3, <cite>Digital ANSI-Compliant Printing Protocol Level 3 Programming Reference Manual</cite></li>
+</ul>
+<footer></footer></body></html>

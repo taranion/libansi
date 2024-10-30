@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter5.html">Chapter 5</a><a href="contents.html">Contents</a><a href="chapter7.html">Chapter 7</a></nav>
+</header>
+<h1 id="S6"><span class="chapnum">6</span><br/>Typing Additional Characters</h1>
+<p>The VT420 lets you type more characters than appear on your LK401
+keyboard. For example, you can type accented characters or a © symbol.
+This chapter lists the available characters and shows you how to select
+them.</p>
+<p>To enter one of these characters, you type a sequence of keys. Most
+sequences begin with one of the <span class="keyname">Compose Character</span> keys. If you
+use the German keyboard, you use the <span class="keyname">Group Shift</span> key instead of
+<span class="keyname">Compose Character</span>.</p>
+<p>This chapter describes the following types of key sequences:</p>
+<ul>
+<li>Three-stroke <span class="keyname">Compose Character</span> sequences (with all LK401
+keyboards)</li>
+<li><span class="keyname">Group Shift</span> sequences (with the German keyboard)</li>
+<li>Two-stroke key sequences (with keyboards that have nonspacing
+diacritical keys)</li>
+<li>Hexadecimal key sequences (for programmers)</li>
+</ul>
+<p>Two basic factors determine the key sequences you can use.</p>
+<ul>
+<li>The <strong>keyboard dialect</strong> setting, which should match your keyboard
+model (<a href="chapter3.html">Chapter 3</a>)</li>
+<li>The character set the terminal is currently using (<a href="chapter5.html">Chapter 5</a>)</li>
+</ul>
+<h2 id="S6.1">What Characters Can I Type?</h2>
+<p>You can type any of the characters in the character set the terminal
+is currently using. You can select from two multinational sets (DEC
+Multinational character set or ISO Latin Alphabet No. 1) or many
+national replacement character sets (NRCs). By default, the VT420 uses
+the DEC Multinational character set. <a href="chapter1.html">Chapter 1</a> describes multinational
+and national character sets, and <a href="chapter9.html">Chapter 9</a> shows each character set.</p>
+<p>The <strong>character set mode</strong> feature in the General Set-Up screen sets the
+terminal to work with 8-bit multinational or 7-bit NRC sets.</p>
+<h2 id="S6.2">Key Sequences with Nonspacing Diacritical Keys</h2>
+<p>Table 6-1 lists the keyboards that have keys with <em>diacritical marks</em>.
+Table 6-2 lists all the additional characters for all character sets in the
+VT420 terminal. Many of these characters include a diacritical mark. For
+example, À includes an acute accent.</p>
+<p>To enter a character that has a diacritical mark, you press the diacritical
+key followed by the character. If your keyboard does not have the
+diacritical key, you must press the <span class="keyname">Compose Character</span> key followed
+by the correct key sequence listed in Table 6-2.</p>
+<p>To use diacritical keys, you must be using a multinational character set.</p>
+<table id="T6-1" class="truled">
+<caption>Table 6-1 Keyboards with Diacritical Marks</caption>
+<thead>
+<tr>
+<th>Keyboard</th>
+<th>Grave Accent</th>
+<th>Acute Accent</th>
+<th>Circumflex Accent</th>
+<th>Tilde Mark</th>
+<th>Umlaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Finnish</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Flemish</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>French/Belgian</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>French Canadian</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>German</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Portuguese</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Spanish</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Swedish</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+</tr>
+<tr>
+<td>Swiss (French)</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>Swiss (German)</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="S6.3">How to Type a Character Using the Compose Character Key</h2>
+<p>To enter a <span class="keyname">Compose Character</span> key sequence:</p>
+<ol>
+<li>Find the character you want to type in <a href="#T6-2">Table 6-2</a>.</li>
+<li>Press the <span class="keyname">Compose Character</span> key. <code class="screen">Compose</code> appears on the keyboard
+indicator line, indicating the terminal is in the compose mode.
+<p class="note">NOTE: If the <span class="keyname">Compose Character</span> key does not work, check the setting
+of the compose key feature in the Keyboard Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>).</p></li>
+<li>Type the sequence in <a href="#T6-2">Table 6-2</a> for the character you want.</li>
+</ol>
+<p><strong>Example</strong></p>
+<p>To type an é:</p>
+<ol>
+<li>Find the é character in <a href="#T6-2">Table 6-2</a>.</li>
+<li>Press <span class="keyname">Compose Character</span>.</li>
+<li>Type <span class="keyname">e</span> and <span class="keyname">'</span> (apostrophe).</li>
+</ol>
+<p class="note">NOTE: If you try to enter a character that is not available in the current
+character set, a warning bell sounds. See "Invalid Sequences" in
+this chapter.</p>
+<h2 id="S6.4">How to Type a Character Using the Group Shift Key</h2>
+<p>If you select the <code class="screen">German Keyboard</code> dialect in the Set-Up Directory screen,
+the <span class="keyname">Group Shift</span> replaces the <span class="keyname">Compose Character</span> key.</p>
+<p>Many keys on the German keyboard have a second group of legends on
+the right half of their keycap. These legends are called Group-2.</p>
+<p>To enter a single character from Group-2:</p>
+<ol>
+<li>Press and release the <span class="keyname">Group Shift</span> key. <code class="screen">Group Shift</code> appears on the
+keyboard indicator line at the bottom of the screen. This indicates
+that you have selected the Group-2 keys.</li>
+<li>Type the key that has the desired character on the right half of the
+keycap. The character appears on the screen, and the <code class="screen">Group Shift</code>
+indicator turns off.</li>
+</ol>
+<p><strong>Example</strong></p>
+<p>To type an ø:</p>
+<ol>
+<li>Press <span class="keyname">Group Shift</span>.</li>
+<li>Type the key that has the ø character on the right half of the keycap:
+<span class="keyname">O ø</span>.</li>
+</ol>
+<p>To enter a series of characters from Group-2:</p>
+<ol>
+<li>Hold down the <span class="keyname">Group Shift</span> key. <code class="screen">Group Shift</code> appears on the keyboard
+indicator line at the bottom of the screen. This indicates that you
+have selected the Group-2 keys.</li>
+<li>Type the series of keys that have the desired characters on the right
+half of their keycaps. The characters appear on the screen.</li>
+<li>When you are done typing characters from Group-2, release the
+<span class="keyname">Group Shift</span> key. The <code class="screen">Group Shift</code> indicator turns off.</li>
+</ol>
+<h2 id="S6.5">Invalid Sequences</h2>
+<p>When you complete a valid compose of group-shift sequence, the character
+appears on the screen and the <code class="screen">Compose</code> or <code class="screen">Group Shift</code> indicator at the
+bottom of the screen turns off. If you use an invalid sequence, the VT420
+cancels the sequence and sounds the warning bell.</p>
+<p>Some compose characters require that you type the key sequence in the
+order listed in <a href="#T6-2">Table 6-2</a>. If you do not follow the order, the sequence is
+invalid and the warning bell sounds. If the terminal does not display the
+character, repeat the sequence exactly as shown in <a href="#T6-2">Table 6-2</a>.</p>
+<p class="note">NOTE: Pressing a function key cancels a compose or group-shift sequence
+without sounding the bell.</p>
+<p class="note">You can turn the warning bell on or off in the Keyboard Set-Up
+screen (<a href="chapter5.html">Chapter 5</a>).</p>
+<h3 id="S6.5.1">Canceling or Restarting a Key Sequence</h3>
+<p>If you accidentally start a key sequence by pressing <span class="keyname">Compose Character</span>,
+<span class="keyname">Group Shift</span>, or a nonspacing diacritical key, press the &lt;×] key. This
+immediately cancels the sequence.</p>
+<p>If you press <span class="keyname">Compose Character</span> during a compose sequence, a new
+three-stroke sequence starts from that point. The first sequence is
+canceled.</p>
+<p>If you press any of the following keys during a key sequence, they cancel
+the sequence and perform their usual function:</p>
+<ul>
+<li><span class="keyname">Tab</span></li>
+<li><span class="keyname">Enter</span></li>
+<li>Any top-row key</li>
+<li>Any <span class="keyname">Ctrl</span><span class="keyname">other key</span> combination</li>
+</ul>
+<h2 id="S6.6">Hexadecimal Key Sequences</h2>
+<p>This feature is primarily for programmers who are familiar with character
+coding and hexadecimal representation.</p>
+<p>The VT420 uses coded character sets to exchange data with a host
+computer. The code for a character can be represented by a pair of
+hexadecimal digits. With the VT420, you can enter any 8-bit code by
+pressing <span class="keyname">Compose Character</span> or <span class="keyname">Group Shift</span> followed by two hexadecimal
+digits typed on the numeric keypad.</p>
+<p>When you press <span class="keyname">Compose Character</span> or <span class="keyname">Group Shift</span>, the terminal assigns
+hexadecimal values to the numeric keypad keys (<a href="#F6-1">Figure 6-1</a>). The
+character set tables in <a href="chapter9.html">Chapter 9</a> show you the hexadecimal values for
+each character in the standard character sets.</p>
+<p class="note">NOTE: The character set mode and UPSS features in the General Set-Up
+screen do not affect hexadecimal compose sequences.</p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>You can use a hexadecimal compose sequence to send the US (unit
+separator) control character. The hexadecimal value for US is 1F.
+Figure 6-1 shows the numeric keypad.
+<ol>
+<li>Press <span class="keyname">Compose Character</span> or <span class="keyname">Group Shift</span>.</li>
+<li>Press <span class="keyname">1</span> on the numeric keypad.</li>
+<li>Press <span class="keyname">,</span> on the numeric keypad.</li>
+</ol></li>
+<li>You can use a hexadecimal compose sequence to send the DCS (device
+control string) character. The hexadecimal value for DCS is 90.
+Figure 6-1 shows the numeric keypad.
+<ol>
+<li>Press <span class="keyname">Compose Character</span> or <span class="keyname">Group Shift</span>.</li>
+<li>Press <span class="keyname">9</span> on the numeric keypad.</li>
+<li>Press <span class="keyname">0</span> on the numeric keypad.</li>
+</ol></li>
+</ul>
+<p class="note">NOTE: If the terminal mode feature in the General Set-Up screen is set to
+<code class="screen">VT400 Mode, 7 Bit Controls</code>, the 7-bit representation of DCS (ESC P)
+will be sent.</p>
+<p><strong>Invalid Hexadecimal Sequences</strong></p>
+<p>If you enter an invalid sequence, the VT420 cancels the sequence and
+sounds the warning bell. You can turn the warning bell on or off in the
+Keyboard Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</p>
+<table id="F6-1" class="figure">
+<caption>Figure 6-1 Hexadecimal Compose Keys</caption>
+<tbody>
+<tr>
+<td><img src="gsf_0643_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="T6-2" class="truled">
+<caption>Table 6-2 Key Sequences</caption>
+<thead>
+<tr>
+<th colspan="2">Character</th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"</td>
+<td>quotation mark</td>
+<td><code class="screen">¨</code> (sp)</td>
+</tr>
+<tr>
+<td>#</td>
+<td>number sign</td>
+<td><code class="screen">+ +</code></td>
+</tr>
+<tr>
+<td>'</td>
+<td>apostrophe</td>
+<td><code class="screen">´</code> (sp)</td>
+</tr>
+<tr>
+<td>@</td>
+<td>commercial at</td>
+<td><code class="screen">A A</code></td>
+</tr>
+<tr>
+<td>[</td>
+<td>opening bracket</td>
+<td><code class="screen">( (</code></td>
+</tr>
+<tr>
+<td>\</td>
+<td>backslash</td>
+<td><code class="screen">/ /</code> or <code class="screen">/ &lt;</code></td>
+</tr>
+<tr>
+<td>]</td>
+<td>closing bracket</td>
+<td><code class="screen">) )</code></td>
+</tr>
+<tr>
+<td>^</td>
+<td>circumflex accent</td>
+<td><code class="screen">ˆ</code> (sp)</td>
+</tr>
+<tr>
+<td>`</td>
+<td>grave accent</td>
+<td><code class="screen">`</code> (sp)</td>
+</tr>
+<tr>
+<td>{</td>
+<td>opening brace</td>
+<td><code class="screen">( -</code></td>
+</tr>
+<tr>
+<td>|</td>
+<td>vertical line</td>
+<td><code class="screen">/ ^</code></td>
+</tr>
+<tr>
+<td>}</td>
+<td>closing brace</td>
+<td><code class="screen">) -</code></td>
+</tr>
+<tr>
+<td>~</td>
+<td>tilde</td>
+<td><code class="screen">~</code> (sp)</td>
+</tr>
+<tr>
+<td>¡</td>
+<td>inverted !</td>
+<td><code class="screen">! !</code></td>
+</tr>
+<tr>
+<td>¢</td>
+<td>cent sign</td>
+<td><code class="screen">C /</code> or <code class="screen">C |</code></td>
+</tr>
+<tr>
+<td>£</td>
+<td>pound sign</td>
+<td><code class="screen">L -</code> or <code class="screen">L =</code></td>
+</tr>
+<tr>
+<td>¥</td>
+<td>yen sign</td>
+<td><code class="screen">Y -</code> or <code class="screen">Y =</code></td>
+</tr>
+<tr>
+<td>§</td>
+<td>section sign</td>
+<td><code class="screen">SO</code> or <code class="screen">S!</code> or <code class="screen">S0</code></td>
+</tr>
+<tr>
+<td>¤</td>
+<td>currency sign</td>
+<td><code class="screen">XO</code> or <code class="screen">X0</code></td>
+</tr>
+<tr>
+<td>©</td>
+<td>copyright sign</td>
+<td><code class="screen">CO</code> or <code class="screen">C0</code></td>
+</tr>
+<tr>
+<td>ª</td>
+<td>feminine ordinal</td>
+<td><code class="screen">A_</code></td>
+</tr>
+<tr>
+<td>«</td>
+<td>open angle brackets</td>
+<td><code class="screen">&lt;&lt;</code></td>
+</tr>
+<tr>
+<td>°</td>
+<td>degree sign</td>
+<td><code class="screen">0^</code></td>
+</tr>
+<tr>
+<td>±</td>
+<td>plus or minus sign</td>
+<td><code class="screen">+-</code></td>
+</tr>
+<tr>
+<td>²</td>
+<td>superscript 2</td>
+<td><code class="screen">2^</code></td>
+</tr>
+<tr>
+<td>³</td>
+<td>superscript 3</td>
+<td><code class="screen">3^</code></td>
+</tr>
+<tr>
+<td>µ</td>
+<td>micro sign</td>
+<td><code class="screen">/U</code></td>
+</tr>
+<tr>
+<td>¶</td>
+<td>paragraph sign</td>
+<td><code class="screen">P!</code></td>
+</tr>
+<tr>
+<td>·</td>
+<td>middle dot</td>
+<td><code class="screen">.^</code></td>
+</tr>
+<tr>
+<td>¹</td>
+<td>superscript 1</td>
+<td><code class="screen">1^</code></td>
+</tr>
+<tr>
+<td>º</td>
+<td>masculine ordinal</td>
+<td><code class="screen">O_</code></td>
+</tr>
+<tr>
+<td>»</td>
+<td>closed angle brackets</td>
+<td><code class="screen">&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>¼</td>
+<td>fraction one-quarter</td>
+<td><code class="screen">14</code></td>
+</tr>
+<tr>
+<td>½</td>
+<td>fraction one-half</td>
+<td><code class="screen">12</code></td>
+</tr>
+<tr>
+<td>¿</td>
+<td>inverted ?</td>
+<td><code class="screen">??</code></td>
+</tr>
+<tr>
+<td>À</td>
+<td>A grave</td>
+<td><code class="screen">`A</code></td>
+</tr>
+<tr>
+<td>Á</td>
+<td>A acute</td>
+<td><code class="screen">'A</code></td>
+</tr>
+<tr>
+<td>Â</td>
+<td>A circumflex</td>
+<td><code class="screen">^A</code></td>
+</tr>
+<tr>
+<td>Ã</td>
+<td>A tilde</td>
+<td><code class="screen">~A</code></td>
+</tr>
+<tr>
+<td>Ä</td>
+<td>A umlaut</td>
+<td><code class="screen">¨A</code> or <code class="screen">"A</code></td>
+</tr>
+<tr>
+<td>Å</td>
+<td>A ring</td>
+<td><code class="screen">°A</code> or <code class="screen">A*</code></td>
+</tr>
+<tr>
+<td>Æ</td>
+<td>A E diphthong</td>
+<td><code class="screen">AE</code></td>
+</tr>
+<tr>
+<td>Ç</td>
+<td>C cedilla</td>
+<td><code class="screen">C,</code></td>
+</tr>
+<tr>
+<td>È</td>
+<td>E grave</td>
+<td><code class="screen">`E</code></td>
+</tr>
+<tr>
+<td>È</td>
+<td>E acute</td>
+<td><code class="screen">'E</code></td>
+</tr>
+<tr>
+<td>Ê</td>
+<td>E circumflex</td>
+<td><code class="screen">^E</code></td>
+</tr>
+<tr>
+<td>Ë</td>
+<td>E umlaut</td>
+<td><code class="screen">¨E</code> or <code class="screen">"E</code></td>
+</tr>
+<tr>
+<td>Ì</td>
+<td>I grave</td>
+<td><code class="screen">`I</code></td>
+</tr>
+<tr>
+<td>Í</td>
+<td>I acute</td>
+<td><code class="screen">'I</code></td>
+</tr>
+<tr>
+<td>Î</td>
+<td>I circumflex</td>
+<td><code class="screen">^I</code></td>
+</tr>
+<tr>
+<td>Ï</td>
+<td>I umlaut</td>
+<td><code class="screen">¨I</code> or <code class="screen">"I</code></td>
+</tr>
+<tr>
+<td>Ñ</td>
+<td>N tilde</td>
+<td><code class="screen">~N</code></td>
+</tr>
+<tr>
+<td>Ò</td>
+<td>O grave</td>
+<td><code class="screen">`O</code></td>
+</tr>
+<tr>
+<td>Ó</td>
+<td>O acute</td>
+<td><code class="screen">'O</code></td>
+</tr>
+<tr>
+<td>Ô</td>
+<td>O circumflex</td>
+<td><code class="screen">^O</code></td>
+</tr>
+<tr>
+<td>Õ</td>
+<td>O tilde</td>
+<td><code class="screen">~O</code></td>
+</tr>
+<tr>
+<td>Ö</td>
+<td>O umlaut</td>
+<td><code class="screen">¨O</code> or <code class="screen">"O</code></td>
+</tr>
+<tr>
+<td>Œ</td>
+<td>O E diphthong*</td>
+<td><code class="screen">OE</code></td>
+</tr>
+<tr>
+<td>Ø</td>
+<td>O slash</td>
+<td><code class="screen">O/</code></td>
+</tr>
+<tr>
+<td>Ù</td>
+<td>U grave</td>
+<td><code class="screen">`U</code></td>
+</tr>
+<tr>
+<td>Ú</td>
+<td>U acute</td>
+<td><code class="screen">'U</code></td>
+</tr>
+<tr>
+<td>Û</td>
+<td>U circumflex</td>
+<td><code class="screen">^U</code></td>
+</tr>
+<tr>
+<td>Ü</td>
+<td>U umlaut</td>
+<td><code class="screen">¨U</code> or <code class="screen">"U</code></td>
+</tr>
+<tr>
+<td>Ÿ</td>
+<td>Y umlaut</td>
+<td><code class="screen">¨Y</code> or <code class="screen">"Y</code></td>
+</tr>
+<tr>
+<td>ß</td>
+<td>German small sharp s</td>
+<td><code class="screen">ss</code></td>
+</tr>
+<tr>
+<td>à</td>
+<td>a grave</td>
+<td><code class="screen">`a</code></td>
+</tr>
+<tr>
+<td>á</td>
+<td>a acute</td>
+<td><code class="screen">'a</code></td>
+</tr>
+<tr>
+<td>â</td>
+<td>a circumflex</td>
+<td><code class="screen">^a</code></td>
+</tr>
+<tr>
+<td>ã</td>
+<td>a tilde</td>
+<td><code class="screen">~a</code></td>
+</tr>
+<tr>
+<td>ä</td>
+<td>a umlaut</td>
+<td><code class="screen">¨a</code> or <code class="screen">"a</code></td>
+</tr>
+<tr>
+<td>å</td>
+<td>a ring</td>
+<td><code class="screen">°a</code> or <code class="screen">a*</code><br/>(degree sign)</td>
+</tr>
+<tr>
+<td>æ</td>
+<td>a e diphthong</td>
+<td><code class="screen">ae</code></td>
+</tr>
+<tr>
+<td>ç</td>
+<td>c cedilla</td>
+<td><code class="screen">c,</code> (comma)</td>
+</tr>
+<tr>
+<td>è</td>
+<td>e grave</td>
+<td><code class="screen">`e</code></td>
+</tr>
+<tr>
+<td>é</td>
+<td>e acute</td>
+<td><code class="screen">'e</code></td>
+</tr>
+<tr>
+<td>ê</td>
+<td>e circumflex</td>
+<td><code class="screen">^e</code></td>
+</tr>
+<tr>
+<td>ë</td>
+<td>e umlaut</td>
+<td><code class="screen">¨e</code> or <code class="screen">"e</code></td>
+</tr>
+<tr>
+<td>ì</td>
+<td>i grave</td>
+<td><code class="screen">`i</code></td>
+</tr>
+<tr>
+<td>í</td>
+<td>i acute</td>
+<td><code class="screen">'i</code></td>
+</tr>
+<tr>
+<td>î</td>
+<td>i circumflex</td>
+<td><code class="screen">^i</code></td>
+</tr>
+<tr>
+<td>ï</td>
+<td>i umlaut</td>
+<td><code class="screen">¨i</code> or <code class="screen">"i</code></td>
+</tr>
+<tr>
+<td>ñ</td>
+<td>n tilde</td>
+<td><code class="screen">~n</code></td>
+</tr>
+<tr>
+<td>ò</td>
+<td>o grave</td>
+<td><code class="screen">`o</code></td>
+</tr>
+<tr>
+<td>ó</td>
+<td>o acute</td>
+<td><code class="screen">'o</code></td>
+</tr>
+<tr>
+<td>ô</td>
+<td>o circumflex</td>
+<td><code class="screen">^o</code></td>
+</tr>
+<tr>
+<td>õ</td>
+<td>o tilde</td>
+<td><code class="screen">~o</code></td>
+</tr>
+<tr>
+<td>ö</td>
+<td>o umlaut</td>
+<td><code class="screen">¨o</code> or <code class="screen">"o</code></td>
+</tr>
+<tr>
+<td>œ</td>
+<td>o e diphthong*</td>
+<td><code class="screen">oe</code></td>
+</tr>
+<tr>
+<td>ø</td>
+<td>o slash</td>
+<td><code class="screen">o/</code></td>
+</tr>
+<tr>
+<td>ù</td>
+<td>u grave</td>
+<td><code class="screen">`u</code></td>
+</tr>
+<tr>
+<td>ú</td>
+<td>u acute</td>
+<td><code class="screen">'u</code></td>
+</tr>
+<tr>
+<td>û</td>
+<td>u circumflex</td>
+<td><code class="screen">^u</code></td>
+</tr>
+<tr>
+<td>ü</td>
+<td>u umlaut</td>
+<td><code class="screen">¨u</code> or <code class="screen">"u</code></td>
+</tr>
+<tr>
+<td>ÿ</td>
+<td>y umlaut</td>
+<td><code class="screen">¨y</code> or <code class="screen">"y</code></td>
+</tr>
+<tr>
+<th colspan="3">ISO Characters†</th>
+</tr>
+<tr>
+<td> </td>
+<td>no break space</td>
+<td>sp sp</td>
+</tr>
+<tr>
+<td>¦</td>
+<td>broken vertical bar</td>
+<td><code class="screen">||</code> or <code class="screen">!^</code></td>
+</tr>
+<tr>
+<td>¬</td>
+<td>logical not</td>
+<td><code class="screen">-,</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td>soft (syllable) hyphen</td>
+<td><code class="screen">--</code></td>
+</tr>
+<tr>
+<td>®</td>
+<td>registered trademark</td>
+<td><code class="screen">RO</code></td>
+</tr>
+<tr>
+<td>¯</td>
+<td>macron</td>
+<td><code class="screen">-^</code></td>
+</tr>
+<tr>
+<td>¾</td>
+<td>three quarters</td>
+<td><code class="screen">34</code></td>
+</tr>
+<tr>
+<td>÷</td>
+<td>division sign</td>
+<td><code class="screen">-:</code></td>
+</tr>
+<tr>
+<td>×</td>
+<td>multiplication sign</td>
+<td><code class="screen">xx</code></td>
+</tr>
+<tr>
+<td>´</td>
+<td>acute accent</td>
+<td><code class="screen">''</code></td>
+</tr>
+<tr>
+<td>¸</td>
+<td>cedilla</td>
+<td><code class="screen">,,</code></td>
+</tr>
+<tr>
+<td>¨</td>
+<td>diaeresis</td>
+<td><code class="screen">¨</code>(sp) or <code class="screen">""</code></td>
+</tr>
+<tr>
+<td>Ý</td>
+<td>Y acute</td>
+<td><code class="screen">'Y</code></td>
+</tr>
+<tr>
+<td>ý</td>
+<td>y acute</td>
+<td><code class="screen">'y</code></td>
+</tr>
+<tr>
+<td>Þ</td>
+<td>capital Icelandic thorn</td>
+<td><code class="screen">TH</code></td>
+</tr>
+<tr>
+<td>þ</td>
+<td>small Icelandic thorn</td>
+<td><code class="screen">th</code></td>
+</tr>
+<tr>
+<td>Đ</td>
+<td>capital Icelandic Eth</td>
+<td><code class="screen">-D</code></td>
+</tr>
+<tr>
+<td>đ</td>
+<td>small Icelandic Eth</td>
+<td><code class="screen">-d</code></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">*This character is only available when you use the DEC Multinational
+Character Set. See the UPSS feature in the General Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</td>
+</tr>
+<tr>
+<td colspan="3">†These characters are only available when you use the ISO Latin Alphabet No. 1
+character set. See the UPSS feature in the General Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</td>
+</tr>
+</tfoot>
+</table>
+<footer>
+<nav class="sections"><a href="chapter5.html">Chapter 5</a><a href="contents.html">Contents</a><a href="chapter7.html">Chapter 7</a></nav>
+</footer>
+</body>
+</html>

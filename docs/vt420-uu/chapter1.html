@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a></a><a href="contents.html">Contents</a><a href="chapter2.html">Chapter 2</a></nav>
+</header>
+<h1 id="S1"><span class="chapnum">1</span><br/>A Look at the Terminal</h1>
+<p>This chapter introduces you to the VT420 video display terminal. The
+VT420 is a general-purpose terminal that you use to communicate with a
+host computer system. The chapter provides an overview of the terminal
+and its basic operating features. The chapter also tells you where to look
+in this guide for more information about each feature.</p>
+<h2 id="S1.1">VT420 Components</h2>
+<p>The VT420 has two main components, a monitor/terminal unit and a
+keyboard (Figure 1-1). The monitor/terminal unit is simply called the
+terminal in the rest of this guide.</p>
+<table id="F1-1" class="figure">
+<caption>Figure 1-1 VT420 Video Terminal</caption>
+<tbody>
+<tr>
+<td><img src="gsf_0609_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S1.1.1">Terminal</h3>
+<p>The VT420 uses a 359 mm (14 inch) monochrome screen. The VT420
+screen can display 24, 25, 36, or 48 lines of text in 80 or 132 columns.</p>
+<p>There are three connectors on the rear of the terminal, for connecting
+the VT420 to one or two host computer systems. You can also use one
+of the connectors to connect to a printer. Chapters <a href="chapter2.html">2</a> and <a href="chapter3.html">3</a> describe the
+terminal's connectors.</p>
+<p>The terminal's tilt and swivel base lets you adjust the screen to the
+viewing angle you prefer.</p>
+<h3 id="S1.1.2">Keyboard</h3>
+<p>The VT420 uses Digital's LK401 keyboard. The keyboard has four groups
+of keys and two indicator lights. The main keypad looks similar to a
+typewriter keypad. A cable connects the keyboard to the right side of the
+terminal.</p>
+<p><a href="chapter4.html">Chapter 4</a> describes the LK410 keyboard.</p>
+<h2 id="S1.2">Your Computer System</h2>
+<p>You can use the VT420 with one or more computer systems. You have
+several options for connecting your terminal to a computer. You can
+connect the VT420 directly to a computer, or indirectly through a <dfn><a href="glossary.html#TERMINAL">terminal
+server</a></dfn> or <dfn><a href="glossary.html#MODEM">modem</a></dfn>. The system you connect to is called the <dfn><a href="glossary.html#HOST">host</a></dfn>.</p>
+<p>Normally, the keys you type on your keyboard send information to the
+host. The host stores the information and displays it on the terminal's
+screen. You can print the data by sending it to a printer connected to the
+terminal.</p>
+<p>You can use the VT420 with the <dfn><a href="glossary.html#APPLICATION">application software</a></dfn> on your host. For
+example, your host may have applications that let you do word processing,
+data entry, or programming.</p>
+<h2 id="S1.3">Features</h2>
+<p>With a VT420, you can</p>
+<ul>
+<li>Select operating features from the keyboard.</li>
+<li>Use two computer <dfn><a href="glossary.html#SESSION">sessions</a></dfn> on one terminal.</li>
+<li>Display information from two sessions at the same time. You can
+select two <dfn><a href="glossary.html#WINDOW">windows</a></dfn> from the keyboard.</li>
+<li>Copy information from one session to another session.</li>
+<li>Display 24, 25, 36, or 48 lines of text in 80 or 132 columns.</li>
+<li>Store data locally in <dfn><a href="glossary.html#PAGEMEMORY">page memory</a></dfn> for display.</li>
+<li>Store frequently used commands and text in macros.</li>
+<li>Fill the screen with a dark or light background for viewing comfort.</li>
+<li>Align the screen.</li>
+<li>Check the terminal's operating status.</li>
+</ul>
+<h3 id="S1.3.1">Set-Up</h3>
+<p>Set-up is a series of display screens that let you examine and change
+the terminal's operating features from the keyboard. Each screen lists a
+particular set of operating features for the terminal. For example, one
+set-up screen lists communication features, while another lists keyboard
+features.</p>
+<p>Some features are for your convenience, and some are required by your
+host computer system. Each set-up feature has a <dfn><a href="glossary.html#FACTORY">factory-default</a></dfn> setting.
+You can select the settings that are right for your system.</p>
+<p><a href="chapter5.html">Chapter 5</a> describes set-up in detail.</p>
+<h3 id="S1.3.2">Two Sessions</h3>
+<p>When you use the terminal to communicate with a computer system, you
+have established a session on that system. The VT420 lets you establish
+two sessions and display data from both sessions at the same time. You
+can connect the terminal to two different systems, depending on your
+installation (<a href="chapter2.html">Chapter 2</a>).</p>
+<p>Here are some important tools you use to select and run two sessions:</p>
+<ul>
+<li><strong>Terminal comm ports</strong> set-up feature</li>
+<li>SSU Enable command</li>
+<li>Windows</li>
+<li><span class="keyname">F4</span> (Session) key</li>
+</ul>
+<p>The procedure for selecting and running two sessions is simple. Here are
+the basic steps:</p>
+<ol>
+<li>Set the <strong>terminal comm ports</strong> feature to match your cable
+connections to the host system.</li>
+<li>Use the <span class="keyname">F4</span> key or the SSU Enable command to initiate two sessions.</li>
+<li>Press the <span class="keyname">Ctrl</span> <span class="keyname">F4</span> keys to select two windows.</li>
+<li>Use <span class="keyname">F4</span> to easily switch back and forth between two sessions.</li>
+</ol>
+<p><a href="chapter3.html">Chapter 3</a> provides the detailed procedures for setting up your terminal to
+run two sessions. <a href="chapter7.html">Chapter 7</a> describes how to use two sessions.</p>
+<h3 id="S1.3.3">Windows</h3>
+<p>You can divide your screen into two windows. With windows, you can see
+information from two sessions at the same time. There are two styles of
+windows, full screen and split screen. The default is a full-screen window.</p>
+<p>To change the windows style, you simply press the <span class="keyname">Ctrl</span> <span class="keyname">F4</span> key combination.</p>
+<p>When you divide the screen into two windows, you can adjust their
+relative size by moving the border between them up or down. <a href="chapter7.html">Chapter 7</a>
+describes how to use windows.</p>
+<h3 id="S1.3.4">Number of Lines on the Screen</h3>
+<p>The VT420 lets you select a font size to display 24, 36, or 48 lines on the
+screen. You use the <strong>lines/screen</strong> feature to select the number of display
+lines. <a href="chapter7.html">Chapter 7</a> describes how to select the number of lines/screen.</p>
+<h3 id="S1.3.5">Page Memory</h3>
+<p>The VT420 has off-screen memory to store data entered from the keyboard
+or host system. The VT420 can store 144 lines of text.</p>
+<p>The terminal's memory is called <dfn><a href="glossary.html#PAGEMEMORY">page memory</a></dfn>, because you can divide the
+144 lines into a different number of pages. By default, the terminal uses
+6 pages of 24 lines each. If you run two sessions, the default format for
+each session is 3 pages of 24 lines.</p>
+<p>Pages create boundaries that affect the way the VT420 displays text.
+To take advantage of page memory, your applications must be able to
+recognize these page boundaries.</p>
+<p>See the <strong>page arrangement</strong> feature in the "<a href="chapter5.html#S5.7">Display Set-Up Screen</a>"
+section of <a href="chapter5.html">Chapter 5</a>.</p>
+<h3 id="S1.3.6">Copy and Paste</h3>
+<p>The VT420 has a copy and paste feature that lets you copy information
+displayed on the screen and send it to the host system. You can send the
+copied text to the same session or to another session. <a href="chapter7.html">Chapter 7</a> describes
+how to copy and paste text.</p>
+<h3 id="S1.3.7">Status Line</h3>
+<p>The VT420 displays a status line at the bottom of the screen. If you are
+running two sessions, the terminal displays a separate status line at the
+bottom of each session. The status line has several fields that provide
+information about the terminal's operating status. For example, one field
+shows you the current position of the cursor as a set of screen coordinates
+(row and column number). Applications may also use the status line to
+send you messages.</p>
+<p><a href="chapter4.html">Chapter 4</a> describes the status line.</p>
+<h3 id="S1.3.8">Keyboard Indicator Line</h3>
+<p>The VT420 also displays a keyboard indicator line at the bottom of the
+screen, below the status line. This indicator line has several fields that
+provide information about the keyboard's operating status. For example,
+the first field indicates which session you can edit from the keyboard.
+Other fields indicate if screen data is on hold, if the <code class="screen">Caps Lock</code> or <code class="screen">Shift
+Lock</code> setting is in effect, if a compose sequence is in progress, or if you
+must wait before entering more keyboard data.</p>
+<p><a href="chapter4.html">Chapter 4</a> describes the keyboard indicator line.</p>
+<h3 id="S1.3.9">Screen Alignment</h3>
+<p>The <strong>screen align</strong> feature on the Set-Up Directory screen lets you adjust
+the position of the text on your screen for your viewing comfort. If the
+text is not centered on the screen, you can center it.</p>
+<p><a href="chapter5.html">Chapter 5</a> describes the screen alignment feature.</p>
+<h3 id="S1.3.10">Screen Background</h3>
+<p>The VT420 lets you select a screen background to improve the readability
+of text on the screen. The <strong>light/dark screen</strong> feature in the Display
+Set-Up screen (<a href="chapter5.html">Chapter 5</a>) uses an overscan method to fill the screen
+background.</p>
+<h3 id="S1.3.11">Emulating VT Series Text Terminals</h3>
+<p>The VT420 can operate like other VT series text terminals. This
+feature enables software to recognize the terminal and select the correct
+emulation automatically. The VT420 can emulate the following text
+terminals:</p>
+<ul>
+<li>VT300 series</li>
+<li>VT200 series</li>
+<li>VT100 series</li>
+<li>VT52</li>
+</ul>
+<p>To have the VT420 emulate another terminal, you use two features in the
+General Set-Up screen.</p>
+<ul>
+<li>The <strong>terminal mode</strong> feature chooses an emulation mode to match
+the software application. The VT420 is compatible with the VT220
+and VT320 text terminals, so you should use the VT400 mode setting
+to emulate these terminals. Other text terminals have their own
+selections.</li>
+<li>The <strong>terminal ID</strong> feature has settings to match the terminal that uses
+the software application. This feature makes the VT420 identify itself
+to the host as the terminal you wish to emulate.</li>
+</ul>
+<p><a href="chapter5.html">Chapter 5</a> describes the General Set-Up screen.</p>
+<h3 id="S1.3.12">Character Sets</h3>
+<p>The VT420 uses coded character sets to exchange information with a host
+system. A coded character set is a group of graphic symbols, such as
+letters and numbers, represented by unique bit combinations or codes.</p>
+<p>From the General Set-Up screen, you can choose different character sets
+to match your computer system or to meet your software application
+requirements. The VT420 has two 8-bit multinational sets, the DEC
+Multinational character set and the ISO Latin Alphabet No. 1 character
+set. The VT420 also has the DEC Technical character set for certain
+applications.</p>
+<h4 id="S1.3.12.1" class="notoc">8-Bit Multinational Character Sets</h4>
+<h5>DEC Multinational Character Set</h5>
+<p>The VT420 is initially set to use the DEC Multinational character
+set. This 8-bit character set contains the standard characters for the
+English language, plus many characters used by major Western European
+languages.</p>
+<h5>ISO Latin Alphabet No. 1 Character Set</h5>
+<p>You can also select the ISO Latin Alphabet No. 1 (ISO Latin-1) character
+set of the International Organization for Standardization (ISO). The ISO
+Latin-1 set is similar to the DEC Multinational set, but it is newer and
+has more characters.</p>
+<p>Digital recommends using the ISO Latin-1 set for most applications.
+However, if you use the DEC Multinational set, many applications will be
+unaffected by the differences between the two character sets. Refer to the
+<cite>VT420 Programmer Reference Manual</cite> for detailed information about the
+two character sets.</p>
+<p><strong>National Replacement Character Sets</strong></p>
+<p>The VT420 also supports twelve 7-bit national replacement character sets
+(NRCs) for older 7-bit applications. The NRCs are similar to the 7-bit
+ASCII set, but they replace some symbols with characters for European
+languages.</p>
+<h4 id="S1.3.12.2" class="notoc">Selecting the Character Set</h4>
+<p>You can select 8-bit multinational character sets or 7-bit NRCs. If you
+use the multinational sets, you can select the DEC Multinational or ISO
+Latin-1 set from the General Set-Up screen. If you use NRCs, you can
+select the character set from the Keyboard Set-Up screen.</p>
+<p><a href="chapter5.html">Chapter 5</a> describes the General Set-Up and Keyboard Set-Up screens.
+<a href="chapter9.html">Chapter 9</a> shows the character sets.</p>
+<h2 id="S1.4">Programming the Terminal</h2>
+<p>The <cite>VT420 Programmer Reference Manual</cite> explains the control functions
+used to access the terminal's features. Programmers use these functions
+in their applications. The programmer reference manual is intended for
+users with programming experience.</p>
+<p><a href="chapter9.html">Chapter 9</a> of this user guide is a summary of the control functions
+and commands described in the programmer reference manual. See
+<a href="appendixb.html">Appendix B</a> for information on how to order the <cite>VT420 Programmer
+Reference Manual</cite>.</p>
+<footer>
+<nav class="sections"><a></a><a href="contents.html">Contents</a><a href="chapter2.html">Chapter 2</a></nav>
+</footer>
+</body>
+</html>

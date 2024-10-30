@@ -1,0 +1,4414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Digital VT100 User Guide: Programmer Information</title>
+<link href="vt100-ug.css" rel="stylesheet"/>
+<link rel="icon" href="../../cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT100 User Guide
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</header>
+
+<h1 id="S3">Chapter 3<br/>Programmer Information</h1>
+<p>The VT100 terminal normally performs a two-part function. It is an input device to
+a computer – information entered through the keyboard is sent to the computer. It
+is simultaneously an output device for the computer – that is, data coming in from
+the computer is displayed on the video screen. <a href="#F3-1">Figure 3-1</a> shows the data flow.</p>
+
+<figure id="F3-1">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" version="1.1" id="f3-1-img" viewBox="0 0 434 310">
+  <defs id="defs6">
+    <marker style="overflow:visible" id="RoundedArrow" refX="0" refY="0" orient="auto-start-reverse" markerWidth="6.1347523" markerHeight="3.9300001" viewBox="0 0 6.1347524 5.9304951" preserveAspectRatio="none">
+      <path transform="scale(0.7)" d="m -0.21114562,-4.1055728 l 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 l -6.42229122,3.21114561 a 1.236068,1.236068 31.717474 0 1 -1.78885438,-1.1055728 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z" style="fill:context-stroke;fill-rule:evenodd;stroke:none" id="path1367"/>
+    </marker>
+  </defs>
+  <style>
+#f3-1-img {
+
+  &amp; text { font-family: Univers, "URW Classic Sans", sans-serif; font-size: 12px }
+  .terminal { fill:#c6c6c6; stroke:#000000; stroke-linecap:square; stroke-linejoin:round; stroke-dashoffset:0; stroke-width:2;stroke-dasharray:6, 6 }
+  .drawpart { font-size: 8px }
+  .component { fill: #cc4400; stroke: #000; stroke-width: 2; stroke-linejoin: round }
+  .arrow { fill: none; stroke: #000; stroke-width: 1px; stroke-linejoin: round; marker-end: url(#RoundedArrow) }
+  .brace { fill:none; stroke:#000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter }
+
+  @media (prefers-color-scheme: dark) {
+    text { fill: #fff }
+    .terminal { fill: #666; stroke: #fff }
+    .component, .arrow, .brace { stroke: #fff }
+    .drawpart { fill: #eee }
+  }
+  }
+</style>
+  <rect class="diagbg" x="0" y="0" width="434" height="310" fill="none"/>
+  <g id="layer1">
+    <rect class="terminal" id="rect347" width="147.30238" height="208.80177" x="113.46407" y="37.989338"/>
+    <rect class="component" id="rect1111" width="120.81303" height="41.329369" x="127.70444" y="131.0598"/>
+    <rect class="component" id="rect1113" width="121.19826" height="42.217178" x="127.55769" y="193.69197"/>
+    <rect class="component" id="rect1115" width="84.225739" height="187.62772" x="332.63345" y="47.072762"/>
+    <path class="arrow" d="m 332.23333,151.40985 h -77.91232" id="path1180"/>
+    <path class="arrow" d="m 248.9463,213.16354 h 78.21038" id="path1551"/>
+    <path class="arrow" d="m 219.2649,130.69265 v -48.766416 h -18.14923" id="path1571"/>
+    <path class="arrow" d="m 84.289797,270.00511 h 61.603173 v -28.27726" id="path1591"/>
+    <path class="component" d="m 83.602081,295.39498 h -74.9176551 v -16.65747 l 74.7610001,-23.50582 z" id="path1611"/>
+    <path class="component" d="m 195.58576,70.555748 v 20.111354 h -18.8688 c -8.83392,12.068818 -29.76196,24.710498 -37.46487,24.806068 c -4.33702,0.0538 -15.28739,-10.08365 -15.29149,-33.992485 c -0.003,-19.257941 7.13504,-32.718504 14.75436,-33.014896 c 10.117,-0.393552 30.32454,12.340834 38.81921,22.299105 z" id="path1615"/>
+    <text x="131.00961" y="84.998138" id="text1671"><tspan id="tspan1669" x="131.00961" y="84.998138">SCREEN</tspan></text>
+    <text x="159.23079" y="155.52017" id="text1725"><tspan id="tspan1723" x="159.23079" y="155.52017">RECEIVER</tspan></text>
+    <text x="14.976918" y="290.53928" id="text1729"><tspan id="tspan1727" x="14.976918" y="290.53928">KEYBOARD</tspan></text>
+    <text x="146.12796" y="218.791" id="text1733"><tspan id="tspan1731" x="146.12796" y="218.791">TRANSMITTER</tspan></text>
+    <text x="342.35992" y="147.84181" id="text1737"><tspan id="tspan1735" x="342.35992" y="147.84181">COMPUTER</tspan><tspan x="342.35992" y="162.84181" id="tspan1739">(HOST)</tspan></text>
+    <text x="243.59608" y="275.76373" id="text1743"><tspan id="tspan1741" x="243.59608" y="275.76373">COMMUNICATION</tspan><tspan x="243.59608" y="290.76373" id="tspan1745">LINES</tspan></text>
+    <path class="brace" d="m 262.30912,253.35673 c 6.03154,8.34452 27.22453,-1.11463 33.71442,10.39746 c 6.56309,-11.45565 28.25334,-1.50134 33.13873,-8.81506" id="path1747"/>
+    <text x="163" y="18" id="text1751"><tspan>VT100</tspan></text>
+    <text class="drawpart" x="381" y="297" id="text1755"><tspan>MA-1994</tspan></text>
+  </g>
+</svg>
+  <figcaption>Figure 3-1 Terminal Data Flow</figcaption>
+</figure>
+
+<p>This section of the user’s manual discusses data flow between the VT100 and the
+host. Included are codes generated by the keyboard; the transmission protocol
+followed by the terminal; and the actions and reactions of the terminal to control
+functions in both ANSI and VT52 modes of operation.</p>
+
+<h2 id="S3.1">The Keyboard</h2>
+<p>The VT100 uses a keyboard with a key arrangement similar to an ordinary office
+typewriter, as shown in <a href="#F3-2">Figure 3-2</a>. In addition to the standard typewriter keys the
+VT100 keyboard has additional keys and indicators used to generate control sequences,
+cursor control commands, and to show the current terminal status.</p>
+
+<figure id="F3-2">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 972 300" version="1.1" id="f3-2-img">
+  <title>VT100 Keyboard</title>
+  <style>
+#f3-2-img {
+
+    &amp; text { font-family: Helvetica, sans-serif; font-style: normal; font-weight: normal }
+    .led-label { font-size: 8px; fill: black; text-anchor: middle }
+    .letter-cap { font-size: 18px; fill: white; font-weight: bold; text-anchor: middle }
+    .text-cap { font-size: 8px; fill: white; font-weight: normal }
+    .double-cap { font-size: 16px; fill: white; font-weight: bold }
+    .led { fill: #c40; stroke: #000; stroke-width: 1px }
+    .key { fill: #000; stroke: none }
+  }
+</style>
+  <g>
+    <rect id="bg" x="0" y="0" width="972" height="300" fill="none"/>
+    <path id="border" d="m 44,24 h 64 v -16 h 424 v 16 h 176 v 44 h 44 v 48 h -28 v 88 h -10 v 44 h -138 v 44 h -408 v -44 h -160 v -92 h 36 z m 740,0 h 180 v 224 h -180 z" fill="none" stroke="none"/>
+
+    <g id="panel" transform="translate(112,12)">
+      <rect id="ledrect" width="416" height="56" x="0" y="0" fill="#ccc"/>
+      <text class="led-label" x="44" y="53"><tspan>CLEAR TAB</tspan><tspan x="44" dy="-9">SET/</tspan></text>
+      <text class="led-label" x="88" y="53"><tspan>TABS</tspan><tspan x="88" dy="-9">CLEAR ALL</tspan></text>
+      <text class="led-label" x="132" y="53"><tspan>LOCAL</tspan><tspan x="132" dy="-9">LINE/</tspan></text>
+      <text class="led-label" x="176" y="53"><tspan>A/B</tspan><tspan x="176" dy="-9">SETUP</tspan></text>
+      <text class="led-label" x="220" y="53"><tspan>1/0</tspan><tspan x="220" dy="-9">TOGGLE</tspan></text>
+      <text class="led-label" x="264" y="53"><tspan>SPEED</tspan><tspan x="264" dy="-9">TRANSMIT</tspan></text>
+      <text class="led-label" x="308" y="53"><tspan>SPEED</tspan><tspan x="308" dy="-9">RECEIVE</tspan></text>
+      <text class="led-label" x="352" y="53"><tspan>COLUMNS</tspan><tspan x="352" dy="-9">80/132</tspan></text>
+      <text class="led-label" x="396" y="53"><tspan>RESET</tspan></text>
+      <circle class="led" cx="95" cy="27" r="5"/>
+      <circle class="led" cx="135" cy="27" r="5"/>
+      <circle class="led" cx="175" cy="27" r="5"/>
+      <circle class="led" cx="215" cy="27" r="5"/>
+      <circle class="led" cx="255" cy="27" r="5"/>
+      <circle class="led" cx="295" cy="27" r="5"/>
+      <circle class="led" cx="335" cy="27" r="5"/>
+      <text class="led-label" x="95" y="19"><tspan>ON LINE</tspan></text>
+      <text class="led-label" x="135" y="19"><tspan>LOCAL</tspan></text>
+      <text class="led-label" x="175" y="19"><tspan>LOCKED</tspan><tspan x="175" dy="-9">KBD</tspan></text>
+      <text class="led-label" x="215" y="19"><tspan>L1</tspan></text>
+      <text class="led-label" x="255" y="19"><tspan>L2</tspan></text>
+      <text class="led-label" x="295" y="19"><tspan>L3</tspan></text>
+      <text class="led-label" x="335" y="19"><tspan>L4</tspan></text>
+    </g>
+
+    <g id="keysetup" transform="translate(48,28)">
+      <rect class="key" width="60" height="40" x="0" y="0"/>
+      <text class="text-cap" x="30" y="23" text-anchor="middle"><tspan>SET UP</tspan></text>
+    </g>
+    <g id="keyup" transform="translate(532,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path class="arrow" d="m -3 15 h 6 v -12 c 0 -3 4 -1 6 0 l -9 -18 l -9 18 c 2 -1 6 -3 6 0 z" fill="#fff" transform="translate(20,20) scale(0.5)"/>
+    </g>
+    <g id="keydown" transform="translate(576,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path class="arrow" d="m -3 15 h 6 v -12 c 0 -3 4 -1 6 0 l -9 -18 l -9 18 c 2 -1 6 -3 6 0 z" fill="#fff" transform="translate(20,20) scale(0.5) rotate(180)"/>
+    </g>
+    <g id="keyleft" transform="translate(620,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path class="arrow" d="m -3 15 h 6 v -12 c 0 -3 4 -1 6 0 l -9 -18 l -9 18 c 2 -1 6 -3 6 0 z" fill="#fff" transform="translate(20,20) scale(0.5) rotate(-90)"/>
+    </g>
+    <g id="keyright" transform="translate(664,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <path class="arrow" d="m -3 15 h 6 v -12 c 0 -3 4 -1 6 0 l -9 -18 l -9 18 c 2 -1 6 -3 6 0 z" fill="#fff" transform="translate(20,20) scale(0.5) rotate(90)"/>
+    </g>
+    <g id="keypf1" transform="translate(788,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>PF1</tspan></text>
+    </g>
+    <g id="keypf2" transform="translate(832,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>PF2</tspan></text>
+    </g>
+    <g id="keypf3" transform="translate(876,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>PF3</tspan></text>
+    </g>
+    <g id="keypf4" transform="translate(920,28)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>PF4</tspan></text>
+    </g>
+
+    <g id="keyesc" transform="translate(48,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>ESC</tspan></text>
+    </g>
+    <g id="key1" transform="translate(92,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>1</tspan><tspan x="20" dy="-17">!</tspan></text>
+    </g>
+    <g id="key2" transform="translate(136,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>2</tspan><tspan x="20" dy="-17">@</tspan></text>
+    </g>
+    <g id="key3" transform="translate(180,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>3</tspan><tspan x="20" dy="-17"># £</tspan></text>
+    </g>
+    <g id="key4" transform="translate(224,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>4</tspan><tspan x="20" dy="-17">$</tspan></text>
+    </g>
+    <g id="key5" transform="translate(268,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>5</tspan><tspan x="20" dy="-17">%</tspan></text>
+    </g>
+    <g id="key6" transform="translate(312,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>6</tspan><tspan x="20" dy="-17">^</tspan></text>
+    </g>
+    <g id="key7" transform="translate(356,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>7</tspan><tspan x="20" dy="-17">&amp;</tspan></text>
+    </g>
+    <g id="key8" transform="translate(400,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>8</tspan><tspan x="20" dy="-17">*</tspan></text>
+    </g>
+    <g id="key9" transform="translate(444,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>9</tspan><tspan x="20" dy="-17">(</tspan></text>
+    </g>
+    <g id="key0" transform="translate(488,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>0</tspan><tspan x="20" dy="-17">)</tspan></text>
+    </g>
+    <g id="keyminusund" transform="translate(532,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>-</tspan><tspan x="20" dy="-17">_</tspan></text>
+    </g>
+    <g id="keyequalplus" transform="translate(576,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>=</tspan><tspan x="20" dy="-17">+</tspan></text>
+    </g>
+    <g id="keygravetilde" transform="translate(620,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>`</tspan><tspan x="20" dy="-17">~</tspan></text>
+    </g>
+    <g id="keybackspace" transform="translate(664,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="28"><tspan>SPACE</tspan><tspan x="8" dy="-10">BACK</tspan></text>
+    </g>
+    <g id="keybreak" transform="translate(708,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>BREAK</tspan></text>
+    </g>
+    <g id="keyn7" transform="translate(788,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27"><tspan>7</tspan></text>
+    </g>
+    <g id="keyn8" transform="translate(832,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27"><tspan>8</tspan></text>
+    </g>
+    <g id="keyn9" transform="translate(876,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27"><tspan>9</tspan></text>
+    </g>
+    <g id="keynminus" transform="translate(920,72)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27"><tspan>-</tspan></text>
+    </g>
+
+
+    <g id="keytab" transform="translate(48,116)">
+      <rect class="key" width="56" height="40" x="0" y="0"/>
+      <text class="text-cap" x="28" y="23" text-anchor="middle"><tspan>TAB</tspan></text>
+    </g>
+    <g id="keyq" transform="translate(108,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">Q</text>
+    </g>
+    <g id="keyw" transform="translate(152,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">W</text>
+    </g>
+    <g id="keye" transform="translate(196,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">E</text>
+    </g>
+    <g id="keyr" transform="translate(240,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">R</text>
+    </g>
+    <g id="keyt" transform="translate(284,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">T</text>
+    </g>
+    <g id="keyy" transform="translate(328,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">Y</text>
+    </g>
+    <g id="keyu" transform="translate(372,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">U</text>
+    </g>
+    <g id="keyi" transform="translate(416,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="28">I</text>
+    </g>
+    <g id="keyo" transform="translate(460,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">O</text>
+    </g>
+    <g id="keyp" transform="translate(504,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">P</text>
+    </g>
+    <g id="keylbrack" transform="translate(548,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>[</tspan><tspan x="20" dy="-17">{</tspan></text>
+    </g>
+    <g id="keyrbrack" transform="translate(592,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>]</tspan><tspan x="20" dy="-17">}</tspan></text>
+    </g>
+    <g id="keyreturn" transform="translate(636,116)">
+      <path class="key" d="m 0,0 h 40 v 84 h -60 v -40 h 20 z"/>
+      <text class="text-cap" x="10" y="67" text-anchor="middle"><tspan>RETURN</tspan></text>
+    </g>
+    <g id="keydelete" transform="translate(680,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>DELETE</tspan></text>
+    </g>
+    <g id="keyn4" transform="translate(788,116)">
+    <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">4</text>
+    </g>
+    <g id="keyn5" transform="translate(832,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">5</text>
+    </g>
+    <g id="keyn6" transform="translate(876,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">6</text>
+    </g>
+    <g id="keyncomma" transform="translate(920,116)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="22">,</text>
+    </g>
+
+    <g id="keyctrl" transform="translate(12,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="20" y="23" text-anchor="middle"><tspan>CTRL</tspan></text>
+    </g>
+    <g id="keycaps" transform="translate(56,160)">
+      <rect class="key" width="72" height="40" x="0" y="0"/>
+      <text class="text-cap" x="10" y="28"><tspan>LOCK</tspan><tspan x="10" dy="-10">CAPS</tspan></text>
+    </g>
+    <g id="keya" transform="translate(132,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">A</text>
+    </g>
+    <g id="keys" transform="translate(176,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">S</text>
+    </g>
+    <g id="keyd" transform="translate(220,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">D</text>
+    </g>
+    <g id="keyf" transform="translate(264,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">F</text>
+    </g>
+    <g id="keyg" transform="translate(308,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="32"><tspan>G</tspan><tspan x="20" dy="-17" style="font-size:12px;font-weight:normal">BELL</tspan></text>
+    </g>
+    <g id="keyh" transform="translate(352,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">H</text>
+    </g>
+    <g id="keyj" transform="translate(396,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">J</text>
+    </g>
+    <g id="keyk" transform="translate(440,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">K</text>
+    </g>
+    <g id="keyl" transform="translate(484,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">L</text>
+    </g>
+    <g id="keysemi" transform="translate(528,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>;</tspan><tspan x="20" dy="-17">:</tspan></text>
+    </g>
+    <g id="keyquote" transform="translate(572,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan>'</tspan><tspan x="20" dy="-17">"</tspan></text>
+    </g>
+    <g id="keybackslash" transform="translate(680,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan rotate="-10">\</tspan><tspan x="20" dy="-17">|</tspan></text>
+    </g>
+    <g id="keyn1" transform="translate(788,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">1</text>
+    </g>
+    <g id="keyn2" transform="translate(832,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">2</text>
+    </g>
+    <g id="keyn3" transform="translate(876,160)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">3</text>
+    </g>
+    <g id="keynenter" transform="translate(920,160)">
+      <rect class="key" width="40" height="84" x="0" y="0"/>
+      <text class="text-cap" x="20" y="45" text-anchor="middle"><tspan>ENTER</tspan></text>
+    </g>
+
+    <g id="keynoscroll" transform="translate(12,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="5" y="28"><tspan>SCROLL</tspan><tspan x="5" dy="-10">NO</tspan></text>
+    </g>
+    <g id="keylshift" transform="translate(56,204)">
+      <rect class="key" width="94" height="40" x="0" y="0"/>
+      <text class="text-cap" x="47" y="23" text-anchor="middle"><tspan>SHIFT</tspan></text>
+    </g>
+    <g id="keyz" transform="translate(154,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">Z</text>
+    </g>
+    <g id="keyx" transform="translate(198,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">X</text>
+    </g>
+    <g id="keyc" transform="translate(242,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">C</text>
+    </g>
+    <g id="keyv" transform="translate(286,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">V</text>
+    </g>
+    <g id="keyb" transform="translate(330,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">B</text>
+    </g>
+    <g id="keyn" transform="translate(374,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">N</text>
+    </g>
+    <g id="keym" transform="translate(418,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="27">M</text>
+    </g>
+    <g id="keycomma" transform="translate(462,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="32" text-anchor="middle"><tspan>,</tspan><tspan x="20" dy="-13">&lt;</tspan></text>
+    </g>
+    <g id="keystop" transform="translate(506,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="32" text-anchor="middle"><tspan>.</tspan><tspan x="20" dy="-13">&gt;</tspan></text>
+    </g>
+    <g id="keyslash" transform="translate(550,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle"><tspan rotate="10">/</tspan><tspan x="20" dy="-17">?</tspan></text>
+    </g>
+    <g id="keyrshift" transform="translate(594,204)">
+      <rect class="key" width="72" height="40" x="0" y="0"/>
+      <text class="text-cap" x="36" y="23" text-anchor="middle"><tspan>SHIFT</tspan></text>
+    </g>
+    <g id="keylinefeed" transform="translate(670,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="text-cap" x="8" y="28"><tspan>FEED</tspan><tspan x="8" dy="-10">LINE</tspan></text>
+    </g>
+    <g id="keyn0" transform="translate(788,204)">
+      <rect class="key" width="84" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="42" y="27">0</text>
+    </g>
+    <g id="keyndot" transform="translate(876,204)">
+      <rect class="key" width="40" height="40" x="0" y="0"/>
+      <text class="letter-cap" x="20" y="22">.</text>
+    </g>
+
+    <g id="keyspace" transform="translate(172,248)">
+      <rect class="key" width="400" height="40" x="0" y="0"/>
+    </g>
+  </g>
+</svg>
+  <figcaption>Figure 3-2 VT100 Keyboard</figcaption>
+</figure>
+
+<p><strong>LED Indicators</strong><br/>
+The keyboard has seven light emitting diodes (LEDs) of which two are committed
+to the complementary ON-LINE/LOCAL function. The power on condition is implicitly
+shown by one of the two LEDs being on; that is, if the keyboard is connected
+and power is on, one of these LEDs will be on.</p>
+<p>A third LED indicates a “keyboard locked” condition. In this condition the keyboard
+has been “turned off” automatically by the terminal due to a full buffer or by the
+host through the transmission of an XOFF to the terminal.</p>
+<p>The four remaining LEDs are programmable and can be assigned any meaning for
+specific applications. The code sequences to turn these LEDs on or off are discussed
+later in this chapter.</p>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="60" height="40">
+  <rect class="key black" width="60" height="40" x="0" y="0" fill="#909"/>
+  <text x="30" y="23" text-anchor="middle" font-family="Helvetica, sans-serif" fill="white" font-size="8">SET UP</text>
+</svg> <strong>SET-UP</strong><br/>
+The <span class="keyname">SET-UP</span> key is at the upper-left corner of the main key array. Operations
+performed in SET-UP mode can be stored in nonvolatile memory (NVR) so that
+turning the terminal power off does not, by itself, alter the terminal configuration.</p>
+<p>The procedures to change the SET-UP features are provided in the operator’s
+information section of this manual. Those SET-UP features which may be modified
+by the host are listed in <a href="#T3-1">Table 3-1</a> and described in detail under the escape sequences.</p>
+<table id="T3-1" class="display-table">
+  <caption>Table 3-1 Machine States</caption>
+  <thead>
+    <tr>
+      <th>SET-UP Feature or Machine State</th>
+      <th>Changeable from Host Computer*</th>
+      <th>Saved in NVR and Changeable in SET-UP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alternate keypad mode</td>
+      <td>Yes (DECKPAM/​DECKPNM)</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>ANSI/VT52</td>
+      <td>Yes (DECANM)</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Auto Repeat</td>
+      <td>Yes (DECARM)</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>AUTO XON XOFF</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Bits per character</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Characters per line</td>
+      <td>Yes (DECCOLM)</td>
+      <td>Yes</td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Cursor key modes</td>
+<td>Yes (DECCKM)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Interlace</td>
+<td>Yes (DECINLM)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>New Line</td>
+<td>Yes (LNM)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Keyclick</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Margin bell</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Origin mode</td>
+<td>Yes (DECOM)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Parity sense</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Receive speed</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Screen</td>
+<td>Yes (DECSCNM)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Scroll</td>
+<td>Yes (DECSCLM)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Tabs</td>
+<td>Yes (HTS/TBC)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Transmit speed</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Wraparound</td>
+<td>Yes (DECAWM)</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><span style="display:inline-block;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40">
+    <g id="key3">
+      <rect class="key black" width="40" height="40" x="0" y="0" fill="#909"/>
+      <text class="double-cap" x="20" y="34" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="16" font-weight="bold" fill="white"><tspan>3</tspan><tspan x="20" dy="-17"># £</tspan></text>
+    </g>
+</svg></span> (shifted)</td>
+<td>Yes (SCS)</td>
+<td>Yes</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+  <td colspan="3">* The appropriate control or escape sequence mnemonic is indicated in parentheses.</td>
+</tr>
+</tfoot>
+</table>
+<p><strong>Keyboard Operation</strong><br/>
+The operator uses the keyboard to transmit codes to the host. Some keys transmit
+one or more codes to the host immediately when typed. Other keys such as <span class="keyname">CTRL</span>
+and <span class="keyname">SHIFT</span> do not transmit codes when typed, but modify the codes transmitted
+by other keys. The code-transmitting keys cause the terminal to make a clicking
+sound to verify to the operator that the keystroke has been processed by the
+terminal. If two code-transmitting keys are pressed together, two codes will be
+transmitted according to the order in which the keys were typed. The terminal will
+not wait for the keys to be lifted, but will transmit both codes as soon as possible
+after the keys are first typed. If three such keys are pressed simultaneously, the
+codes for the first two keys are transmitted immediately; the code for the third will
+be transmitted when one of the first two keys is lifted.</p>
+<p><strong>Alphabetic Keys</strong> – The VT100 will transmit the lowercase code unless either or
+both of the <span class="keyname">SHIFT</span> keys are down, or unless the <span class="keyname">CAPS LOCK</span> key is down. Pressing
+the <span class="keyname">CAPS LOCK</span> key will lock only the 26 alphabetic keys in the shifted
+(uppercase) mode. <a href="#T3-2">Table 3-2</a> shows the codes generated by the alphabetic keys.</p>
+
+<!-- two-column in print -->
+<table id="T3-2" class="display-table">
+<caption>Table 3-2 Alphabetic Key Codes</caption>
+<thead>
+<tr>
+<th>Key</th>
+<th>Uppercase Code (octal)</th>
+<th>Lowercase Code (octal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>101</td>
+<td>141</td>
+</tr>
+<tr>
+<td>B</td>
+<td>102</td>
+<td>142</td>
+</tr>
+<tr>
+<td>C</td>
+<td>103</td>
+<td>143</td>
+</tr>
+<tr>
+<td>D</td>
+<td>104</td>
+<td>144</td>
+</tr>
+<tr>
+<td>E</td>
+<td>105</td>
+<td>145</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>F</td>
+<td>106</td>
+<td>146</td>
+</tr>
+<tr>
+<td>G</td>
+<td>107</td>
+<td>147</td>
+</tr>
+<tr>
+<td>H</td>
+<td>110</td>
+<td>150</td>
+</tr>
+<tr>
+<td>I</td>
+<td>111</td>
+<td>151</td>
+</tr>
+<tr>
+<td>J</td>
+<td>112</td>
+<td>152</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>K</td>
+<td>113</td>
+<td>153</td>
+</tr>
+<tr>
+<td>L</td>
+<td>114</td>
+<td>154</td>
+</tr>
+<tr>
+<td>M</td>
+<td>115</td>
+<td>155</td>
+</tr>
+<tr>
+<td>N</td>
+<td>116</td>
+<td>156</td>
+</tr>
+<tr>
+<td>O</td>
+<td>117</td>
+<td>157</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>P</td>
+<td>120</td>
+<td>160</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>121</td>
+<td>161</td>
+</tr>
+<tr>
+<td>R</td>
+<td>122</td>
+<td>162</td>
+</tr>
+<tr>
+<td>S</td>
+<td>123</td>
+<td>163</td>
+</tr>
+<tr>
+<td>T</td>
+<td>124</td>
+<td>164</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>U</td>
+<td>125</td>
+<td>165</td>
+</tr>
+<tr>
+<td>V</td>
+<td>126</td>
+<td>166</td>
+</tr>
+<tr>
+<td>W</td>
+<td>127</td>
+<td>167</td>
+</tr>
+<tr>
+<td>X</td>
+<td>130</td>
+<td>170</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>131</td>
+<td>171</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>132</td>
+<td>172</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nonalphabetic Keys</strong> – Each of the nonalphabetic keys can be used to generate
+two different codes. One code will be generated if neither <span class="keyname">SHIFT</span> key is pressed.
+The other code will be generated if either or both of the <span class="keyname">SHIFT</span> keys are down.
+Unlike the <span class="keyname">SHIFT LOCK</span> key of a typewriter, the <span class="keyname">CAPS LOCK</span> key does not affect
+these keys; it affects only the alphabetic keys. <a href="#T3-3">Table 3-3</a> shows the nonalphabetic
+keys and the codes they generate.</p>
+<table id="T3-3" class="display-table">
+<caption>Table 3-3 Nonalphabetic Key Codes</caption>
+<colgroup>
+<col span="2"/>
+</colgroup>
+<colgroup>
+<col span="2"/>
+</colgroup>
+<thead>
+<tr>
+<th>Lowercase Character</th>
+<th>Neither SHIFT Key Down (Octal)</th>
+<th>Uppercase Character</th>
+<th>Either or Both SHIFT Keys Down (Octal)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>061</td>
+<td>!</td>
+<td>041</td>
+</tr>
+<tr>
+<td>2</td>
+<td>062</td>
+<td>@</td>
+<td>100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>063</td>
+<td># or £</td>
+<td>043</td>
+</tr>
+<tr>
+<td>4</td>
+<td>064</td>
+<td>$</td>
+<td>044</td>
+</tr>
+<tr>
+<td>5</td>
+<td>065</td>
+<td>%</td>
+<td>045</td>
+</tr>
+<tr>
+<td>6</td>
+<td>066</td>
+<td>^</td>
+<td>136</td>
+</tr>
+<tr>
+<td>7</td>
+<td>067</td>
+<td>&amp;</td>
+<td>046</td>
+</tr>
+<tr>
+<td>8</td>
+<td>070</td>
+<td>*</td>
+<td>052</td>
+</tr>
+<tr>
+<td>9</td>
+<td>071</td>
+<td>(</td>
+<td>050</td>
+</tr>
+<tr>
+<td>0</td>
+<td>060</td>
+<td>)</td>
+<td>051</td>
+</tr>
+<tr>
+<td>-</td>
+<td>055</td>
+<td>_</td>
+<td>137</td>
+</tr>
+<tr>
+<td>=</td>
+<td>075</td>
+<td>+</td>
+<td>053</td>
+</tr>
+<tr>
+<td>[</td>
+<td>133</td>
+<td>{</td>
+<td>173</td>
+</tr>
+<tr>
+<td>;</td>
+<td>073</td>
+<td>:</td>
+<td>072</td>
+</tr>
+<tr>
+<td>' (apostrophe)</td>
+<td>047</td>
+<td>"</td>
+<td>042</td>
+</tr>
+<tr>
+<td>, (comma)</td>
+<td>054</td>
+<td>&lt;</td>
+<td>074</td>
+</tr>
+<tr>
+<td>. (period)</td>
+<td>056</td>
+<td>&gt;</td>
+<td>076</td>
+</tr>
+<tr>
+<td>/</td>
+<td>057</td>
+<td>?</td>
+<td>077</td>
+</tr>
+<tr>
+<td>\</td>
+<td>134</td>
+<td>|</td>
+<td>174</td>
+</tr>
+<tr>
+<td>`</td>
+<td>140</td>
+<td>~</td>
+<td>176</td>
+</tr>
+<tr>
+<td>]</td>
+<td>135</td>
+<td>}</td>
+<td>175</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Function Keys</strong> – There are several keys on the keyboard which transmit control
+codes. Control codes do not produce displayable characters but are codes for
+functions. If these codes are received by the terminal, the VT100 will perform the
+associated function as shown in <a href="#T3-4">Table 3-4</a>.</p>
+<table id="T3-4" class="display-table">
+<caption>Table 3-4 Function Key Codes</caption>
+<thead>
+<tr>
+<th>Key</th>
+<th>Octal Value of Code Sent or Received by VT100</th>
+<th>Action The Terminal Would Take If Host Sent That Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RETURN</strong>*</td>
+<td>015</td>
+<td>Carriage return function</td>
+</tr>
+<tr>
+<td><strong>LINEFEED</strong></td>
+<td>012</td>
+<td>Line Feed</td>
+</tr>
+<tr>
+<td><strong>BACKSPACE</strong></td>
+<td>010</td>
+<td>Backspace function</td>
+</tr>
+<tr>
+<td><strong>TAB</strong></td>
+<td>011</td>
+<td>Tab function</td>
+</tr>
+<tr>
+<td><strong>SPACE BAR</strong></td>
+<td>040</td>
+<td>Deposit a space on the screen erasing what was there before.</td>
+</tr>
+<tr>
+<td><strong>ESC</strong></td>
+<td>033</td>
+<td>The initial delimiter of an escape sequence – interpret
+the following character string from the host
+as a command, rather than displaying it.</td>
+</tr>
+<tr>
+<td><strong>DELETE</strong></td>
+<td>177</td>
+<td>Ignored by the VT100</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">* The <strong>RETURN</strong> key can be redefined so that it issues 015<sub>8</sub>, 012<sub>8</sub>, (carriage return – line feed). The
+New Line feature in SET-UP mode provides this capability.</td>
+</tr>
+</tfoot>
+</table>
+<p><strong>NO SCROLL</strong> – When the <span class="keyname">NO SCROLL</span> key is pressed it generates a single XOFF
+code, inhibits further scrolling and freezes the screen. When pressed again the
+same key generates XON. In practice, if the software recognizes XOFF, the host
+will stop transmitting until the <span class="keyname">NO SCROLL</span> key is pressed again to allow scrolling.
+If the XOFF/XON feature is disabled (SET-UP function) the <span class="keyname">NO SCROLL</span> key
+causes no action.</p>
+<p><strong>BREAK</strong> – Typing the <span class="keyname">BREAK</span> key causes the transmission line to be forced to its
+zero state for 0.2333 seconds ± 10 percent. If either <span class="keyname">SHIFT</span> key is down, the time
+is increased to 3.5 seconds ± 10 percent. Data Terminal Ready is also deasserted
+during this interval. At the conclusion of the 3.5 second interval Data Terminal
+Ready will again be asserted.</p>
+<p>The <span class="keyname">SHIFT</span> and <span class="keyname">BREAK</span> keys typed together provide the long-break-disconnect
+function. Used with properly configured modems with RS-232-C levels, it will
+cause both the local and remote data sets to disconnect. For modems that are
+connected via the 20 mA current loop, issuing the long space may disconnect the
+remote data set only.</p>
+<p>The <span class="keyname">CTRL</span> and <span class="keyname">BREAK</span> keys typed together cause the transmission of the
+answerback message.</p>
+<p>The <span class="keyname">BREAK</span> key does not function when the VT100 is in LOCAL mode.</p>
+<p><strong>Auto Repeating</strong> – All keys will auto repeat except: <span class="keyname">SET-UP</span>, <span class="keyname">ESC</span>, <span class="keyname">NO SCROLL</span>,
+<span class="keyname">TAB</span>, <span class="keyname">RETURN</span>, and any key pressed with <span class="keyname">CTRL</span>. Auto repeating works as follows:
+when a key is typed, its code(s) is sent once, immediately. If the key is held
+down for more than ½ second, the code(s) will be sent repeatedly at a rate of
+approximately 30 Hz (less if low transmit baud rates are used) until the key is
+released.</p>
+<p><strong>CTRL (Control)</strong> – The <span class="keyname">CTRL</span> key is used in conjunction with other keys on the
+keyboard to generate control codes. If the <span class="keyname">CTRL</span> key is held down when any of the
+keys in <a href="#T3-5">Table 3-5</a> are typed, the code actually transmitted is in the range
+000<sub>8</sub>-037<sub>8</sub>.</p>
+<table id="T3-5" class="display-table">
+<caption>Table 3-5 Control Codes Generated</caption>
+<thead>
+<tr>
+<th>Key Pressed with CTRL key down (shifted or unshifted)</th>
+<th>Octal Code Transmitted</th>
+<th>Function Mnemonic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space Bar</td>
+<td>000</td>
+<td>NUL</td>
+</tr>
+<tr>
+<td>A</td>
+<td>001</td>
+<td>SOH</td>
+</tr>
+<tr>
+<td>B</td>
+<td>002</td>
+<td>STX</td>
+</tr>
+<tr>
+<td>C</td>
+<td>003</td>
+<td>ETX</td>
+</tr>
+<tr>
+<td>D</td>
+<td>004</td>
+<td>EOT</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>E</td>
+<td>005</td>
+<td>ENQ</td>
+</tr>
+<tr>
+<td>F</td>
+<td>006</td>
+<td>ACK</td>
+</tr>
+<tr>
+<td>G</td>
+<td>007</td>
+<td>BELL</td>
+</tr>
+<tr>
+<td>H</td>
+<td>010</td>
+<td>BS</td>
+</tr>
+<tr>
+<td>I</td>
+<td>011</td>
+<td>HT</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>J</td>
+<td>012</td>
+<td>LF</td>
+</tr>
+<tr>
+<td>K</td>
+<td>013</td>
+<td>VT</td>
+</tr>
+<tr>
+<td>L</td>
+<td>014</td>
+<td>FF</td>
+</tr>
+<tr>
+<td>M</td>
+<td>015</td>
+<td>CR</td>
+</tr>
+<tr>
+<td>N</td>
+<td>016</td>
+<td>SO</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>O</td>
+<td>017</td>
+<td>SI</td>
+</tr>
+<tr>
+<td>P</td>
+<td>020</td>
+<td>DLE</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>021</td>
+<td>DC1 or XON</td>
+</tr>
+<tr>
+<td>R</td>
+<td>022</td>
+<td>DC2</td>
+</tr>
+<tr>
+<td>S</td>
+<td>023</td>
+<td>DC3 or XOFF</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>T</td>
+<td>024</td>
+<td>DC4</td>
+</tr>
+<tr>
+<td>U</td>
+<td>025</td>
+<td>NAK</td>
+</tr>
+<tr>
+<td>V</td>
+<td>026</td>
+<td>SYN</td>
+</tr>
+<tr>
+<td>W</td>
+<td>027</td>
+<td>ETB</td>
+</tr>
+<tr>
+<td>X</td>
+<td>030</td>
+<td>CAN</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Y</td>
+<td>031</td>
+<td>EM</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>032</td>
+<td>SUB</td>
+</tr>
+<tr>
+<td>[</td>
+<td>033</td>
+<td>ESC</td>
+</tr>
+<tr>
+<td>\</td>
+<td>034</td>
+<td>FS</td>
+</tr>
+<tr>
+<td>]</td>
+<td>035</td>
+<td>GS</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>~</td>
+<td>036</td>
+<td>RS</td>
+</tr>
+<tr>
+<td>?</td>
+<td>037</td>
+<td>US</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Cursor Control</strong> – The keyboard also contains four keys labeled with arrows in
+each of four directions. These keys transmit control sequences. If the host echoes
+these control sequences back to the terminal, the cursor will move one character
+up, down, right, or left. <a href="#T3-6">Table 3-6</a> shows the control sequences generated by each
+key.</p>
+<table id="T3-6" class="display-table">
+<caption>Table 3-6 Cursor Control Key Codes</caption>
+<thead>
+<tr>
+<th>Cursor Key (Arrow)</th>
+<th>VT52 Mode*</th>
+<th>ANSI Mode and Cursor Key Mode Reset*</th>
+<th>ANSI Mode and Cursor Key Mode Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Up</td>
+<td>ESC A</td>
+<td>ESC [ A</td>
+<td>ESC O A</td>
+</tr>
+<tr>
+<td>Down</td>
+<td>ESC B</td>
+<td>ESC [ B</td>
+<td>ESC O B</td>
+</tr>
+<tr>
+<td>Right</td>
+<td>ESC C</td>
+<td>ESC [ C</td>
+<td>ESC O C</td>
+</tr>
+<tr>
+<td>Left</td>
+<td>ESC D</td>
+<td>ESC [ D</td>
+<td>ESC O D</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="4">* See the control sequences section of this chapter for a complete discussion of these modes.</td>
+</tr>
+</tfoot>
+</table>
+<p><strong>Auxiliary Keypad</strong> – The keys on the auxiliary keypad normally transmit the codes
+for the numerals, decimal point, minus sign, and comma. In addition, the key
+labeled <span class="keyname">ENTER</span> transmits the same code as the <span class="keyname">RETURN</span> key. The host cannot tell
+if these keys were typed on the auxiliary keypad as opposed to the corresponding
+keys on the main keyboard. Therefore, software which requires considerable numeric
+data entry need not be rewritten to use the keypad.</p>
+<p>However, if software must be able to distinguish between pressing a key on the
+auxiliary keypad and pressing the corresponding key on the main keyboard, the
+host can give the terminal a command to place it in keypad application mode. In
+keypad application mode all keys on the auxiliary keypad are defined to give control
+sequences which may be used by the host as user-defined functions.</p>
+<p>The codes sent by the auxiliary keypad for the four combinations of the
+VT52/ANSI mode and keypad numeric/application mode are shown in Tables <a href="#T3-7">3-7</a>
+and <a href="#T3-8">3-8</a>. None of the keys are affected by pressing the <span class="keyname">SHIFT</span>, <span class="keyname">CAPS LOCK</span>, or
+<span class="keyname">CTRL</span> keys.</p>
+
+<table id="T3-7" class="display-table">
+<caption>Table 3-7 VT52 Mode Auxiliary Keypad Codes</caption>
+<thead>
+<tr>
+<th>Key</th>
+<th>Keypad Numeric Mode</th>
+<th>Keypad Application Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>ESC ? p</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>ESC ? q</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>ESC ? r</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>ESC ? s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>ESC ? t</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>ESC ? u</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>ESC ? v</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>ESC ? w</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8</td>
+<td>ESC ? x</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9</td>
+<td>ESC ? y</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>- (dash)</td>
+<td>- (dash)</td>
+<td>ESC ? m</td>
+</tr>
+<tr>
+<td>, (comma)</td>
+<td>, (comma)</td>
+<td>ESC ? l*</td>
+</tr>
+<tr>
+<td>. (period)</td>
+<td>. (period)</td>
+<td>ESC ? n</td>
+</tr>
+<tr>
+<td>ENTER</td>
+<td>Same as RETURN key</td>
+<td>ESC ? M</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>PF1</td>
+<td>ESC P</td>
+<td>ESC P</td>
+</tr>
+<tr>
+<td>PF2</td>
+<td>ESC Q</td>
+<td>ESC Q</td>
+</tr>
+<tr>
+<td>PF3</td>
+<td>ESC R</td>
+<td>ESC R</td>
+</tr>
+<tr>
+<td>PF4</td>
+<td>ESC S</td>
+<td>ESC S</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">* The last character of this escape sequence is a lowercase L (154<sub>8</sub>).</td>
+</tr>
+</tfoot>
+</table>
+
+<table id="T3-8" class="display-table">
+<caption>Table 3-8 ANSI Mode Auxiliary Keypad Codes</caption>
+<thead>
+<tr>
+<th>Key</th>
+<th>Keypad Numeric Mode</th>
+<th>Keypad Application Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>ESC O p</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>ESC O q</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>ESC O r</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>ESC O s</td>
+</tr>
+<tr>
+<td>4</td>
+<td>4</td>
+<td>ESC O t</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>ESC O u</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6</td>
+<td>ESC O v</td>
+</tr>
+<tr>
+<td>7</td>
+<td>7</td>
+<td>ESC O w</td>
+</tr>
+<tr>
+<td>8</td>
+<td>8</td>
+<td>ESC O x</td>
+</tr>
+<tr>
+<td>9</td>
+<td>9</td>
+<td>ESC O y</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>- (dash)</td>
+<td>- (dash)</td>
+<td>ESC O m</td>
+</tr>
+<tr>
+<td>, (comma)</td>
+<td>, (comma)</td>
+<td>ESC O l*</td>
+</tr>
+<tr>
+<td>. (period)</td>
+<td>. (period)</td>
+<td>ESC O n</td>
+</tr>
+<tr>
+<td>ENTER</td>
+<td>Same as RETURN key</td>
+<td>ESC O M</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>PF1</td>
+<td>ESC O P</td>
+<td>ESC O P</td>
+</tr>
+<tr>
+<td>PF2</td>
+<td>ESC O Q</td>
+<td>ESC O Q</td>
+</tr>
+<tr>
+<td>PF3</td>
+<td>ESC O R</td>
+<td>ESC O R</td>
+</tr>
+<tr>
+<td>PF4</td>
+<td>ESC O S</td>
+<td>ESC O S</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">* The last character of the escape sequence is a lowercase L (154<sub>8</sub>).</td>
+</tr>
+</tfoot>
+</table>
+<p class="note">NOTE: In ANSI mode, if the codes are echoed back to the VT100, or if the terminal is in
+local mode, the last character of the sequence will be displayed on the screen; e.g., PF1 will display a “P”.</p>
+
+<p><strong>Special Graphics Characters</strong><br/>
+If the Special Graphics set is selected, the graphics for ASCII codes 137<sub>8</sub> through
+176<sub>8</sub> will be replaced according to <a href="#T3-9">Table 3-9</a>. (See the SCS control sequence).</p>
+
+<table id="T3-9" class="display-table">
+<caption>Table 3-9 Special Graphics Characters</caption>
+<thead>
+<tr>
+<th>Octal Code</th>
+<th>Graphic<br/>with<br/>US or<br/>UK Set</th>
+<th colspan="2">Graphic with<br/>“Special Graphics” Set</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>137</td>
+<td>_</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+  </g>
+</svg></td>
+<td>Blank</td>
+</tr>
+<tr>
+<td>140</td>
+<td>`</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.11" y1="4.60" x2="4.05" y2="4.60"/>
+    <line x1="1.23" y1="6.90" x2="4.93" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="5.81" y2="9.20"/>
+    <line x1="1.23" y1="11.50" x2="4.93" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="4.05" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+  </g>
+</svg></td>
+<td>Diamond</td>
+</tr>
+<tr>
+<td>141</td>
+<td>a</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="5.63" y1="2.30" x2="5.81" y2="2.30"/>
+    <line x1="1.23" y1="4.60" x2="1.41" y2="4.60"/>
+    <line x1="4.75" y1="4.60" x2="4.93" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="0.53" y2="6.90"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="5.63" y1="6.90" x2="5.81" y2="6.90"/>
+    <line x1="1.23" y1="9.20" x2="1.41" y2="9.20"/>
+    <line x1="4.75" y1="9.20" x2="4.93" y2="9.20"/>
+    <line x1="0.35" y1="11.50" x2="0.53" y2="11.50"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="5.63" y1="11.50" x2="5.81" y2="11.50"/>
+    <line x1="1.23" y1="13.80" x2="1.41" y2="13.80"/>
+    <line x1="4.75" y1="13.80" x2="4.93" y2="13.80"/>
+    <line x1="0.35" y1="16.10" x2="0.53" y2="16.10"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="5.63" y1="16.10" x2="5.81" y2="16.10"/>
+  </g>
+</svg></td>
+<td>Checkerboard<br/>(error indicator)</td>
+</tr>
+<tr>
+<td>142</td>
+<td>b</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="3.87" y1="2.30" x2="4.05" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="0.53" y2="4.60"/>
+    <line x1="3.87" y1="4.60" x2="4.05" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="4.05" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="0.53" y2="9.20"/>
+    <line x1="3.87" y1="9.20" x2="4.05" y2="9.20"/>
+    <line x1="0.35" y1="11.50" x2="0.53" y2="11.50"/>
+    <line x1="3.87" y1="11.50" x2="4.05" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="5.81" y2="13.80"/>
+    <line x1="3.87" y1="16.10" x2="4.05" y2="16.10"/>
+    <line x1="3.87" y1="18.40" x2="4.05" y2="18.40"/>
+    <line x1="3.87" y1="20.70" x2="4.05" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td>143</td>
+<td>c</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="0.53" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="2.29" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="0.53" y2="9.20"/>
+    <line x1="0.35" y1="11.50" x2="0.53" y2="11.50"/>
+    <line x1="2.99" y1="11.50" x2="5.81" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="4.93" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Form Feed</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>144</td>
+<td>d</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="1.23" y1="2.30" x2="4.05" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="0.53" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="0.53" y2="6.90"/>
+    <line x1="1.23" y1="9.20" x2="4.05" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="4.93" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="2.29" y2="13.80"/>
+    <line x1="5.63" y1="13.80" x2="5.81" y2="13.80"/>
+    <line x1="2.11" y1="16.10" x2="4.93" y2="16.10"/>
+    <line x1="2.11" y1="18.40" x2="2.29" y2="18.40"/>
+    <line x1="5.63" y1="18.40" x2="5.81" y2="18.40"/>
+    <line x1="2.11" y1="20.70" x2="2.29" y2="20.70"/>
+    <line x1="5.63" y1="20.70" x2="5.81" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td>145</td>
+<td>e</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="0.53" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="0.53" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="4.05" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="5.81" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="2.29" y2="13.80"/>
+    <line x1="2.11" y1="16.10" x2="4.93" y2="16.10"/>
+    <line x1="2.11" y1="18.40" x2="2.29" y2="18.40"/>
+    <line x1="2.11" y1="20.70" x2="2.29" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Line feed</td>
+</tr>
+<tr>
+<td>146</td>
+<td>f</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.11" y1="2.30" x2="4.05" y2="2.30"/>
+    <line x1="1.23" y1="4.60" x2="1.41" y2="4.60"/>
+    <line x1="4.75" y1="4.60" x2="4.93" y2="4.60"/>
+    <line x1="1.23" y1="6.90" x2="1.41" y2="6.90"/>
+    <line x1="4.75" y1="6.90" x2="4.93" y2="6.90"/>
+    <line x1="2.11" y1="9.20" x2="4.05" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Degree symbol</td>
+</tr>
+<tr>
+<td>147</td>
+<td>g</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="5.81" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="0.35" y1="16.10" x2="5.81" y2="16.10"/>
+  </g>
+</svg></td>
+<td>Plus/minus</td>
+</tr>
+<tr>
+<td>150</td>
+<td>h</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="3.87" y1="2.30" x2="4.05" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="1.41" y2="4.60"/>
+    <line x1="3.87" y1="4.60" x2="4.05" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="4.05" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="0.53" y2="9.20"/>
+    <line x1="2.99" y1="9.20" x2="4.05" y2="9.20"/>
+    <line x1="0.35" y1="11.50" x2="0.53" y2="11.50"/>
+    <line x1="3.87" y1="11.50" x2="4.05" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="2.29" y2="13.80"/>
+    <line x1="2.11" y1="16.10" x2="2.29" y2="16.10"/>
+    <line x1="2.11" y1="18.40" x2="2.29" y2="18.40"/>
+    <line x1="2.11" y1="20.70" x2="5.81" y2="20.70"/>
+  </g>
+</svg></td>
+<td>New line</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>151</td>
+<td>i</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="3.87" y1="2.30" x2="4.05" y2="2.30"/>
+    <line x1="0.35" y1="4.60" x2="0.53" y2="4.60"/>
+    <line x1="3.87" y1="4.60" x2="4.05" y2="4.60"/>
+    <line x1="1.23" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="2.11" y1="9.20" x2="2.29" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="5.81" y2="11.50"/>
+    <line x1="3.87" y1="13.80" x2="4.05" y2="13.80"/>
+    <line x1="3.87" y1="16.10" x2="4.05" y2="16.10"/>
+    <line x1="3.87" y1="18.40" x2="4.05" y2="18.40"/>
+    <line x1="3.87" y1="20.70" x2="4.05" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Vertical tab</td>
+</tr>
+<tr>
+<td>152</td>
+<td>j</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="3.17" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Lower-right corner</td>
+</tr>
+<tr>
+<td>153</td>
+<td>k</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="9.20" x2="3.17" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Upper-right corner</td>
+</tr>
+<tr>
+<td>154</td>
+<td>l</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="9.20" x2="7.57" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Upper-left corner</td>
+</tr>
+<tr>
+<td>155</td>
+<td>m</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="2.99" y1="9.20" x2="7.57" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Lower-left corner</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>156</td>
+<td>n</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="7.57" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Crossing lines</td>
+</tr>
+<tr>
+<td>157</td>
+<td>o</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="0.00" x2="7.57" y2="0.00"/>
+  </g>
+</svg></td>
+<td>Horizontal line - Scan 1</td>
+</tr>
+<tr>
+<td>160</td>
+<td>p</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="4.60" x2="7.57" y2="4.60"/>
+  </g>
+</svg></td>
+<td>Horizontal line - Scan 3</td>
+</tr>
+<tr>
+<td>161</td>
+<td>q</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="9.20" x2="7.57" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Horizontal line - Scan 5</td>
+</tr>
+<tr>
+<td>162</td>
+<td>r</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="13.80" x2="7.57" y2="13.80"/>
+  </g>
+</svg></td>
+<td>Horizontal line - Scan 7</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>163</td>
+<td>s</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="18.40" x2="7.57" y2="18.40"/>
+  </g>
+</svg></td>
+<td>Horizontal line - Scan 9</td>
+</tr>
+<tr>
+<td>164</td>
+<td>t</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="2.99" y1="9.20" x2="7.57" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Left “T”</td>
+</tr>
+<tr>
+<td>165</td>
+<td>u</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="3.17" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Right “T”</td>
+</tr>
+<tr>
+<td>166</td>
+<td>v</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="7.57" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Bottom “T”</td>
+</tr>
+<tr>
+<td>167</td>
+<td>w</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="9.20" x2="7.57" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>Top “T”</td>
+</tr>
+<tr>
+<td>170</td>
+<td>x</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="0.00" x2="3.17" y2="0.00"/>
+    <line x1="2.99" y1="2.30" x2="3.17" y2="2.30"/>
+    <line x1="2.99" y1="4.60" x2="3.17" y2="4.60"/>
+    <line x1="2.99" y1="6.90" x2="3.17" y2="6.90"/>
+    <line x1="2.99" y1="9.20" x2="3.17" y2="9.20"/>
+    <line x1="2.99" y1="11.50" x2="3.17" y2="11.50"/>
+    <line x1="2.99" y1="13.80" x2="3.17" y2="13.80"/>
+    <line x1="2.99" y1="16.10" x2="3.17" y2="16.10"/>
+    <line x1="2.99" y1="18.40" x2="3.17" y2="18.40"/>
+    <line x1="2.99" y1="20.70" x2="3.17" y2="20.70"/>
+  </g>
+</svg></td>
+<td>| Vertical bar</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>171</td>
+<td>y</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="5.63" y1="2.30" x2="5.81" y2="2.30"/>
+    <line x1="3.87" y1="4.60" x2="4.05" y2="4.60"/>
+    <line x1="2.11" y1="6.90" x2="2.29" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="0.53" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="2.29" y2="11.50"/>
+    <line x1="3.87" y1="13.80" x2="4.05" y2="13.80"/>
+    <line x1="5.63" y1="16.10" x2="5.81" y2="16.10"/>
+    <line x1="0.35" y1="18.40" x2="5.81" y2="18.40"/>
+  </g>
+</svg></td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td>172</td>
+<td>z</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="2.30" x2="0.53" y2="2.30"/>
+    <line x1="2.11" y1="4.60" x2="2.29" y2="4.60"/>
+    <line x1="3.87" y1="6.90" x2="4.05" y2="6.90"/>
+    <line x1="5.63" y1="9.20" x2="5.81" y2="9.20"/>
+    <line x1="3.87" y1="11.50" x2="4.05" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="2.29" y2="13.80"/>
+    <line x1="0.35" y1="16.10" x2="0.53" y2="16.10"/>
+    <line x1="0.35" y1="18.40" x2="5.81" y2="18.40"/>
+  </g>
+</svg></td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td>173</td>
+<td>{</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="0.35" y1="6.90" x2="5.81" y2="6.90"/>
+    <line x1="2.11" y1="9.20" x2="2.29" y2="9.20"/>
+    <line x1="4.75" y1="9.20" x2="4.93" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="2.29" y2="11.50"/>
+    <line x1="4.75" y1="11.50" x2="4.93" y2="11.50"/>
+    <line x1="2.11" y1="13.80" x2="2.29" y2="13.80"/>
+    <line x1="4.75" y1="13.80" x2="4.93" y2="13.80"/>
+    <line x1="1.23" y1="16.10" x2="1.41" y2="16.10"/>
+    <line x1="4.75" y1="16.10" x2="4.93" y2="16.10"/>
+  </g>
+</svg></td>
+<td>Pi</td>
+</tr>
+<tr>
+<td>174</td>
+<td>|</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="5.63" y1="2.30" x2="5.81" y2="2.30"/>
+    <line x1="4.75" y1="4.60" x2="4.93" y2="4.60"/>
+    <line x1="0.35" y1="6.90" x2="5.81" y2="6.90"/>
+    <line x1="2.99" y1="9.20" x2="3.17" y2="9.20"/>
+    <line x1="0.35" y1="11.50" x2="5.81" y2="11.50"/>
+    <line x1="1.23" y1="13.80" x2="1.41" y2="13.80"/>
+    <line x1="0.35" y1="16.10" x2="0.53" y2="16.10"/>
+  </g>
+</svg></td>
+<td>Not equal to</td>
+</tr>
+<tr>
+<td>175</td>
+<td>}</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="2.30" x2="4.93" y2="2.30"/>
+    <line x1="2.11" y1="4.60" x2="2.29" y2="4.60"/>
+    <line x1="5.63" y1="4.60" x2="5.81" y2="4.60"/>
+    <line x1="2.11" y1="6.90" x2="2.29" y2="6.90"/>
+    <line x1="0.35" y1="9.20" x2="4.05" y2="9.20"/>
+    <line x1="2.11" y1="11.50" x2="2.29" y2="11.50"/>
+    <line x1="1.23" y1="13.80" x2="4.05" y2="13.80"/>
+    <line x1="0.35" y1="16.10" x2="2.29" y2="16.10"/>
+    <line x1="4.75" y1="16.10" x2="5.81" y2="16.10"/>
+    <line x1="1.23" y1="18.40" x2="1.41" y2="18.40"/>
+  </g>
+</svg></td>
+<td>UK pound sign</td>
+</tr>
+<tr>
+<td>176</td>
+<td>~</td>
+<td><svg xmlns="http://www.w3.org/2000/svg" width="10" height="23">
+  <g class="spgr-scanlines" transform="translate(1.2,1.2)" stroke="#000" stroke-width="1.6" stroke-linecap="round">
+    <line x1="2.99" y1="9.20" x2="3.17" y2="9.20"/>
+  </g>
+</svg></td>
+<td>Centered dot</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td>Note 1:</td>
+<td colspan="3">Codes 152<sub>8</sub>-156<sub>8</sub>, 161<sub>8</sub>, and 164<sub>8</sub>-170<sub>8</sub> are used to draw rectangular grids; each piece
+of this line drawing set is contiguous with others so that the lines formed are unbroken.</td>
+</tr>
+<tr>
+<td>Note 2:</td>
+<td colspan="3">Codes 157<sub>8</sub>-163<sub>8</sub> give better vertical resolution than dashes and underlines when drawing
+graphs; using these segments 120 × 132 resolution may be obtained in 132 column
+mode with the Advanced Video Option installed.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S3.2">Communications Protocols</h2>
+<p><strong>Full Duplex</strong><br/>
+The terminal can operate at transmission speeds up to 19,200 baud. However, the
+terminal may not be able to keep up with incoming data. The terminal stores
+incoming characters in a 64-character buffer and processes them on a first-in/first-out
+basis. When the content of the buffer reaches 32 characters, the terminal will
+transmit 023<sub>8</sub> (XOFF or DC3). On this signal the host should suspend its transmission
+to the terminal. Eventually, if the host stops transmitting, the terminal will
+deplete the buffer. When 16 characters remain in the buffer the terminal will
+transmit 021<sub>8</sub> (XON or DC1) to signal the host that it may resume transmission.</p>
+<p>If the host fails to respond to an XOFF from the terminal in a timely manner, the
+buffer will continue to fill. When the 64-character capacity of the buffer is exceeded,
+a condition occurs called “buffer overflow.” To determine if the buffer will
+overflow use the following formulas:</p>
+<table class="equation-table">
+<tbody>
+<tr>
+<td>No. of characters to overflow</td>
+<td>=</td>
+<td>32 - [3 × (receiver speed / transmit speed) ]</td>
+</tr>
+<tr>
+<td>Time to respond to XOFF</td>
+<td>=</td>
+<td>No. of characters to overflow × (bits per character + parity bit + 2) / receiver speed</td>
+</tr>
+</tbody>
+</table>
+<p><span class="example">Example 1:</span><br/>
+The VT100 is transmitting 8-bit characters with no parity at 1200 baud and receiving
+at 1200 baud. The terminal has just sent an XOFF which the host must
+respond to within 0.2416 second to avoid a buffer overflow.</p>
+<table>
+<tbody>
+<tr>
+<td>No. of characters to overflow</td>
+<td>=</td>
+<td>32 - [3 × (1200 / 1200) ] = 29 characters</td>
+</tr>
+<tr>
+<td>Time to respond to XOFF</td>
+<td>=</td>
+<td>29 × (8 + 0 + 2) / 1200 = 0.2416 second</td>
+</tr>
+</tbody>
+</table>
+<p><span class="example">Example 2:</span><br/>
+The VT100 is transmitting 7-bit characters with parity at 300 baud and receiving
+at 1200 baud. The terminal has just sent an XOFF which the host must respond to
+within 0.1666 second to avoid a buffer overflow.</p>
+<table>
+<tbody>
+<tr>
+<td>No. of characters to overflow</td>
+<td>=</td>
+<td>32 - [3 × (1200 / 300) ] = 20 characters</td>
+</tr>
+<tr>
+<td>Time to respond to XOFF</td>
+<td>=</td>
+<td>20 × (7 + 1 + 2) / 1200 = 0.1666 second</td>
+</tr>
+</tbody>
+</table>
+<p>If the buffer overflows, the VT100 will begin to discard incoming characters and
+the error character will be displayed.</p>
+<p>Software which does not support receipt of the XOFF/XON signals from the terminal
+can still use the VT100 provided the software never sends the <code>ESC</code> code to the
+terminal, the baud rate is limited to 4800 or less, and the software does not use
+smooth scrolling or split screen features.</p>
+<p>Alternatively, if XOFF/XON cannot be used, fill characters may be used after characters
+or character strings are sent to the VT100. A reference chart of fill characters
+required for these functions is included in Appendix C.</p>
+<p>Two of the terminal functions, Reset and Self-Test, reinitialize the terminal and
+erase the buffer. This means that if characters are received subsequent to the
+commands to perform these two functions and the characters are placed in the
+buffer, the character would be destroyed without being processed.</p>
+<p>To compensate for this, the host may act in one of two ways:</p>
+<ol>
+<li>Immediately after sending the terminal the commands to perform either
+the Reset or Self-Test functions, the host may act as if it had received
+XOFF from the terminal, thus sending no more characters until it receives
+XON. The terminal will transmit XON only after it completes the
+specified operation and the XOFF/XON feature is enabled.</li>
+<li>When the first method cannot be implemented, a delay of no less than
+10 seconds may be used to allow the terminal time to complete the
+invoked function. This method, however, does not guarantee against
+the loss of data when an invoked function has detected an error; and
+while this delay is currently adequate, future options may require a
+change in the time delay.</li>
+</ol>
+<p>The XOFF/XON synchronization scheme has an advantage over requiring the host
+to insert delays or filler characters in its data stream. Requiring a minimum of
+software support, XON/XOFF ensures that every character or command sent to
+the VT100 will be processed in correct order. It frees interface programs from all
+timing considerations and results in more reliable operation.</p>
+<p>In addition to the buffer-filling condition, there are two other means of transmitting
+XOFF and XON; the <span class="keyname">NO SCROLL</span> key, and Control S/Control Q. If the XON/XOFF
+feature is enabled, the VT100 will coordinate these three sources of XOFF and
+XON so that the desired effect occurs. For example, if the buffer-filling condition
+has caused an XOFF to be sent, and then the operator types the <span class="keyname">NO SCROLL</span> key,
+a second XOFF is not sent. Instead of sending an XON when the buffer empties,
+the VT100 waits until the operator types the <span class="keyname">NO SCROLL</span> key again before sending
+XON.</p>
+<p>Also, entering SET-UP mode causes the VT100 to temporarily stop taking characters
+from the buffer. An XOFF will be sent if the buffer becomes nearly full.</p>
+<p>Use of Control S and Control Q will also be synchronized with the <span class="keyname">NO SCROLL</span>
+key.</p>
+<p>If the XON/XOFF feature is disabled, the buffer-filling condition will not send an
+XOFF, the <span class="keyname">NO SCROLL</span> key is disabled, and Control S and Control Q will be
+transmitted as typed.</p>
+<p>The VT100 also recognizes received XOFF and XON. Receipt of XOFF will inhibit
+the VT100 from transmitting any codes except XOFF and XON. From three to
+seven keystrokes on the keyboard will be stored in a keyboard buffer (some keys
+transmit two or three codes, e.g., cursor controls). If the keyboard buffer overflows,
+keyclicks will stop and the KBD LOCKED LED will come on. Transmission resumes
+upon receipt of XON.</p>
+<p>If the user transmits an XOFF to the host (by Control S or <span class="keyname">NO SCROLL</span>), the host
+should not echo any further type-in until the user types XON. This places the
+burden of not overloading the host’s output buffer on the user.</p>
+<p>Entering and exiting SET-UP clears the keyboard locked condition.</p>
+<h2 id="S3.3">Terminal Control Commands</h2>
+<p>The VT100 has many control commands which cause it to take action other than
+displaying a character on the screen. In this way, the host can command the
+terminal to move the cursor, change modes, ring the bell, etc. The following paragraphs
+discuss the terminal control commands.</p>
+<h3 id="S3.3.1">Control Characters</h3>
+<p>Control characters have values of 000<sub>8</sub> - 037<sub>8</sub>, and 177<sub>8</sub>. The control characters
+recognized by the VT100 are shown in <a href="#T3-10">Table 3-10</a>. All other control codes cause
+no action to be taken.</p>
+<p>Control characters (codes 0<sub>8</sub> to 37<sub>8</sub> inclusive) are specifically excluded from the
+control sequence syntax, but may be embedded within a control sequence. Embedded
+control characters are executed as soon as they are encountered by the
+VT100. The processing of the control sequence then continues with the next character
+received. The exceptions are: if the character <strong>ESC</strong> occurs, the current control
+sequence is aborted, and a new one commences beginning with the <strong>ESC</strong> just
+received. If the character CAN (30<sub>8</sub>) or the character SUB (32<sub>8</sub>) occurs, the current
+control sequence is aborted. The ability to embed control characters allows
+the synchronization characters XON and XOFF to be interpreted properly without
+affecting the control sequence.</p>
+
+<table id="T3-10" class="display-table">
+<caption>Table 3-10 Control Characters</caption>
+<thead>
+<tr>
+<th>Control Character</th>
+<th>Octal Code</th>
+<th>Action Taken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NUL</td>
+<td>000</td>
+<td>Ignored on input (not stored in input buffer; see full duplex protocol).</td>
+</tr>
+<tr>
+<td>ENQ</td>
+<td>005</td>
+<td>Transmit answerback message.</td>
+</tr>
+<tr>
+<td>BEL</td>
+<td>007</td>
+<td>Sound bell tone from keyboard.</td>
+</tr>
+<tr>
+<td>BS</td>
+<td>010</td>
+<td>Move the cursor to the left one character position, unless it is at the
+left margin, in which case no action occurs.</td>
+</tr>
+<tr>
+<td>HT</td>
+<td>011</td>
+<td>Move the cursor to the next tab stop, or to the right margin if no
+further tab stops are present on the line.</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>012</td>
+<td>This code causes a line feed or a new line operation. (See new line
+mode).</td>
+</tr>
+<tr>
+<td>VT</td>
+<td>013</td>
+<td>Interpreted as LF.</td>
+</tr>
+<tr>
+<td>FF</td>
+<td>014</td>
+<td>Interpreted as LF.</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>015</td>
+<td>Move cursor to the left margin on the current line.</td>
+</tr>
+<tr>
+<td>SO</td>
+<td>016</td>
+<td>Invoke G1 character set, as designated by SCS control sequence.</td>
+</tr>
+<tr>
+<td>SI</td>
+<td>017</td>
+<td>Select G0 character set, as selected by ESC ( sequence.</td>
+</tr>
+<tr>
+<td>XON</td>
+<td>021</td>
+<td>Causes terminal to resume transmission.</td>
+</tr>
+<tr>
+<td>XOFF</td>
+<td>023</td>
+<td>Causes terminal to stop transmitted all codes except XOFF and XON.</td>
+</tr>
+<tr>
+<td>CAN</td>
+<td>030</td>
+<td>If sent during a control sequence, the sequence is immediately terminated
+and not executed. It also causes the error character to be displayed.</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>032</td>
+<td>Interpreted as CAN.</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>033</td>
+<td>Invokes a control sequence.</td>
+</tr>
+<tr>
+<td>DEL</td>
+<td>177</td>
+<td>Ignored on input (not stored in input buffer).</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="S3.3.2">Control Sequences</h3>
+<p>The VT100 is an upward and downward software compatible terminal; that is,
+previous DIGITAL video terminals have DIGITAL private standards for control sequences.
+The American National Standards Institute (ANSI) has since standardized
+escape and control sequences in terminals in documents X3.41-1974 and
+X3.64-1977.</p>
+<p class="note">NOTE: The ANSI standards allow the manufacturer flexibility in
+implementing each function. This manual describes how the VT100 will respond to
+the implemented ANSI control function.</p>
+<p>The VT100 is compatible with both the previous DIGITAL standard and ANSI
+standards. Customers may use existing DIGITAL software designed around the
+VT52 or new VT100 software. The VT100 has a “VT52 compatible” mode in
+which the VT100 responds to control sequences like a VT52. In this mode, most of
+the new VT100 features cannot be used.</p>
+<p>Throughout this section of the manual, references will be made to “VT52 mode” or
+“ANSI mode.” These two terms are used to indicate the VT100’s software compatibility.
+All new software should be designed around the VT100 “ANSI mode.”
+Future DIGITAL video terminals will not necessarily be committed to VT52 compatibility.</p>
+<p class="note">NOTE: ANSI standards may be obtained by writing:<br/>
+Sales Department<br/>
+American National Standards Institute<br/>
+1430 Broadway<br/>
+New York, New York 10018</p>
+<h3 id="S3.3.3">Valid ANSI Mode Control Sequences</h3>
+<h4 class="notoc">Definitions</h4>
+<p>The following listing defines the basic elements of the ANSI mode control sequences.
+A more complete listing appears in Appendix A.</p>
+<dl>
+<dt>Control Sequence Introducer (CSI)</dt>
+<dd>An escape sequence that provides
+supplementary controls and is itself a prefix affecting the interpretation of
+a limited number of contiguous characters. In the VT100 the CSI is <code>ESC [</code>.</dd>
+<dt>Parameter</dt>
+<dd><ol>
+<li>A string of zero or more decimal characters which represent
+a single value. Leading zeroes are ignored. The decimal characters
+have a range of 0 (60<sub>8</sub>) to 9 (71<sub>8</sub>).</li>
+<li>The value so represented.</li>
+</ol></dd>
+<dt>Numeric Parameter</dt>
+<dd>A parameter that represents a number, designated
+by Pn.</dd>
+<dt>Selective Parameter</dt>
+<dd>A parameter that selects a subfunction from a
+specified list of subfunctions, designated by Ps. In general, a control sequence
+with more than one selective parameter causes the same effect as
+several control sequences, each with one selective parameter, e.g., CSI Psa;
+Psb; Psc F is identical to CSI Psa F CSI Psb F CSI Psc F.</dd>
+<dt>Parameter String</dt>
+<dd>A string of parameters separated by a semicolon (73<sub>8</sub>).</dd>
+<dt>Default</dt>
+<dd>A function-dependent value that is assumed when no explicit
+value, or a value of 0, is specified.</dd>
+<dt>Final character</dt>
+<dd>A character whose bit combination terminates an escape
+or control sequence.</dd>
+</dl>
+<p><span class="example">Examples:</span></p>
+<ol>
+<li><p>Control sequence for double-width line (DECDWL) <code>ESC # 6</code></p>
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>Octal Representation of Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="ch3examp1a.png" alt="" width="211" height="140" style="max-width: 100%"/></td>
+<td><img src="ch3examp1b.png" alt="" width="202" height="140" style="max-width: 100%"/></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Control sequence to turn off all character attributes, and then turn on underscore
+and blink attributes (SGR). <code>ESC [ 0 ; 4 ; 5 m</code></p>
+<table>
+<thead>
+<tr>
+<th>Sequence</th>
+<th>Octal Representation of Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="ch3examp2a.png" alt="" width="268" height="210" style="max-width: 100%"/></td>
+<td><img src="ch3examp2b.png" alt="" width="356" height="210" style="max-width: 100%"/></td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+<p>Alternative sequences which will accomplish the same thing:</p>
+<table>
+<thead>
+<tr>
+<td> </td>
+<th>Sequence</th>
+<th>Octal Representation of Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a.</td>
+<td><code>ESC [ ; 4 ; 5 m</code></td>
+<td><code>033 133 073 064 073 065 155</code></td>
+</tr>
+<tr>
+<td rowspan="3">b.</td>
+<td><code>ESC [ m</code></td>
+<td><code>033 133 155</code></td>
+</tr>
+<tr>
+<td><code>ESC [ 4 m</code></td>
+<td><code>033 133 064 155</code></td>
+</tr>
+<tr>
+<td><code>ESC [ 5 m</code></td>
+<td><code>033 133 065 155</code></td>
+</tr>
+<tr>
+<td>c.</td>
+<td><code>ESC [ 0 ; 04; 005 m  </code></td>
+<td><code>033 133 060 073 060 064 073 060 060 065 155</code></td>
+</tr>
+</tbody>
+</table>
+<h4 class="notoc">Control Sequences</h4>
+<p>All of the following escape and control sequences are transmitted from the host
+computer to the VT100 unless otherwise noted. All of the control sequences are a
+subset of those specified in ANSI X3.64-1977 and ANSI X3.41-1974.</p>
+
+<h4 id="CPR"><span class="mnemonic">CPR</span> – Cursor Position Report – VT100 to Host</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn ; Pn R</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>The CPR sequence reports the active position by means of the parameters. This
+sequence has two parameter values, the first specifying the line and the second
+specifying the column. The default condition with no parameters present, or parameters
+of 0, is equivalent to a cursor at home position.</p>
+<p>The numbering of lines depends on the state of the Origin Mode (DECOM).</p>
+<p>This control sequence is solicited by a device status report (DSR) sent from the
+host.</p>
+
+<h4 id="CUB"><span class="mnemonic">CUB</span> – Cursor Backward – Host to VT100 and VT100 to Host</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn D</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>The CUB sequence moves the active position to the left. The distance moved is
+determined by the parameter. If the parameter value is zero or one, the active
+position is moved one position to the left. If the parameter value is n, the active
+position is moved n positions to the left. If an attempt is made to move the cursor
+to the left of the left margin, the cursor stops at the left margin. <em>Editor Function</em></p>
+
+<h4 id="CUD"><span class="mnemonic">CUD</span> – Cursor Down – Host to VT100 and VT100 to Host</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn B</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>The CUD sequence moves the active position downward without altering the column
+position. The number of lines moved is determined by the parameter. If the
+parameter value is zero or one, the active position is moved one line downward. If
+the parameter value is n, the active position is moved n lines downward. In an
+attempt is made to move the cursor below the bottom margin, the cursor stops at
+the bottom margin. <em>Editor Function</em></p>
+
+<h4 id="CUF"><span class="mnemonic">CUF</span> – Cursor Forward – Host to VT100 and VT100 to Host</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn C</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>The CUF sequence moves the active position to the right. The distance moved is
+determined by the parameter. A parameter value of zero or one moves the active
+position one position to the right. A parameter value of n moves the active position
+n positions to the right. If an attempt is made to move the cursor to the right of the
+right margin, the cursor stops at the right margin. <em>Editor Function</em></p>
+
+<h4 id="CUP"><span class="mnemonic">CUP</span> – Cursor Position</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn ; Pn H</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>The CUP sequence moves the active position to the position specified by the
+parameters. This sequence has two parameter values, the first specifying the line
+position and the second specifying the column position. A parameter value of zero
+or one for the first or second parameter moves the active position to the first line or
+column in the display, respectively. The default condition with no parameters present
+is equivalent to a cursor to home action. In the VT100, this control behaves
+identically with its format effector counterpart, HVP. <em>Editor Function</em></p>
+<p>The numbering of lines depends on the state of the Origin Mode (DECOM).</p>
+
+<h4 id="CUU"><span class="mnemonic">CUU</span> – Cursor Up – Host to VT100 and VT100 to Host</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn A</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>Moves the active position upward without altering the column position. The number
+of lines moved is determined by the parameter. A parameter value of zero or
+one moves the active position one line upward. A parameter value of n moves the
+active position n lines upward. If an attempt is made to move the cursor above the
+top margin, the cursor stops at the top margin. <em>Editor Function</em></p>
+
+<h4 id="DA"><span class="mnemonic">DA</span> – Device Attributes</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn c</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>The host requests the VT100 to send a device attributes (DA) control
+sequence to identify itself by sending the DA control sequence with
+either no parameter or a parameter of 0.</li>
+<li>Response to the request described above (VT100 to host) is generated
+by the VT100 as a DA control sequence with the numeric parameters
+as follows:
+<table>
+<thead>
+<tr>
+<th>Option Present</th>
+<th>Sequence Sent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No options</td>
+<td><code>ESC [?1;0c</code></td>
+</tr>
+<tr>
+<td>Processor option (STP)</td>
+<td><code>ESC [?1;1c</code></td>
+</tr>
+<tr>
+<td>Advanced video option (AVO)</td>
+<td><code>ESC [?1;2c</code></td>
+</tr>
+<tr>
+<td>AVO and STP</td>
+<td><code>ESC [?1;3c</code></td>
+</tr>
+<tr>
+<td>Graphics option (GPO)</td>
+<td><code>ESC [?1;4c</code></td>
+</tr>
+<tr>
+<td>GPO and STP</td>
+<td><code>ESC [?1;5c</code></td>
+</tr>
+<tr>
+<td>GPO and AVO</td>
+<td><code>ESC [?1;6c</code></td>
+</tr>
+<tr>
+<td>GPO, STP and AVO</td>
+<td><code>ESC [?1;7c</code></td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+<h4 id="DECALN"><span class="mnemonic">DECALN</span> – Screen Alignment Display (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC # 8</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This command fills the entire screen area with uppercase Es for screen focus and
+alignment. This command is used by DEC manufacturing and Field Service personnel.</p>
+
+<h4 id="DECANM"><span class="mnemonic">DECANM</span> – ANSI/VT52 Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes only VT52 compatible escape sequences
+to be interpreted and executed. The set state causes only ANSI "compatible"
+escape and control sequences to be interpreted and executed.</p>
+
+<h4 id="DECARM"><span class="mnemonic">DECARM</span> – Auto Repeat Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes no keyboard keys to auto-repeat. The
+set state causes certain keyboard keys to auto-repeat.</p>
+
+<h4 id="DECAWM"><span class="mnemonic">DECAWM</span> – Autowrap Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes any displayable characters received
+when the cursor is at the right margin to replace any previous characters there. The
+set state causes these characters to advance to the start of the next line, doing a
+scroll up if required and permitted.</p>
+
+<h4 id="DECCKM"><span class="mnemonic">DECCKM</span> – Cursor Keys Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. This mode is only effective when the terminal is in keypad
+application mode (see DECKPAM) and the ANSI/VT52 mode (DECANM) is set
+(see DECANM). Under these conditions, if the cursor key mode is reset, the four
+cursor function keys will send ANSI cursor control commands. If cursor key mode
+is set, the four cursor function keys will send application functions.</p>
+
+<h4 id="DECCOLM"><span class="mnemonic">DECCOLM</span> – Column Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes a maximum of 80 columns on the
+screen. The set state causes a maximum of 132 columns on the screen.</p>
+
+<h4 id="DECDHL"><span class="mnemonic">DECDHL</span> – Double Height Line (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq">Top Half: <strong><code>ESC # 3</code></strong></td>
+<td class="def"> </td>
+</tr>
+<tr>
+<td class="seq">Bottom Half: <strong><code>ESC # 4</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>These sequences cause the line containing the active position to become the top
+or bottom half of a double-height double-width line. The sequences must be used
+in pairs on adjacent lines and the same character output must be sent to both lines
+to form full double-height characters. If the line was single-width single-height, all
+characters to the right of the center of the screen are lost. The cursor remains over
+the same character position unless it would be to the right of the right margin, in
+which case it is moved to the right margin.</p>
+<p class="note">NOTE: The use of double-width characters reduces the number of characters per line by half.</p>
+
+<h4 id="DECDWL"><span class="mnemonic">DECDWL</span> – Double-Width Line (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC # 6</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This causes the line that contains the active position to become double-width
+single-height. If the line was single-width single-height, all characters to the right
+of the screen are lost. The cursor remains over the same character position unless
+it would be to the right of the right margin, in which case, it is moved to the right
+margin.</p>
+<p class="note">NOTE: The use of double-width characters reduces the number of characters per line by half.</p>
+
+<h4 id="DECID"><span class="mnemonic">DECID</span> – Identify Terminal (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC Z</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the same response as the ANSI device attributes (DA). This
+sequence will not be supported in future DEC terminals, therefore, DA should be
+used by any new software.</p>
+
+<h4 id="DECINLM"><span class="mnemonic">DECINLM</span> – Interlace Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state (non-interlace) causes the video processor to
+display 240 scan lines per frame. The set state (interlace) causes the video processor
+to display 480 scan lines per frame. There is no increase in character resolution.</p>
+
+<h4 id="DECKPAM"><span class="mnemonic">DECKPAM</span> – Keypad Application Mode (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC =</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>The auxiliary keypad keys will transmit control sequences as defined in Tables <a href="#T3-7">3-7</a>
+and <a href="#T3-8">3-8</a>.</p>
+
+<h4 id="DECKPNM"><span class="mnemonic">DECKPNM</span> – Keypad Numeric Mode (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC &gt;</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>The auxiliary keypad keys will send ASCII codes corresponding to the characters
+engraved on the keys.</p>
+
+<h4 id="DECLL"><span class="mnemonic">DECLL</span> – Load LEDS (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps q</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<p>Load the four programmable LEDs on the keyboard according to the parameter(s).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Clear LEDs L1 through L4</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Light L1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Light L2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Light L3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Light L4</td>
+</tr>
+</tbody>
+</table>
+<p>LED numbers are indicated on the keyboard.</p>
+
+<h4 id="DECOM"><span class="mnemonic">DECOM</span> – Origin Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes the origin to be at the upper-left character
+position on the screen. Line and column numbers are, therefore, independent of
+current margin settings. The cursor may be positioned outside the margins with a
+cursor position (CUP) or horizontal and vertical position (HVP) control.</p>
+<p>The set state causes the origin to be at the upper-left character position within the
+margins. Line and column numbers are therefore relative to the current margin
+settings. The cursor is not allowed to be positioned outside the margins.</p>
+<p>The cursor is moved to the new home position when this mode is set or reset.</p>
+<p>Lines and columns are numbered consecutively, with the origin being line 1, column
+1.</p>
+
+<h4 id="DECRC"><span class="mnemonic">DECRC</span> – Restore Cursor (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC 8</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the previously saved cursor position, graphic rendition, and
+character set to be restored.</p>
+
+<h4 id="DECREPTPARM"><span class="mnemonic">DECREPTPARM</span> – Report Terminal Parameters</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ &lt;sol&gt;; &lt;par&gt;; &lt;nbits&gt;; &lt;xspeed&gt;;
+&lt;rspeed&gt;; &lt;clkmul&gt;; &lt;flags&gt; x</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>These sequence parameters are explained below in the DECREQTPARM sequence.</p>
+
+<h4 id="DECREQTPARM"><span class="mnemonic">DECREQTPARM</span> – Request Terminal Parameters</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ &lt;sol&gt; x</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>The sequence DECREPTPARM is sent by the terminal controller to notify the host
+of the status of selected terminal parameters. The status sequence may be sent
+when requested by the host or at the terminal’s discretion. DECREPTPARM is sent
+upon receipt of a DECREQTPARM. On power-up or reset, the VT100 is inhibited
+from sending unsolicited reports.</p>
+<p>The meanings of the sequence parameters are:</p>
+<table class="wide-table">
+<thead>
+<tr>
+<th colspan="2">Parameter</th>
+<th>Value</th>
+<th colspan="3">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="4" colspan="2">&lt;sol&gt;</td>
+<td>0 or none</td>
+<td colspan="3">This message is a request (DECREQTPARM) and
+the terminal will be allowed to send unsolicited reports.
+(Unsolicited reports are sent when the terminal
+exits the SET-UP mode).</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="3">This message is a request; from now on the terminal
+may only report in response to a request.</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="3">This message is a report (DECREPTPARM).</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="3">This message is a report and the terminal is only
+reporting on request.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="3" colspan="2">&lt;par&gt;</td>
+<td>1</td>
+<td colspan="3">No parity set</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="3">Parity is set and odd</td>
+</tr>
+<tr>
+<td>5</td>
+<td colspan="3">Parity is set and even</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2" colspan="2">&lt;nbits&gt;</td>
+<td>1</td>
+<td colspan="3">8 bits per character</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="3">7 bits per character</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="16" style="vertical-align:middle">&lt;xspeed&gt;, &lt;rspeed&gt;</td>
+<td rowspan="16" class="brace-col open"></td>
+<td>0</td>
+<td style="width:4em">50</td>
+<td rowspan="16" class="brace-col close"></td>
+<td rowspan="16" style="vertical-align:middle">Bits per second</td>
+</tr>
+<tr>
+<td>8</td>
+<td>75</td>
+</tr>
+<tr>
+<td>16</td>
+<td>110</td>
+</tr>
+<tr>
+<td>24</td>
+<td>134.5</td>
+</tr>
+<tr>
+<td>32</td>
+<td>150</td>
+</tr>
+<tr>
+<td>40</td>
+<td>200</td>
+</tr>
+<tr>
+<td>48</td>
+<td>300</td>
+</tr>
+<tr>
+<td>56</td>
+<td>600</td>
+</tr>
+<tr>
+<td>64</td>
+<td>1200</td>
+</tr>
+<tr>
+<td>72</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>80</td>
+<td>2000</td>
+</tr>
+<tr>
+<td>88</td>
+<td>2400</td>
+</tr>
+<tr>
+<td>96</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>104</td>
+<td>4800</td>
+</tr>
+<tr>
+<td>112</td>
+<td>9600</td>
+</tr>
+<tr>
+<td>120</td>
+<td>19200</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">&lt;clkmul&gt;</td>
+<td>1</td>
+<td colspan="3">The bit rate multiplier is 16.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td colspan="2">&lt;flags&gt;</td>
+<td>0-15</td>
+<td colspan="3">This value communicates the four switch values in
+block 5 of SET UP B, which are only visible to the
+user when an STP option is installed. These bits may
+be assigned for an STP device. The four bits are a
+decimal-encoded binary number.</td>
+</tr>
+</tbody>
+</table>
+
+
+<h4 id="DECSC"><span class="mnemonic">DECSC</span> – Save Cursor (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC 7</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the cursor position, graphic rendition, and character set to
+be saved. (See DECRC).</p>
+
+<h4 id="DECSCLM"><span class="mnemonic">DECSCLM</span> – Scrolling Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes scrolls to "jump" instantaneously. The
+set state causes scrolls to be "smooth" at a maximum rate of six lines per second.</p>
+
+<h4 id="DECSCNM"><span class="mnemonic">DECSCNM</span> – Screen Mode (DEC Private)</h4>
+<p>This is a private parameter applicable to set mode (SM) and reset mode (RM)
+control sequences. The reset state causes the screen to be black with white characters.
+The set state causes the screen to be white with black characters.</p>
+
+<h4 id="DECSTBM"><span class="mnemonic">DECSTBM</span> – Set Top and Bottom Margins (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn; Pn r</code></strong></td>
+<td class="def"><em>default values: see below</em></td>
+</tr>
+</tbody>
+</table>
+<p>This sequence sets the top and bottom margins to define the scrolling region. The
+first parameter is the line number of the first line in the scrolling region; the second
+parameter is the line number of the bottom line in the scrolling region. Default is
+the entire screen (no margins). The minimum size of the scrolling region allowed is
+two lines, i.e., the top margin must be less than the bottom margin. The cursor is
+placed in the home position (see Origin Mode DECOM).</p>
+
+<h4 id="DECSWL"><span class="mnemonic">DECSWL</span> – Single-width Line (DEC Private)</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC # 5</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This causes the line which contains the active position to become single-width
+single-height. The cursor remains on the same character position. This is the
+default condition for all new lines on the screen.</p>
+
+<h4 id="DECTST"><span class="mnemonic">DECTST</span> – Invoke Confidence Test</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ 2 ; Ps y</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Ps is the parameter indicating the test to be done. Ps is computed by taking the
+weight indicated for each desired test and adding them together. If Ps is 0, no test
+is performed but the VT100 is reset.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power up self-test (ROM check
+sum, RAM, NVR keyboard
+and AVO if installed)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data Loop Back</td>
+<td>2 (loop back connector required)</td>
+</tr>
+<tr>
+<td>EIA modem control test</td>
+<td>4 (loop back connector required)</td>
+</tr>
+<tr>
+<td>Repeat Selected Test(s)<br/>
+indefinitely (until failure or
+power off)</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="DSR"><span class="mnemonic">DSR</span> – Device Status Report</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps n</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<p>Requests and reports the general status of the VT100 according to the following
+parameter(s).</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Response from VT100 – Ready, No malfunctions
+detected (default)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Response from VT100 – Malfunction – retry</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Command from host – Please report status (using a
+DSR control sequence)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Command from host – Please report active position
+(using a CPR control sequence)</td>
+</tr>
+</tbody>
+</table>
+<p>DSR with a parameter value of 0 or 3 is always sent as a response to a requesting
+DSR with a parameter value of 5.</p>
+
+<h4 id="ED"><span class="mnemonic">ED</span> – Erase In Display</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps J</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<p>This sequence erases some or all of the characters in the display according to the
+parameter. Any complete line erased by this sequence will return that line to single
+width mode. <em>Editor Function</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Erase from the active position to the end of the
+screen, inclusive (default)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Erase from start of the screen to the active position,
+inclusive</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Erase all of the display – all lines are erased,
+changed to single-width, and the cursor does not move.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="EL"><span class="mnemonic">EL</span> – Erase In Line</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps K</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<p>Erases some or all characters in the active line according to the parameter. <em>Editor
+Function</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Erase from the active position to the end of the line, inclusive (default)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Erase from the start of the screen to the active position, inclusive</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Erase all of the line, inclusive</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="HTS"><span class="mnemonic">HTS</span> – Horizontal Tabulation Set</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC H</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Set one horizontal stop at the active position. <em>Format Effector</em></p>
+
+<h4 id="HVP"><span class="mnemonic">HVP</span> – Horizontal and Vertical Position</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Pn ; Pn f</code></strong></td>
+<td class="def"><em>default value:</em> 1</td>
+</tr>
+</tbody>
+</table>
+<p>Moves the active position to the position specified by the parameters. This sequence
+has two parameter values, the first specifying the line position and the
+second specifying the column. A parameter value of either zero or one causes the
+active position to move to the first line or column in the display, respectively. The
+default condition with no parameters present moves the active position to the
+home position. In the VT100, this control behaves identically with its editor function
+counterpart, CUP. The numbering of lines and columns depends on the reset
+or set state of the origin mode (DECOM). <em>Format Effector</em></p>
+
+<h4 id="IND"><span class="mnemonic">IND</span> – Index</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC D</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the active position to move downward one line without
+changing the column position. If the active position is at the bottom margin, a
+scroll up is performed. <em>Format Effector</em></p>
+
+<h4 id="LNM"><span class="mnemonic">LNM</span> – Line Feed/New Line Mode</h4>
+<p>This is a parameter applicable to set mode (SM) and reset mode (RM) control sequences.
+The reset state causes the interpretation of the line feed (LF), defined in
+ANSI Standard X3.4-1977, to imply only vertical movement of the active position
+and causes the <span class="keyname">RETURN</span> key (CR) to send the single code CR. The set state causes
+the LF to imply movement to the first position of the following line and causes the
+<span class="keyname">RETURN</span> key to send the two codes (CR, LF). This is the New Line (NL) option.</p>
+<p>This mode does not affect the index (IND), or next line (NEL) format effectors.</p>
+
+<h4 id="NEL"><span class="mnemonic">NEL</span> – Next Line</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC E</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the active position to move to the first position on the next
+line downward. If the active position is at the bottom margin, a scroll up is performed.
+<em>Format Effector</em></p>
+
+<h4 id="RI"><span class="mnemonic">RI</span> – Reverse Index</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC M</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position to the same horizontal position on the preceding line. If
+the active position is at the top margin, a scroll down is performed. <em>Format Effector</em></p>
+
+<h4 id="RIS"><span class="mnemonic">RIS</span> – Reset To Initial State</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC c</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Reset the VT100 to its initial state, i.e., the state it has after it is powered on. This
+also causes the execution of the power-up self-test and signal INIT H to be asserted
+briefly.</p>
+
+<h4 id="RM"><span class="mnemonic">RM</span> – Reset Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps ; Ps ; . . . ; Ps l</code></strong></td>
+<td class="def"><em>default value:</em> none</td>
+</tr>
+</tbody>
+</table>
+<p>Resets one or more VT100 modes as specified by each selective parameter in the
+parameter string. Each mode to be reset is specified by a separate parameter. [See
+Set Mode (SM) control sequence]. (See Modes following this section).</p>
+
+<h4 id="SCS"><span class="mnemonic">SCS</span> – Select Character Set</h4>
+<p>The appropriate G0 and G1 character sets are designated from one of the five
+possible character sets. The G0 and G1 sets are invoked by the codes SI and SO
+(shift in and shift out) respectively.</p>
+<table>
+<thead>
+<tr>
+<th>G0 Sets Sequence</th>
+<th>G1 Sets Sequence</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>ESC ( A</code></strong></td>
+<td><strong><code>ESC ) A</code></strong></td>
+<td>United Kingdom Set</td>
+</tr>
+<tr>
+<td><strong><code>ESC ( B</code></strong></td>
+<td><strong><code>ESC ) B</code></strong></td>
+<td>ASCII Set</td>
+</tr>
+<tr>
+<td><strong><code>ESC ( 0</code></strong></td>
+<td><strong><code>ESC ) 0</code></strong></td>
+<td>Special Graphics</td>
+</tr>
+<tr>
+<td><strong><code>ESC ( 1</code></strong></td>
+<td><strong><code>ESC ) 1</code></strong></td>
+<td>Alternate Character ROM Standard Character Set</td>
+</tr>
+<tr>
+<td><strong><code>ESC ( 2</code></strong></td>
+<td><strong><code>ESC ) 2</code></strong></td>
+<td>Alternate Character ROM Special Graphics</td>
+</tr>
+</tbody>
+</table>
+<p>The United Kingdom and ASCII sets conform to the "ISO international register of
+character sets to be used with escape sequences". The other sets are private
+character sets. Special graphics means that the graphic characters for the codes
+137<sub>8</sub> to 176<sub>8</sub> are replaced with other characters. The specified character set will
+be used until another SCS is received.</p>
+<p class="note">NOTE: Additional information concerning the SCS escape sequence may be obtained
+in ANSI standard X3.41-1974.</p>
+
+<h4 id="SGR"><span class="mnemonic">SGR</span> – Select Graphic Rendition</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps ; . . . ; Ps m</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<p>Invoke the graphic rendition specified by the parameter(s). All following characters
+transmitted to the VT100 are rendered according to the parameter(s) until the next
+occurrence of SGR. <em>Format Effector</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Attributes off</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bold or increased intensity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Underscore</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blink</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Negative (reverse) image</td>
+</tr>
+</tbody>
+</table>
+<p>All other parameter values are ignored.</p>
+<p>With the Advanced Video Option, only one type of character attribute is possible
+as determined by the cursor selection; in that case specifying either the
+underscore or the reverse attribute will activate the currently selected attribute.
+(See cursor selection in Chapter 1).</p>
+
+<h4 id="SM"><span class="mnemonic">SM</span> – Set Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps ; . . . ; Ps h</code></strong></td>
+<td class="def"><em>default value:</em> none</td>
+</tr>
+</tbody>
+</table>
+<p>Causes one or more modes to be set within the VT100 as specified by each
+selective parameter in the parameter string. Each mode to be set is specified by a
+separate parameter. A mode is considered set until it is reset by a reset mode (RM)
+control sequence.</p>
+
+<h4 id="TBC"><span class="mnemonic">TBC</span> – Tabulation Clear</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC [ Ps g</code></strong></td>
+<td class="def"><em>default value:</em> 0</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Parameter Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Clear the horizontal tab stop at the active position
+(the default case).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Clear all horizontal tab stops.</td>
+</tr>
+</tbody>
+</table>
+<p>Any other parameter values are ignored. <em>Format Effector</em></p>
+
+<h3 id="S3.3.4">Modes</h3>
+<p>The following is a list of VT100 modes which may be changed with set mode (SM)
+and reset mode (RM) controls.</p>
+
+<h4 class="notoc">ANSI Specified Modes</h4>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Mode Mnemonic</th>
+      <th>Mode Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td></td>
+      <td>Error (ignored)</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>LNM</td>
+      <td>Line feed new line mode</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 class="notoc">DEC Private Modes</h4>
+<p>If the first character in the parameter string is ? (77<sub>8</sub>), the parameters are interpreted
+as DEC private parameters according to the following:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Mode Mnemonic</th>
+      <th>Mode Function</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td></td>
+      <td>Error (ignored)</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>DECCKM</td>
+      <td>Cursor key</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>DECANM</td>
+      <td>ANSI/VT52</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>DECCOLM</td>
+      <td>Column</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>DECSCLM</td>
+      <td>Scrolling</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>DECSCNM</td>
+      <td>Screen</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>DECOM</td>
+      <td>Origin</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>DECAWM</td>
+      <td>Auto wrap</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>DECARM</td>
+      <td>Auto repeating</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>DECINLM</td>
+      <td>Interlace</td>
+    </tr>
+  </tbody>
+</table>
+<p>Any other parameter values are ignored.</p>
+<p>The following modes, which are specified in the ANSI X3.64-1977 standard, may
+be considered to be permanently set, permanently reset, or not applicable, as
+noted. Refer to that standard for further information concerning these modes.</p>
+<table>
+<thead>
+<tr>
+<th>Mode Mnemonic</th>
+<th>Mode Function</th>
+<th>State</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRM</td>
+<td>Control representation</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>EBM</td>
+<td>Editing boundary</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>ERM</td>
+<td>Erasure</td>
+<td>Set</td>
+</tr>
+<tr>
+<td>FEAM</td>
+<td>Format effector action</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>FETM</td>
+<td>Format effector transfer</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>GATM</td>
+<td>Guarded area transfer</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>HEM</td>
+<td>Horizontal editing</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>IRM</td>
+<td>Insertion-replacement</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>KAM</td>
+<td>Keyboard action</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>MATM</td>
+<td>Multiple area transfer</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>PUM</td>
+<td>Positioning unit</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>SATM</td>
+<td>Selected area transfer</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>SRTM</td>
+<td>Status reporting transfer</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>TSM</td>
+<td>Tabulation stop</td>
+<td>Reset</td>
+</tr>
+<tr>
+<td>TTM</td>
+<td>Transfer termination</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>VEM</td>
+<td>Vertical editing</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="S3.3.5">Valid VT52 Mode Control Sequences</h3>
+<h4 id="VT52CUU">Cursor Up</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC A</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position upward one position without altering the horizontal position.
+If an attempt is made to move the cursor above the top margin, the cursor
+stops at the top margin.</p>
+
+<h4 id="VT52CUD">Cursor Down</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC B</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position downward one position without altering the horizontal
+position. If an attempt is made to move the cursor below the bottom margin, the
+cursor stops at the bottom margin.</p>
+
+<h4 id="VT52CUF">Cursor Right</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC C</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position to the right. If an attempt is made to move the cursor to
+the right of the right margin, the cursor stops at the right margin.</p>
+
+<h4 id="VT52CUB">Cursor Left</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC D</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position one position to the left. If an attempt is made to move the
+cursor to the left of the left margin, the cursor stops at the left margin.</p>
+
+<h4 id="VT52EGM">Enter Graphics Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC F</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Causes the special graphics character set to be used.</p>
+<p class="note">NOTE: The special graphics characters in the VT100
+are different from those in the VT52.</p>
+
+<h4 id="VT52XGM">Exit Graphics Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC G</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the standard ASCII character set to be used.</p>
+
+<h4 id="VT52CUH">Cursor to Home</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC H</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the cursor to the home position.</p>
+
+<h4 id="VT52RI">Reverse Line Feed</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC I</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the active position upward one position without altering the column position.
+If the active position is at the top margin, a scroll down  is performed.</p>
+
+<h4 id="VT52ED">Erase to End of Screen</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC J</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Erase all characters from the active position to the end of the screen. The active
+position is not changed.</p>
+
+<h4 id="VT52EL">Erase to End of Line</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC K</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Erase all characters from the active position to the end of the current line. The
+active position is not changed.</p>
+
+<h4 id="VT52CUP">Direct Cursor Address</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC Y line column</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>Move the cursor to the specified line and column. The line and column numbers
+are sent as ASCII codes whose values are the number plus 037<sub>8</sub>; e.g., 040<sub>8</sub> refers
+to the first line or column, 050<sub>8</sub> refers to the eighth line or column, etc.</p>
+
+<h4 id="VT52ID">Identify</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC Z</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>This sequence causes the terminal to send its identifier escape sequence to the
+host. This sequence is:</p>
+<blockquote>
+<p><strong><code>ESC / Z</code></strong></p>
+</blockquote>
+
+<h4 id="VT52KPAM">Enter Alternate Keypad Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC =</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>The optional auxiliary keypad keys will send unique identifiable escape sequences
+for use by applications programs.</p>
+<p class="note">NOTE: Information regarding options must be obtained in ANSI
+mode, using the device attributes (DA) control sequences.</p>
+
+<h4 id="VT52KPNM">Exit Alternate Keypad Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC &gt;</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>The optional auxiliary keypad keys send the ASCII codes for the functions or characters
+engraved on the key.</p>
+
+<h4 id="VT52ANSI">Enter ANSI Mode</h4>
+<table class="seq-table">
+<tbody>
+<tr>
+<td class="seq"><strong><code>ESC &lt;</code></strong></td>
+<td class="def"> </td>
+</tr>
+</tbody>
+</table>
+<p>All subsequent escape sequences will be interpreted according to ANSI Standards
+X3.64-1977 and X3.41-1974. The VT52 escape sequence designed in this section
+will not be recognized.</p>
+
+<h3 id="S3.3.6">Control Sequence Summary</h3>
+<p>The following is a summary of the VT100 control sequences.</p>
+
+<h4 id="S3.3.6.1">ANSI Compatible Mode</h4>
+<p><strong>Cursor Movement Commands</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Cursor up</td>
+<td><code>ESC [ Pn A</code></td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td><code>ESC [ Pn B</code></td>
+</tr>
+<tr>
+<td>Cursor forward (right)</td>
+<td><code>ESC [ Pn C</code></td>
+</tr>
+<tr>
+<td>Cursor backward (left)</td>
+<td><code>ESC [ Pn D</code></td>
+</tr>
+<tr>
+<td>Direct cursor addressing</td>
+<td><code>ESC [ Pl ; Pc H</code>† or<br/>
+<code>ESC [ Pl ; Pc f</code>†</td>
+</tr>
+<tr>
+<td>Index</td>
+<td><code>ESC D</code></td>
+</tr>
+<tr>
+<td>New line</td>
+<td><code>ESC E</code></td>
+</tr>
+<tr>
+<td>Reverse index</td>
+<td><code>ESC M</code></td>
+</tr>
+<tr>
+<td>Save cursor and attributes</td>
+<td><code>ESC 7</code></td>
+</tr>
+<tr>
+<td>Restore cursor and attributes</td>
+<td><code>ESC 8</code></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">† Pl = line number; Pc = column number</td>
+</tr>
+</tfoot>
+</table>
+
+<p class="note">NOTE: Pn refers to a decimal parameter expressed as a string of
+ASCII digits. Multiple parameters are separated by the semicolon character (073<sub>8</sub>). If
+a parameter is omitted or specified to be 0 the default parameter value is used. For
+the cursor movement commands, the default parameter value is 1.</p>
+<p><strong>Line Size (Double-Height and Double-Width) Commands</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Change this line to double-height top half</td>
+<td><code>ESC # 3</code></td>
+</tr>
+<tr>
+<td>Change this line to double-height bottom half</td>
+<td><code>ESC # 4</code></td>
+</tr>
+<tr>
+<td>Change this line to single-width single-height</td>
+<td><code>ESC # 5</code></td>
+</tr>
+<tr>
+<td>Change this line to double-width single-height</td>
+<td><code>ESC # 6</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Character Attributes</strong></p>
+<p><code>ESC [ Ps;Ps;Ps;...;Ps m</code></p>
+<p>Ps refers to a selective parameter. Multiple parameters are separated by the semicolon
+character (073<sub>8</sub>). The parameters are executed in order and have the following
+meanings:</p>
+<table>
+<tbody>
+<tr>
+<td>0 or None</td>
+<td>All Attributes Off</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Bold on</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Underscore on</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Blink on</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Reverse video on</td>
+</tr>
+</tbody>
+</table>
+<p>Any other parameter values are ignored.</p>
+<p><strong>Erasing</strong></p>
+<table>
+<tbody>
+<tr>
+<td>From cursor to end of line</td>
+<td><code>ESC [ K</code> or <code>ESC [ 0 K</code></td>
+</tr>
+<tr>
+<td>From beginning of line to cursor</td>
+<td><code>ESC [ 1 K</code></td>
+</tr>
+<tr>
+<td>Entire line containing cursor</td>
+<td><code>ESC [ 2 K</code></td>
+</tr>
+<tr>
+<td>From cursor to end of screen</td>
+<td><code>ESC [ J</code> or <code>ESC [ 0 J</code></td>
+</tr>
+<tr>
+<td>From beginning of screen to cursor</td>
+<td><code>ESC [ 1 J</code></td>
+</tr>
+<tr>
+<td>Entire screen</td>
+<td><code>ESC [ 2 J</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Programmable LEDs</strong></p>
+<p><code>ESC [ Ps;Ps;...Ps q</code></p>
+<p>Ps are selective parameters separated by semicolons (073<sub>8</sub>) and executed in order,
+as follows:</p>
+<table>
+<tbody>
+<tr>
+<td>0 or None</td>
+<td>All LEDs Off</td>
+</tr>
+<tr>
+<td>1</td>
+<td>L1 On</td>
+</tr>
+<tr>
+<td>2</td>
+<td>L2 On</td>
+</tr>
+<tr>
+<td>3</td>
+<td>L3 On</td>
+</tr>
+<tr>
+<td>4</td>
+<td>L4 On</td>
+</tr>
+</tbody>
+</table>
+<p>Any other parameter values are ignored.</p>
+<p><strong>Character Sets (G0 and G1 Designators)</strong></p>
+<p>The G0 and G1 character sets are designated as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Character set</th>
+<th>G0 designator</th>
+<th>G1 designator</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>United Kingdom (UK)</td>
+<td><code>ESC ( A</code></td>
+<td><code>ESC ) A</code></td>
+</tr>
+<tr>
+<td>United States (USASCII)</td>
+<td><code>ESC ( B</code></td>
+<td><code>ESC ) B</code></td>
+</tr>
+<tr>
+<td>Special graphics characters and line drawing set</td>
+<td><code>ESC ( 0</code></td>
+<td><code>ESC ) 0</code></td>
+</tr>
+<tr>
+<td>Alternate character ROM</td>
+<td><code>ESC ( 1</code></td>
+<td><code>ESC ) 1</code></td>
+</tr>
+<tr>
+<td>Alternate character ROM special graphics characters</td>
+<td><code>ESC ( 2</code></td>
+<td><code>ESC ) 2</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Scrolling Region</strong></p>
+<p><code>ESC [ Pt ; Pb r</code></p>
+<p>Pt is the number of the top line of the scrolling region; Pb is the number of the
+bottom line of the scrolling region and must be greater than Pt.</p>
+<p><strong>Tab Stops</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Set tab at current column</td>
+<td><code>ESC H</code></td>
+</tr>
+<tr>
+<td>Clear tab at current column</td>
+<td><code>ESC [ g</code> or <code>ESC [ 0 g</code></td>
+</tr>
+<tr>
+<td>Clear all tabs</td>
+<td><code>ESC [ 3 g</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Modes</strong></p>
+<table class="wide-table">
+<thead>
+<tr>
+<th rowspan="2">Mode Name</th>
+<th colspan="2">To Set</th>
+<th colspan="2">To Reset</th>
+</tr>
+<tr>
+<th>Mode</th>
+<th>Sequence</th>
+<th>Mode</th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line feed/new line</td>
+<td>New line</td>
+<td><code>ESC [20h</code></td>
+<td>Line feed</td>
+<td><code>ESC [20l</code>*</td>
+</tr>
+<tr>
+<td>Cursor key mode</td>
+<td>Application</td>
+<td><code>ESC [?1h</code></td>
+<td>Cursor</td>
+<td><code>ESC [?1l</code>*</td>
+</tr>
+<tr>
+<td>ANSI/VT52 mode</td>
+<td>ANSI</td>
+<td><em>N/A</em></td>
+<td>VT52</td>
+<td><code>ESC [?2l</code>*</td>
+</tr>
+<tr>
+<td>Column mode</td>
+<td>132 Col</td>
+<td><code>ESC [?3h</code></td>
+<td>80 Col</td>
+<td><code>ESC [?3l</code>*</td>
+</tr>
+<tr>
+<td>Scrolling mode</td>
+<td>Smooth</td>
+<td><code>ESC [?4h</code></td>
+<td>Jump</td>
+<td><code>ESC [?4l</code>*</td>
+</tr>
+<tr>
+<td>Screen mode</td>
+<td>Reverse</td>
+<td><code>ESC [?5h</code></td>
+<td>Normal</td>
+<td><code>ESC [?5l</code>*</td>
+</tr>
+<tr>
+<td>Origin mode</td>
+<td>Relative</td>
+<td><code>ESC [?6h</code></td>
+<td>Absolute</td>
+<td><code>ESC [?6l</code>*</td>
+</tr>
+<tr>
+<td>Wraparound</td>
+<td>On</td>
+<td><code>ESC [?7h</code></td>
+<td>Off</td>
+<td><code>ESC [?7l</code>*</td>
+</tr>
+<tr>
+<td>Auto repeat</td>
+<td>On</td>
+<td><code>ESC [?8h</code></td>
+<td>Off</td>
+<td><code>ESC [?8l</code>*</td>
+</tr>
+<tr>
+<td>Interlace</td>
+<td>On</td>
+<td><code>ESC [?9h</code></td>
+<td>Off</td>
+<td><code>ESC [?9l</code>*</td>
+</tr>
+<tr>
+<td>Keypad mode</td>
+<td>Application</td>
+<td><code>ESC =</code></td>
+<td>Numeric</td>
+<td><code>ESC &gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><small>* The last character of the sequence is a lowercase L (154<sub>8</sub>).</small></p>
+<p><strong>Reports</strong></p>
+<p><strong>Cursor Position Report</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Invoked by</td>
+<td><code>ESC [ 6 n</code></td>
+</tr>
+<tr>
+<td>Response is</td>
+<td><code>ESC [ Pl ; Pc R</code> †</td>
+</tr>
+</tbody>
+</table>
+<p><small>† Pl = line number; Pc = column number</small></p>
+<p><strong>Status Report</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Invoked by</td>
+<td><code>ESC [ 5 n</code></td>
+</tr>
+<tr>
+<td>Response is</td>
+<td><code>ESC [ 0 n</code> (terminal ok)<br/>
+<code>ESC [ 3 n</code> (terminal not ok)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What Are You</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Invoked by</td>
+<td><code>ESC [ c</code> or <code>ESC [ 0 c</code></td>
+</tr>
+<tr>
+<td>Response is</td>
+<td><code>ESC [ ? 1 ; Ps c</code></td>
+</tr>
+</tbody>
+</table>
+<p>Ps is the "option present" parameter with the following meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Ps</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Base VT100, no options</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Processor options (STP)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Advanced video option (AVO)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>AVO and STP</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Graphics processor option (GPO)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GPO and STP</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GPO and AVO</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GPO, STP, and AVO</td>
+</tr>
+</tbody>
+</table>
+<p>Alternatively invoked by <code>ESC Z</code> (not recommended). Response is the same.</p>
+<p><strong>Reset</strong></p>
+<p>Reset causes the power-up reset routine to be executed.</p>
+<p><code>ESC c</code></p>
+<p><strong>Confidence Tests</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Fill Screen with "Es"</td>
+<td><code>ESC # 8</code></td>
+</tr>
+<tr>
+<td>Invoke Test(s)</td>
+<td><code>ESC [ 2 ; Ps y</code></td>
+</tr>
+</tbody>
+</table>
+<p>Ps is the parameter indicating the test to be done and is a decimal number computed
+by taking the "weight" indicated for each desired test and adding them
+together.</p>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power-up self test (ROM checksum, RAM, NVR, keyboard and AVO if installed)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data Loop Back</td>
+<td>2 (loop back connector required)</td>
+</tr>
+<tr>
+<td>EIA modem control test</td>
+<td>4 (loop back connector required)</td>
+</tr>
+<tr>
+<td>Repeat selected test(s) indefinitely (until failure or power off)</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="S3.3.6.2">VT52 Compatible Mode</h4>
+<p>The following is a summary of the VT100 control sequences.</p>
+<table>
+<tbody>
+<tr>
+<td>Cursor Up</td>
+<td><code>ESC A</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Cursor Down</td>
+<td><code>ESC B</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Cursor Right</td>
+<td><code>ESC C</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Cursor Left</td>
+<td><code>ESC D</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Select Special Graphics character set</td>
+<td><code>ESC F</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Select ASCII character set</td>
+<td><code>ESC G</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Cursor to home</td>
+<td><code>ESC H</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Reverse line feed</td>
+<td><code>ESC I</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Erase to end of screen</td>
+<td><code>ESC J</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Erase to end of line</td>
+<td><code>ESC K</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Direct cursor address</td>
+<td><code>ESC Y l c</code></td>
+<td>(see note 1)</td>
+</tr>
+<tr>
+<td>Identify</td>
+<td><code>ESC Z</code></td>
+<td>(see note 2)</td>
+</tr>
+<tr>
+<td>Enter alternate keypad mode</td>
+<td><code>ESC =</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Exit alternate keypad mode</td>
+<td><code>ESC &gt;</code></td>
+<td> </td>
+</tr>
+<tr>
+<td>Enter ANSI mode</td>
+<td><code>ESC &lt;</code></td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td>NOTE 1: </td>
+<td>Line and column numbers for direct cursor address are single character
+codes whose values are the desired number plus 37<sub>8</sub>. Line and column
+numbers start at 1.</td>
+</tr>
+<tr>
+<td>NOTE 2: </td>
+<td>Response to <code>ESC Z</code> is <code>ESC / Z</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<footer>
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</footer>
+<script src="/assets/braces.js" defer="defer"/>
+</body>
+</html>

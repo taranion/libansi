@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "Playfair";
+    font-style: normal;
+    font-weight: normal;
+    font-variant-caps: small-caps;
+    src: url('/assets/PlayfairDisplay-Regular.ttf') format('opentype');
+}
+
+body { color: #000; background: #fff none }
+h1 { font-family: Playfair, sans; font-size: 240%; font-weight: normal; color: #066 }
+
+.draft { border: thin solid black; padding: 1em; margin: 0 4em }
+.example { margin-left: 3em }
+h2 { color: #066; font-weight: normal; border-bottom: thin solid #066 }
+ul { }
+ol.footnotes { padding-left: 2em; margin-left: 0 }
+.hilite { background: #ff9 }
+.ellipsis { color: #999 }
+dt { font-weight: bolder }
+ol { margin-bottom: 1em }
+th { text-align: left }
+img.charimage { height: 0.7em }
+table.major td, table.major th { padding-right: 2em }
+div#FIGURE { text-align: center }
+blockquote pre { line-height: 120% }
+footer { border-top: 1px solid black }
+thead tr { vertical-align: bottom }
+tbody tr { vertical-align: top }
+.tt { font-family: monospace }
+
+/* ANSI X3.64 extracts, approximating typography of original, but avoiding PRE, for mobile */
+.xstd { font-family: monospace; max-width: 30em  }
+.xstd li { list-style-type: "- " }
+
+@media (prefers-color-scheme: dark) {
+    h1 { font-family: Playfair, sans; font-size: 240%; font-weight: normal; color: #0cc }
+    h2 { color: #0cc; font-weight: normal; border-bottom: thin solid #0cc }
+}
+

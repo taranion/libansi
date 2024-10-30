@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>DECCIR—Cursor Information Report (Terminal to Host)</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="DECCARA.html">DECCARA</a><a href="contents.html">Contents</a><a href="DECCKD.html">DECCKD</a></nav>
+</header>
+<div class="main"><h2 id="NDECCIR">DECCIR—Cursor Information Report (Terminal to Host)</h2>
+<p>The terminal sends this sequence in response to a request presentation state
+report (DECRQPSR) sequence, <span class="litr">CSI 1 $ w</span>. DECCIR reports the status of the
+cursor position, including visual attributes and character protection attributes.
+DECCIR also reports the status of origin mode (DECOM) and the current active
+character sets.</p>
+<h3>Format</h3>
+<table class="ctrlseq">
+<tbody>
+<tr>
+<td><span class="lit">DCS</span><br/>9/0</td>
+<td><span class="lit">1</span><br/>3/1</td>
+<td><span class="lit">$</span><br/>2/4</td>
+<td><span class="lit">u</span><br/>7/5</td>
+<td><span class="lit">D ... D</span><br/>D ... D</td>
+<td><span class="lit">ST</span><br/>9/12</td>
+</tr>
+</tbody>
+</table>
+<h3>Description</h3>
+<p>DECCIR reports all the character sets if they are assigned to one of the G0,
+G1, G2, or G3 sets. Refer to SCS—Select Character Set for all character set
+designators.</p>
+<h3>Parameters</h3>
+<p><b class="parahead">D...D</b><br/>
+is the data string containing the cursor information. The format for this data
+string is as follows:</p>
+<p><var>Pr; Pc; Pp; Srend; Satt; Sflag; Pgl; Pgr; Scss; Sdesig</var></p>
+<p><b class="parahead">Pr</b><br/>
+is the number of the line the cursor is on.</p>
+<p><b class="parahead">Pc</b><br/>
+is the number of the column the cursor is at.</p>
+<p><b class="parahead">Pp</b><br/>
+is the number of the current page.</p>
+<p><b class="parahead">Srend</b><br/>
+is one or more characters indicating the visual attributes, such as bold or
+blinking, currently in use for writing. To find out what attributes are set, you
+must convert the character to an 8-bit binary number. The bits are used as
+follows.</p>
+<table class="truled">
+
+
+
+
+
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th colspan="3">Bit Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>–</td>
+<td colspan="3">Always 0 (off).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>–</td>
+<td colspan="3">Always 1 (on).</td>
+</tr>
+<tr>
+<td rowspan="2">6</td>
+<td rowspan="2">Extension
+indicator</td>
+<td>1</td>
+<td>=</td>
+<td>another character (byte) of visual
+attribute data follows this one.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>no more attribute data.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>–</td>
+<td colspan="3">Always 0 (off).</td>
+</tr>
+<tr>
+<td rowspan="2">4</td>
+<td rowspan="2">Reverse video</td>
+<td>0</td>
+<td>=</td>
+<td>off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>on.</td>
+</tr>
+<tr>
+<td rowspan="2">3</td>
+<td rowspan="2">Blinking</td>
+<td>0</td>
+<td>=</td>
+<td>off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>on.</td>
+</tr>
+<tr>
+<td rowspan="2">2</td>
+<td rowspan="2">Underline</td>
+<td>0</td>
+<td>=</td>
+<td>off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>on.</td>
+</tr>
+<tr>
+<td rowspan="2">1</td>
+<td rowspan="2">Bold</td>
+<td>0</td>
+<td>=</td>
+<td>off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>on.</td>
+</tr>
+<tr>
+<td colspan="5"><em>Example</em><br/>
+If the bold and underline attributes are currently set for writing, <var>Srend</var> is the
+ASCII uppercase C character (01000011<sub>2</sub>).</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Satt</b><br/>
+is one or more characters indicating any selective erase attributes currently set
+for writing.</p>
+<p>To find what attributes are set, you must convert each character to an 8-bit
+binary number. Use the following table to find the meaning of the 8-bit binary
+number:</p>
+<table class="truled">
+
+
+
+
+
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th colspan="3">Bit Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>–</td>
+<td colspan="3">Always 0 (off).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>–</td>
+<td colspan="3">Always 1 (on).</td>
+</tr>
+<tr>
+<td rowspan="2">6</td>
+<td rowspan="2">Extension
+indicator</td>
+<td>1</td>
+<td>=</td>
+<td>another character (byte) of selective erase
+data follows this one.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>no more protection data.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td rowspan="2">1</td>
+<td rowspan="2">Selective erase
+(DECSCA)</td>
+<td>0</td>
+<td>=</td>
+<td>off.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>on.</td>
+</tr>
+<tr>
+<td colspan="5"><em>Example</em><br/>
+If the selective erase protection attribute is currently set for writing, then <var>Satt</var> is
+the ASCII uppercase A character (01000001<sub>2</sub>).</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Sflag</b><br/>
+is one or more characters that indicate several flags and modes the terminal must
+save.</p>
+<p>To see the current state of the flags and modes, you must convert each character
+to an 8-bit binary number. Use the following table to find the meaning of the
+8-bit binary number:</p>
+<table class="truled">
+
+
+
+
+
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th colspan="3">Bit Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>–</td>
+<td colspan="3">Always 0 (off).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>–</td>
+<td colspan="3">Always 1 (on).</td>
+</tr>
+<tr>
+<td rowspan="2">6</td>
+<td rowspan="2">Extension
+indicator</td>
+<td>1</td>
+<td>=</td>
+<td>another character (byte) of flag data follows
+this one.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>no more flag data.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td rowspan="2">4</td>
+<td rowspan="2">Autowrap</td>
+<td>1</td>
+<td>=</td>
+<td>autowrap pending.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>autowrap not pending.</td>
+</tr>
+<tr>
+<td rowspan="2">3</td>
+<td rowspan="2">Single shift 3
+(SS3) setting</td>
+<td>1</td>
+<td>=</td>
+<td>G3 is mapped into GL for the next typed
+character only.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>single shift 3 is off.</td>
+</tr>
+<tr>
+<td rowspan="2">2</td>
+<td rowspan="2">Single shift 2
+(SS2) setting</td>
+<td>1</td>
+<td>=</td>
+<td>G2 is mapped into GL for the next typed
+character only.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>single shift 2 is off.</td>
+</tr>
+<tr>
+<td rowspan="2">1</td>
+<td rowspan="2">Origin mode</td>
+<td>1</td>
+<td>=</td>
+<td>origin mode set.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>origin mode reset.</td>
+</tr>
+<tr>
+<td colspan="5"><em>Example</em><br/>
+If origin mode is set, autowrap is pending, and a single shift 3 has been received,
+then <var>Sflag</var> is the ASCII uppercase M character (01001101<sub>2</sub>).</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Pgl</b><br/>
+indicates the number of the logical character set (G0 through G3) mapped into
+GL.</p>
+<table>
+<tbody>
+<tr>
+<td>0 = G0 is in GL.</td>
+<td>2 = G2 is in GL.</td>
+</tr>
+<tr>
+<td>1 = G1 is in GL.</td>
+<td>3 = G3 is in GL.</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Pgr</b><br/>
+indicates the number of the logical character set (G0 through G3) mapped into
+GR.</p>
+<table>
+<tbody>
+<tr>
+<td>0 = G0 is in GR.</td>
+<td>2 = G2 is in GR.</td>
+</tr>
+<tr>
+<td>1 = G1 is in GR.</td>
+<td>3 = G3 is in GR.</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Scss</b><br/>
+is a character indicating the size of the character sets in G0 through G3.</p>
+<p>To find out what the character means, you must convert it to an 8-bit binary
+number. Use the following table to find the meaning of the 8-bit binary number:</p>
+<table class="truled">
+
+
+
+
+
+<thead>
+<tr>
+<th>Bit</th>
+<th>Attribute</th>
+<th colspan="3">Bit Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>–</td>
+<td colspan="3">Always 0 (off).</td>
+</tr>
+<tr>
+<td>7</td>
+<td>–</td>
+<td colspan="3">Always 1 (on).</td>
+</tr>
+<tr>
+<td rowspan="2">6</td>
+<td rowspan="2">Extension
+indicator</td>
+<td>1</td>
+<td>=</td>
+<td>another character (byte) of character size
+data follows this one.</td>
+</tr>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>no more size data.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>–</td>
+<td>0</td>
+<td></td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td rowspan="2">4</td>
+<td rowspan="2">G3 set size</td>
+<td>0</td>
+<td>=</td>
+<td>94 characters.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>96 characters.</td>
+</tr>
+<tr>
+<td rowspan="2">3</td>
+<td rowspan="2">G2 set size</td>
+<td>0</td>
+<td>=</td>
+<td>94 characters.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>96 characters.</td>
+</tr>
+<tr>
+<td rowspan="2">2</td>
+<td rowspan="2">G1 set size</td>
+<td>0</td>
+<td>=</td>
+<td>94 characters.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>96 characters.</td>
+</tr>
+<tr>
+<td rowspan="2">1</td>
+<td rowspan="2">G0 set size</td>
+<td>0</td>
+<td>=</td>
+<td>94 characters.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>96 characters.</td>
+</tr>
+<tr>
+<td colspan="5"><em>Example</em><br/>
+Suppose the following conditions exist:
+<ul>
+<li>The ISO Latin-1 supplemental set is designated as G2 and G3.</li>
+<li>The ASCII set is designated as G0 and G1.</li>
+<li>Single shift 2 (SS2) is set.</li>
+</ul>
+<p>Then Scss is the ASCII backslash \ character (01011100<sub>2</sub>).</p></td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Sdesig</b><br/>
+is a string of intermediate and final characters indicating the character sets
+designated as G0 through G3. These final characters are the same as those used
+in select character set (SCS) sequences.</p>
+<p><em>Example</em></p>
+<p>Suppose the ASCII character set is designated as G0, DEC Special Graphic as
+G1, and DEC Supplemental Graphic as G2 and G3. The <var>Sdesig</var> string would be
+<span class="litr">B0%5%5</span>. Each character corresponds to a final character in an SCS sequence, as
+follows:</p>
+<table>
+<tbody>
+<tr>
+<td>G0</td>
+<td>G1</td>
+<td>G2</td>
+<td>G3</td>
+</tr>
+<tr>
+<td><span class="litr">B</span></td>
+<td><span class="litr">0</span></td>
+<td><span class="litr">%5</span></td>
+<td><span class="litr">%5</span></td>
+</tr>
+<tr>
+<td>ASCII set</td>
+<td>DEC Special Graphic</td>
+<td>DEC Supplemental Graphic</td>
+<td>DEC Supplemental Graphic</td>
+</tr>
+</tbody>
+</table>
+<h3>Example</h3>
+<p>The following is an example of a cursor information report:</p>
+<p><code>DCS 1 $ u 1; 1; 1; @; @; @; 0; 2; @; BB%5%5 ST</code></p>
+<p><span class="litr">1; 1; 1;</span> indicates that the cursor is at row 1, column 1, on the first page.</p>
+<p><span class="litr">@; @; @;</span> indicates that (1) no visual character attributes or selective erase
+attributes are set for writing, (2) DECOM is reset, and (3) there is no SS2, SS3,
+or autowrap pending.</p>
+<p><span class="litr">0; 2;</span> indicates that G0 is mapped into GL, and G2 is in GR.</p>
+<p><span class="litr">@;</span> indicates that all character sets have 94 characters.</p>
+<p><span class="litr">BB%5%5</span> indicates that ASCII is in G0 and G1, and DEC Supplemental Graphic
+is in G2 and G3.</p>
+<h3>Notes on DECCIR</h3>
+<ul>
+<li>The cursor information in a DECCIR sequence is the same information saved
+through a save cursor (DECSC) command.</li>
+</ul></div>
+<footer>
+<nav class="sections"><a href="DECCARA.html">DECCARA</a><a href="contents.html">Contents</a><a href="DECCKD.html">DECCKD</a></nav>
+</footer>
+</body>
+</html>

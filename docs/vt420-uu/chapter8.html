@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter7.html">Chapter 7</a><a href="contents.html">Contents</a><a href="chapter9.html">Chapter 9</a></nav>
+</header>
+<h1 id="S8"><span class="chapnum">8</span><br/>Printers and Modems</h1>
+<p>You can connect a printer directly to your VT420. This chapter describes
+the Printer Set-Up screen and the types of printer you can use. The
+chapter also describes how to use a modem with the terminal.</p>
+<h2 id="S8.1">Printers</h2>
+<p>The VT420 has a built-in serial printer interface that supports many
+draft, letter-quality, and laser printers, as well as plotters. Here are some
+of the Digital printers and plotters you can use with your terminal:</p>
+<table>
+<thead>
+<tr>
+<th colspan="2">LA Series</th>
+<th>Letter-Quality</th>
+<th>Laser</th>
+<th>Plotter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LA12</td>
+<td>LA38</td>
+<td>LQP02</td>
+<td>LN01</td>
+<td>LJ250</td>
+</tr>
+<tr>
+<td>LA34</td>
+<td>LA50</td>
+<td>LQP03</td>
+<td>LN03</td>
+<td>LJ251</td>
+</tr>
+<tr>
+<td>LA35</td>
+<td>LA75</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LA36</td>
+<td>LA100/LA210</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S8.2">Connecting a Printer</h2>
+<p>The VT420 uses the Comm2 port to connect a printer.</p>
+<ol>
+<li>Connect a DEC-423 cable from the printer to the 6-pin Comm2
+connector.</li>
+<li><p>Make sure the installation is correct. Check the appropriate cabling
+section in <a href="chapter2.html">Chapter 2</a>.</p>
+<p>One session (one cable) and a printer<br/>
+Two sessions with SSU software (one cable) and a printer.</p></li>
+</ol>
+<p class="note">NOTE: You cannot connect a printer to the Comm2 port if the VT420 is
+set up for two sessions using two cables.</p>
+<h2 id="S8.3">Selecting a Print Mode</h2>
+<p>The VT420 lets you select from three different print modes, using the
+<strong>print mode</strong> feature in the Printer Set-Up screen (<a href="chapter5.html">Chapter 5</a>):</p>
+<ul>
+<li>Normal mode <strong>(default)</strong></li>
+<li>Auto print mode</li>
+<li>Controller mode</li>
+</ul>
+<p>The status line (<a href="chapter4.html">Chapter 4</a>) displays the current print mode setting.</p>
+<h3 id="S8.3.1">Normal Mode: Printing Pages of Text</h3>
+<p>This mode lets you print displayed text by using the <span class="keyname">F2</span> (Print) key. <dfn><a href="glossary.html#PAGE">Page</a></dfn>
+refers to the current page in the terminal's page memory. This page may
+be larger than the screen. The size of the page depends on two other
+set-up features.</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Set-Up Screen</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Page arrangement</td>
+<td>Display Set-Up</td>
+<td>Selects the page size. By default the page size is 24 lines, which matches the default screen size.</td>
+</tr>
+<tr>
+<td>Printer extent</td>
+<td>Printer Set-Up</td>
+<td>Lets you print a page or the <dfn><a href="glossary.html#SCROLLINGREGION">scrolling region</a></dfn>. The
+scrolling region is the area within the scrolling margins.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S8.3.2">Auto Print Mode: Printing Text from the Host System</h3>
+<p>In this mode, the VT420 sends the current display line to the printer
+when the cursor moves to the next line after a line feed, form feed,
+vertical tab, or autowrap. Auto print mode lets you print each line as it is
+received from the host.</p>
+<p>While selected, <code class="screen">Auto Print Mode</code> appears on the status line. You can still
+perform printing functions with the <span class="keyname">F2</span> (Print) key in auto print mode.</p>
+<p>You can also turn auto print mode on and off by pressing <span class="keyname">Ctrl</span> <span class="keyname">F2</span> (Print).
+When you leave auto print mode, you return to normal print mode.</p>
+<h3 id="S8.3.3">Printer Controller Mode: Letting the Host Control Printing</h3>
+<p>In this mode, the host system can send text directly to the printer, without
+displaying the text on the terminal's screen.</p>
+<p>While selected, <code class="screen">Printer: Controller</code> appears on the status line.</p>
+<p>You cannot use the <span class="keyname">F2</span> (Print) key in printer controller mode.</p>
+<h3 id="S8.3.4">Local Controller Mode: Setting Up the Printer</h3>
+<p>This mode lets you send information directly from the keyboard to the
+printer, without displaying the information on the screen. You may find
+this feature useful in setting up certain printers for operation, without
+involving the host system. To select local controller mode, you must set
+two different set-up features (<a href="chapter5.html">Chapter 5</a>).</p>
+<ol>
+<li>Set the <strong>on-line/local</strong> feature in the Global Set-Up screen to <code class="screen">Local</code>.</li>
+<li>Set the <strong>print mode</strong> feature in the Printer Set-Up screen to <code class="screen">Controller Mode</code>.</li>
+</ol>
+<h2 id="S8.4">Assigning a Printer in Two Sessions</h2>
+<p>The VT420 lets you assign a printer exclusively to one session or share
+the printer with both sessions. To assign the printer, you use the <strong>printer
+assignment</strong> feature in the Global Set-Up screen. There are three possible
+settings:</p>
+<ul>
+<li>Printer shared <strong>(default)</strong></li>
+<li>Printer session 1</li>
+<li>Printer session 2</li>
+</ul>
+<p class="note">NOTE: The printer assignment feature is not enabled if the printer port is
+assigned as a normal communication port for one of the sessions
+(in the Global Set-Up screen).</p>
+<h2 id="S8.5">Printer Set-Up Screen</h2>
+<p>This screen lets you select features to match those of your printer.
+<a href="#T8-1">Table 8-1</a> describes the features on the Printer Set-Up screen.</p>
+<p><strong>Notes About Printing</strong></p>
+<ul>
+<li>If you enter set-up while printing, the VT420 temporarily suspends
+print operations. When you leave set-up, the printer resumes print
+operations.</li>
+<li>For two sessions: the VT420 can save only one version of printer
+communication set-up features (<strong>printer to host comm</strong>, <strong>print speed</strong>,
+<strong>flow control</strong>, <strong>character format</strong>, and <strong>stop bits</strong>), because both
+sessions share one printer line.</li>
+<li>Make sure the <strong>printer assignment</strong> feature on the Global Set-Up
+screen (<a href="chapter5.html">Chapter 5</a>) is set to <code class="screen">Printer Shared</code> or to the session number
+you want to print from (1 or 2).</li>
+</ul>
+<p class="note">NOTE: The Printer Set-Up screen only appears if the terminal comm
+ports feature on the Global Set-Up screen is set to <code class="screen">Sessions on
+Comm1</code> or <code class="screen">S1=Comm1</code>.</p>
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_1176_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="T8-1" class="truled">
+<caption>Table 8-1 Printer Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transmit speed/ receive speed
+<ul class="settings">
+<li><strong>Speed=4800</strong></li>
+</ul></td>
+<td>Selects the baud rate the VT420 uses to send data to a printer. The baud rates range from 300 to
+38,400 bits per second.</td>
+</tr>
+<tr>
+<td>Printer to host comm</td>
+<td>Selects whether or not the printer can send data to the host system.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>No Printer to Host</strong></li>
+</ul></td>
+<td>Data can only move from host to printer.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Printer to Host</li>
+</ul></td>
+<td>Data can move from host to printer and from printer to host.</td>
+</tr>
+<tr>
+<td>Print mode</td>
+<td>Determines when and how printing takes place.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Normal Print Mode</strong></li>
+</ul></td>
+<td>Lets you start print functions from the keyboard.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Auto Print Mode</li>
+</ul></td>
+<td>Prints the current line of text when the VT420
+receives a line feed, form feed, or vertical tab from
+the host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Controller Mode</li>
+</ul></td>
+<td>Lets the host send data directly to the printer
+without displaying the data on the screen.</td>
+</tr>
+<tr>
+<td>XOFF<ul class="settings">
+<li><strong>XOFF</strong></li>
+<li>No XOFF</li>
+</ul></td>
+<td>Selects whether or not to use XON/XOFF flow control with the printer.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: XON/XOFF flow control operates independently between the terminal and
+printer, and between the terminal and host.</p></td>
+</tr>
+<tr>
+<td>Data bits/parity<ul class="settings">
+<li><strong>8 Bits, No Parity</strong></li>
+</ul></td>
+<td>Selects a character format to match the printer's.
+You can select 7 bits (no, even, oldd, mark, or space
+parity) or 8 bits (no, even, or odd parity).</td>
+</tr>
+<tr>
+<td>Stop bits<ul class="settings">
+<li><strong>1 Stop Bit</strong></li>
+<li>2 Stop Bits</li>
+</ul></td>
+<td>Selects the number of stop bits (one or two) used by
+the printer port UART.</td>
+</tr>
+<tr>
+<td>Print Extent<ul class="settings">
+<li><strong>Print Full Page</strong></li>
+<li>Print Scroll Region</li>
+</ul></td>
+<td>Selects how much of the screen to print when you press the <span class="keyname">F2</span> (Print) key.</td>
+</tr>
+<tr>
+<td>Printed data type</td>
+<td>Lets you restrict the character sets used for
+printing, so they match the capabilities of the attached printer.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Print National Only</strong></li>
+</ul></td>
+<td>Use with a printer that supports the ASCII set (in
+8-bit multinational mode) or the current national
+set (in 7-bit national mode). <strong>Examples:</strong> LA34,
+LA36, and LA120 printers.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>National and Line Drawing</li>
+</ul></td>
+<td>Use with a printer that supports the VT100
+line drawing set and (1) the ASCII set (in 8-bit
+multinational mode), or (2) the current national set
+(in 7-bit national mode). <strong>Example:</strong> LA50.</td>
+</tr>
+<tr>
+<td>Print Terminator<ul class="settings">
+<li><strong>No Terminator</strong></li>
+<li>Terminator = FF</li>
+</ul></td>
+<td>Selects whether or not the VT420 sends a form feed
+(FF) at the end of a print operation.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S8.6">Modems</h2>
+<p>You need a modem if you want to connect your VT420 to a computer
+system through a telephone line. The modem converts the serial
+characters sent between the terminal and computer into signals that
+can travel over telephone lines.</p>
+<p>The VT420 can operate with full-duplex, asynchronous modems that meet
+the following national and international standards. The modem you use
+with your VT420 must be compatible with the modem used by the host
+system:</p>
+<ul>
+<li>EIA 232-D</li>
+<li>CCITT V.24</li>
+<li>CCITT V.28</li>
+<li>CCITT V.10</li>
+<li>ISO 2110.2</li>
+</ul>
+<h3 id="S8.6.1">Connecting to a Modem</h3>
+<p>You can use Digital's DF124, DF212, DF224, and DF242 modems with the
+VT420. You can also use compatible modems and acoustic couplers, such
+as the AT&amp;T's 103, 113, and 212 types. See <a href="appendixb.html">Appendix B</a> for information
+on ordering modems.</p>
+<p>To connect one of these standard modems to the VT420:</p>
+<ol>
+<li>Connect the modem cable to the 25-pin RS-232 connector on the rear of
+the terminal, or use a cable and adapter.</li>
+<li>Go to the Communications Set-Up screen (<a href="chapter5.html">Chapter 5</a>).</li>
+<li><p>Set the <strong>modem control</strong> feature to the appropriate setting:</p>
+<table>
+<tbody>
+<tr>
+<td>Modem Control</td>
+<td>If you plan to use modem features that require
+additional signals beyond data leads only. Examples:
+call origination and dialling from the keyboard, automatic
+speed select, and disconnect on loss of carrier or when
+<span class="keyname">Shift</span> <span class="keyname">F5</span> (Break) is pressed.</td>
+</tr>
+<tr>
+<td>Data Leads Only</td>
+<td>If you do not plan to use modem control features or your
+modem (or modem cable) is not configured for modem
+control.</td>
+</tr>
+</tbody>
+</table></li>
+<li>While in the Communications Set-Up screen, set the <strong>transmit speed</strong>
+and <strong>receive speed</strong> features to match your modem's settings.</li>
+</ol>
+<footer>
+<nav class="sections"><a href="chapter7.html">Chapter 7</a><a href="contents.html">Contents</a><a href="chapter9.html">Chapter 9</a></nav>
+</footer>
+</body>
+</html>

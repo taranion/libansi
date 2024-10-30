@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Private Device Control Sequences used by DEC</title>
+<link rel="stylesheet" href="../terminal.css"/>
+<style>
+table { border-collapse: collapse; margin: 2em 0 }
+thead tr { vertical-align: bottom }
+tbody tr { vertical-align: top }
+th, td { text-align: left; padding: 0.5em }
+.sequence td { width: 25% }
+.codetable td { border: thin solid #ccc }
+.codetable caption { font-size: larger; font-weight: bolder; text-align: left }
+</style>
+</head>
+<body>
+<header>
+<nav class="breadcrumbs">
+<ol>
+<li><a href="../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a></li>
+<li><a href="./">Emulation</a></li>
+</ol>
+</nav>
+</header>
+
+<h1>Private Device Control Sequences used by DEC</h1>
+<p class="caveat">This page is just a rough extract from the
+<a href="decronomicon">DECronomicon</a>. No DCS sequences are
+defined by ECMA-48.</p>
+
+<h3>No intermediate byte</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>decREGIS</td>
+<td><strong>ReGIS graphics</strong><br/>
+<small>Present on LCG01, VK100, VT125, VT240, VT330</small><br/>
+<!--
+<small>EB-28761-56 p.E125; EK-0GIGI-RC-001 p.6; EK-0GIGI-RC-001 p.7; EK-VT125-UG-002 p.73; EK-VT240-RM-002 p.105; EK-VT3XX-GP-002 p.13</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>decSIXEL</td>
+<td><strong>Sixel graphics</strong><br/>
+<small>Present on LA100, LA210, LA34, LA50, LA75, LCG01, LJ250, LN03, VK100, VT125, VT240, VT330, VT382, VT382-T</small><br/>
+<!--
+<small>EB-28761-56 p.E11; EK-LA100-RM-001 p.43; EK-LA210-TM-001 p.4-21; EB-28761-56 p.E50; EK-LA34S-TM-001 p.C-8; EK-0LA50-RM-002 p.44; EB-28761-56 p.E84; EK-0LA75-RM-002 p.116; EB-28761-56 p.E140; EB-28761-56 p.E125; EK-LJ250-RM-002 p.6-2; EK-0LN03-RM-002 §6.2, p.127; EK-0GIGI-RC-001 p.7; EK-VT125-UG-002 p.74; EK-VT240-RM-002 p.107; EK-VT3XX-GP-002 p.232; EK-VT382-RM-001 p.12-2; EK-VT38T-UG-001 p.C-49</small>
+-->
+</td>
+</tr>
+<tr>
+<td rowspan="2">07/02 (r)</td>
+<td>decVKSET</td>
+<td><strong>GIGI set-up data</strong><br/>
+<small>Present on VK100</small><br/>
+<!--
+<small>EK-0GIGI-RC-001 p.7</small>
+-->
+</td>
+</tr>
+<tr>
+<td>DECLBAN</td>
+<td><strong>Load Banner Message</strong><br/>Loads the banner message to be displayed on the terminal screen at power up<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-68; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-69; EK-VT520-RM.A01 p.5-69; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-69</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>decVKPK</td>
+<td><strong>GIGI program keys</strong><br/>
+<small>Present on VK100</small><br/>
+<!--
+<small>EK-0GIGI-RC-001 p.7</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>decVT105G</td>
+<td><strong>Emulate VT105 graphics</strong><br/>
+<small>Present on VT125</small><br/>
+<!--
+<small>EK-VT125-UG-002 p.75</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>decPPTL</td>
+<td><strong>Printwheel Parameter Table Load</strong><br/>
+<small>Present on LQP02</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.178</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td>DECLANS</td>
+<td><strong>Load Answerback Message</strong><br/>
+<small>Present on LA100, LA210, LCG01, VT510, VT520, VT525</small><br/>
+<!--
+<small>EB-28761-56 p.E11; EK-LA100-RM-001 p.52; EK-LA210-TM-001 p.4-21; EB-28761-56 p.E50; EB-28761-56 p.E125; EK-VT510-RM.B01 p.5-67; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-68; EK-VT520-RM.A01 p.5-68; EK-VT520-RM.A01 p.4-38; EK-VT520-RM.A01 p.5-68</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECLFF</td>
+<td><strong>Load Font File</strong><br/>
+<small>Present on LN01, LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.178; EK-0LN03-RM-002 §4.4.1, p.57; EK-0LN03-RM-002 p.167; EK-DECLA-OG-001 p.A-16; EK-DC32P-OP-001 p.A-15</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>decTALK</td>
+<td><strong>DECtalk Commands and Responses</strong><br/>
+<small>Present on DTC01, DTC03</small><br/>
+<!--
+<small>EK-DTC01-RM-003 p.29; EK-DTC03-OM-001 p.46</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECDLD</td>
+<td><strong>Downline Load</strong><br/>Load soft character set<br/>
+<small>Present on LA75, VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-0LA75-RM-002 p.96; EB-28761-56 p.E135; EK-VT220-RM-001 §4.16, p.4-45; EK-VT240-RM-002 p.94; EK-VT320-UU-001 p.91; EK-VT3XX-TP-002 p.90; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.5-19; EK-VT38T-UG-001 p.C-26; EK-VT420-RM.002 p.114; EK-VT510-RM.B01 p.5-38; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.5-39; EK-VT520-RM.A01 p.5-39; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.5-39</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECUDK</td>
+<td><strong>User-Defined Keys</strong><br/>
+<small>Present on VT220, VT240, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT220-RM-001 §4.15, p.4-37; EK-VT240-RM-002 p.90; EK-VT320-UU-001 p.95; EK-VT3XX-TP-002 p.175; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.10-6; EK-VT38T-UG-001 p.C-38; EK-VT420-RM.002 p.202; EK-VT510-RM.B01 p.5-154; EK-VT520-RM.A01 p.4-32; EK-VT520-RM.A01 p.4-32; EK-VT520-RM.A01 p.5-163; EK-VT520-RM.A01 p.5-163; EK-VT520-RM.A01 p.4-32; EK-VT520-RM.A01 p.5-163</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECATFF</td>
+<td><strong>Assign Type Family or Font</strong><br/>
+<small>Present on LN01, LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 p.178; EK-0LN03-RM-002 §4.4.2, p.59; EK-0LN03-RM-002 p.160; EK-DECLA-OG-001 p.A-14; EK-DC32P-OP-001 p.A-13</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECDTFF</td>
+<td><strong>Delete Type Family or Font</strong><br/>
+<small>Present on LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 §4.5, p.61; EK-0LN03-RM-002 p.161; EK-DECLA-OG-001 p.A-15; EK-DC32P-OP-001 p.A-14</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/00 (SP)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/01 (!)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>decGIDIS</td>
+<td><strong>Enter GIDIS mode</strong><br/>General Image Display and Instruction Set. Present on LCP01<br/>
+<small>Present on LCG01, LCP01</small><br/>
+<!--
+<small>EB-28761-56 p.E125</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td>DECAUPSS</td>
+<td><strong>Assign User-Preferred Supplemental Set</strong><br/>
+<small>Present on LA75, LJ250, LN05, LN07, LN08, VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-0LA75-RM-002 p.75; EB-28761-56 p.E131; EK-LJ250-RM-002 p.4-29; EK-DECLA-OG-001 p.A-15; EK-DC32P-OP-001 p.A-14; EK-VT320-UU-001 p.90; EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.80; EK-VT3XX-TP-002 p.231; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.5-10; EK-VT38T-UG-001 p.C-25; EK-VT38T-UG-001 p.C-48; EK-VT420-RM.002 p.100; EK-VT420-RM.002 p.273; EK-VT510-RM.B01 p.5-20; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.5-24; EK-VT520-RM.A01 p.5-24; EK-VT520-RM.A01 p.4-25; EK-VT520-RM.A01 p.4-26; EK-VT520-RM.A01 p.5-24</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECDMAC</td>
+<td><strong>Define Macro</strong><br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.44; EK-VT510-RM.B01 p.5-45; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-45; EK-VT520-RM.A01 p.5-45; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-45</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECSTUI</td>
+<td><strong>Set Terminal Unit ID (Restricted)</strong><br/>Writes the terminal unit ID into the terminal's NVR. The host can read the ID with the tertiary device attribute (DA3)<br/>
+<small>Present on VT420, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.86; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-153; EK-VT520-RM.A01 p.5-153; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-153</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td>DECRPTUI</td>
+<td><strong>Report Terminal Unit Information</strong><br/>(to Host)<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.232; EK-VT510-RM.B01 p.5-13; EK-VT510-RM.B01 p.5-101; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-104; EK-VT520-RM.A01 p.5-104; EK-VT520-RM.A01 p.4-35; EK-VT520-RM.A01 p.5-104</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECCKSR</td>
+<td><strong>Memory Checksum Report</strong><br/>(to Host)<br/>
+<small>Present on VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT420-RM.002 p.240; EK-VT420-RM.002 p.244; EK-VT510-RM.B01 p.5-33; EK-VT510-RM.B01 p.5-167; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-33; EK-VT520-RM.A01 p.5-33; EK-VT520-RM.A01 p.5-177; EK-VT520-RM.A01 p.5-177; EK-VT520-RM.A01 p.4-42; EK-VT520-RM.A01 p.5-33; EK-VT520-RM.A01 p.5-177</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/02 (")</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td>DECPFK</td>
+<td><strong>Program Function Key</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-83; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-84; EK-VT520-RM.A01 p.5-84; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-84</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td>DECPAK</td>
+<td><strong>Program Alphanumeric Key</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-77; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-78; EK-VT520-RM.A01 p.5-78; EK-VT520-RM.A01 p.4-30; EK-VT520-RM.A01 p.5-78</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td>DECCKD</td>
+<td><strong>Copy Key Default</strong><br/>Copies the default states of a key and its key/modifier combination to another key and its key/modifier combination.<br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-31; EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.5-31; EK-VT520-RM.A01 p.5-31; EK-VT520-RM.A01 p.4-27; EK-VT520-RM.A01 p.5-31</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td>DECFSR</td>
+<td><strong>Font Status Report</strong><br/>
+<small>Present on LN03, LN05, LN07, LN08</small><br/>
+<!--
+<small>EK-0LN03-RM-002 §4.6.2, p.63; EK-0LN03-RM-002 p.165; EK-DECLA-OG-001 p.A-23; EK-DC32P-OP-001 p.A-23</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td>DECRPFK</td>
+<td><strong>Report Function Key Definition</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-94; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-96; EK-VT520-RM.A01 p.5-96; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-96</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td>DECRPAK</td>
+<td><strong>Report All Modifiers/Alphanumeric Key State</strong><br/>
+<small>Present on VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT510-RM.B01 p.5-92; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-94; EK-VT520-RM.A01 p.5-94; EK-VT520-RM.A01 p.4-31; EK-VT520-RM.A01 p.5-94</small>
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/03 (#)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/04 ($)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECRSTS</td>
+<td><strong>Restore Terminal State</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.96; EK-VT3XX-TP-002 p.209; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-11; EK-VT38T-UG-001 p.C-43; EK-VT420-RM.002 p.245; EK-VT510-RM.B01 p.5-113; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-117; EK-VT520-RM.A01 p.5-117; EK-VT520-RM.A01 p.5-118; EK-VT520-RM.A01 p.5-118; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-117; EK-VT520-RM.A01 p.5-118</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECRQSS</td>
+<td><strong>Request Control Function Settings</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.226; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-31; EK-VT38T-UG-001 p.C-47; EK-VT420-RM.002 p.267; EK-VT510-RM.B01 p.5-109; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-112; EK-VT520-RM.A01 p.5-112; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-112</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECRPSS</td>
+<td><strong>Report Control Function Settings</strong><br/>(to Host)<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.227; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-32; EK-VT38T-UG-001 p.C-47; EK-VT420-RM.002 p.268; EK-VT510-RM.B01 p.5-99; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-102; EK-VT520-RM.A01 p.5-102; EK-VT520-RM.A01 p.4-43; EK-VT520-RM.A01 p.5-102</small>
+-->
+</td>
+</tr>
+<tr>
+<td rowspan="2">07/03 (s)</td>
+<td>DECTSR</td>
+<td><strong>Terminal State Report</strong><br/>(to Host)<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.96; EK-VT3XX-TP-002 p.207; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-10; EK-VT38T-UG-001 p.C-43; EK-VT420-RM.002 p.245; EK-VT510-RM.B01 p.5-152; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-160; EK-VT520-RM.A01 p.5-160; EK-VT520-RM.A01 p.5-161; EK-VT520-RM.A01 p.5-161; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-160; EK-VT520-RM.A01 p.5-161</small>
+-->
+</td>
+</tr>
+<tr>
+<td>DECCTR</td>
+<td><strong>Color Table Report</strong><br/>(to Host)<br/>
+<small>Present on VT330, VT520, VT525</small><br/>
+<!--
+<small>EK-VT3XX-TP-002 p.208; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-114; EK-VT520-RM.A01 p.5-114; EK-VT520-RM.A01 p.4-18; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-114</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECRSPS</td>
+<td><strong>Restore Presentation State</strong><br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.217; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-20; EK-VT38T-UG-001 p.C-44; EK-VT420-RM.002 p.255; EK-VT510-RM.B01 p.5-112; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-116; EK-VT520-RM.A01 p.5-116; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-116</small>
+-->
+</td>
+</tr>
+<tr>
+<td rowspan="2">07/05 (u)</td>
+<td>DECCIR</td>
+<td><strong>Cursor Information Report</strong><br/>(to Host)<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.211; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-12; EK-VT38T-UG-001 p.C-44; EK-VT420-RM.002 p.248; EK-VT510-RM.B01 p.5-26; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-30; EK-VT520-RM.A01 p.5-30; EK-VT520-RM.A01 p.4-21; EK-VT520-RM.A01 p.5-30</small>
+-->
+</td>
+</tr>
+<tr>
+<td>DECTABSR</td>
+<td><strong>Tab Stop Report</strong><br/>(to Host)<br/>
+<small>Present on VT320, VT330, VT382, VT382-T, VT420, VT510, VT520, VT525</small><br/>
+<!--
+<small>EK-VT320-UU-001 p.97; EK-VT3XX-TP-002 p.216; EK-VT382-RM-001 p.4-2; EK-VT382-RM-001 p.11-12; EK-VT38T-UG-001 p.C-44; EK-VT420-RM.002 p.254; EK-VT510-RM.B01 p.5-149; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-157; EK-VT520-RM.A01 p.5-157; EK-VT520-RM.A01 p.4-44; EK-VT520-RM.A01 p.5-157</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECLBD</td>
+<td><strong>Locator Button Definition</strong><br/>
+<small>Present on VT330</small><br/>
+<!--
+<small>EK-VT3XX-GP-002 p.249</small>
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/05 (%)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/06 (&amp;)</h3>
+
+<table class="codetable">
+<thead>
+<tr>
+<th>Final Byte</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<td>07/00 (p)</td>
+<td>DECLFM</td>
+<td><strong>Loading Forms Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/01 (q)</td>
+<td>DECDFM</td>
+<td><strong>Delete Forms Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/02 (r)</td>
+<td>DECIFM</td>
+<td><strong>Start Forms Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/03 (s)</td>
+<td>DECRFMS</td>
+<td><strong>Form Status Report</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/04 (t)</td>
+<td>DECLLG</td>
+<td><strong>Loading Logos Sequence</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/05 (u)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/06 (v)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/07 (w)</td>
+<td>DECLGSR</td>
+<td><strong>Logo Status Report</strong><br/>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/08 (x)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/09 (y)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/10 (z)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/11 ({)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/12 (|)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/13 (})</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+<tr>
+<td>07/14 (~)</td>
+<td></td>
+<td>
+
+<!--
+
+-->
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Intermediate byte 02/07 (')</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/08 (()</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/09 ())</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/10 (*)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/11 (+)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/12 (,)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/13 (-)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/14 (.)</h3>
+
+<p>No assigned functions.</p>
+
+<h3>Intermediate byte 02/15 (/)</h3>
+
+<p>No assigned functions.</p>
+
+
+
+<h2>Sources</h2>
+<p>At least one reference to a Digital document is given for each
+entry. The following documents were used to compile these
+tables:</p>
+<ul>
+<li><a href="https://vt100.net/manx/details/1,22226">EB-28761-56</a>, <cite>Terminals &amp; Printers Handbook 1987</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0gigi-rc/">EK-0GIGI-RC</a>, <cite>GIGI Programming Reference Card</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0la50-rm/">EK-0LA50-RM</a>, <cite>LA50 Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0la75-rm/">EK-0LA75-RM</a>, <cite>LA75 Companion Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-0ln03-rm/">EK-0LN03-RM</a>, <cite>LN03 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dc32p-op/">EK-DC32P-OP</a>, <cite>DEClaser 3200 Printer Operator's Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-decla-og/">EK-DECLA-OG</a>, <cite>DEClaser 2100 plus Printer Operator's Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dtc01-rm/">EK-DTC01-RM</a>, <cite>DECtalk DTC01 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-dtc03-om/">EK-DTC03-OM</a>, <cite>DECtalk DTC03 Text-to-Speech System Owner's Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la100-rm/">EK-LA100-RM</a>, <cite>LA100-Series Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la210-tm/">EK-LA210-TM</a>, <cite>LA210 Technical Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-la34s-tm/">EK-LA34S-TM</a>, <cite>DECwriter IV Series Technical Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-lj250-rm/">EK-LJ250-RM</a>, <cite>LJ250/LJ252 Companion Color Printer Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt125-ug/">EK-VT125-UG</a>, <cite>VT125 Graphics Terminal User Guide</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt220-rm/">EK-VT220-RM</a>, <cite>VT220 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt240-rm/">EK-VT240-RM</a>, <cite>VT240 Series Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt320-uu/">EK-VT320-UU</a>, <cite>Installing and Using the VT320 Video Terminal (Worldwide Model)</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt382-rm/">EK-VT382-RM</a>, <cite>VT382 Kanji Display Terminal Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt38t-ug/">EK-VT38T-UG</a>, <cite>VT382 Thai Display Terminal Installing and Using Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt3xx-gp/">EK-VT3XX-GP</a>, <cite>VT330/VT340 Programmer Reference Manual, Volume 2: Graphics Programming</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt3xx-tp/">EK-VT3XX-TP</a>, <cite>VT330/VT340 Programmer Reference Manual, Volume 1: Text Programming</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt420-rm/">EK-VT420-RM</a>, <cite>VT420 Programmer Reference Manual</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt510-rm/">EK-VT510-RM</a>, <cite>VT510 Video Terminal Programmer Information</cite></li>
+<li><a href="https://vt100.net/manx/part/dec/ek-vt520-rm/">EK-VT520-RM</a>, <cite>VT520/VT525 Video Terminal Programmer Information</cite></li>
+
+<li><a href="/manx/part/dec/ek-vt320-uu/" data-ver="-001">EK-VT320-UU</a>, <cite>Installing and Using the VT320 Video Terminal</cite></li>
+<li><a href="/manx/part/dec/ek-vt3xx-hr/" data-ver="-001">EK-VT3XX-HR</a>, <cite>VT330/VT340 Programmer Pocket Guide</cite></li>
+<li><a href="/manx/part/dec/ek-pplv2-pm/" data-ver=".B01">EK-PPLV2-PM</a>, <cite>Digital ANSI-Compliant Printing Protocol Level 2 Programming Reference Manual</cite></li>
+<li>DEC PPL3, <cite>Digital ANSI-Compliant Printing Protocol Level 3 Programming Reference Manual</cite></li>
+</ul>
+<footer></footer></body></html>

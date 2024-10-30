@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="appendixb.html">Appendix B</a><a href="contents.html">Contents</a><a href="glossary.html">Glossary</a></nav>
+</header>
+<h1 id="SC"><span class="chapnum">C</span><br/>Communication</h1>
+<p>This appendix provides information on how the VT420 communicates with
+a host computer, printer, or modem. The appendix shows the cables you
+can use for different system configuration. It describes how XON and
+XOFF characters help control data flow. The last section describes the
+signals carried by the connectors on the rear of the terminal.</p>
+<p>The terminal operates on full-duplex asynchronous lines only, with 10
+possible transmit and receive speeds. You can use split transmit and
+receive speeds, but you must use the same speeds as your host system
+and printer.</p>
+<p>To match your host system's speed, use the Communications Set-Up
+screen (<a href="chapter5.html">Chapter 5</a>). To match your printer's speed, use the Printer Set-Up
+screen (<a href="chapter8.html">Chapter 8</a>).</p>
+<p>For more information on communication, see the <cite>VT420 Programmer
+Reference Manual</cite>.</p>
+<h2 id="SC.1">Cables</h2>
+<p>You can connect the VT420 directly to a local host system with a cable.
+You can also connect the terminal indirectly to a remote host system using
+(1) a terminal server, or (2) a modem or acoustic coupler connected to
+public-switched or dedicated telephone lines. See "Modems" in <a href="chapter8.html">Chapter 8</a>.</p>
+<p><a href="#FC-1">Figure C-1</a> shows the DEC-423 and RS-232 cables you can use to connect
+the VT420 to a host system or printer. To order cables, see <a href="appendixb.html">Appendix B</a>.</p>
+<table id="FC-1" class="figure">
+<caption>Figure C-1 Cables</caption>
+<tbody>
+<tr>
+<td><img src="gsf_0649_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h2 id="SC.2">XON/XOFF Flow Control</h2>
+<p>Normally, the VT420 processes and displays characters as fast as it
+receives them. If the host system send data faster than the terminal can
+display it, the terminal can use XON/XOFF flow control to tell the host to
+wait until the terminal has caught up.</p>
+<p>The VT420 stores incoming characters in a 254-character input buffer.
+When the buffer fills to a predetermined level (XOFF point), the terminal
+sends an XOFF character to stop the host system from sending more
+characters. When the buffer empties to an appropriate level (XON point),
+the terminal sends an XON character to tell the host system to resume
+sending character.</p>
+<p>If the terminal is set up to run one session, you can select a first XOFF
+point of 64 or 128 characters (Communications Set-Up screen). The XON
+point is 32 characters. If the host system fails to respond to the first
+XOFF character, the terminal sends another XOFF character when the
+buffer fills to 220, and when the buffer is completely full.</p>
+<p>If you use SSU software to run two sessions, you can select a first XOFF
+point of 64, 256, or 1792. SSU provides its own credit-based flow control,
+so XOFF is not needed.</p>
+<p>For normal interactive use, you should use the default XOFF point of
+64 characters. This setting prevents the host system from getting too
+far ahead of what is displayed on the screen. In some cases, using an
+XOFF point greater than 64 characters may improve the average speed
+for processing characters, since the host does not have to wait as often.</p>
+<h3 id="SC.2.1">Hold Screen Function</h3>
+<p>If XON/XOFF flow control is enabled:</p>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">S</span> (XOFF)</td>
+<td>Puts the screen display on hold.</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">Q</span> (XON)</td>
+<td>Releases the screen display.</td>
+</tr>
+</tbody>
+</table>
+<p>If XON/XOFF flow control is disabled, you cannot use <span class="keyname">Ctrl</span> <span class="keyname">S</span> and <span class="keyname">Ctrl</span>
+<span class="keyname">Q</span> to hold and release the screen. Instead, the keys will send their
+corresponding codes to the host system.</p>
+<h3 id="SC.2.2">Notes on Using the VT420 Without XON/XOFF Flow Control</h3>
+<ul>
+<li>If you disable XON/XOFF flow control, the terminal's receive input
+buffer can overflow if the host system sends data faster than the
+terminal can process and display it.</li>
+<li><p>The VT420 can process text (without ESC sequences) at approximately
+2000 characters/second. This rate allows the VT420 to communicate
+at 19,200 baud. Some editing functions, such as inserting or deleting
+characters in lines, require additional time to process. The 254-character
+input buffer allows for short bursts.</p>
+<p>For extensive editing, the host system should be programmed to insert
+fill characters (NULs) after editing sequences. If the host system is
+not programmed, you should reduce the terminal baud rate to 9600
+baud or less. See the Communications Set-Up screen in <a href="chapter5.html">Chapter 5</a>.</p></li>
+<li>Selecting one of the smooth scroll settings in the Display Set-Up
+screen slows the screen display for easy reading. In order for the
+smooth scroll setting to work properly at high speeds, you must have
+XON/XOFF data flow enabled.</li>
+</ul>
+<h2 id="SC.3">Modem Connections and Disconnections</h2>
+<p>When the VT420 makes a connection to the host system through a
+modem, the terminal performs the following operations to ensure it is
+ready to send and receive:</p>
+<ul>
+<li>Unlocks the keyboard (if it was locked).</li>
+<li>Clears any transmission in progress.</li>
+<li>Clears the keyboard buffer and all message buffers.</li>
+<li>Clears the input buffer.</li>
+<li>Clears XOFF sent and XOFF received flags.</li>
+</ul>
+<p>Any of the following conditions will disconnect the connection to the host
+system:</p>
+<ul>
+<li>You type <span class="keyname">Shift</span> <span class="keyname">F5</span> (Break).</li>
+<li>You use the <code class="screen">Recall</code> or <code class="screen">Default</code> fields in the Set-Up Directory.</li>
+<li>You change the host port you are using from the RS-232 port to the
+DEC-423 port, or from the DEC-423 port to the RS-232 port. See the
+<strong>comm port selection</strong> feature in the Communications Set-Up screen
+(<a href="chapter5.html">Chapter 5</a>).</li>
+<li>The terminal loses the data set ready (DSR) signal.</li>
+<li>The terminal loses the receive line signal detect (RLSD) signal for
+the period of time you selected in set-up. See the <strong>disconnect delay</strong>
+feature in the Communications Set-Up screen.</li>
+<li>The terminal receives a self-test command from the host system.</li>
+</ul>
+<p>The usual way to disconnect communications is to type <span class="keyname">Shift</span> <span class="keyname">F5</span> (Break).</p>
+<h2 id="SC.4">Break Function</h2>
+<p>A break condition is the occurrence of a continuous space on a
+communication line for greater than one character time. Some systems
+and communication equipment recognize break as a special attention
+signal.</p>
+<p>You can generate a break signal (275 ms space) by pressing <span class="keyname">F5</span> (Break),
+unless you have changed the function of the <span class="keyname">F5</span> key (Keyboard Set-Up
+screen).</p>
+<p>Changing the <strong>terminal comm ports</strong> feature setting from <code class="screen">S1=Comm1</code> to
+one of the two-session configurations also generates a break signal. This
+action alerts the host that the session configuration has been altered.</p>
+<p>The <span class="keyname">F5</span> (Break) key has three functions when used as a break key.</p>
+<table>
+<tbody>
+<tr>
+<td><span class="keyname">F5</span> (Break)</td>
+<td>Sends a break signal to the host.</td>
+</tr>
+<tr>
+<td><span class="keyname">Shift</span> <span class="keyname">F5</span> (Break)</td>
+<td>Disconnects communications when you use a modem.</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span> <span class="keyname">F5</span> (Break)</td>
+<td>Sends the answerback message (Communications Set-Up
+screen) to the host.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SC.5">Connector Signals</h2>
+<p>The VT420 has two 6-pin connectors (Comm 1 and Comm 2 ports) and
+one 25-pin connector, whch can be used instead of the 6-pin Comm 1
+port connector. <a href="#TC-1">Table C-1</a> describes the interface signals for the 25-pin
+host system connector. <a href="#TC-2">Table C-2</a> describes the signals for the 6-pin host
+connector and the 6-pin printer connector. <a href="#FC-2">Figure C-2</a> shows the pin numbers
+for the 6-pin connectors.</p>
+<table id="TC-1" class="truled">
+<caption>Table C-1 25-Pin RS-232 Connector Interface Signals (Comm1)</caption>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Mnemonic</th>
+<th>EIA/CCITT/DIN</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>Transmitted data</td>
+<td>TXD</td>
+<td>BA/103/D1</td>
+<td><p><em>From VT420</em><br/>
+Sends serial characters. Held
+in mark state when characters
+are not being sent.</p>
+<p>In modem control modes, sends
+data only when RTS, CTS, DSR,
+and DTR signals are on.</p></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Received data</td>
+<td>RXD</td>
+<td>BA/104/D2</td>
+<td><p><em>To VT420</em><br/>
+Receives serial characters. In
+modem control modes, ignores
+characters if RLSD signal is off.</p></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Request to send</td>
+<td>RTS</td>
+<td>CA/105/S2</td>
+<td><p><em>From VT420</em><br/>
+When on, places the modem in
+transmit mode.</p></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Clear to send</td>
+<td>CTS</td>
+<td>CB/106/M2</td>
+<td><p><em>To VT420</em><br/>
+When on, tells the VT420 that
+the modem is ready to receive
+characters.</p></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Data set ready</td>
+<td>DSR</td>
+<td>CC/107/M1</td>
+<td><p><em>To VT420</em><br/>
+When on, tells the VT420 that
+the modem is in data mode and
+is ready to exchange RTS, CTS,
+and RLSD signals.</p></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Signal ground</td>
+<td>SGND</td>
+<td>AB/102/E2</td>
+<td><p>Serves as common ground
+reference potential for all
+connector signals, except
+protective ground.</p></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Receive line signal detect (carrier detect)</td>
+<td>RLSD</td>
+<td>CF/109/M5</td>
+<td><p><em>To VT420</em><br/>
+When on, tells the VT420
+that the signal received on
+the communications line is
+good enough to ensure correct
+demodulation of received data.</p>
+<p>When off, indicates no signal
+received, or signal is unsuitable
+for demodulation.</p></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Speed indicator</td>
+<td>SPDI</td>
+<td>CI/112</td>
+<td><p><em>To VT420</em><br/>
+When on (with modem control
+enabled), selects the <code class="screen">Modem
+High Speed =</code> setting in the
+Communications Set-Up screen.</p>
+<p>When off, selects the <code class="screen">Modem Low
+Speed =</code> setting.</p></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Data terminal ready</td>
+<td>DTR</td>
+<td>CD/108.2/S1.2</td>
+<td><p><em>From VT420</em><br/>
+When on, tells the modem that
+the terminal is ready to send or
+receive.</p></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Speed select</td>
+<td>SPDS</td>
+<td>CH/111/S4</td>
+<td><p><em>From VT420</em><br/>
+When on, tells the modem that
+the receive speed selected in
+set-up is greater than 600 bits
+per second.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="figure">
+<caption>Figure C-2 6-Pin Connector Pinouts</caption>
+<tbody>
+<tr>
+<td><pre>        +-------------------------+
+        |                         |
+        |  1   2   3   4   5   6  |
+        |                         |
+        |                         |
+        +--------------+       +--+
+                       |       |
+                       +-------+</pre></td>
+</tr>
+</tbody>
+</table>
+<table id="TC-2" class="truled">
+<caption>Table C-2 6-Pin DEC-423 Connector Interface Signals (Comm 1 or Comm 2)</caption>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Signal</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Data terminal ready</td>
+<td>DTR</td>
+<td><p><em>From VT420</em><br/>
+When on, tells the modem or printer that the
+VT420 is ready to send or receive.</p></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Transmitted data</td>
+<td>TXD+</td>
+<td><p><em>From VT420</em><br/>
+Sends serial characters. Held in the mark state
+(-) when characters are not being sent.</p>
+<p>In modem control modes, sends data only when
+DSR and DTR signals are on.</p></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Transmit signal ground</td>
+<td>TXD-</td>
+<td><p>Provides the common ground reference potential
+for transmitted signals TXD+ and DTR.</p></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Receive signal ground</td>
+<td>RXD-</td>
+<td><p>Provides the common ground reference potential
+for received signals RXD+ and DSR.</p></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Received data</td>
+<td>RXD+</td>
+<td><p><em>From VT420</em><br/>
+Receives serial characters.</p></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Data set ready</td>
+<td>DSR</td>
+<td><p><em>To VT420</em><br/>
+<strong>From the modem:</strong> When on, tells the VT420
+that is has a call connected.</p>
+<p><strong>From the printer:</strong> When on, tells the VT420
+that the printer is ready to print. The terminal
+checks for DTR from the printer before each print
+operation.</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="SC.6">Standards</h2>
+<p>The VT420 operates in accordance with the following national and
+international communication standards:</p>
+<ul>
+<li>EIA 232-D</li>
+<li>CCITT V.24</li>
+<li>CCITT V.28</li>
+<li>CCITT V.10</li>
+<li>ISO 2110.2</li>
+</ul>
+<footer>
+<nav class="sections"><a href="appendixb.html">Appendix B</a><a href="contents.html">Contents</a><a href="glossary.html">Glossary</a></nav>
+</footer>
+</body>
+</html>

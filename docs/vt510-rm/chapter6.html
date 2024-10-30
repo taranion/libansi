@@ -1,0 +1,1274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>SCO Console Emulation</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="VPR.html">VPR</a><a href="contents.html">Contents</a><a href="chapter7.html">Chapter 7</a></nav>
+</header>
+<h1 id="S6"><span>6</span> SCO Console Emulation</h1>
+<div class="main"><p>This chapter describes the SCO Console mode. This chapter also describes the
+effects of switching from SCO Console to other emulation modes, including VT,
+PCTerm, and ASCII Terminal emulation.</p>
+<h2 id="S6.1">6.1 SCO Console Emulation Mode</h2>
+<p>SCO Console mode is a terminal emulation mode. It uses ANSI sequences with
+minor modifications to run on a PC, which acts as a SCO UNIX operating system
+console.</p>
+<p>Depending on the terminal status, SCO Console mode for the VT510 transmits
+ASCII characters (default) or scancode to the host when keys are pressed.
+Users can specify a keycode by issuing an escape sequence (DECPCTERM) or
+by keyboard encoding of Set-Up. When in SCO Console mode with the ASCII
+keycode selected, the terminal behavior is similar to VT mode. When in SCO
+Console mode with scancode selected, the terminal behavior is similar to VT420
+PCTerm mode. <a href="#T6-1">Table 6–1</a> shows the similarities and differences.</p>
+<table id="T6-1" class="truled">
+<caption><span class="tabfigid">Table 6–1</span> SCO Console Mode with ASCII Keycodes and Scancodes</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2">Default</th>
+<th colspan="2">SCO Console Mode with</th>
+<th rowspan="2">VT Mode</th>
+<th rowspan="2">PCTerm</th>
+</tr>
+<tr>
+<th>ASCII Keycodes</th>
+<th>Scancodes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screen display</td>
+<td>25×80</td>
+<td>25×80</td>
+<td>24×80</td>
+<td>24×80</td>
+</tr>
+<tr>
+<td>Autowrap</td>
+<td>On</td>
+<td>On</td>
+<td>Off</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Autowrap behavior</td>
+<td>Like WYSE</td>
+<td>Like WYSE</td>
+<td>Like VT</td>
+<td>Like VT</td>
+</tr>
+<tr>
+<td>Status line</td>
+<td>None</td>
+<td>None</td>
+<td>Local</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>Cursor position while switching pages</td>
+<td>Saved</td>
+<td>Saved</td>
+<td>Not saved</td>
+<td>Not saved</td>
+</tr>
+<tr>
+<td>Character set</td>
+<td colspan="2">PCTerm (including PC, ISO/ANSI character sets)</td>
+<td colspan="2">VT character set (ISO/ANSI)</td>
+</tr>
+<tr>
+<td>CSI 10-12 m</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Not supported</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>SU<br/>SD</td>
+<td>Acts like IND<br/>Acts like RI</td>
+<td>Acts like IND<br/>Acts like RI</td>
+<td>Acts like SU<br/>Acts like SD</td>
+<td>Acts like SU<br/>Acts like SD</td>
+</tr>
+<tr>
+<td>CSI s and CSI u<br/>DECSC and DECRC</td>
+<td>Supported<br/>Supported</td>
+<td>Supported<br/>Supported</td>
+<td colspan="2">Only DECSC and DECRC are supported.</td>
+</tr>
+<tr>
+<td>CSI Pn z<br/>(switch pages)</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Not supported</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>ESC Q Fn String<br/>(Define Function)</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Not supported</td>
+<td>Not supported</td>
+</tr>
+<tr>
+<td>Transmit flow control</td>
+<td>None</td>
+<td>None</td>
+<td>XON/XOFF</td>
+<td>XON/XOFF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S6.1.1">6.1.1 Keyboard</h3>
+<p>SCO Console mode works with either a PC keyboard or a VT keyboard attached.</p>
+<h4 id="S6.1.1.1">6.1.1.1 Local Function Keys in SCO Console Mode</h4>
+<p>The keys used to perform local functions in SCO Console mode are similar to
+those used for VT mode (see Chapter 8, <a href="chapter8.html">Keyboard Processing</a>. <a href="#T6-2">Table 6–2</a> shows
+the <strong>exceptions</strong>).</p>
+<table id="T6-2" class="truled">
+<caption><span class="tabfigid">Table 6–2</span> Local Functions on VT and Enhanced PC Layouts</caption>
+
+
+
+
+<thead>
+<tr>
+<th>Fn#</th>
+<th>Function</th>
+<th>VT Layout</th>
+<th>EPC Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hold</td>
+<td><span class="keyname">Lock/F1</span></td>
+<td><span class="keyname">Scroll Lock</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Print</td>
+<td><span class="keyname">Lock/F2</span></td>
+<td><span class="keyname">Print Screen</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Set-Up</td>
+<td><span class="keyname">Lock/F3</span></td>
+<td><span class="keyname">Caps Lock/Print Screen</span>,
+<span class="keyname">Alt/Print Screen</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Break</td>
+<td><span class="keyname">Lock/F5</span></td>
+<td><span class="keyname">Caps Lock/Pause</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Hard Reset</td>
+<td><span class="keyname">Lock/Ctrl/F3</span></td>
+<td><span class="keyname">Ctrl/Caps Lock/Print Screen</span></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Toggle Autoprint</td>
+<td><span class="keyname">Lock/Ctrl/F2</span></td>
+<td><span class="keyname">Ctrl/Print Screen</span></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Disconnect</td>
+<td><span class="keyname">Lock/Shift/F5</span></td>
+<td><span class="keyname">Shift/Caps Lock/Pause</span></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Send Answerback</td>
+<td><span class="keyname">Lock/Ctrl/F5</span></td>
+<td><span class="keyname">Ctrl/Caps Lock/Pause</span></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Print Composed Main Display</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Pan Up</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Pan Down</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Pan Prev Page</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Pan Next Page</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Copy and Paste</td>
+<td><span class="keyname">Lock/F1</span> (hold down)</td>
+<td><span class="keyname">Scroll Lock</span></td>
+</tr>
+<tr>
+<td>47</td>
+<td>Primary KB language</td>
+<td><span class="keyname">Lock/Ctrl/Alt/F1</span></td>
+<td><span class="keyname">Caps Lock/Ctrl/Alt/F1</span></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Secondary KB language</td>
+<td><span class="keyname">Lock/Ctrl/Alt/F2</span></td>
+<td><span class="keyname">Caps Lock/Ctrl/Alt/F2</span></td>
+</tr>
+<tr>
+<td>53</td>
+<td>±DEC/IBM PC Style</td>
+<td>Not supported</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="S6.1.1.2">6.1.1.2 PC Keyboard</h4>
+<p>Tables 6–3 through 6–8 list the default codes sent by keys in ASCII character
+code mode.</p>
+<p>The keys that can be affected by Caps Lock or Num Lock send a shifted value
+when in Lock state. If <span class="keyname">Shift</span> is pressed when Caps Lock or Num Lock is in effect,
+the key sends its unshifted value. This "Reverse Lock" is the default for a Caps
+Lock function.</p>
+<p><span class="keyname">Alt</span> has no effect on the key pressed unless otherwise indicated. A blank in any
+column means the key is not defined.</p>
+<table id="T6-3" class="truled">
+<caption><span class="tabfigid">Table 6–3</span> SCO Console Mode Function Key Default Codes</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">F1</span></td>
+<td>ESC[M</td>
+<td>ESC[Y</td>
+<td>ESC[k</td>
+<td>ESC[w</td>
+</tr>
+<tr>
+<td><span class="keyname">F2</span></td>
+<td>ESC[N</td>
+<td>ESC[Z</td>
+<td>ESC[l</td>
+<td>ESC[x</td>
+</tr>
+<tr>
+<td><span class="keyname">F3</span></td>
+<td>ESC[O</td>
+<td>ESC[a</td>
+<td>ESC[m</td>
+<td>ESC[y</td>
+</tr>
+<tr>
+<td><span class="keyname">F4</span></td>
+<td>ESC[P</td>
+<td>ESC[b</td>
+<td>ESC[n</td>
+<td>ESC[z</td>
+</tr>
+<tr>
+<td><span class="keyname">F5</span></td>
+<td>ESC[Q</td>
+<td>ESC[c</td>
+<td>ESC[o</td>
+<td>ESC[@</td>
+</tr>
+<tr>
+<td><span class="keyname">F6</span></td>
+<td>ESC[R</td>
+<td>ESC[d</td>
+<td>ESC[p</td>
+<td>ESC[[</td>
+</tr>
+<tr>
+<td><span class="keyname">F7</span></td>
+<td>ESC[S</td>
+<td>ESC[e</td>
+<td>ESC[q</td>
+<td>ESC[&lt;</td>
+</tr>
+<tr>
+<td><span class="keyname">F8</span></td>
+<td>ESC[T</td>
+<td>ESC[f</td>
+<td>ESC[r</td>
+<td>ESC[ ]</td>
+</tr>
+<tr>
+<td><span class="keyname">F9</span></td>
+<td>ESC[U</td>
+<td>ESC[g</td>
+<td>ESC[s</td>
+<td>ESC[^</td>
+</tr>
+<tr>
+<td><span class="keyname">F10</span></td>
+<td>ESC[V</td>
+<td>ESC[h</td>
+<td>ESC[t</td>
+<td>ESC[_</td>
+</tr>
+<tr>
+<td><span class="keyname">F11</span></td>
+<td>ESC[W</td>
+<td>ESC[i</td>
+<td>ESC[u</td>
+<td>ESC['</td>
+</tr>
+<tr>
+<td><span class="keyname">F12</span></td>
+<td>ESC[X</td>
+<td>ESC[j</td>
+<td>ESC[v</td>
+<td>ESC[{</td>
+</tr>
+<tr>
+<td><span class="keyname">Print Screen</span></td>
+<td>Print Screen</td>
+<td>ESC[0i</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">Scroll Lock</span></td>
+<td>Scroll Lock</td>
+<td>Scroll Lock</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><span class="keyname">Pause</span></td>
+<td>Break</td>
+<td>Break</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<table id="T6-4" class="truled">
+<caption><span class="tabfigid">Table 6–4</span> SCO Console Mode Main Keypad Default Codes</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">ESC</span></td>
+<td>ESC</td>
+<td>ESC</td>
+<td>ESC</td>
+<td>ESC</td>
+</tr>
+<tr>
+<td><span class="keyname">1</span></td>
+<td>1</td>
+<td>!</td>
+<td>1</td>
+<td>!</td>
+</tr>
+<tr>
+<td><span class="keyname">2</span></td>
+<td>2</td>
+<td>@</td>
+<td>Nul</td>
+<td>Nul</td>
+</tr>
+<tr>
+<td><span class="keyname">3</span></td>
+<td>3</td>
+<td>#</td>
+<td>ESC</td>
+<td>ESC</td>
+</tr>
+<tr>
+<td><span class="keyname">4</span></td>
+<td>4</td>
+<td>$</td>
+<td>FS</td>
+<td>FS</td>
+</tr>
+<tr>
+<td><span class="keyname">5</span></td>
+<td>5</td>
+<td>%</td>
+<td>GS</td>
+<td>GS</td>
+</tr>
+<tr>
+<td><span class="keyname">6</span></td>
+<td>6</td>
+<td>^</td>
+<td>RS</td>
+<td>RS</td>
+</tr>
+<tr>
+<td><span class="keyname">7</span></td>
+<td>7</td>
+<td>&amp;</td>
+<td>US</td>
+<td>US</td>
+</tr>
+<tr>
+<td><span class="keyname">8</span></td>
+<td>8</td>
+<td>*</td>
+<td>DEL</td>
+<td>DEL</td>
+</tr>
+<tr>
+<td><span class="keyname">9</span></td>
+<td>9</td>
+<td>(</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">0</span></td>
+<td>0</td>
+<td>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">-</span></td>
+<td>-</td>
+<td>_</td>
+<td>US</td>
+<td>US</td>
+</tr>
+<tr>
+<td><span class="keyname">=</span></td>
+<td>=</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">Backspace</span></td>
+<td>BS</td>
+<td>BS</td>
+<td>DEL</td>
+<td>DEL</td>
+</tr>
+<tr>
+<td><span class="keyname">Tab</span></td>
+<td>HT</td>
+<td>ESC[Z</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">q</span></td>
+<td>q</td>
+<td>Q</td>
+<td>DC1</td>
+<td>DC1</td>
+</tr>
+<tr>
+<td><span class="keyname">w</span></td>
+<td>w</td>
+<td>W</td>
+<td>ETB</td>
+<td>ETB</td>
+</tr>
+<tr>
+<td><span class="keyname">e</span></td>
+<td>e</td>
+<td>E</td>
+<td>ENQ</td>
+<td>ENQ</td>
+</tr>
+<tr>
+<td><span class="keyname">r</span></td>
+<td>r</td>
+<td>R</td>
+<td>DC2</td>
+<td>DC2</td>
+</tr>
+<tr>
+<td><span class="keyname">t</span></td>
+<td>t</td>
+<td>T</td>
+<td>DC4</td>
+<td>DC4</td>
+</tr>
+<tr>
+<td><span class="keyname">y</span></td>
+<td>y</td>
+<td>Y</td>
+<td>EM</td>
+<td>EM</td>
+</tr>
+<tr>
+<td><span class="keyname">u</span></td>
+<td>u</td>
+<td>U</td>
+<td>NAK</td>
+<td>NAK</td>
+</tr>
+<tr>
+<td><span class="keyname">i</span></td>
+<td>i</td>
+<td>I</td>
+<td>HT</td>
+<td>HT</td>
+</tr>
+<tr>
+<td><span class="keyname">o</span></td>
+<td>o</td>
+<td>O</td>
+<td>SI</td>
+<td>SI</td>
+</tr>
+<tr>
+<td><span class="keyname">p</span></td>
+<td>p</td>
+<td>P</td>
+<td>DLE</td>
+<td>DLE</td>
+</tr>
+<tr>
+<td><span class="keyname">[</span></td>
+<td>[</td>
+<td>{</td>
+<td>ESC</td>
+<td>ESC</td>
+</tr>
+<tr>
+<td><span class="keyname">]</span></td>
+<td>]</td>
+<td>}</td>
+<td>GS</td>
+<td>GS</td>
+</tr>
+<tr>
+<td><span class="keyname">\</span></td>
+<td>\</td>
+<td>|</td>
+<td>FS</td>
+<td>FS</td>
+</tr>
+<tr>
+<td><span class="keyname">Return</span></td>
+<td>CR</td>
+<td>CR</td>
+<td>LF</td>
+<td>LF</td>
+</tr>
+<tr>
+<td><span class="keyname">Ctrl</span></td>
+<td>Ctrl</td>
+<td>Ctrl</td>
+<td>Ctrl</td>
+<td>Ctrl</td>
+</tr>
+<tr>
+<td><span class="keyname">a</span></td>
+<td>a</td>
+<td>A</td>
+<td>SOH</td>
+<td>SOH</td>
+</tr>
+<tr>
+<td><span class="keyname">s</span></td>
+<td>s</td>
+<td>S</td>
+<td>DC3</td>
+<td>DC3</td>
+</tr>
+<tr>
+<td><span class="keyname">d</span></td>
+<td>d</td>
+<td>D</td>
+<td>EOT</td>
+<td>EOT</td>
+</tr>
+<tr>
+<td><span class="keyname">f</span></td>
+<td>f</td>
+<td>F</td>
+<td>ACK</td>
+<td>ACK</td>
+</tr>
+<tr>
+<td><span class="keyname">g</span></td>
+<td>g</td>
+<td>G</td>
+<td>BEL</td>
+<td>BEL</td>
+</tr>
+<tr>
+<td><span class="keyname">h</span></td>
+<td>h</td>
+<td>H</td>
+<td>BS</td>
+<td>BS</td>
+</tr>
+<tr>
+<td><span class="keyname">j</span></td>
+<td>j</td>
+<td>J</td>
+<td>LF</td>
+<td>LF</td>
+</tr>
+<tr>
+<td><span class="keyname">k</span></td>
+<td>k</td>
+<td>K</td>
+<td>VT</td>
+<td>VT</td>
+</tr>
+<tr>
+<td><span class="keyname">l</span></td>
+<td>l</td>
+<td>L</td>
+<td>FF</td>
+<td>FF</td>
+</tr>
+<tr>
+<td><span class="keyname">;</span></td>
+<td>;</td>
+<td>:</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">'</span></td>
+<td>'</td>
+<td>"</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">z</span></td>
+<td>z</td>
+<td>Z</td>
+<td>SUB</td>
+<td>SUB</td>
+</tr>
+<tr>
+<td><span class="keyname">x</span></td>
+<td>x</td>
+<td>X</td>
+<td>CAN</td>
+<td>CAN</td>
+</tr>
+<tr>
+<td><span class="keyname">c</span></td>
+<td>c</td>
+<td>C</td>
+<td>ETX</td>
+<td>ETX</td>
+</tr>
+<tr>
+<td><span class="keyname">v</span></td>
+<td>v</td>
+<td>V</td>
+<td>SYN</td>
+<td>SYN</td>
+</tr>
+<tr>
+<td><span class="keyname">b</span></td>
+<td>b</td>
+<td>B</td>
+<td>STX</td>
+<td>STX</td>
+</tr>
+<tr>
+<td><span class="keyname">n</span></td>
+<td>n</td>
+<td>N</td>
+<td>SO</td>
+<td>SO</td>
+</tr>
+<tr>
+<td><span class="keyname">m</span></td>
+<td>m</td>
+<td>M</td>
+<td>CR</td>
+<td>CR</td>
+</tr>
+<tr>
+<td><span class="keyname">,</span></td>
+<td>,</td>
+<td>&lt;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">.</span></td>
+<td>.</td>
+<td>&gt;</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">/</span></td>
+<td>/</td>
+<td>?</td>
+<td>US</td>
+<td>US</td>
+</tr>
+</tbody>
+</table>
+<table id="T6-5" class="truled">
+<caption><span class="tabfigid">Table 6–5</span> SCO Console Mode Editing Keypad Default Codes</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Insert</span></td>
+<td>ESC[L</td>
+<td>ESC[L</td>
+<td>ESC[L</td>
+<td>ESC[L</td>
+</tr>
+<tr>
+<td><span class="keyname">Home</span></td>
+<td>ESC[H</td>
+<td>ESC[H</td>
+<td>ESC[H</td>
+<td>ESC[H</td>
+</tr>
+<tr>
+<td><span class="keyname">Page Up</span></td>
+<td>ESC[I</td>
+<td>ESC[I</td>
+<td>ESC[I</td>
+<td>ESC[I</td>
+</tr>
+<tr>
+<td><span class="keyname">Delete</span></td>
+<td>DEL</td>
+<td>DEL</td>
+<td>DEL</td>
+<td>DEL</td>
+</tr>
+<tr>
+<td><span class="keyname">End</span></td>
+<td>ESC[F</td>
+<td>ESC[F</td>
+<td>ESC[F</td>
+<td>ESC[F</td>
+</tr>
+<tr>
+<td><span class="keyname">Page Down</span></td>
+<td>ESC[G</td>
+<td>ESC[G</td>
+<td>ESC[G</td>
+<td>ESC[G</td>
+</tr>
+</tbody>
+</table>
+<table id="T6-6" class="truled">
+<caption><span class="tabfigid">Table 6–6</span> SCO Console Mode Cursor Keypad Default Codes</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td>ESC[A</td>
+<td>ESC[A</td>
+<td>ESC[A</td>
+<td>ESC[A</td>
+</tr>
+<tr>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td>ESC[B</td>
+<td>ESC[B</td>
+<td>ESC[B</td>
+<td>ESC[B</td>
+</tr>
+<tr>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td>ESC[C</td>
+<td>ESC[C</td>
+<td>ESC[C</td>
+<td>ESC[C</td>
+</tr>
+<tr>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td>ESC[D</td>
+<td>ESC[D</td>
+<td>ESC[D</td>
+<td>ESC[D</td>
+</tr>
+</tbody>
+</table>
+<table id="T6-7" class="truled">
+<caption><span class="tabfigid">Table 6–7</span> SCO Console Mode Numeric Keypad Default Codes, Num Lock Off</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Keypad Function Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Num Lock</span></td>
+<td>Num Lock</td>
+<td>Num Lock</td>
+<td>DC3</td>
+<td>DC3</td>
+</tr>
+<tr>
+<td><span class="keyname">/</span></td>
+<td>/</td>
+<td>/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">*</span></td>
+<td>*</td>
+<td>*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">7</span></td>
+<td>ESC[H</td>
+<td>7</td>
+<td>ESC[H</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>ESC[A</td>
+<td>8</td>
+<td>ESC[A</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span class="keyname">9</span></td>
+<td>ESC[I</td>
+<td>9</td>
+<td>ESC[I</td>
+<td>9</td>
+</tr>
+<tr>
+<td><span class="keyname">-</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="keyname">4</span></td>
+<td>ESC[D</td>
+<td>4</td>
+<td>ESC[D</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="keyname">5</span></td>
+<td>ESC[E</td>
+<td>5</td>
+<td>ESC[E</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span class="keyname">6</span></td>
+<td>ESC[C</td>
+<td>6</td>
+<td>ESC[C</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span class="keyname">+</span></td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td><span class="keyname">1</span></td>
+<td>ESC[F</td>
+<td>1</td>
+<td>ESC[F</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="keyname">2</span></td>
+<td>ESC[B</td>
+<td>2</td>
+<td>ESC[B</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="keyname">3</span></td>
+<td>ESC[G</td>
+<td>3</td>
+<td>ESC[G</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="keyname">0</span></td>
+<td>ESC[L</td>
+<td>0</td>
+<td>ESC[L</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="keyname">.</span></td>
+<td>DEL</td>
+<td>.</td>
+<td>DEL</td>
+<td>DEL</td>
+</tr>
+<tr>
+<td><span class="keyname">Enter</span></td>
+<td>CR</td>
+<td>CR</td>
+<td>LF</td>
+<td>LF</td>
+</tr>
+</tbody>
+</table>
+<table id="T6-8" class="truled">
+<caption><span class="tabfigid">Table 6–8</span> SCO Console Mode Numeric Keypad Default Codes, Num Lock On</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Keypad Function Key</th>
+<th>Unmodified</th>
+<th><span class="keyname">Shift</span></th>
+<th><span class="keyname">Ctrl</span></th>
+<th><span class="keyname">Ctrl/Shift</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Numlock</span></td>
+<td>Numlock</td>
+<td>Numlock</td>
+<td>DC3</td>
+<td>DC3</td>
+</tr>
+<tr>
+<td><span class="keyname">/</span></td>
+<td>/</td>
+<td>/</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">*</span></td>
+<td>*</td>
+<td>*</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">7</span></td>
+<td>7</td>
+<td>ESC[H</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">8</span></td>
+<td>8</td>
+<td>ESC[A</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">9</span></td>
+<td>9</td>
+<td>ESC[I</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">-</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><span class="keyname">4</span></td>
+<td>4</td>
+<td>ESC[D</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">5</span></td>
+<td>5</td>
+<td>ESC[E</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">6</span></td>
+<td>6</td>
+<td>ESC[C</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">+</span></td>
+<td>+</td>
+<td>+</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">1</span></td>
+<td>1</td>
+<td>ESC[F</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">2</span></td>
+<td>2</td>
+<td>ESC[B</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">3</span></td>
+<td>3</td>
+<td>ESC[G</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">0</span></td>
+<td>0</td>
+<td>ESC[L</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">.</span></td>
+<td>.</td>
+<td>DEL</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="keyname">Enter</span></td>
+<td>CR</td>
+<td>CR</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Pressing <span class="keyname">Alt/.</span> on the numeric keypad sends DEL, not a period.</p></div></div>
+<h4 id="S6.1.1.3">6.1.1.3 VT Keyboard Key Mapping</h4>
+<p>More key mapping information is provided in Chapter 8, Keyboard Processing.</p>
+<ul>
+<li>On the main keypad, 8-bit codes are allowed for keyboard input.</li>
+<li>Function keys <span class="keyname">F1</span> through <span class="keyname">F12</span> send the same codes as <span class="keyname">F1</span> through <span class="keyname">F12</span> on a
+PC keyboard. Function keys <span class="keyname">F13</span> through <span class="keyname">F20</span> send the same codes as <span class="keyname">F13</span>
+through <span class="keyname">F20</span> in VT mode, except <span class="keyname">Do</span> sends an ESC code.</li>
+<li><p>On the editing keypad, VT keyboard keys send the same sequences as the
+corresponding PC keyboard keys:</p>
+<table class="truled">
+<thead>
+<tr>
+<th>PC Keyboard</th>
+<th>VT Keyboard</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="keyname">Insert</span></td>
+<td><span class="keyname">Insert Here</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Home</span></td>
+<td><span class="keyname">Find</span></td>
+</tr>
+<tr>
+<td><span class="keyname">PageUp</span></td>
+<td><span class="keyname">Prev</span></td>
+</tr>
+<tr>
+<td><span class="keyname">Delete</span></td>
+<td><span class="keyname">Remove</span></td>
+</tr>
+<tr>
+<td><span class="keyname">End</span></td>
+<td><span class="keyname">Select</span></td>
+</tr>
+<tr>
+<td><span class="keyname">PageDown</span></td>
+<td><span class="keyname">Next</span></td>
+</tr>
+</tbody>
+</table></li>
+<li>For Autowrap, On is the default.</li>
+<li>On the cursor keypad, SCO Console mode sends the same sequence as VT510
+mode.</li>
+<li>The cursor position is saved while switching pages.</li>
+<li>On the numeric keypad, SCO Console mode sends the same sequence as
+VT510 mode.</li>
+<li>SCO Console mode uses the PCTerm character set.</li>
+</ul></div>
+<footer>
+<nav class="sections"><a href="VPR.html">VPR</a><a href="contents.html">Contents</a><a href="chapter7.html">Chapter 7</a></nav>
+</footer>
+</body>
+</html>

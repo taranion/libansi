@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</header>
+<h1 id="S3"><span class="chapnum">3</span><br/>Getting Started</h1>
+<p>After you install your VT420, you must set some of the terminal's
+operating features to</p>
+<ul>
+<li>Select the correct dialect for your keyboard.</li>
+<li>Run one or two sessions with one or two cables.</li>
+</ul>
+<p>This chapter provides step-by-step instructions. All other VT420
+operating features are already set to a factory-default setting that works
+with most Digital systems.</p>
+<p>You may have to set some features to match your host system. For
+example, the VT420 must use the same communication baud rate as your
+host system.</p>
+<p>Also, the terminal ID must match the software running on the host. If
+the message <code class="screen">unknown terminal type</code> appears on the screen, you must set
+the correct terminal ID. This chapter provides the instructions to</p>
+<ul>
+<li>Set the baud rate.</li>
+<li>Set the correct terminal ID.</li>
+</ul>
+<p>The VT420 has a series of set-up screens that list the terminal's operating
+features. You can examine and change feature settings from the keyboard.
+The procedures in this chapter explain how to use some set-up screens. If
+you want to know more about set-up, or if you want to set a feature not
+covered here, see <a href="chapter5.html">Chapter 5</a>.</p>
+<h2 id="S3.1">Selecting the Correct Keyboard Dialect</h2>
+<p>The VT420 has keyboard models for a number of dialects. The initial
+setting for the <strong>keyboard dialect</strong> feature is <code class="screen">North American Keyboard</code>.</p>
+<p>If you have the North American/United Kingdom keyboard, you can skip
+this procedure, unless you want to use the British dialect. If you have
+any other keyboard model, you must complete this procedure to select the
+correct keyboard dialect.</p>
+<ol>
+<li>Press the <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (Figure 3-1). The cursor is on the <code class="screen">Global</code> field.
+<table id="F3-1" class="figure">
+<caption>Figure 3-1 Set-Up Directory</caption>
+<tbody>
+<tr>
+<td><img src="gsf_0635_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Use the arrow keys to move the cursor to the <code class="screen">North American
+Keyboard</code> field.</li>
+<li>There are many possible settings for the keyboard dialect. Use the
+<span class="keyname">Enter</span> key to move through the settings until you find your keyboard
+dialect.</li>
+<li>After your setting appears, use the arrow keys to move to the <code class="screen">Save</code>
+field.</li>
+<li>Press <span class="keyname">Enter</span>. This saves your keyboard dialect setting.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p><strong>Two Sessions:</strong> If you plan to run two sessions, you must select the
+keyboard dialect for each session independently. To select the keyboard
+dialect for the second session, first set-up the VT420 for two sessions (next
+section). Then press the <span class="keyname">F4</span> (Session) key and repeat the procedure above.</p>
+<h2 id="S3.2">Setting Up the VT420 for One or Two Sessions</h2>
+<p>The VT420 has two communication (Comm) ports that let you run one or
+two sessions -- the Comm1 port and the Comm2 port. These ports provide
+the cable connections to your host system(s). To set up the terminal
+correctly, you must know</p>
+<ul>
+<li>How many sessions you want to run -- one or two.</li>
+<li>Which port(s) you are using: Comm1, Comm2, or both.</li>
+<li>What type of cable(s) you are using: RS-232 or DEC-423.</li>
+</ul>
+<p>If you are unsure, see the "<a href="chapter2.html#S2.3">Cable Connections</a>" section in <a href="chapter2.html">Chapter 2</a>. After
+you identify the port(s) and cables in use, go to the section that matches
+your installation.</p>
+<ul>
+<li>One session (one cable).</li>
+<li>Two sessions (two cables).</li>
+<li>Two sessions with SSU software (one cable).</li>
+</ul>
+<p>Remember, the terminal must use a separate cable for each session,
+unless your system has SSU software or a DECserver 200 or DECserver
+300 terminal server. SSU lets you run two sessions over one cable, and
+these terminal servers have SSU software.</p>
+<p>The primary Comm1 port has two connectors -- a 25-pin, RS-232 connector
+and a 6-pin DEC-423 connector. The secondary Comm2 port has a 6-pin,
+DEC-423 connector. You can also use the Comm2 port to connect a local
+printer to the VT420.</p>
+<h3 id="S3.2.1">Setting Up for One Session (One Cable)</h3>
+<p>You only need one communication cable to run one session. You can
+connect the cable to either of the connectors on the primary Comm1
+port -- 25-pin RS-232 or 6-pin DEC-423. After you connect your cable, you
+must check the settings on the Global Set-Up screen.</p>
+<ol>
+<li>Press the <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (<a href="#F3-1">Figure 3-1</a>). The cursor is on the <code class="screen">Global</code> field.</li>
+<li>Press the <span class="keyname">Enter</span> key. The Global Set-Up screen appears.
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_1365_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Check the setting of the second field on the second line. This setting
+assigns a session to the Comm1 or Comm2 connectors. There are four
+possible settings:
+<p><code class="screen">S1=Comm1</code> (<strong>default</strong>)<br/>
+<code class="screen">S1=Comm1,S2=Comm2</code><br/>
+<code class="screen">S1=Comm2,S1=Comm1</code><br/>
+<code class="screen">Sessions on Comm1</code></p>
+<p>The correct setting for your setup is the default setting of <code class="screen">S1=Comm1</code>.</p>
+<p>If the setting is correct, go on to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move the cursor to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the <code class="screen">S1=Comm1</code> setting appears.</li>
+</ol></li>
+<li>Check the setting of the first field on the third line. This setting
+selects the active connector on the Comm1 port. There are two
+possible settings:
+<p><code class="screen">Comm1=RS-232</code><br/>
+<code class="screen">Comm1=DEC-423</code></p>
+<p>The setting should match the connector you are using. If the setting
+is correct, go to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move the cursor to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the correct setting appears.</li>
+</ol></li>
+<li>If you changed any settings in the previous steps, continue with this procedure.
+<p>If you did not change any settings, you can press <span class="keyname">F3</span> (Set-Up) to leave
+set-up.</p></li>
+<li>After you select the correct settings, use the arrow keys to move to
+the <code class="screen">To Directory</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory. The cursor is on the
+<code class="screen">Global</code> field.</li>
+<li>Use the arrow keys to move to the <code class="screen">Save</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all the current settings in each set-up screen. A
+<code class="screen">Done</code> message appears at the bottom of the screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<h3 id="S3.2.2">Setting Up for Two Sessions (Two Cables)</h3>
+<p>When you use two communication cables, you connect one cable to the
+terminal's Comm1 port and one cable to the Comm2 port. After you
+connect your cables, you must change some settings on the Global Set-Up
+screen to match your cable connections.</p>
+<ol>
+<li>Press the <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (<a href="#F3-1">Figure 3-1</a>). The cursor is on the <code class="screen">Global</code> field.</li>
+<li>Press the <span class="keyname">Enter</span> key. The Global Set-Up screen appears.
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="ma-0804-90.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Check the setting of the second field on the second line. This field
+assigns each session to the Comm1 and Comm2 ports. There are four
+possible settings:
+<p><code class="screen">S1=Comm1</code> (<strong>default</strong>)<br/>
+<code class="screen">S1=Comm1,S2=Comm2</code><br/>
+<code class="screen">S1=Comm2,S2=Comm1</code><br/>
+<code class="screen">Sessions on Comm1</code></p>
+<p>To run two sessions over two communication cables, you can use one
+of two settings:</p>
+<table>
+<tbody>
+<tr>
+<td><code class="screen">S1=Comm1,S2=Comm2</code></td>
+<td>Assigns session 1 to the Comm1 port and
+session 2 to the Comm2 port.</td>
+</tr>
+<tr>
+<td><code class="screen">S1=Comm2,S2=Comm1</code></td>
+<td>Assigns session 1 to the Comm2 port and
+session 2 to the Comm1 port.</td>
+</tr>
+</tbody>
+</table>
+<p class="note">NOTE: When you connect your VT420 to two different systems, the
+VT420 always opens session 1 first. You should match session 1
+with the computer you use most often.</p>
+<p>If the setting is correct, go on to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the correct setting appears.</li>
+</ol></li>
+<li>Check the setting of the first field on the third line. This setting
+selects the active connector on the Comm port. There are two possible
+settings:
+<p><code class="screen">Comm1=RS-232</code><br/>
+<code class="screen">Comm1=DEC-423</code></p>
+<p>The setting should match the connector you are using. If the setting
+is correct, go to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move the cursor to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the correct setting appears.</li>
+</ol></li>
+<li>If you changed any settings in the previous steps, continue with this
+procedure.
+<p>If you did not change any settings, you can press <span class="keyname">F3</span> (Set-Up) to leave
+set-up.</p>
+<p>After you select the correct settings, use the arrow keys to move to
+the <code class="screen">To Directory</code> field.</p></li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory.</li>
+<li>Use the arrow keys to move to the <code class="screen">Save</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all the current settings in each set-up screen. A
+<code class="screen">Done</code> message appears at the bottom of the screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p>When you use two cables to run two sessions, you must set the baud rate
+for each session independently. See "<a href="#S3.3">Selecting the Correct Baud Rate</a>"
+later in this chapter.</p>
+<p><a href="chapter7.html">Chapter 7</a> describes how to use two sessions.</p>
+<h3 id="S3.2.3">Setting Up for Two Sessions with SSU Software (One Cable)</h3>
+<p>If your host system has Digital's SSU software, the VT420 can run two
+sessions over one communication cable. Your system manager can tell you
+if your host system has SSU software.</p>
+<p>Connect the communication cable to either connector on the Comm1 port
+-- the 25-pin, RS-232 connector or the 6-pin, DEC-423 connector. After
+you connect the cable, change the settings on the Global Set-Up screen to
+match your cable connection.</p>
+<ol>
+<li>Press <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (<a href="#F3-1">Figure 3-1</a>). The cursor is on the <code class="screen">Global</code> field.</li>
+<li>Press the <span class="keyname">Enter</span> key. The Global Set-Up screen appears.
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_1366_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Check the setting of the second field on the second line. This field
+assigns each session to the Comm1 or Comm2 port. There are four
+possible settings:
+<p><code class="screen">S1=Comm1</code> (<strong>default</strong>)<br/>
+<code class="screen">S1=Comm1,S2=Comm2</code><br/>
+<code class="screen">S1=Comm2,S2=Comm1</code><br/>
+<code class="screen">Sessions on Comm1</code></p>
+<p>To assign both sessions to the Comm1 port, you use the <code class="screen">Sessions on
+Comm1</code> setting.</p>
+<p>If the setting is correct, go on to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the <code class="screen">Sessions on Comm1</code> setting appears.</li>
+</ol></li>
+<li>Check the setting of the first field on the third line. This setting
+selects the active connector on the Comm1 port. There are two
+possible settings:
+<p><code class="screen">Comm1=RS-232</code><br/>
+<code class="screen">Comm1=DEC-423</code></p>
+<p>The setting should match the connector you are using. If the setting
+is correct, go to the next step.</p>
+<p>If the setting is incorrect:</p>
+<ol class="alpha">
+<li>Use the arrow keys to move the cursor to the field.</li>
+<li>Press <span class="keyname">Enter</span> until the correct setting appears.</li>
+</ol></li>
+<li>If you changed any settings in the previous steps, continue with this
+procedure.
+<p>If you did not change any settings, you can press <span class="keyname">F3</span> (Set-Up) to leave
+set-up.</p>
+<p>After you select the correct settings, use the arrow keys to move to
+the <code class="screen">To Directory</code> field.</p></li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory.</li>
+<li>Use the arrow keys to move to the <code class="screen">Save</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all the current settings in each set-up screen. A
+<code class="screen">Done</code> message appears at the bottom of the screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p><a href="chapter7.html">Chapter 7</a> describes how to use two sessions.</p>
+<h2 id="S3.3">Selecting the Correct Baud Rate</h2>
+<p>The VT420 is initially set to a <em>baud rate</em> of 9600. This setting works with
+most Digital systems. The baud rate setting must match the baud rate
+of your host system. If you are unsure what baud rate your host system
+uses, ask your system operator or system manager.</p>
+<p>To set the baud rate, you use the <strong>transmit =</strong> and <strong>receive =</strong> features on
+the Communications Set-Up screen.</p>
+<ol>
+<li>Press the <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (<a href="#F3-1">Figure 3-1</a>). The cursor is on the <code class="screen">Global</code> field.</li>
+<li>Use the arrow keys to move to the <code class="screen">Comm</code> field.</li>
+<li>Press the <span class="keyname">Enter</span> key. The Communications Set-Up screen appears:
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0639_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Use the arrow keys to move to the <code class="screen">Transmit =</code> field.</li>
+<li>The <code class="screen">Transmit =</code> field is initially set to 9600. You should use a setting
+that matches your host system. There are eight possible settings.
+<p>Use the <span class="keyname">Enter</span> key to scroll through the settings.</p>
+<p class="note">NOTE: Next to the transmit = feature is the receive = feature. Most
+systems use the same speed to transmit and receive. The
+initial setting for receive = is <code>Receive=Transmit</code>, so the receive
+speed automatically changes to match the transmit speed you
+select.</p></li>
+<li>After you select the correct setting, use the arrow keys to move to the
+<code class="screen">To Directory</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory.</li>
+<li>Use the arrow keys to move to the <code class="screen">Save</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all the current settings in each set-up screen. A
+<code class="screen">Done</code> message appears at the bottom of the screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p>If you plan to run two sessions with two communication cables, you must
+set the baud rate for each session independently. To set the baud rate for
+the second session, first set up the VT420 for two sessions ("<a href="#S3.2.2">Setting Up
+for Two Sessions (Two Cables)</a>"). After you complete all the steps in that
+section, press the <span class="keyname">F4</span> (Session) key and repeat all the steps in this section.</p>
+<h2 id="S3.4">Selecting the Correct Terminal ID</h2>
+<p>VT series text terminals are designed to identify themselves to the host
+software upon request, so the software can automatically recognize the
+terminal's operating features. If your software has not been updated
+recently, it may not recognize the VT420 ID response. For example, if
+the messsage <code class="screen">unknown terminal type</code> appears on the screen, you should
+change the <strong>terminal ID</strong> feature as follows:</p>
+<ol>
+<li>Press the <span class="keyname">F3</span> (Set-Up) key to enter set-up. The Set-Up Directory
+screen appears (<a href="#F3-1">Figure 3-1</a>). The cursor is on the <code class="screen">Global</code> field.</li>
+<li>Use the arrow keys to move to the <code class="screen">General</code> field.</li>
+<li>Press the <span class="keyname">Enter</span> key. The General Set-Up screen appears.
+<table class="figure">
+<tbody>
+<tr>
+<td><img src="gsf_0638_89.png" alt=""/></td>
+</tr>
+</tbody>
+</table></li>
+<li>Use the arrow keys to move to the <code class="screen">VT420 ID</code> field.
+<p>Use the <span class="keyname">Enter</span> key to scroll to the <code class="screen">VT320 ID</code> settings.</p></li>
+<li>After you select the correct setting, use the arrow keys to move to the
+<code class="screen">To Directory</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory.</li>
+<li>Use the arrow keys to move to the <code class="screen">Save</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all the current settings in each set-up screen. A
+<code class="screen">Done</code> message appears at the bottom of the screen.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<footer>
+<nav class="sections"><a href="chapter2.html">Chapter 2</a><a href="contents.html">Contents</a><a href="chapter4.html">Chapter 4</a></nav>
+</footer>
+</body>
+</html>

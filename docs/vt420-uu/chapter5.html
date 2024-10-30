@@ -1,0 +1,1901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>VT100.net: Installing and Using the VT420 Video Terminal</title>
+<link href="vt420-uu.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> Installing and Using the VT420 Video Terminal
+<nav class="sections"><a href="chapter4.html">Chapter 4</a><a href="contents.html">Contents</a><a href="chapter6.html">Chapter 6</a></nav>
+</header>
+<h1 id="S5"><span class="chapnum">5</span><br/>Using Set-Up</h1>
+<h2 id="S5.1">Overview</h2>
+<p>The VT420 has nine set-up screens that list the settings for the terminal's
+operating features.</p>
+<ul>
+<li>Set-Up Directory</li>
+<li>Global</li>
+<li>Display</li>
+<li>General</li>
+<li>Communications</li>
+<li>Printer</li>
+<li>Keyboard</li>
+<li>Tab</li>
+<li>Screen</li>
+</ul>
+<p>You can display these screens and change the settings from the keyboard.
+This chapter describes set-up and how to use it.</p>
+<p>Most set-up features are initially set to a factory-default setting that
+works with many Digital systems. The VT420 has the factory-default
+settings permanently stored. If you change settings, you can use the
+Set-Up Directory to reset the terminal to the factory-default settings.</p>
+<p>You can also select and save settings to match your host system. The
+VT420 saves your selections in nonvolatile memory, along with the
+factory-default settings. When you shut power off, you do not lose your
+saved settings.</p>
+<p>You can make all changes to set-up features from your keyboard. Also,
+your host system can change some settings, as described in the <cite>VT420
+Programmer Reference Manual</cite>. See <a href="appendixb.html">Appendix B</a> to order VT420 manuals.</p>
+<h3 id="S5.1.1">Independent Setups for Two Sessions</h3>
+<p>The VT420 can run two sessions with the host system at the same time.
+Chapters <a href="chapter2.html">2</a> and <a href="chapter3.html">3</a> explain how to set up the terminal to run two sessions.</p>
+<p>When you use two sessions, the terminal stores a separate group of
+features for each session. Only one session is active at a time. The
+terminal uses the settings for the active session.</p>
+<p>If you forget which session is active, you can check the keyboard indicator
+line at the bottom of the screen. See the "Keyboard Indicator Line" section
+in <a href="chapter4.html">Chapter 4</a>.</p>
+<p class="note">NOTE: You cannot switch sessions in set-up. To switch sessions, you must
+leave set-up and press the <span class="keyname">F4</span> (Session) key.</p>
+<p><img src="gsf_0634_89.png" alt=""/></p>
+<h2 id="S5.2">Entering and Leaving Set-Up</h2>
+<p><strong>To enter set-up:</strong> You press the <span class="keyname">F3</span> (Set-Up) key. When you press <span class="keyname">F3</span> (Set-Up),
+information on the screen disappears. (This information reappears
+when you leave set-up.) Then the terminal displays the Set-Up Directory
+screen.</p>
+<p>The Set-Up Directory lists all other set-up screens. You can select any
+other set-up screen from the Set-Up Directory.</p>
+<p><strong>To leave set-up:</strong> You press <span class="keyname">F3</span> (Set-Up) again. You can leave set-up from
+any set-up screen.</p>
+<p class="note">NOTE: Most settings that you change take effect when you leave set-up.</p>
+<h2 id="S5.3">Set-Up Directory</h2>
+<p>When you enter set-up, the Set-Up Directory is always the first screen to
+appear. You can select any set-up screen from the Set-Up Directory. You
+can also perform such functions as saving and recalling feature settings.</p>
+<p><img src="gsf_0635_89.png" alt=""/></p>
+<h3 id="S5.3.1">Status Line and Keyboard Indicator Line</h3>
+<p>In set-up, the VT420 always displays the status line and the keyboard
+indicator line for the active session. Both lines appear at the bottom of
+the screen. The keyboard indicator line is in the smaller, 132-column font
+and appears below the status line. The keyboard indicator line is in the
+same video background as the session at the bottom of the screen. For
+more information, see the "Keyboard Indicator Line" and "Status Line"
+sections in <a href="chapter4.html">Chapter 4</a>.</p>
+<h3 id="S5.3.2">Set-Up Cursor</h3>
+<p>Set-Up uses a field cursor that highlights a screen entry, or <em>field</em>, in
+reverse video. When you enter set-up, the field cursor highlights the
+<code>Global</code> field in the Set-Up Directory.</p>
+<p>You use the arrow keys to move the field cursor to different features.</p>
+<h3 id="S5.3.3">Action Fields</h3>
+<p>Most features in the Set-Up Directory are <em>action fields</em>. When you select
+an action field, the terminal immediately performs that action. You press
+the <span class="keyname">Enter</span> key to select the action field highlighted by the cursor. Most
+set-up screens have some action fields.</p>
+<p>Some actions do not affect the screen, so the VT420 displays a message to
+let you know if the action was successful. This message appears in place
+of the keyboard indicator line at the bottom of the screen.</p>
+<ul>
+<li>A <code>Done</code> message indicates the action is complete. The message
+disappears when you press another key.</li>
+<li>An error message indicates the terminal could not perform the action.
+See <a href="chapter10.html#T10-2">Table 10-2</a>.</li>
+</ul>
+<p>The VT420 displays messages for the following action fields on the Set-Up
+Directory screen.</p>
+<ul>
+<li>Clear Display</li>
+<li>Clear Comm</li>
+<li>Reset Session</li>
+<li>Recall (saved settings</li>
+<li>Save (settings)</li>
+<li>Default (recall factory settings)</li>
+<li>Enable Sessions</li>
+<li>Disable Sessions</li>
+</ul>
+<h3 id="S5.3.4">Set-Up Language</h3>
+<p>The <strong>set-up language</strong> feature lets you display the set-up screens in one
+of three languages: English, French, or German. The language you select
+takes effect immediately in set-up. To change the setting:</p>
+<ol>
+<li>Press <span class="keyname">F3</span> (Set-Up). The terminal displays the Set-Up Directory.</li>
+<li>Use the arrow keys to move the cursor to <code>Set-Up=English</code>.</li>
+<li>Press <span class="keyname">Enter</span> to change the set-up language setting. Each time you
+press <span class="keyname">Enter</span>, the language changes immediately.</li>
+</ol>
+<h3 id="S5.3.5">Set-Up Directory Fields</h3>
+<p>Table 5-1 describes the Set-Up Directory features.</p>
+<table id="T5-1" class="truled">
+<caption>Table 5-1 Set-Up Directory Features</caption>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global<br/>Display<br/>General<br/>Comm<br/>Printer<br/>Keyboard<br/>Tab</td>
+<td>These fields select the set-up screen. For example,
+<strong>Global</strong> selects the Global Set-Up screen.</td>
+</tr>
+<tr>
+<td>Clear Display</td>
+<td>Clears the screen when you leave set-up.</td>
+</tr>
+<tr>
+<td>Clear Comm</td>
+<td>Clears communications for the active session. Clear
+Comm does not affect the on-line/local state, but does
+the following:
+<ul>
+<li>Stops any print operation.</li>
+<li>Stops any escape sequence, control sequence, control
+string, or character string processing (ESC, CSI,
+DCS, APC, OSC, PM, SOS).</li>
+<li>Clears the keyboard buffers.</li>
+<li>Clears the receive buffer.</li>
+<li>Clears the transmit buffer.</li>
+<li>Stops printer controller mode and returns to normal
+print mode.</li>
+<li>Sends an XON signal to the host.</li>
+<li>Sends an XON signal to the printer if the <strong>printer
+to host</strong> and <strong>XOFF</strong> features are enabled in the
+Printer Set-Up screen (Chapter 8).</li>
+<li>Resets the XOFF received flags at the printer and
+host ports.</li>
+<li>Does not clear the screen.</li>
+<li>Clears a keyboard wait condition.</li>
+<li>Clears the "printer port has seen DSR since power
+up" flag.</li>
+</ul></td>
+</tr>
+<tr>
+<td>Reset Session</td>
+<td><p>Resets many VT420 operating features for the active
+session to their initial state.</p>
+<p>The screen, communication, character set modes, and
+user-defined keys are not affected. See the <cite>VT420
+Programmer Reference Manual</cite>.</p></td>
+</tr>
+<tr>
+<td>Recall</td>
+<td>Sets all set-up features for the active session to their
+saved values. Clears the screen.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: If you are using a modem, <code class="screen">Recall</code> disconnects communication with the
+host system.</p></td>
+</tr>
+<tr>
+<td>Save</td>
+<td>Saves all current feature settings in all set-up screens
+for the active session.</td>
+</tr>
+<tr>
+<td>Set-up language
+<ul class="settings">
+<li><strong>Set-Up=English</strong></li>
+<li>Set-Up=Francais</li>
+<li>Set-Up=Deutsch</li>
+</ul></td>
+<td>Selects the language used to display set-up screens.</td>
+</tr>
+<tr>
+<td>Keyboard dialect
+<ul class="settings">
+<li><strong>North American Keyboard</strong></li>
+</ul></td>
+<td>Lets you select one of many languages and dialects
+to match your keyboard. The default is <strong>North
+American Keyboard</strong>. The other keyboards are
+the British, Flemish, Canadian (English), Canadian
+(French), Danish, Dutch, Finnish, German, Italian,
+Swiss (French), Swiss (German), Swedish, Norwegian,
+French/Belgian, Spanish, and Portuguese.</td>
+</tr>
+<tr>
+<td>Default</td>
+<td><p>Replaces all current settings in all set-up screens with
+the factory-default settings. This feature may affect both
+sessions, because the default session configuration is one
+session.</p>
+<p>The <strong>default</strong> feature also:</p>
+<ul>
+<li>Clears the screen and returns the cursor to the
+upper-left corner.</li>
+<li>Stops any print operation.</li>
+<li>Stops any escape sequence, control sequence, control
+string, or character string processing (ESC, CSI,
+DCS, APC, OSC, PM, SOS).</li>
+</ul></td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: If you are using a modem, <code class="screen">Default</code> disconnects communication with the
+host system.</p></td>
+</tr>
+<tr>
+<td>Enable Sessions</td>
+<td><p>Lets you resume an interrupted session. A session can
+be interrupted by a power failure to the terminal or host.</p>
+<p>To use this feature, your system must have SSU
+software. Also, you must set the <strong>terminal comm
+ports</strong> feature in the Global Set-Up screen to <code class="screen">Sessions
+on Comm1</code>.</p>
+<p>When you select this feature, one of the following
+messages on the status line:</p>
+<ul>
+<li>Done</li>
+<li>Sessions restored</li>
+<li>Sessions not selected</li>
+</ul>
+<p>See <a href="chapter7.html">Chapter 7</a> for more information.</p></td>
+</tr>
+<tr>
+<td>Disable Sessions</td>
+<td>Disables the current SSU sessions.</td>
+</tr>
+<tr>
+<td>Exit</td>
+<td>Lets you leave set-up. You can also press <span class="keyname">F3</span> (Set-Up) to
+leave set-up.</td>
+</tr>
+<tr>
+<td>Screen Align</td>
+<td><p>Lets you center or rotate the image on the screen. This
+feature clears the screen and creates a black border
+around the screen's perimeter. The text area of the
+screen appears in reverse video from the border.</p>
+<p>After you select this feature, follow the directions on the
+screen to align the image correctly.</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S5.4">Selecting Set-Up Screens</h2>
+<p>There are two ways to select set-up screens. You can move from one
+screen to the next, in the same order listed on the Set-Up Directory. You
+can also select any screen directly from the Set-Up Directory.</p>
+<p><strong>Moving from Screen to Screen</strong></p>
+<p>Each set-up screen has a <code class="screen">To Next Set-Up</code> field. To move from one screen
+to the next:</p>
+<ol>
+<li>Use the arrow keys to move the cursor to <code class="screen">To Next Set-Up</code>.</li>
+<li>Press <span class="keyname">Enter</span>.</li>
+</ol>
+<p><strong>Selecting a Screen from the Set-Up Directory</strong></p>
+<p>The Set-Up Directory lists all the set-up screens. To display a selected
+screen:</p>
+<ol>
+<li>Use the arrow keys to move the cursor to the name of the desired
+screen.</li>
+<li>Press <span class="keyname">Enter</span>.</li>
+</ol>
+<h2 id="S5.5">Changing and Recalling Settings</h2>
+<p>This section describes how to change, save, and recall set-up settings.</p>
+<h3 id="S5.5.1">How to Change Settings</h3>
+<p>Use the arrow keys to move the set-up cursor to a particular feature on
+a set-up screen. Most features have two or more possible settings. Use
+the <span class="keyname">Enter</span> key to change the setting of the feature highlighted by the
+cursor. Each time you press <span class="keyname">Enter</span>, the setting changes. Depending on the
+feature, the change takes effect immediately or when you leave set-up.</p>
+<p><strong>Example</strong></p>
+<p>This example shows you how to change the screen display setting from 80
+to 132 columns.</p>
+<ol>
+<li>Press <span class="keyname">F3</span> (Set-Up) to enter set-up. The Set-Up Directory appears. The
+field cursor is on the <code class="screen">Global</code> field.</li>
+<li>Use the arrow keys to move to the <code class="screen">Display</code> field.</li>
+<li>Press <span class="keyname">Enter</span>. The Display Set-Up screen appears.</li>
+<li>Use the arrow keys to move to the <code class="screen">80 Columns</code> field. Press <span class="keyname">Enter</span> to
+change the setting to <code class="screen">132 Columns</code>.</li>
+</ol>
+<p>When you change a feature setting, the VT420 uses that setting until you
+turn the terminal off or change the setting again. To save a new setting,
+read the next section.</p>
+<h3 id="S5.5.2">How to Save Your Settings</h3>
+<p>If you make changes to current settings, you can save your changes
+with the <strong>save</strong> feature in the Set-Up Directory. This feature saves all
+current settings (in most set-up screens) for the active session. Even
+after you turn off the terminal, it retains the saved settings. The VT420
+automatically uses these settings each time you turn the terminal on.</p>
+<p><strong>Example</strong></p>
+<p>This example shows how to save the 132 column setting selected in the
+previous example.</p>
+<ol>
+<li>After you select the 132 columns setting, use the arrow keys to move
+to the <code class="screen">To Directory</code> field.</li>
+<li>Press <span class="keyname">Enter</span> to return to the Set-Up Directory screen.</li>
+<li>Use the arrow keys to move to the <span class="keyname">Save</span> field.</li>
+<li>Press <span class="keyname">Enter</span> to save all current settings.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p>If you change settings again, you can recall your saved settings. Read the
+next section.</p>
+<h3 id="S5.5.3">How to Recall Saved Settings</h3>
+<p>For some applications, you may want to make temporary changes to
+current settings. When you are finished using the temporary settings,
+you can recall your saved settings with the <strong>recall</strong> feature in the Set-Up
+Directory.</p>
+<p>To recall saved settings:</p>
+<ol>
+<li>Press <span class="keyname">F3</span> (Set-Up). The terminal displays the Set-Up Directory.</li>
+<li>Use the arrow keys to move the cursor to the <code class="screen">Recall</code> field.</li>
+<li>Press <span class="keyname">Enter</span>. The VT420 replaces all existing settings with the
+previously saved settings. A <code class="screen">Done</code> message on the status line indicates
+the action is complete.</li>
+<li>Press <span class="keyname">F3</span> (Set-Up) to leave set-up.</li>
+</ol>
+<p class="note">NOTE: If you are using a modem, <code class="screen">Recall</code> disconnects communication with
+the host system.</p>
+<h2 id="S5.6">Global Set-Up Screen</h2>
+<p>This screen has features that affect <strong>both</strong> sessions when you use two
+sessions. Table 5-2 describes each feature on the Global Set-Up screen.</p>
+<h3 id="S5.6.1">Two Sessions</h3>
+<p>You use two features on the Global Set-Up screen to set up the VT420 for
+two sessions.</p>
+<ul>
+<li>Terminal comm ports</li>
+<li>Comm port selection</li>
+</ul>
+<p>The feature settings must match the system cable connection on the rear
+of the terminal. After you connect the terminal's cables and select the
+set-up features for two sessions (<a href="chapter3.html">Chapter 3</a>), refer to <a href="chapter7.html">Chapter 7</a> to use two
+sessions.</p>
+<p><img src="gsf_1365_89.png" alt=""/></p>
+<table id="T5-2" class="truled">
+<caption>Table 5-2 Global Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-line/local</td>
+<td>Selects whether or not the VT420 can communicate
+with a host system.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>On Line</strong></li>
+</ul></td>
+<td>Lets the VT420 communicate with a host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Local</li>
+</ul></td>
+<td>Puts the host on hold. The characters you type go directly to the screen.</td>
+</tr>
+<tr>
+<td>Terminal comm ports</td>
+<td>Assigns the communication connectors on the rear of the terminal to session 1 or 2.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>S1=Comm1</strong></li>
+</ul></td>
+<td>Assigns only one session to the Comm1 connector.
+The <code class="screen">Session</code> indicator does not appear on the
+keyboard indicator line.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>S1=Comm1,S2=Comm2</li>
+</ul></td>
+<td>Assigns session 1 to the Comm1 connector, and
+session 2 to the Comm2 connector.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>S1=Comm2,S2=Comm1</li>
+</ul></td>
+<td>Assigns session 1 to the Comm2 connector, and
+session 2 to the Comm1 connector.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Sessions on Comm1</li>
+</ul></td>
+<td>Assigns both SSU sessions to the Comm1 connector.
+Both sessions use the same communication cable.</td>
+</tr>
+<tr>
+<td>CRT saver</td>
+<td>Increases screen life.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>CRT Saver</strong></li>
+</ul></td>
+<td>If the terminal is left on but inactive for 30 minutes,
+the screen goes blank. You can press any key to
+reactivate the screen. The host can also reactivate
+the screen by sending any character.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>No CRT Saver</li>
+</ul></td>
+<td>CRT saver feature is disabled.</td>
+</tr>
+<tr>
+<td>Comm port selection</td>
+<td>Selects the 25-pin, RS-232 or 6-pin, DEC-423
+connector as the Comm1 port.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Comm1=RS-232</strong></li>
+</ul></td>
+<td>Selects the 25-pin RS-232 connector as the Comm1
+port. The connector conforms to EIA RS-232
+standards. You can use this setting for a connection
+to a host, terminal server, or modem.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Comm1=DEC-423</li>
+</ul></td>
+<td>Selects the 6-pin DEC-423 port as the Comm1 port.
+The connector conforms to EIA RS-423 standards.
+You can use this setting for a connection to a host
+or terminal server.</td>
+</tr>
+<tr>
+<td>Screen refresh rate</td>
+<td>Sets the video refresh rate.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>70 Hz</strong></li>
+</ul></td>
+<td>This screen refresh rate is recommended in most
+environments, to minimize flicker.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>60 Hz</li>
+</ul></td>
+<td>Used in environments with electrical noise
+interference.</td>
+</tr>
+<tr>
+<td>Printer assignment</td>
+<td>Selects which session can use the printer port.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Printer Shared</strong></li>
+</ul></td>
+<td>Both sessions can use the printer port, but not at
+the same time.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Printer Session 1</li>
+</ul></td>
+<td>Only session 1 can use the printer port.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Printer Session 2</li>
+</ul></td>
+<td>Only session 2 can use the printer port.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S5.7">Display Set-Up Screen</h2>
+<p>This screen has features that affect the way data appears on the screen.
+<a href="#T5-3">Table 5-3</a> describes the Display Set-Up features.</p>
+<h3 id="S5.7.1">Selecting a Page Size</h3>
+<p>The VT420 has <em>page memory</em> that can store up to 144 lines of text entered
+from the keyboard or host system. You can divide the 144 lines into a
+different number of pages, by using the <strong>page arrangement</strong> feature on
+the Display Set-Up screen.</p>
+<p>There are many page sizes available (<a href="#T5-3">Table 5-3</a>). The default page size is
+the same size as the default screen display area.</p>
+<ul>
+<li>If you use one session, all 144 lines of page memory are available.
+The default setting is 6 pages of 24 lines each.</li>
+<li>If you use two sessions, each session has 72 lines available. The
+default setting for each session is 3 pages of 24 lines each.</li>
+</ul>
+<p>Pages create boundaries. Before you change the standard page size of 24
+lines, you may want to check your application's documentation to make
+sure the application can recognize the new page boundaries. To display a
+new page, use the <span class="keyname">Ctrl</span> <span class="keyname">Next</span> and <span class="keyname">Ctrl</span> <span class="keyname">Prev</span> keys.</p>
+<h3 id="S5.7.2">Selecting the Number of Lines/Screen</h3>
+<p>You use the <strong>lines/screen</strong> feature on the Display Set-Up screen to select
+the number of text lines you see on the screen. The ability for the VT420
+to display the selected number of lines depends on the following factors:</p>
+<table>
+<thead>
+<tr>
+<th>If...</th>
+<th>Then...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The page size is less than the
+number of <code class="screen">Lines/Screen</code>
+displayed</td>
+<td>The VT420 displays only the number of
+lines on the page.</td>
+</tr>
+<tr>
+<td>The page size is greater than
+the number of <code class="screen">Lines/Screen</code>
+display</td>
+<td>The VT420 may display additional lines
+on the screen. For example, when the
+<strong>status display</strong> feature is disabled, an
+additional line of data is put in place of
+the missing status line.</td>
+</tr>
+<tr>
+<td>You use two windows</td>
+<td>The number of lines displayed is limited
+by the screen area allocated to each
+session.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S5.7.3">Coupling the Cursor to the Display</h3>
+<p>The VT420 lets you pan through the information stored on one page or
+move to another page. The Display Set-Up screen has two features that
+determine whether or not the display automatically pans to keep the
+cursor visible: <strong>vertical coupling</strong> and <strong>page coupling</strong>. See <a href="chapter7.html">Chapter 7</a> for
+a description of panning.</p>
+<p><img src="gsf_0637_89.png" alt=""/></p>
+<table id="T5-3" class="truled">
+<caption>Table 5-3 Display Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80/132 column mode</td>
+<td>Selects an 80- or 132-column page width for text.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>80 Columns</strong></li>
+<li>132 Columns</li>
+</ul></td>
+<td><p>The screen display width is the same as the page
+width.</p>
+<p>If you change the current setting, page memory
+clears.</p></td>
+</tr>
+<tr>
+<td>Control representation mode
+<ul class="settings">
+<li><strong>Interpret Controls</strong></li>
+<li>Display Controls</li>
+</ul></td>
+<td>Selects whether the terminal processes (interprets)
+or displays <em>control characters</em>. You can use this
+feature as an aid for debugging programs. See
+"Display Controls Mode" in the <cite>VT420 Programmer
+Reference Manual</cite>.</td>
+</tr>
+<tr>
+<td>Auto wrap</td>
+<td>Selects whether or not text automatically wraps to
+the next line when you reach the right margin.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>No Auto Wrap</strong></li>
+</ul></td>
+<td>When you reach the margin, the VT420 displays
+each new character in the last column of the
+line. Each new character overwrites the previous
+character at that position.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Auto Wrap</li>
+</ul></td>
+<td>When you reach the margin, the VT420 displays
+new characters on the next line.</td>
+</tr>
+<tr>
+<td>Smooth/jump scroll
+<ul class="settings">
+<li><strong>Smooth-2 Scroll</strong></li>
+<li>Smooth-4 Scroll</li>
+<li>Jump Scroll</li>
+</ul></td>
+<td>When you select <code class="screen">Smooth-2 Scroll</code> or <code class="screen">Smooth-4
+Scroll</code>, text on the screen scrolls smoothly.
+<code class="screen">Smooth-4 Scroll</code> is twice as fast as <code class="screen">Smooth-2
+Scroll</code>. When you select <code class="screen">Jump Scroll</code>, text on the
+screen scrolls as fast as the terminal processes it.</td>
+</tr>
+<tr>
+<td>Light/dark screen
+<ul class="settings">
+<li><strong>Dark Screen</strong></li>
+<li>Light Screen</li>
+</ul></td>
+<td>Selects light text on dark background, or dark text
+on light background. Takes effect in set-up.</td>
+</tr>
+<tr>
+<td>Cursor
+<ul class="settings">
+<li><strong>Cursor</strong></li>
+<li>No Cursor</li>
+</ul></td>
+<td>Selects whether or not to display the cursor.</td>
+</tr>
+<tr>
+<td>Cursor style
+<ul class="settings">
+<li><strong>Block Cursor Style</strong></li>
+<li>Underline Cursor Style</li>
+</ul></td>
+<td>Selects a block or underline cursor.</td>
+</tr>
+<tr>
+<td>Status display</td>
+<td>Selects how and when to use the status line.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>No Status Display</strong></li>
+</ul></td>
+<td>This session does not display a status line outside
+of set-up.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Indicator Status Display</li>
+</ul></td>
+<td>The VT420 displays a status line for the current session.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Host Writable Status Display</li>
+</ul></td>
+<td>The host can display information on the status
+line for this session.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: In set-up, the terminal always displays the status line for the current
+session.</p></td>
+</tr>
+<tr>
+<td>Cursor blink
+<ul class="settings">
+<li><strong>Cursor Blink</strong></li>
+<li>Cursor Steady</li>
+</ul></td>
+<td>Selects whether or not the cursor blinks (flashes).</td>
+</tr>
+<tr>
+<td>Page arrangement</td>
+<td>Selects the number of lines/page. The effect of
+this feature depends on whether you are running
+one session or two sessions.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><em>For Two Sessions</em></li>
+</ul></td>
+<td></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>3x24</strong></li>
+</ul></td>
+<td>Selects 3 pages, with 24 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>2x25</li>
+</ul></td>
+<td>Selects 2 pages, with 25 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>2x36</li>
+</ul></td>
+<td>Selects 2 pages, with 36 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>1x48</li>
+</ul></td>
+<td>Selects 1 page of 48 lines.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>1x72</li>
+</ul></td>
+<td>Selects 1 page of 72 lines.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><em>For One Session</em></li>
+</ul></td>
+<td></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>6x24</strong></li>
+</ul></td>
+<td>Selects 6 pages, with 24 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>5x25</li>
+</ul></td>
+<td>Selects 5 pages, with 25 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>4x36</li>
+</ul></td>
+<td>Selects 4 pages, with 36 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>3x48</li>
+</ul></td>
+<td>Selects 3 pages, with 48 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>2x72</li>
+</ul></td>
+<td>Selects 2 pages, with 72 lines/page.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>1x144</li>
+</ul></td>
+<td>Selects 1 page of 144 lines.</td>
+</tr>
+<tr>
+<td>Number of lines/screen*</td>
+<td>Selects the number of lines displayed on the screen
+at one time.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>24 Lines/Screen</strong></li>
+</ul></td>
+<td>Selects the 24 lines/screen font.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>36 Lines/Screen</li>
+</ul></td>
+<td>Selects the 36 lines/screen font.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>48 Lines/Screen</li>
+</ul></td>
+<td>Selects the 48 lines/screen font.</td>
+</tr>
+<tr>
+<td>Vertical coupling
+<ul class="settings">
+<li><strong>Vertical Coupling</strong></li>
+<li>No Vertical Coupling</li>
+</ul></td>
+<td>Selects whether or not to automatically pan when
+the cursor moves beyond the top or bottom border
+of a window. Automatic panning keeps the cursor
+visible.</td>
+</tr>
+<tr>
+<td>Page coupling
+<ul class="settings">
+<li><strong>Page Coupling</strong></li>
+</ul></td>
+<td>Selects whether or not to automatically display a
+new page when the cursor moves to a new page in
+page memory. For more information, se "Windows"
+in <a href="chapter7.html">Chapter 7</a>.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>No Page Coupling</li>
+</ul></td>
+<td>If the cursor moves to a new page, you cannot see
+the page or the cursor.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: The page coupling feature is only useful when the page arrangement
+feature is set to two or more pages.</p></td>
+</tr>
+<tr>
+<td>Auto resize screen*
+<ul class="settings">
+<li><strong>No Auto Resize Screen</strong></li>
+</ul></td>
+<td>Selects whether or not to automatically change the
+number of lines/screen when the page arrangement
+changes.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Auto Resize Screen</li>
+</ul></td>
+<td>Resizes the screen when the page size changes.
+<table>
+<thead>
+<tr>
+<th colspan="2">Page size</th>
+<th colspan="2">Screen size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td rowspan="6">lines</td>
+<td>24</td>
+<td rowspan="6">lines</td>
+</tr>
+<tr>
+<td>25</td>
+<td>24</td>
+</tr>
+<tr>
+<td>36</td>
+<td>36</td>
+</tr>
+<tr>
+<td>48</td>
+<td>48</td>
+</tr>
+<tr>
+<td>72</td>
+<td>48</td>
+</tr>
+<tr>
+<td>144</td>
+<td>48</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">*The <strong>number of lines/screen</strong> is a user preference feature. If you select the <strong>user features
+locked</strong> feature in the General Set-Up screen and enable <strong>auto resize screen</strong> in the Display
+Set-Up screen, then the number of lines/screen changes when the page size change. For
+more information, see "Selecting the Number of Lines/Screen" at the beginning of this section.</td>
+</tr>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S5.8">General Set-Up Screen</h2>
+<p>This screen lets you set general features, such as the character set used
+to display characters on the screen. The <strong>terminal mode</strong> feature lets
+the VT420 emulate other VT series terminal for software compatibility.
+<a href="#T5-4">Table 5-4</a> describes the General Set-Up features.</p>
+<h3 id="S5.8.1">Character Sets</h3>
+<p>The General Set-Up screen lets you select the type of character set suited
+for your computing environment, multinational or national. Both types
+include the characters for many different languages. However, the
+multinational mode supports 8-bit characters, while the national mode
+restricts you to 7-bit characters.</p>
+<p>You use the <strong>character set mode</strong> feature to select multinational or
+national mode. <a href="chapter9.html">Chapter 9</a> shows all the built-in character sets.</p>
+<h4>Multinational Mode</h4>
+<p>This mode supports two 8-bit character sets:</p>
+<ul>
+<li>DEC multinational character set</li>
+<li>ISO Latin Alphabet No. 1 character set<br/>
+(International Organization for Standardization).</li>
+</ul>
+<p>Both character sets have two parts -- the U.S. ASCII character set and a
+supplemental set.</p>
+<ul>
+<li>The U.S. ASCII character set (United States American Standard Code
+for Information Interchange) contains the letters and numbers for
+English-speaking countries.</li>
+<li>The supplemental character set contains additional symbols and
+most characters used in the major European languages. There are
+two supplemental character sets to select from -- DEC Supplemental
+character set and ISO Latin-1 supplemental character set.</li>
+</ul>
+<p>If you select multinational mode, you use the <strong>UPSS</strong> (user-preferred
+supplemental set) feature to select the supplemental character set you
+prefer, DEC Supplemental or ISO Latin-1 supplemental. You can enter
+many of the characters in a supplemental set by using compose sequences
+(<a href="chapter6.html">Chapter 6</a>).</p>
+<p>By default, the VT420 uses the DEC Multinational character set.</p>
+<h4>National Mode</h4>
+<p>This mode supports 12 national replacement character sets (NRCs) built
+into the VT420. Each 7-bit NRC set is for a particular European language
+or dialect. You select an NRC set the <strong>keyboard dialect</strong> feature in
+the Keyboard Set-Up screen. You can only use one NRC set at a time.</p>
+<p>National mode is for 7-bit computing environments. You cannot use the
+8-bit multinational character sets in national mode.</p>
+<p class="note">NOTE: You cannot select national mode when the keyboard dialect
+feature is set to <code class="screen">North American</code>.</p>
+<p><img src="gsf_0638_89.png" alt=""/></p>
+<table id="T5-4" class="truled">
+<caption>Table 5-4 General Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal mode</td>
+<td>Selects the terminal's operating mode. The VT420
+can emulate any VT series text terminal.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>VT400 Mode, 7-Bit Controls</strong></li>
+</ul></td>
+<td>Lets the terminal use all VT420 features. The
+terminal normally uses 8-bit graphic characters and
+7-bit control characters. Select this mode for VT200
+and VT300 applications. <strong>Digital recommends
+this mode for most applications.</strong></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>VT400 Mode, 8-Bit Controls</li>
+</ul></td>
+<td><p>Lets the terminal use all VT420 features. The
+terminal uses 8-bit control characters. See
+<a href="chapter9.html">Chapter 9</a> for details. Select this mode for all
+VT200 and VT300 applications that use 8-bit
+control characters.</p>
+<p>This mode is the most efficient, but not yet
+supported by all applications.</p></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>VT100 Mode</li>
+</ul></td>
+<td>Use this mode for applications that require VT100
+compatibility.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>VT52 Mode</li>
+</ul></td>
+<td>Lets the terminal run VT52 applications.</td>
+</tr>
+<tr>
+<td>User defined keys lock
+<ul class="settings">
+<li><strong>User Defined Keys Unlocked</strong></li>
+<li>User Defined Keys Locked</li>
+</ul></td>
+<td>Selects whether or not the host system can change
+user-defined key (UDK) definitions.</td>
+</tr>
+<tr>
+<td>User features locked
+<ul class="settings">
+<li><strong>User Features Unlocked</strong></li>
+<li>User Features Locked</li>
+</ul></td>
+<td>Selects whether or not the host system can change
+the settings of the user preference features: <strong>auto
+repeat</strong>, <strong>smooth/jump scroll</strong>, <strong>light/dark screen</strong>,
+<strong>tab</strong>, <strong>keyboard lock</strong>, and <strong>number of lines/screen</strong>.
+User preference features are intended to be
+controlled by the user or terminal management
+software, rather than by application software.</td>
+</tr>
+<tr>
+<td>Character set mode</td>
+<td>Selects whether to use an 8-bit multinational
+character set or a 7-bit national replacement
+character (NRC) set.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>8-bit Characters</strong></li>
+</ul></td>
+<td>Lets you use one of the 8-bit multinational sets --
+DEC Multinational or ISO Latin-1. Both include
+the 7-bit U.S. ASCII set. You can select the specific
+set with the <strong>UPSS</strong> feature listed in this table.*</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>7-bit NRCS Characters</li>
+</ul></td>
+<td>Lets you use one of the 7-bit NRC sets. You select
+the specific NRC set with the <strong>keyboard dialect</strong>
+feature in the Keyboard Set-Up screen.*</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: If you set the keyboard dialect feature to <code class="screen">North American Keyboard</code>, the
+VT420 automatically sets the character set mode to <code class="screen">8-bit Characters</code>.</p></td>
+</tr>
+<tr>
+<td>Keypad mode</td>
+<td>Selects the type of characters sent by the numeric
+keypad.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Numeric Keypad</strong></li>
+</ul></td>
+<td>The keypad sends the numbers shown on the
+keycaps (using ASCII code).†</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Application Keypad</li>
+</ul></td>
+<td>The keypad sends control sequences (used with
+some applications).†</td>
+</tr>
+<tr>
+<td>Cursor key mode
+<ul class="settings">
+<li><strong>Normal Cursor Keys</strong></li>
+<li>Application Cursor Keys</li>
+</ul></td>
+<td>Selects whether the arrow keys send ANSI cursor
+control sequences or application-specific control
+functions.*</td>
+</tr>
+<tr>
+<td>New line</td>
+<td>Selects how the <span class="keyname">Return</span> key works.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>No New Line</strong></li>
+</ul></td>
+<td>Pressing <span class="keyname">Return</span> sends a carriage return character.
+The VT420 does not automatically move the cursor
+to a new line.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>New Line</li>
+</ul></td>
+<td>Pressing <span class="keyname">Return</span> sends a carriage return and a line
+feed. Used for some non-Digital applications.</td>
+</tr>
+<tr>
+<td>User-preferred supplemental set (UPSS)</td>
+<td>When the <strong>character set mode</strong> feature is set to
+<code class="screen">8-bit Characters</code>, this feature selects the 8-bit
+supplemental character set.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>UPSS DEC Supplemental</strong></li>
+</ul></td>
+<td>Selects the DEC Supplemental character set, which
+is part of the 8-bit DEC Multinational set. See
+<a href="chapter9.html">Chapter 9</a>.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>UPSS ISO Latin-1 Supplemental</li>
+</ul></td>
+<td>Selects the ISO Latin-1 supplemental character
+set, which is part of the ISO Latin-1 multinational
+character set.</td>
+</tr>
+<tr>
+<td>Terminal ID
+<ul class="settings">
+<li><strong>VT420 ID</strong></li>
+<li>VT100 ID</li>
+<li>VT101 ID</li>
+<li>VT102 ID</li>
+<li>VT220 ID</li>
+<li>VT320 ID</li>
+</ul></td>
+<td>Selects the device attributes response (terminal
+ID). Some applications require specific responses.
+This response lets the host system know specific
+operating attributes of the terminal.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: If your operating system does not recognize the <code class="screen">VT420 ID</code> setting, select
+the <code class="screen">VT320 ID</code> setting (<a href="chapter3.html">Chapter 3</a>).</p></td>
+</tr>
+<tr>
+<td>Update method</td>
+<td>Selects how and when to update page memory for
+the inactive session.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>When Available Update</strong></li>
+</ul></td>
+<td>Updates page memory for the other session
+whenever the terminal is not busy with the active
+session for one second.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Shared Update</li>
+</ul></td>
+<td>Updates page memory for a session whenever the
+terminal is not busy with the other session. Neither
+session has priority.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Never Update</li>
+</ul></td>
+<td>Prevents updates to page memory for the inactive session.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">*<a href="chapter9.html">Chapter 9</a> shows the VT420 character sets.</td>
+</tr>
+<tr>
+<td colspan="2">†The setting is not saved in nonvolatile memory.</td>
+</tr>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S5.9">Communications Set-Up Screen</h2>
+<p>This screen lets you set up the terminal to communicate with your host
+system. The default settings are those commonly used on Digital systems.
+Make sure the settings you use match the communication settings of your
+system.</p>
+<p>This screen also includes features for use with modems. <a href="chapter8.html">Chapter 8</a> has
+more information on modems.</p>
+<p>If you use the printer connector to connect a second host system to the
+terminal, the Communications Set-Up screen indicates which port is in
+use for the current session. The term <code class="screen">Comm</code> or <code class="screen">Print</code> appears on the top line
+of the set-up screen.</p>
+<p>Table 5-5 describes the Communications Set-Up features. For more
+information, see <cite>VT420 Programmer Reference Manual</cite>.</p>
+<p><img src="gsf_0639_89.png" alt=""/></p>
+<table id="T5-5" class="truled">
+<caption>Table 5-5 Communications Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transmit speed
+<ul class="settings">
+<li><strong>Transmit=9600</strong></li>
+</ul></td>
+<td>Selects the baud rate the VT420 uses to send data
+to the host system. The transmit baud rates range
+from 300 to 38400 bits/second. The default setting of
+<code class="screen">Transmit=9600</code> works with most Digital systems.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: The terminal's transmit speed must match the host's receive speed.
+However, the VT420 can transmit at one speed and receive at another.</p></td>
+</tr>
+<tr>
+<td>Receive speed
+<ul class="settings">
+<li><strong>Receive=Transmit</strong></li>
+</ul></td>
+<td>Selects the baud rate the VT420 uses to receive data
+from the host system. Receive baud rates range from
+300 to 38,400 bits/second. The default setting is
+<code class="screen">Receive=Transmit</code>.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: The terminal's receive speed must match the host's transmit speed.
+However, the VT420 can receive at one speed and transmit at another.</p></td>
+</tr>
+<tr>
+<td>XOFF
+<ul class="settings">
+<li><strong>XOFF at 64</strong></li>
+</ul></td>
+<td>Selects the number of characters the VT420 stores
+in its input buffer before sending the XOFF flow
+control signal. If you use one session, you can select
+an XOFF point of 64 or 128. If you use two SSU
+sessions, you can select an XOFF point of 64, 256, or
+1792 (<a href="appendixc.html">Appendix C</a>).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>No XOFF</li>
+</ul></td>
+<td>Will not send an XOFF signal.</td>
+</tr>
+<tr>
+<td>Data bits/parity
+<ul class="settings">
+<li><strong>8 Bits, No Parity</strong></li>
+</ul></td>
+<td>Specifies the character format for communicating
+with the host system, including:
+<ul>
+<li>Bits used to send each characteer (7 or 8)</li>
+<li>Parity setting: even, odd, or none</li>
+<li>Whether or not to check parity on received
+characters at the host port</li>
+</ul>
+<p>If you select a 7-bit environment for the host port,
+you cannot use 8-bit character sets.</p></td>
+</tr>
+<tr>
+<td>Stop bits<ul class="settings">
+<li><strong>1 Stop Bit</strong></li>
+<li>2 Stop Bits</li>
+</ul></td>
+<td>Selects the number of stop bits used by the host port.</td>
+</tr>
+<tr>
+<td>Local echo</td>
+<td>Selects whether or not to send the characters you
+type directly to page memory.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>No Local Echo</strong></li>
+</ul></td>
+<td>Sends keyboard data to the host system. The host
+decides whether or not to send the data back to the
+terminal.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Local Echo</li>
+</ul></td>
+<td>Sends keyboard data both to the host and back to the
+terminal.</td>
+</tr>
+<tr>
+<td>Modem control</td>
+<td>Configures the terminal to work with various modem
+features. See <a href="chapter8.html">Chapter 8</a>.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: You must select the 25-pin, RS-232 connector on the VT420 to use all
+the modem control features. When you attach a modem to the 25-pin
+connector, you must also enable the <code class="screen">Comm1=RS-232</code> setting in the Global
+Set-Up screen.</p>
+<p class="note">If you select the 6-pin, DEC-423 connector on the VT420, you cannot use
+the modem control features.</p></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Data Leads Only</strong></li>
+</ul></td>
+<td>Modem control pins on the DEC-423 or RS-232
+connector are not used.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Modem Control</li>
+</ul></td>
+<td>Uses DSR (pin 6) and DTR (pin 1) of the DEC-423
+connector.</td>
+</tr>
+<tr>
+<td>Disconnect delay</td>
+<td>Selects the delay time allowed for the VT420 to
+disconnect from a communication line. The VT420
+disconnects when it no longer sees the receive line
+signal detection (RLSD) signal. The modem control
+must be enabled.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Disconnect, 2s Delay</strong></li>
+</ul></td>
+<td>Selects a 2-second delay (used in most countries
+except the United Kingdom).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Disconnect, 60 ms Delay</li>
+</ul></td>
+<td>Selects a 60-millisecond delay (used in the United Kingdom).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>No Disconnect</li>
+</ul></td>
+<td>Does not disconnect from the line when the terminal
+loses RLSD.</td>
+</tr>
+<tr>
+<td>Transmit rate limit
+<ul class="settings">
+<li><strong>Limited Transmit</strong></li>
+<li>Unlimited Transmit</li>
+</ul></td>
+<td>Selects whether or not to limit the terminal to
+sending 150 to 180 characters/second. A limited rate
+reduces the interrupt burden on the host system.</td>
+</tr>
+<tr>
+<td>Auto answerback
+<ul class="settings">
+<li><strong>No Auto Answerback</strong></li>
+<li>Auto Answerback</li>
+</ul></td>
+<td>Selects whether or not to send the answerback
+message to the host system when establishing a
+connection.</td>
+</tr>
+<tr>
+<td>Answerback =</td>
+<td>Lets you type an answerback message. You can use
+up to 30 characters. This prompt appears on the
+status line, indicating the start of the message. If
+you press the <span class="keyname">F3</span> (Set-Up) key while entering an
+answerback message, the VT420 deletes the new
+message and saves the old message.</td>
+</tr>
+<tr>
+<td>Conceal answerback
+<ul class="settings">
+<li><strong>Not Concealed</strong></li>
+<li>Concealed</li>
+</ul></td>
+<td>Selects whether or not the VT420 will display the
+answerback message.</td>
+</tr>
+<tr>
+<td colspan="2"><p class="note">NOTE: If the conceal answerback feature is set to <code class="screen">Concealed</code>, you must enter a
+new answerback message before you can set it back to <code class="screen">Not Concealed</code>.</p></td>
+</tr>
+<tr>
+<td>Modem high speed
+<ul class="settings">
+<li><strong>Modem High Speed = Ignore</strong></li>
+</ul></td>
+<td><p>Selects a baud rate when the modem's speed
+indicator line is on. The <strong>modem control</strong> feature
+must be set to <code class="screen">Modem Control</code>.*</p>
+<p>The VT420 uses the baud rates selected by the
+<strong>transmit speed</strong> and <strong>receive speed</strong> features. The
+baud rates range is from 300 to 38,400 bits/second.</p></td>
+</tr>
+<tr>
+<td>Modem low speed
+<ul class="settings">
+<li><strong>Modem Low Speed = Ignore</strong></li>
+</ul></td>
+<td><p>Selects a baud rate when the modem's speed
+indicator line is off. The <strong>modem control</strong> feature
+must be set to <code class="screen">Modem Control</code>.*</p>
+<p>The VT420 uses the baud rates selected by the
+<strong>transmit speed</strong> and <strong>receive speed</strong> features. The
+baud rates range is from 300 to 38,400 bits/second.</p></td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">*See the <cite>VT420 Programmer Reference Manual</cite>.</td>
+</tr>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S5.10">Keyboard Set-Up Screen</h2>
+<p>This screen lets you control the operation of the keyboard. This includes
+the function of various keys and the keyboard's keyclick, warning bell,
+and margin bell.</p>
+<p>The <strong>typewriter/data processing</strong> feature lets you select the standard
+typewriter layout or data processing layout on the keyboard. This setting
+affects keys that have characters on the right half on their keycaps. If
+you select <code class="screen">Typewriter Keys</code>, you can type all the legends on the left half
+of the keycaps. If you select <code class="screen">Data Processing Keys</code>, you can type all the
+legends on the right half of the keycaps.</p>
+<p>Table 5-6 describes the Keyboard Set-Up features.</p>
+<p><img src="gsf_0640_89.png" alt=""/></p>
+<table id="T5-6" class="truled">
+<caption>Table 5-6 Keyboard Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature and Settings</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Typewriter/data processing</td>
+<td>Selects which characters are sent by data
+processing keys.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Typewriter Keys</strong></li>
+</ul></td>
+<td>Selects characters on the left half of the keycaps.</td>
+</tr>
+<tr>
+<td>Data Processing Keys</td>
+<td><p>Selects characters on the right half of the keycaps.</p>
+<p>If <strong>character set mode</strong> is set to <code class="screen">7-bit
+Characters</code> on the General Set-Up screen, the
+terminal uses the U.S. ASCII character set.</p></td>
+</tr>
+<tr>
+<td>Caps/shift lock</td>
+<td>Selects the function of the lock key in the down position.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Caps Lock</strong></li>
+</ul></td>
+<td>When the lock key is down, the alphabetic keys
+send their uppercase character. Other keys still
+send the bottom character on their keycap.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Shift Lock</li>
+</ul></td>
+<td>When the lock key is down, all keys send the shifted
+or top character on their keycap.</td>
+</tr>
+<tr>
+<td>Auto repeat
+<ul class="settings">
+<li><strong>Auto Repeat</strong></li>
+<li>No Auto Repeat</li>
+</ul></td>
+<td>Selects whether or not a key sends its character
+repeatedly when you hold the key down.*</td>
+</tr>
+<tr>
+<td>Keyclick
+<ul class="settings">
+<li><strong>Keyclick High</strong></li>
+<li>Keyclick Low</li>
+<li>Keyclick Off</li>
+</ul></td>
+<td>Selects whether or not keys click when you press
+them. You can select a high or low volume.</td>
+</tr>
+<tr>
+<td>Margin bell
+<ul class="settings">
+<li><strong>Margin Bell Off</strong></li>
+<li>Margin Bell High</li>
+<li>Margin Bell Low</li>
+</ul></td>
+<td>Selects whether or not the VT420 bell sounds when
+the text cursor approaches the right margin. You
+can select a high or low volume.</td>
+</tr>
+<tr>
+<td>Warning bell
+<ul class="settings">
+<li><strong>Warning Bell High</strong></li>
+<li>Warning Bell Low</li>
+<li>Warning Bell Off</li>
+</ul></td>
+<td>Selects whether or not the VT420 bell rings when
+(1) operating errors occur or (2) the terminal
+receives <span class="keyname">Ctrl</span><span class="keyname">G</span>. You select a high or low
+volume.</td>
+</tr>
+<tr>
+<td>Character mode</td>
+<td>Selects whether the keys send their normal
+characters or report their key position.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Character Mode</strong></li>
+</ul></td>
+<td>Selects ANSI/ISO character encoding for the
+keyboard.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Position Mode</li>
+</ul></td>
+<td>The keyboard sends control strings that indicate
+the position of the key pressed.</td>
+</tr>
+<tr>
+<td>Backarrow key</td>
+<td>Selects the function of the &lt;×] key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>&lt;×] <strong>Delete</strong></li>
+</ul></td>
+<td>&lt;×] sends the DEL (delete) character.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>&lt;×] Backspace</li>
+</ul></td>
+<td>&lt;×] sends the BS (backspace) character.</td>
+</tr>
+<tr>
+<td>Compose key</td>
+<td>Selects the function of the <span class="keyname">Compose Character</span>
+keys (or <span class="keyname">Group Shift</span> key on the German
+keyboard).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Local Compose</strong></li>
+</ul></td>
+<td><span class="keyname">Compose Character</span> starts a compose sequence
+(<a href="chapter6.html">Chapter 6</a>).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Report Compose</li>
+</ul></td>
+<td><span class="keyname">Compose Character</span> sends a control string to the
+host to report each down or up key transition.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Ignore Compose</li>
+</ul></td>
+<td><span class="keyname">Compose Character</span> keys are ignored.</td>
+</tr>
+<tr>
+<td>Alt Function key</td>
+<td>Selects the function of the <span class="keyname">Alt Function</span> keys.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>Report Alt</strong></li>
+</ul></td>
+<td><span class="keyname">Alt Function</span> sends a control string to the host to
+report each up or down key transition.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>Ignore Alt</li>
+</ul></td>
+<td><span class="keyname">Alt Function</span> keys are ignored.</td>
+</tr>
+<tr>
+<td>F1 =</td>
+<td>Selects the function of the <span class="keyname">F1</span> (Hold) key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>F1 = Hold</strong></li>
+</ul></td>
+<td><span class="keyname">F1</span> stops the scrolling of text for the active session
+(<a href="chapter4.html">Chapter 4</a>).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F1 = Fkey</li>
+</ul></td>
+<td><span class="keyname">F1</span> (unshifted) sends a function key sequence to the
+host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F1 = Ignore</li>
+</ul></td>
+<td><span class="keyname">F1</span> is ignored. This setting does not disable <span class="keyname">F1</span> for
+a copy and paste operation.</td>
+</tr>
+<tr>
+<td>F2 =</td>
+<td>Selects the function of the <span class="keyname">F2</span> (Print) key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>F2 = Print</strong></li>
+</ul></td>
+<td><span class="keyname">F2</span> performs the local print functions described in
+<a href="chapter8.html">Chapter 8</a>.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F2 = Fkey</li>
+</ul></td>
+<td><span class="keyname">F2</span> (unshifted) sends a function key sequence to the
+host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F2 = Ignore</li>
+</ul></td>
+<td><span class="keyname">F2</span> is ignored.</td>
+</tr>
+<tr>
+<td>F3 =</td>
+<td>Selects the function of the <span class="keyname">F3</span> (Set-Up) key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>F3 = Set-Up</strong></li>
+</ul></td>
+<td><span class="keyname">F3</span> is used to enter or leave set-up.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F3 = Fkey</li>
+</ul></td>
+<td><span class="keyname">F3</span> (unshifted) sends a function key sequence to the
+host. To enter set-up after you disable this key; log
+out, turn off the terminal, wait 10 seconds, then
+turn on the terminal and make <span class="keyname">F3</span> the first key you
+press.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F3 = Ignore</li>
+</ul></td>
+<td><span class="keyname">F3</span> is ignored.</td>
+</tr>
+<tr>
+<td>F4 =</td>
+<td>Selects the function of the <span class="keyname">F4</span> (Session) key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>F4 = Session</strong></li>
+</ul></td>
+<td>Pressing <span class="keyname">F4</span> switches the active session when you
+use two sessions (<a href="chapter8.html">Chapter 8</a>).</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F4 = Fkey</li>
+</ul></td>
+<td><span class="keyname">F4</span> (unshifted) sends a function key sequence to the
+host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F4 = Ignore</li>
+</ul></td>
+<td><span class="keyname">F4</span> is ignored.</td>
+</tr>
+<tr>
+<td>F5 =</td>
+<td>Selects the function of the <span class="keyname">F5</span> (Break) key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>F5 = Break</strong></li>
+</ul></td>
+<td><span class="keyname">F5</span> (unshifted) sends a break signal.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F5 = No Break</li>
+</ul></td>
+<td><ul>
+<li><span class="keyname">F5</span> (unshifted) is ignored.</li>
+<li><span class="keyname">F5</span> (shifted) performs a disconnect.</li>
+</ul></td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F5 = Fkey</li>
+</ul></td>
+<td><span class="keyname">F5</span> (unshifted) sends a function key sequence to the
+host.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>F5 = Ignore</li>
+</ul></td>
+<td><span class="keyname">F5</span> is ignored.</td>
+</tr>
+<tr>
+<td>,, and .. keys†</td>
+<td>Selects the function of the shifted comma and
+period keys.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>,, and .. Keys Send ,&lt; and .&gt;</strong></li>
+</ul></td>
+<td>The comma key sends a comma when unshifted and
+a &lt; character when shifted. The period key sends
+a period when unshifted and a &gt; character when
+shifted.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>,, and .. keys</li>
+</ul></td>
+<td>The shifted comma key sends a comma. The shifted
+period key sends a period.</td>
+</tr>
+<tr>
+<td>&lt;&gt; key†</td>
+<td>Selects the function of the <span class="keyname">&lt;&gt;</span> angle bracket key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>&lt;&gt; Key</strong></li>
+</ul></td>
+<td><span class="keyname">&lt;&gt;</span> sends a &lt; when unshifted and a &gt; when shifted.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>&lt;&gt; Key Sends `~</li>
+</ul></td>
+<td><span class="keyname">&lt;&gt;</span> sends a ` when unshifted and a ~ when shifted.</td>
+</tr>
+<tr>
+<td>`~ key†</td>
+<td>Selects the function of the <span class="keyname">`~</span> key.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li><strong>`~ Key</strong></li>
+</ul></td>
+<td><span class="keyname">`~</span> sends a ` when unshifted and a ~ when shifted.</td>
+</tr>
+<tr>
+<td><ul class="settings">
+<li>`~ Key Sends ESC</li>
+</ul></td>
+<td><span class="keyname">`~</span> sends an escape (ESC) character.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="2">*The following keys never repeat: <span class="keyname">F1</span>, <span class="keyname">F2</span>, <span class="keyname">F3</span>, <span class="keyname">F4</span>, <span class="keyname">F5</span>, <span class="keyname">Return</span>, <span class="keyname">Ctrl</span>, <span class="keyname">Alt Function</span>,
+<span class="keyname">Compose Character</span>, and lock.</td>
+</tr>
+<tr>
+<td colspan="2">† This feature applies only to the North American/United Kingdom keyboard.</td>
+</tr>
+<tr>
+<td colspan="2">Default settings are in <strong>bold</strong> type.</td>
+</tr>
+</tfoot>
+</table>
+<h2 id="S5.11">Tab Set-Up Screen</h2>
+<p>This screen lets you set the number of tab stops on a line. Tab stops
+on the screen are similar to tab stops on a typewriter. When you press
+the <span class="keyname">Tab</span> key outside of set-up, the cursor advances to the next tab stop.
+Table 5-7 describes the Tab Set-Up features.</p>
+<p>There is one tab stop field for each column on the screen. You can use a
+screen display of 80 or 132 columns wide. See the <strong>80/132 column mode</strong>
+feature in the Display Set-Up screen.</p>
+<p>You can use the arrow keys or the <span class="keyname">Tab</span> key to move the cursor to any tab
+stop field. Press the <span class="keyname">Enter</span> key to place a T in a blank field or erase a T
+from that field. The following figure shows the default tab stop settings.</p>
+<p class="note">NOTE: You cannot put a tab in column 1.</p>
+<p><img src="gsf_0641_89.png" alt=""/></p>
+<table id="T5-7" class="truled">
+<caption>Table 5-7 Tab Set-Up Features</caption>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear all tabs</td>
+<td>Removes all current tab settings shown on the Tab Set-Up
+screen.</td>
+</tr>
+<tr>
+<td>Set 8 column tabs</td>
+<td>Automatically sets one tab every eight columns, starting at
+column 9.</td>
+</tr>
+</tbody>
+</table>
+<footer>
+<nav class="sections"><a href="chapter4.html">Chapter 4</a><a href="contents.html">Contents</a><a href="chapter6.html">Chapter 6</a></nav>
+</footer>
+</body>
+</html>

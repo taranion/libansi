@@ -1,0 +1,2474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>Terminal Set-Up</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="chapter1.html">Chapter 1</a><a href="contents.html">Contents</a><a href="chapter3.html">Chapter 3</a></nav>
+</header>
+<h1 id="S2"><span>2</span> Terminal Set-Up</h1>
+<div class="main"><p>This chapter describes the extensive VT510 Set-Up features, which include
+contemporary windowing techniques that are easy to access. These techniques
+make it easy to move about and select features. Set-Up is used to examine or
+change terminal operating features, such as transmit/receive speeds, type of
+cursor, or key definitions.</p>
+<h2 id="S2.1">2.1 Entering Set-Up</h2>
+<p>You enter Set-Up by pressing the key designated as the Set-Up key. Pressing this
+key alternately places the terminal in Set-Up mode or returns it to the operating
+mode.</p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>On . . .</th>
+<th>The Set-Up key is . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a VT keyboard layout</td>
+<td><span class="keyname">F3</span> on the top row.</td>
+</tr>
+<tr>
+<td>an Enhanced PC 101/102 keyboard</td>
+<td><span class="keyname">Caps Lock/Print Screen</span>
+(or <span class="keyname">Alt/Print Screen</span>) above the editing keypad.</td>
+</tr>
+</tbody>
+</table>
+<p>The Set-Up function may be reassigned to other key combinations or can be
+disabled if desired.</p>
+<table id="F2-1" class="figure">
+<caption><span class="tabfigid">Figure 2–1</span> Set-Up</caption>
+<tbody>
+<tr>
+<td><img src="f2-1.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The Set-Up display consists of pull-right menus. You can move back and forth
+with the arrow keys. Pressing <span class="keyname">Enter</span>, <span class="keyname">Return</span>, <span class="keyname">Do</span>, or <span class="keyname">Select</span> invokes the action or
+setting for the current menu item.</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Set-Up can be programmed to lock out setup; however, when you press <span class="keyname">F3</span>
+as the first key after the terminal is powered on, you <strong>always</strong> enter Set-Up,
+regardless of which keyboard you use or how <span class="keyname">F3</span> is defined.</p></div></div>
+<h3 id="S2.1.1">2.1.1 Effects of Entering Set-Up</h3>
+<p>Placing the terminal in Set-Up mode causes no loss of data if a Flow Control
+protocol is in use on the communications port. When you enter Set-Up by
+pressing the Set-Up key, the text on the screen temporarily disappears and the
+first Set-Up menu is displayed on the screen. Upon exiting Set-Up, the previous
+text is restored.</p>
+<p>Entering Set-Up has the following side effects:</p>
+<ul>
+<li>Any compose sequence in progress is aborted and the keyboard is unlocked.</li>
+<li>The Indicator Status Line is enabled and remains enabled while in Set-Up.</li>
+<li>Printer operations are suspended and are resumed upon exiting Set-Up.</li>
+</ul>
+<h3 id="S2.1.2">2.1.2 Set-Up Languages</h3>
+<p>The VT510 Set-Up menus can be displayed in five languages using a Set-Up
+feature. A menu allows you to choose the language in which all subsequent
+Set-Up menus and displays are written. Selections from this Set-Up language
+menu (<a href="#F2-2">Figure 2–2</a>) take effect immediately. This feature can also be invoked by
+DECSSL.</p>
+<table id="F2-2" class="figure">
+<caption><span class="tabfigid">Figure 2–2</span> Set-Up Language Selection</caption>
+<tbody>
+<tr>
+<td><img src="f2-2.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.1.3">2.1.3 Power-On Settings and Defaults</h3>
+<p>The VT510 terminal stores many of its feature settings in nonvolatile memory
+(NVM). Nonvolatile memory retains these settings even when power is shut
+off. In addition to storing operator-selected features, the terminal retains the
+factory default settings in permanent memory. By using Set-Up, you can modify
+individual terminal features, recall the feature settings stored in nonvolatile
+memory, or recall the factory default settings.</p>
+<p>In this chapter, the defaults are shown with a solid bullet (•) in lists and in
+<b class="default">boldface</b> in text.</p>
+<h3 id="S2.1.4">2.1.4 Self-test Error Messages</h3>
+<p>At power-up, the VT510 terminal executes a series of self-tests, displays a
+message indicating whether the self-tests were successful, and displays a banner
+message. (To change the banner message, see <a href="#S2.4.6">Section 2.4.6</a>.)</p>
+<p>If the self-tests detect an error, one of the following messages is displayed on the
+terminal in place of "Selftest OK."</p>
+<table id="T2-1" class="truled">
+<caption><span class="tabfigid">Table 2–1</span> Error Messages</caption>
+
+
+<thead>
+<tr>
+<th>Message</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NVR Error - 1</td>
+<td>A firmware update, or loss of power while
+writing to the NVR during a <b class="feature">Save settings</b>
+process may cause this error. Try <b class="feature">Save
+settings</b> again. It that does not work, <b class="feature">Recall
+factory defaults</b> and select <b class="feature">Save settings</b>
+again.</td>
+</tr>
+<tr>
+<td>RS-232 Port Data Error - 2</td>
+<td>Communications problem inside terminal.
+Call for service.</td>
+</tr>
+<tr>
+<td>RS-232 Port Controls Error - 3</td>
+<td>Communications problem inside terminal.
+Call for service.</td>
+</tr>
+<tr>
+<td>Keyboard Error - 4</td>
+<td>Turn the terminal off, and make sure the
+keyboard cable is plugged in. Turn the terminal
+on. If the problem continues, try another
+keyboard. If the new keyboard does not work,
+the problem is inside the terminal; in which
+case, call for service.</td>
+</tr>
+<tr>
+<td>EIA-423 Port Error - 5</td>
+<td>Communications problem inside terminal.
+Call for service.</td>
+</tr>
+<tr>
+<td>Parallel Port Error - 6</td>
+<td>Communications problem inside terminal.
+Call for service.</td>
+</tr>
+<tr>
+<td>ROM Cartridge Error - 7</td>
+<td>Turn the terminal off, and make sure the ROM
+cartridge is seated firmly on its connector pins.
+Turn the terminal on. If the problem continues,
+try another ROM cartridge. If the new ROM
+cartridge does not work, the problem is inside
+the terminal; in which case, call for service.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.1.5">2.1.5 Context Sensitivity</h3>
+<p>On the screen, a check box <img src="u+2611.png" alt="☑" height="15" width="12"/> or radio button <img src="u+25c9.png" alt="(·)" height="15" width="15"/> indicates the current user
+selection and normally reflects the operating state of the terminal.</p>
+<p>Certain feature selections overlap and could contradict each other, so they cannot
+be active at the same time. These are called <dfn>context sensitive</dfn> features, which are
+displayed with the dim video attribute in Set-Up. Example:</p>
+<p class="example">You cannot select <b class="feature">ASCII emulation</b> ▹ <b class="feature">Pages</b> menu item when you are in
+a VT emulation mode, because the <b class="feature">Display</b> ▹ <b class="feature">Lines per page</b> menu item
+performs the same function.</p>
+<p>When a context sensitive feature is dimmed, it does not affect the user's selection,
+which may indicate the feature is enabled even though it is not currently
+selectable. Example:</p>
+<p class="example">You cannot have a 10 × 16 font with overscan at 72 Hz. If you select this font
+size at 72 Hz, <i class="ctxfeature">Overscan</i> is not available and is dimmed; however, its checkbox
+can still be checked.</p>
+<p><a href="#T2-2">Table 2–2</a> lists the set-up features that are context sensitive.</p>
+<table id="T2-2" class="truled">
+<caption><span class="tabfigid">Table 2–2</span> Context Sensitive Set-Up Features</caption>
+
+
+
+<thead>
+<tr>
+<th class="c" colspan="2">Menu Item</th>
+<th>Dimmed when . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3"><b class="feature">Display</b> ▹</td>
+<td><b class="feature">Lines per screen</b><br/>
+<b class="feature">Lines per page</b></td>
+<td>WYSE is selected; use <b class="feature">ASCII emulation</b> ▹ <b class="feature">Data
+lines</b> and <b class="feature">Pages</b>.</td>
+</tr>
+<tr>
+<td><b class="feature">Cursor direction</b></td>
+<td><b class="feature">Keyboard language</b> is not Hebrew.</td>
+</tr>
+<tr>
+<td><b class="feature">Overscan</b></td>
+<td><b class="feature">Display</b> ▹ <b class="feature">Refresh rate</b> = 72 Hz and <b class="feature">Lines per
+screen</b> = 42 or 53.</td>
+</tr>
+<tr>
+<td rowspan="2"><b class="feature">Terminal type</b> ▹</td>
+<td><b class="feature">Terminal ID to host</b></td>
+<td><b class="feature">Terminal type</b> ▹ <b class="feature">Emulation mode</b> is other than a
+VT or SCO console.</td>
+</tr>
+<tr>
+<td><img src="u+2611.png" alt="☑" height="15" width="12"/> <b class="feature">7-bit NRCS characters</b></td>
+<td><b class="feature">Emulation mode</b> is set to VT100/VT52; or
+<b class="feature">Communication</b> ▹ <b class="feature">Word size</b> is 7-bits; or no
+8-bit NRC set exists for the keyboard language.</td>
+</tr>
+<tr>
+<td rowspan="2"><b class="feature">ASCII emulation</b> ▹</td>
+<td></td>
+<td><b class="feature">Terminal type</b> ▹ <b class="feature">Emulation mode</b> is set to VT or
+SCO console.</td>
+</tr>
+<tr>
+<td><b class="feature">TVI page-flip</b></td>
+<td><b class="feature">Terminal type</b> ▹ <b class="feature">Emulation mode</b> is other than
+TVI.</td>
+</tr>
+<tr>
+<td rowspan="2"><b class="feature">Keyboard</b> ▹</td>
+<td><b class="feature">Key encoding</b> ▹
+<b class="feature">Character, Scan code</b> and
+<b class="feature">Key position</b></td>
+<td><b class="feature">ASCII emulation</b> is selected, or a PC keyboard is
+connected.</td>
+</tr>
+<tr>
+<td><b class="feature">Data processing keys</b></td>
+<td>A PC keyboard is connected.</td>
+</tr>
+<tr>
+<td rowspan="3"><b class="feature">Communication</b> ▹</td>
+<td><b class="feature">Half duplex</b></td>
+<td>The host <b class="feature">Communication</b> ▹ <b class="feature">Port select</b> is set to
+<b class="feature">S1=comm2</b>.</td>
+</tr>
+<tr>
+<td><b class="feature">Transmit flow control</b> ▹
+<b class="feature">DSR</b> and <b class="feature">Both</b></td>
+<td>The <b class="feature">Modem</b> ▹ <b class="feature">Enable modem control</b> is selected.</td>
+</tr>
+<tr>
+<td><b class="feature">Receive flow control</b> ▹
+<b class="feature">DTR</b> and <b class="feature">Both</b></td>
+<td>The <b class="feature">Modem</b> ▹ <b class="feature">Enable modem control</b> is selected.</td>
+</tr>
+<tr>
+<td><b class="feature">Modem</b> ▹</td>
+<td><b class="feature">Disconnect delay</b> and
+<b class="feature">Modem speed</b></td>
+<td>The <b class="feature">Modem</b> ▹ <b class="feature">Enable modem control</b> is not
+selected.</td>
+</tr>
+<tr>
+<td rowspan="4"><b class="feature">Printer</b> ▹</td>
+<td><b class="feature">Serial print speed</b>,
+<b class="feature">2-way communication</b>,
+<b class="feature">Transmit flow control</b>,
+<b class="feature">Receive flow control</b>, <b class="feature">Word
+size</b>, <b class="feature">Parity</b>, and <b class="feature">Stop bits</b></td>
+<td>The <b class="feature">Communication</b> ▹ <b class="feature">Port select</b> is set to one of
+the <b class="feature">print=parallel</b> selections.</td>
+</tr>
+<tr>
+<td><b class="feature">DEC/ISO char sets</b></td>
+<td><b class="feature">IBM ProPrinter</b> is selected.</td>
+</tr>
+<tr>
+<td><b class="feature">PC character sets</b></td>
+<td><b class="feature">DEC ANSI</b> printer is selected.</td>
+</tr>
+<tr>
+<td><b class="feature">Print mode</b> ▹ <b class="feature">Controller</b></td>
+<td><b class="feature">Display</b> ▹ <b class="feature">Show control characters</b> is selected.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.1.6">2.1.6 Set-Up Summary Line</h3>
+<p>The Set-Up Summary Line (<a href="#F2-3">Figure 2–3</a>) shows the important set-up features that
+affect whether the terminal can successfully communicate with the host. If the
+terminal is not working, the Set-Up Summary Line allows you to quickly verify if
+the communication features are set appropriately. The summary line is displayed
+below the last data line, where the status line would normally appear.</p>
+<table id="F2-3" class="figure">
+<caption><span class="tabfigid">Figure 2–3</span> Set-Up Summary Line</caption>
+<tbody>
+<tr>
+<td><img src="f2-3.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The Set-Up Summary Line contains the following set-up information extracted
+from the Set-Up displays.</p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>Information Displayed</th>
+<th>Communication Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1=comm1</td>
+<td>Port selected: comm1 or comm2</td>
+</tr>
+<tr>
+<td>9600</td>
+<td>Transmit speed: 9600 baud</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Parity: N=none, E=even, O=odd, M=mark, S=space</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Word size: 7 or 8 bits</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Stop bits: 1 or 2 bits</td>
+</tr>
+<tr>
+<td>ISO Latin-1</td>
+<td>Default character set or<br/>
+PC set in PCTerm mode</td>
+</tr>
+<tr>
+<td>North American</td>
+<td>Keyboard language</td>
+</tr>
+<tr>
+<td>VT510</td>
+<td>Emulation mode</td>
+</tr>
+</tbody>
+</table>
+<p>The summary line is visible whenever the terminal is in Set-Up, except under the
+following conditions:</p>
+<ul>
+<li>You press a <span class="keyname">Shift</span> key. Pressing either <span class="keyname">Shift</span> key causes the normal Indicator
+Status Line to replace the Set-Up Summary Line.</li>
+<li>The status line is temporarily replaced by an error or status message from
+the terminal. In this case, the error or status message is shown in place of
+the status line until you type another key.</li>
+</ul>
+<p>The Set-Up Summary Line appears in the currently selected set-up language.</p>
+<h3 id="S2.1.7">2.1.7 Set-Up Status Messages</h3>
+<p>The Status or Set-Up Summary line is sometimes replaced by a Set-Up status
+message until the next user keystroke. Set-Up status messages are displayed
+whenever the effect of a set-up action would not otherwise be apparent. Example:
+"Done" is displayed after the Reset terminal action has completed.</p>
+<p>The following are set-up status messages:</p>
+<ul>
+<li>Done</li>
+<li>NVR Error</li>
+</ul>
+<h3 id="S2.1.8">2.1.8 Status Line</h3>
+<p>The VT510 terminal has a status display with the following features:</p>
+<ul>
+<li>The clock time appears on the status display if the local clock has been
+initialized since the terminal was last powered on.</li>
+<li>In the ASCII emulation modes, the host-writable status line becomes the
+WYSE Editing status line.</li>
+<li>The Accessibility Aids feature ("sticky keys") displays icons in the status line.
+For details, see Chapter 8, <a href="chapter8.html">Keyboard Processing</a>.</li>
+</ul>
+<p>The VT510 Indicator status line includes the Active Position Indicator, Printer
+Status Indicator, Modem Status Indicator, and local clock time in the desired
+format. Example:</p>
+<pre class="example">1(24,008)  Printer: None  Modem: DSR                  3:15 PM</pre>
+<h3 id="S2.1.9">2.1.9 Keyboard Indicator Line</h3>
+<p>The Keyboard Indicator Line has the following features:</p>
+<ul>
+<li>It is displayed in the Set-Up language.</li>
+<li>It has active keyboard layout. Nothing is displayed for Group 1. "G2" is
+displayed for Group 2, along with a small icon representing the right side of
+the top of the keycap. (To see this icon, press <span class="keyname">Ctrl/Alt/F2</span>. To return from Group
+2, press <span class="keyname">Ctrl/Alt/F1</span>.)</li>
+<li>For Greek, Hebrew, and Russian, "G2" is replaced by "Grk", "Heb", and "Rus",
+respectively.</li>
+<li>When the Num Lock state is active on an EPC keyboard, "Num Lock" is
+displayed.</li>
+<li>When an EPC keyboard is operating in VT style, "VT" is displayed in place of
+the Num Lock indicator.</li>
+<li>In French and Spanish, an icon replaces the word "Lock" on the indicator line.</li>
+</ul>
+<p>Example:</p>
+<pre class="example">Heb      Num Lock     Copy  Hold  Lock  Compose  Wait</pre>
+<p>Using <b class="feature">Define key...</b> to redefine keys on the numeric keypad will affect only
+the Num Lock off state of these keys. When Num Lock is on, these keys will
+always send their factory default ASCII numerals and characters. The Num Lock
+behavior of these keys cannot be reprogrammed.</p>
+<p><em>Scenario:</em> Imagine the keyboard having two numeric keypads: one for Num Lock
+Off, and the other for Num Lock On. Only the Num Lock Off keypad can be
+reprogrammed. The Num Lock On keypad retains the factory defaults.</p>
+<h2 id="S2.2">2.2 Set-Up Screen Text</h2>
+<p>The main menu, shown in <a href="#F2-4">Figure 2–4</a>, is the first menu displayed whenever you
+enter Set-Up. As the first menu, it holds the main directory of Set-Up features
+and those features which are commonly accessed and must be easy to find at all
+times. The Actions submenu is also displayed, since the Actions menu item is
+currently selected.</p>
+<p>Unless stated otherwise, the following general descriptions apply:</p>
+<ul>
+<li>Changes to feature settings do not take effect until you exit Set-Up. Only net
+changes have an effect—a change to a new value and back to an old value has
+no effect.</li>
+<li>The setting choices for some features are shown in the corresponding Set-Up
+displays. Where all the choices could not be displayed, additional choices are
+listed immediately under the figure.</li>
+</ul>
+<table id="F2-4" class="figure">
+<caption><span class="tabfigid">Figure 2–4</span> Main and Terminal Actions Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-4.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>Pressing <span class="keyname" title="Down">⇓</span> moves the cursor to the next item in the main menu. Pressing <span class="keyname" title="Right">⇒</span>
+moves the cursor right to the first item of the submenu, making it the active
+menu.</p>
+<h2 id="S2.3">2.3 Main Menu</h2>
+<p>The following descriptions refer to <a href="#F2-4">Figure 2–4</a>.</p>
+<p>The items above the dividing line in the main menu form a directory to the major
+functional areas of set-up features. Each item has a corresponding submenu or
+dialog box. Below the dividing line are features that need to be easy to find from
+any menu.</p>
+<h3 id="S2.3.1">2.3.1 On-Line</h3>
+<p>The <b class="feature">On-line</b> feature allows you to select whether the terminal directs keyboard
+input to its host port UART to communicate with a remote host (On-Line), or
+directs keyboard input directly to the screen (receive character parser) without
+sending to a remote host (off-line or local).</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>The <b class="feature">On-line</b> selection is different from the Local echo mode in the
+Communications Set-Up submenu. When <b class="feature">On-line</b> is disabled (local
+mode), nothing is sent to the host. Any keyboard input is directed to the
+receive character parser, which updates the screen.</p>
+<p>In contrast, <b class="feature">Local echo</b> causes characters sent to the host port to also
+be directed back to the receive character parser, as if they had been
+received (echoed) from the host. Local echo is temporarily disabled when
+the terminal is in either Local mode or Local Controller mode, because
+keyboard input is already being redirected to the screen or printer port.</p>
+<p>If an NVR error occurs during power-up, the terminal switches to Local
+mode.</p></div></div>
+<p>Terminal reports, such as Answerback, DA, CPR, DECTSR, DECRPM, DECRPSS,
+DECAUPSS, DECCIR, DECTABSR and DSR, are not directed to the display.
+While in "local", host communications are put on "hold": All data received is
+buffered. If necessary, an XOFF is sent (or DTR is deasserted) to prevent buffer
+overflow. This buffered data is directed to the display when On-line mode is
+reentered. Note that the received character buffer (silo) is responsible for sending
+XON and XOFF when needed, not the On-line/Local state.</p>
+<p>When in Local mode, modem signals, including DTR, are unaffected. No
+disconnect is performed. The functions of the printer port remain unchanged
+in Local mode. They function the same as in On-line mode.</p>
+<p>When in Local mode and Printer To Host mode is selected, data from the printer
+port is displayed on the video terminal.</p>
+<p>When both Local mode and Printer Controller mode are selected, the terminal
+is in Local Controller mode. Keyboard characters are sent to the printer port.
+Note that in "regular local" mode, any keyboard output is directed to the screen,
+but in "regular controller" mode, the keyboard output is directed at the host
+port. When Local Controller mode is exited to Local mode, the terminal redirects
+keyboard output from the printer to the screen (and parser). When you change
+from Local Controller mode to Printer Controller mode, the terminal transmits
+the characters accumulated in the receive silo to the printer.</p>
+<h3 id="S2.3.2">2.3.2 Save Settings</h3>
+<p>The <b class="feature">Save settings</b> menu item, when invoked by pressing <span class="keyname">Return</span> or <span class="keyname">Enter</span>,
+causes the settings for most Set-Up controlled operating features to be saved in
+nonvolatile memory, where they become the power-on settings. These features
+include:</p>
+<ul>
+<li>Cursor direction</li>
+<li>Copy direction</li>
+<li>Auto wrap mode</li>
+<li>CRT saver</li>
+<li>Overscan</li>
+<li>Refresh rate</li>
+<li>Emulation mode</li>
+<li>VT default character set</li>
+<li>PCTerm mode and default character set</li>
+<li>Transmit 7-bit controls</li>
+<li>ASCII emulation features</li>
+<li>Keyboard language (VT or PC, not both)</li>
+<li>Up to 60 defined keys—Individual keys can have up to 255 characters.
+Limit = 804 bytes.</li>
+<li>All Communication submenu features (port select, word size...)</li>
+<li>All Modem submenu features</li>
+<li>All Printer submenu features</li>
+<li>Set-Up language</li>
+</ul>
+<p>The <b class="feature">Keyboard encoding mode</b> is <strong>not</strong> saved.</p>
+<h3 id="S2.3.3">2.3.3 Restore Settings</h3>
+<p><b class="feature">Restore settings</b> is an action field that is used to replace all saved Set-Up
+parameters with the values stored in the NVR. As a side effect, this feature
+performs a disconnect sequence, clears the screen, reinitializes the user-definable
+keys (as saved), clears the soft character set, returns the cursor to the upper
+left corner, aborts any print operation in progress, aborts ESC, CSI, and DCS
+sequences (and control strings), and shows "Done" on the status line. This action
+can also be invoked by the RIS control function.</p>
+<h3 id="S2.3.4">2.3.4 Exit Set-Up</h3>
+<p>The <b class="feature">Exit Set-Up</b> menu item, when invoked by pressing <span class="keyname">Enter</span>, causes the terminal
+to exit Set-Up. The effect is identical to pressing the Set-Up key while in Set-Up.</p>
+<h2 id="S2.4">2.4 Actions Menu</h2>
+<p>The following descriptions refer to <a href="#F2-4">Figure 2–4</a>. Certain Set-Up features instruct
+the terminal to perform an immediate action when they are invoked. These
+features are grouped in the terminal Actions menu.</p>
+<h3 id="S2.4.1">2.4.1 Clear Display</h3>
+<p>The <b class="feature">Clear display</b> feature clears the active page (including the lines which have
+temporarily disappeared while the you are in Set-Up).</p>
+<h3 id="S2.4.2">2.4.2 Clear Communications</h3>
+<p>This feature is used to clear communication buffers and flags. It does not affect
+the On-Line/Local state. It is not invoked by any control functions.</p>
+<p><b>Clear communications</b>:</p>
+<ul>
+<li>Aborts any print operation in progress</li>
+<li>Aborts any escape sequence, control sequence, control string, or character
+string processing (ESC, CSI, DCS, APC, OSC, PM, SOS)</li>
+<li>Clears the keyboard buffers</li>
+<li>Clears the receive silo</li>
+<li>Clears the transmit silo</li>
+<li>Takes the terminal out of Printer Controller mode</li>
+<li>Sends XON on to the host port</li>
+<li>Sends XON to the printer port if Printer To Host and XOFF are enabled</li>
+<li>Resets XOFF received flags on both ports</li>
+<li>Does not clear the screen</li>
+<li>Clears KAM locked condition</li>
+<li>Clears the "printer port has seen DSR since power up" flag</li>
+</ul>
+<h3 id="S2.4.3">2.4.3 Reset Terminal</h3>
+<p>The <b class="feature">Reset terminal</b> Set-Up feature resets the terminal to a "known state."
+This function is like Soft Terminal Reset (DECSTR), except DECSTR resets the
+Character Set mode to "8-bit Characters" and <b class="feature">Reset terminal</b> does not.</p>
+<p>Additions:</p>
+<ul>
+<li>Keyboard encoding is reset to "character."</li>
+<li>PCTerm mode is not selected.</li>
+</ul>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>From Set-Up, a soft reset using <b class="feature">Reset terminal</b> always works regardless
+of the terminal mode; but using mode changing control functions
+(DECSCL, S8C1T, S7C1T, DECANM), the soft reset is sometimes not
+performed.</p></div></div>
+<h3 id="S2.4.4">2.4.4 Restore Factory Defaults</h3>
+<p><b class="feature">Restore factory defaults</b> is an action field that is used to replace all existing
+Set-Up parameters with the values stored in ROM (the factory defaults). As a
+side effect, it does the following:</p>
+<ul>
+<li>Performs a disconnect sequence</li>
+<li>Clears the screen</li>
+<li>Reinitializes the user-definable keys</li>
+<li>Clears the soft font</li>
+<li>Returns the cursor to upper-left corner</li>
+<li>Aborts print operations in progress</li>
+<li>Aborts ESC, CSI and DCS sequences</li>
+<li>Displays the "Done" message on the status line</li>
+</ul>
+<h3 id="S2.4.5">2.4.5 Clock, Calculator, Show Character Sets</h3>
+<p>The <b class="feature">Clock</b>, <b class="feature">Calculator</b>, and <b class="feature">Show character sets</b> menu items are used to
+invoke the corresponding desktop productivity features. Refer to <a href="chapter3.html">Chapter 3</a>.</p>
+<h3 id="S2.4.6">2.4.6 Banner Message</h3>
+<p>The <b class="feature">Banner message</b> menu item invokes a dialog box with a 30-character limit.
+When this feature is selected, a dialog box is displayed with a reverse video text
+entry area 30 characters long. If a <b class="feature">Banner message</b> is currently defined, the
+message is displayed in the text entry area. The ⌫ or <span class="keyname">Delete</span> key can then be
+used to delete backwards and enter a new <b class="feature">Banner message</b>.</p>
+<p>All characters that can be generated by the keyboard are legal in this field
+(including primary and secondary keyboard language characters). As such, no
+errors are reported, except when trying to enter more than 30 characters. In this
+case, the bell rings (if enabled), and no more characters are accepted. The factory
+default message is no message at all (a blank field).</p>
+<p>From the <b class="feature">Actions</b> menu, select <b class="feature">Banner message...</b>.</p>
+<ol>
+<li>Press <span class="keyname">Return</span> or <span class="keyname">Enter</span> to display a dialog box.</li>
+<li>Enter your banner message.</li>
+<li>Press the <span class="keyname" title="Down">⇓</span> to select <span class="keyname">OK</span> button.</li>
+<li>Press <span class="keyname">Return</span> or <span class="keyname">Enter</span> to return to the Set-Up menu.</li>
+<li>Use the <b class="feature">Save settings</b> menu item to save the Banner message.</li>
+</ol>
+<h2 id="S2.5">2.5 Display Menu</h2>
+<p>Many of the features in <a href="#F2-5">Figure 2–5</a> can be controlled by the host control
+sequences listed in <a href="#T2-3">Table 2–3</a>. The control functions are described in Chapter 5,
+<a href="chapter5.html">ANSI Control Functions</a>.</p>
+<table id="F2-5" class="figure">
+<caption><span class="tabfigid">Figure 2–5</span> Display Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-5.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<table id="T2-3" class="truled">
+<caption><span class="tabfigid">Table 2–3</span> Display Set-Up Features and Control Functions</caption>
+
+
+<thead>
+<tr>
+<th>Set-Up Feature</th>
+<th>Control Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lines per screen</td>
+<td>DECSNLS</td>
+</tr>
+<tr>
+<td>Lines per page</td>
+<td>DECSLPP</td>
+</tr>
+<tr>
+<td>Columns per page</td>
+<td>DECSCPP, DECCOLM</td>
+</tr>
+<tr>
+<td>Clear on change</td>
+<td>DECNCSM</td>
+</tr>
+<tr>
+<td>Auto resize</td>
+<td>DECARSM</td>
+</tr>
+<tr>
+<td>Status display</td>
+<td>DECSSDT</td>
+</tr>
+<tr>
+<td>Scrolling mode</td>
+<td>DECSCLM, DECSSCLS</td>
+</tr>
+<tr>
+<td>Screen background</td>
+<td>DECSCNM</td>
+</tr>
+<tr>
+<td>Cursor display</td>
+<td>DECTCEM, DECSCUSR</td>
+</tr>
+<tr>
+<td>Cursor direction</td>
+<td>DECRLM</td>
+</tr>
+<tr>
+<td>Copy direction</td>
+<td>DECRLCM</td>
+</tr>
+<tr>
+<td>Vertical coupling</td>
+<td>DECVCCM</td>
+</tr>
+<tr>
+<td>Page coupling</td>
+<td>DECPCCM</td>
+</tr>
+<tr>
+<td>Auto wrap</td>
+<td>DECAWM</td>
+</tr>
+<tr>
+<td>New line mode</td>
+<td>LNM</td>
+</tr>
+<tr>
+<td>Show control characters</td>
+<td>CRM</td>
+</tr>
+<tr>
+<td>CRT saver</td>
+<td>DECCRTSM</td>
+</tr>
+<tr>
+<td>Overscan</td>
+<td>DECOSCNM</td>
+</tr>
+<tr>
+<td>Refresh rate</td>
+<td>DECSRFR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.5.1">2.5.1 Lines per Screen</h3>
+<table id="F2-6" class="figure">
+<caption><span class="tabfigid">Figure 2–6</span> Lines per Screen Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-6.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>This menu (<a href="#F2-6">Figure 2–6</a>) chooses a font that enables the selected number of lines
+to be viewed. Note that you cannot view more lines than the number of lines on a
+page (<b class="feature">Lines per page</b>).</p>
+<p>If the <b class="feature">Status display</b> is enabled, it is displayed using one of the same <b class="feature">Lines per
+screen</b> as the text for the corresponding session.</p>
+<p>This is an operator preference feature and cannot be changed by control functions
+if the operator preference is set to <b class="feature">Lock user preferences</b>; however, if <b class="feature">Auto
+resize</b> is enabled at the same time, then the number of <b class="feature">Lines per screen</b>
+changes when the page size changes.</p>
+<p>This feature can be changed from the host using the DECSNLS control function.
+Or, it may be changed indirectly from the host if <b class="feature">Auto resize</b> is selected and the
+page configuration is changed using DECSLPP.</p>
+<h4 id="S2.5.1.1">2.5.1.1 Auto Resize</h4>
+<p>When <b class="feature">Auto resize</b> is enabled, the number of lines per screen changes
+automatically each time the page arrangement changes, either by the host or
+through Set-Up. <a href="#T2-4">Table 2–4</a> shows how the screen size changes whenever the page
+size changes when Auto Resize is set.</p>
+<table id="T2-4" class="truled">
+<caption><span class="tabfigid">Table 2–4</span> Lines per Page vs. Lines per Screen When Auto Resize is Set</caption>
+
+
+<thead>
+<tr>
+<th>Lines per Page</th>
+<th>Lines per Screen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>26</td>
+</tr>
+<tr>
+<td>25</td>
+<td>26</td>
+</tr>
+<tr>
+<td>36</td>
+<td>43</td>
+</tr>
+<tr>
+<td>42</td>
+<td>43</td>
+</tr>
+<tr>
+<td>43</td>
+<td>43</td>
+</tr>
+<tr>
+<td>48</td>
+<td>52</td>
+</tr>
+<tr>
+<td>52</td>
+<td>52</td>
+</tr>
+<tr>
+<td>72</td>
+<td>52</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.5.2">2.5.2 Lines per Page</h3>
+<table id="F2-7" class="figure">
+<caption><span class="tabfigid">Figure 2–7</span> Lines per Page Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-7.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>This menu (<a href="#F2-7">Figure 2–7</a>) allows you to select the page size in lines and number of
+pages. The page size determines the addressing range for cursor positioning and
+scroll regions. The number of lines that can be displayed depends on the current
+setting of the <b class="feature">Lines per screen</b> feature.</p>
+<p>This field is also invoked by the DECSLPP control function.</p>
+<h3 id="S2.5.3">2.5.3 Columns per Page, Clear on Change</h3>
+<table id="F2-8" class="figure">
+<caption><span class="tabfigid">Figure 2–8</span> Columns per Page Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-8.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>This menu (<a href="#F2-8">Figure 2–8</a>) allows you to select an 80- or 132-column display for
+text. If <b class="feature">Clear on change</b> is disabled, changing this feature does not clear
+page memory, except when changing from 132 columns to 80 columns; then,
+columns 81 through 132 of each page are cleared. Changes to this field take effect
+immediately.</p>
+<p>This field is also invoked by the DECSCPP and DECCOLM control functions.
+The <b class="feature">Clear on change</b> feature invokes the DECCOLM sequence only. <em>It does not
+erase page memory</em>.</p>
+<h3 id="S2.5.4">2.5.4 Status Display</h3>
+<p>The <b class="feature">Status display</b> can be enabled in the selections shown in <a href="#F2-9">Figure 2–9</a>.</p>
+<table id="F2-9" class="figure">
+<caption><span class="tabfigid">Figure 2–9</span> Status Display Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-9.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.5.5">2.5.5 Scrolling Mode</h3>
+<p>The <b class="feature">Scrolling mode</b> menu allows you to select how fast lines appear on the
+screen.</p>
+<table class="truled">
+
+
+<thead>
+<tr>
+<th>Scroll Selection</th>
+<th>Scroll Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b class="default">Slow smooth</b></td>
+<td>Smooth steady scroll at approximately 9 lines per second
+(two scan lines per frame time).</td>
+</tr>
+<tr>
+<td>Fast smooth</td>
+<td>Smooth scrolls at approximately 18 lines per second.</td>
+</tr>
+<tr>
+<td>Jump</td>
+<td>Displays new lines as fast as they are received, causing a jump
+scroll on the screen.</td>
+</tr>
+</tbody>
+</table>
+<p>This is a user-preference feature. If <b class="feature">Lock user preferences</b> is set, then this
+field is not invoked by any control functions.</p>
+<h3 id="S2.5.6">2.5.6 Screen Background</h3>
+<p>The <b class="feature">Screen background</b> can be either dark or light, with <b class="feature">dark</b> as the default.</p>
+<h3 id="S2.5.7">2.5.7 Cursor Display</h3>
+<p>The <b class="feature">Cursor display</b> can be enabled in the selections shown in <a href="#F2-10">Figure 2–10</a>.</p>
+<table id="F2-10" class="figure">
+<caption><span class="tabfigid">Figure 2–10</span> Cursor Display Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-10.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.5.8">2.5.8 Cursor Direction</h3>
+<p>The <b class="feature">Cursor direction</b> default is <b class="feature">left to right</b>. If a Hebrew keyboard is
+connected to the terminal, a selection is available for right to left.</p>
+<h3 id="S2.5.9">2.5.9 Copy Direction</h3>
+<p>The <b class="feature">Copy direction</b> default is <b class="feature">left to right</b>. If desired, you can change this
+selection to right to left. The cursor direction and the copy direction should be
+matched.</p>
+<h3 id="S2.5.10">2.5.10 Vertical Coupling</h3>
+<p><b class="feature">Vertical coupling</b> selects whether the user window automatically pans to follow
+the cursor when the cursor is moved vertically to a part of the page that is not
+in the currently displayed user window. Panning does not occur until the input
+buffer becomes empty and the cursor is displayed.</p>
+<p>When <b class="feature">Vertical coupling</b> is disabled, the user window does not follow the cursor.
+If the cursor moves above or below the visible portion of the page, the cursor is no
+longer visible.</p>
+<h3 id="S2.5.11">2.5.11 Page Coupling</h3>
+<p><b class="feature">Page coupling</b> selects whether the user window automatically follows the cursor
+when the cursor is moved to a page that is not currently in the user window.
+When page coupling is enabled, moving the cursor to a page that is not currently
+displayed causes that page to be displayed. Panning does not occur until the
+input buffer becomes empty and the cursor is displayed.</p>
+<p>When <b class="feature">Page coupling</b> is disabled, the user window does not follow the cursor. If
+the cursor moves to a page that is not currently displayed, the cursor is no longer
+visible.</p>
+<h3 id="S2.5.12">2.5.12 Auto Wrap</h3>
+<p><b class="feature">Auto wrap</b> selects where a received character is displayed when the cursor is at
+the right margin.</p>
+<p>This field can be invoked by the DECAWM control function. The <b class="feature">Auto wrap</b>
+setting can be saved in NVM.</p>
+<h3 id="S2.5.13">2.5.13 New Line Mode</h3>
+<p>When enabled, <b class="feature">New line mode</b> selects the characters transmitted by Return,
+CR, or CR+LF. It also determines the action taken by the terminal when receiving
+line feed, form feed, and vertical tab, LF, or CR+LF.</p>
+<p>This feature can be invoked by the LNM (SM/RM) control function.</p>
+<h3 id="S2.5.14">2.5.14 Lock User Preferences</h3>
+<p>The <b class="feature">Lock user preferences</b> feature allows you to prevent the host from
+modifying user-preference features. If set to lock, the user-preference features
+cannot be changed by host control functions.</p>
+<p>The following user-preference features are locked and unlocked by this feature
+and when locked, cannot be changed by control functions:</p>
+<ul>
+<li>Auto repeat</li>
+<li>Scrolling mode</li>
+<li>Screen background</li>
+<li>Tab stops</li>
+<li>Keyboard definitions</li>
+<li>Lines per screen</li>
+<li>Auto resize</li>
+<li>Overscan</li>
+<li>Refresh rate</li>
+</ul>
+<h3 id="S2.5.15">2.5.15 Show Control Characters</h3>
+<p><b class="feature">Show control characters</b> allows you to select a normal display or a display
+called Control Representation mode or CRM. This "monitor and show all" display
+includes graphic representation of control characters.</p>
+<p>When <b class="feature">Show control characters</b> is enabled, special CRM symbols are used
+for the C0 and C1 control areas of ISO 2022 conforming character sets. Other
+characters are displayed using the current user preference supplemental set. See
+Chapter 4, <a href="chapter4.html">ANSI Control Functions Summary</a>.</p>
+<h3 id="S2.5.16">2.5.16 CRT Saver</h3>
+<p>If the <b class="feature">CRT saver</b> feature is enabled and the terminal is inactive for 30 minutes
+(no keyboard activity or input from a host computer), the monitor screen goes
+blank to reduce wear on the CRT. No data is lost when the <b class="feature">CRT saver</b> feature
+is active. Any keyboard activity or input from the host computer reactivates the
+monitor. The factory default setting is <b class="feature">CRT saver</b> enabled.</p>
+<p>When the monitor goes blank, a blinking hollow cursor is displayed in the
+lower-right corner of the screen.</p>
+<h3 id="S2.5.17">2.5.17 Overscan</h3>
+<p><b class="feature">Overscan</b> can be enabled for most character fonts. Overscan is disabled
+(dimmed) when the display <b class="feature">Refresh rate</b> is set to 72 Hz and the <b class="feature">Lines per
+screen</b> is set to either 36 or 48 lines.</p>
+<h3 id="S2.5.18">2.5.18 Refresh Rate</h3>
+<p>The screen <b class="feature">Refresh rate</b> can be set to <b class="feature">72 Hz</b> (default) or to 60 Hz.</p>
+<h3 id="S2.5.19">2.5.19 Screen Alignment</h3>
+<p>The <b class="feature">Screen alignment</b> menu item is used to invoke a screen alignment display
+(<a href="#F2-11">Figure 2–11</a>). For international units only, screen rotation is provided to
+compensate for the Earth's magnetic field. Follow the instructions on the screen.</p>
+<table id="F2-11" class="txtfigure">
+<caption><span class="tabfigid">Figure 2–11</span> Screen Alignment Display</caption>
+<tbody>
+<tr>
+<td><p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>Hold down the Shift key while using the four arrow keys<br/>
+  to center the border on the screen.</p>
+<p>Hold down the Control key while using the left and right arrow keys<br/>
+  to rotate the border on the screen.</p>
+<p>Press Enter to return to the Set-Up menu.</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S2.6">2.6 Terminal Type Menu</h2>
+<p>You can select terminal type and emulation modes using the menu shown in
+<a href="#F2-12">Figure 2–12</a>.</p>
+<table id="F2-12" class="figure">
+<caption><span class="tabfigid">Figure 2–12</span> Terminal Type and Emulation Mode Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-12.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.6.1">2.6.1 Emulation Mode</h3>
+<p><b class="feature">Emulation mode</b> is the primary means of selecting different terminal modes
+or emulations. Changing terminal modes or emulations usually performs some
+initialization of the terminal state.</p>
+<p class="example">Example: Selecting a VT mode performs a soft terminal reset (DECSTR).</p>
+<p>PCTerm mode can be selected or deselected independently from the other
+emulations. The ASCII modes use WYSE PCTerm emulation. The ANSI modes
+use VT420 PCTerm emulation.</p>
+<p>This feature corresponds to the DECPCTERM, DECTME, DECANM, and
+DECSCL control functions described in Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>.</p>
+<p>Changing the conformance level (DECSCL) does not change the operating level
+reported to identify the terminal to the host. It only changes the way extensions
+are reported.</p>
+<div class="note"><span class="notehead">Notes</span>
+<div class="notebody"><ul>
+<li>Printer operations are not affected or halted by a change in mode.</li>
+<li>A soft reset is always performed as a result of a mode change from
+Set-Up.</li>
+<li>Changes resulting from most, but not all, of the above sequences also
+cause a soft reset. Exception: Entering VT52 mode (via DECANM)
+does not cause a soft reset from VT100 mode, but does cause a soft
+reset from VT500 mode.</li>
+</ul></div></div>
+<h3 id="S2.6.2">2.6.2 Terminal ID to Host</h3>
+<table id="F2-13" class="figure">
+<caption><span class="tabfigid">Figure 2–13</span> Terminal ID to Host Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-13.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p><b class="feature">Terminal ID to host</b> (<a href="#F2-13">Figure 2–13</a>) selects how the terminal identifies itself
+to host software, specifically the Primary Device Attributes response (DA). The
+default ID is "<b class="feature">VT510</b>." For a list of the responses, see the Device Attributes
+sections in <a href="chapter5.html">Chapter 5</a>. This field has no effect when the terminal is in VT52
+mode. The feature corresponds to the DECTID control function described in
+<a href="chapter5.html">Chapter 5</a>.</p>
+<h3 id="S2.6.3">2.6.3 VT Default Character Set</h3>
+<table id="F2-14" class="figure">
+<caption><span class="tabfigid">Figure 2–14</span> VT Default Character Set Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-14.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>This feature (<a href="#F2-14">Figure 2–14</a>) selects the default international character set to use
+for output as initialized in G0-G3 and GL/GR. It corresponds to the DECAUPSS
+(Assign User Preference Supplemental Set) control function described in
+<a href="chapter5.html">Chapter 5</a>.</p>
+<p>Only ISO Latin-1 and DEC Multinational are available on the North American
+terminal.</p>
+<h3 id="S2.6.4">2.6.4 PCTerm Character Set</h3>
+<table id="F2-15" class="figure">
+<caption><span class="tabfigid">Figure 2–15</span> PCTerm Character Set Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-15.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>This feature (<a href="#F2-15">Figure 2–15</a>) selects which PC code page will be used in PCTerm
+mode. This feature is also invoked by the DECPCTERM control function
+described in <a href="chapter5.html">Chapter 5</a>.</p>
+<p>PC Greek, PC Spanish, PC International, PC Multilingual, and
+PC French/Canadian are available on the North American terminal.</p>
+<h3 id="S2.6.5">2.6.5 7-Bit NRCS Characters</h3>
+<p>This feature enables National Replacement Character Set mode (DECNRCM),
+as described in <a href="chapter5.html">Chapter 5</a>. When <b class="feature">7-bit NRCS characters</b> are selected, a
+corresponding 7-bit NRC set is used depending on the keyboard language. See
+Chapter 8, <a href="chapter8.html">Keyboard Processing</a> for details. Group 2 or secondary keyboard
+language characters may still be used if they are in the 7-bit character set. This
+feature is dimmed unless there is a corresponding NRC set available.</p>
+<h3 id="S2.6.6">2.6.6 Transmit 7-Bit Controls</h3>
+<p><b class="feature">Transmit 7-bit controls</b> selects whether C1 control codes are sent in their
+original 8-bit form (disabled) or converted to their 7-bit ESC Fe form.</p>
+<p>This field is invoked by a parameter to the DECSCL control function and by the
+S7C1T and S8C1T control functions.</p>
+<h2 id="S2.7">2.7 ASCII Emulation Menu</h2>
+<table id="F2-16" class="figure">
+<caption><span class="tabfigid">Figure 2–16</span> ASCII Emulation Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-16.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The features, shown in <a href="#F2-16">Figure 2–16</a> and listed in <a href="#T2-5">Table 2–5</a>, are specific to
+the ASCII emulation modes supported in the VT510. The default is shown in
+<b class="default">boldface</b> type. Refer to Part III for details.</p>
+<table id="T2-5" class="truled">
+<caption><span class="tabfigid">Table 2–5</span> ASCII Emulation Features</caption>
+
+
+
+<thead>
+<tr>
+<th>Feature</th>
+<th>Selections</th>
+<th>Determine...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data lines</td>
+<td><b class="default">24</b>, 25, 42, 43
+lines</td>
+<td>The number of data display lines visible, not
+counting any status lines.</td>
+</tr>
+<tr>
+<td>Pages</td>
+<td><b class="default">1 × lines</b><br/>
+2 × lines<br/>
+4 × lines<br/>
+*</td>
+<td>The page size and number of pages. 1 × lines
+selects each page to be the number of data lines
+visible on the screen. The * makes the display of a
+single page invisible.</td>
+</tr>
+<tr>
+<td>Attribute</td>
+<td><b class="default">Character</b>,
+line, or page</td>
+<td>How visual attributes are applied per character,
+line, or page.</td>
+</tr>
+<tr>
+<td>Write protect
+attributes</td>
+<td><b class="default">Dim</b>, blank,
+reverse,
+underline,
+and/or blink.</td>
+<td>The visual attributes used to highlight and specify
+write protected data.</td>
+</tr>
+<tr>
+<td>Received CR</td>
+<td><b class="default">CR</b> or CRLF</td>
+<td>Carriage return or carriage return line feed.</td>
+</tr>
+<tr>
+<td>Block Mode</td>
+<td><b class="default">Conversation</b>
+or Block</td>
+<td>Transfer method.</td>
+</tr>
+<tr>
+<td>Block End</td>
+<td><b class="default">US/CR</b> or
+CRLF/ETX</td>
+<td>At the end of a block transfer, transmit a carriage
+return or an end-of-text character.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="S2.8">2.8 Keyboard Menu</h2>
+<table id="F2-17" class="figure">
+<caption><span class="tabfigid">Figure 2–17</span> Keyboard Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-17.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>Several of the features shown in <a href="#F2-17">Figure 2–17</a> are self-explanatory and correspond
+directly to control functions listed in <a href="#T2-6">Table 2–6</a>. For additional information, see
+Chapters <a href="chapter4.html">4</a> and <a href="chapter5.html">5</a>.</p>
+<table id="T2-6" class="truled">
+<caption><span class="tabfigid">Table 2–6</span> Keyboard Features and Control Functions</caption>
+
+
+<thead>
+<tr>
+<th>Set-Up Feature</th>
+<th>Control Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keyboard language</td>
+<td>DECKBD</td>
+</tr>
+<tr>
+<td>Switch between primary and
+secondary keyboard language</td>
+<td>DECESKM (general), DECHEBM (Hebrew),
+DECNAKB (Greek), DECCYRM (Cyrillic)</td>
+</tr>
+<tr>
+<td>Caps lock function</td>
+<td>DECSLCK</td>
+</tr>
+<tr>
+<td>Keyclick volume</td>
+<td>DECSKCV</td>
+</tr>
+<tr>
+<td>Warning bell volume</td>
+<td>DECSWBV</td>
+</tr>
+<tr>
+<td>Margin bell volume</td>
+<td>DECSMBV</td>
+</tr>
+<tr>
+<td>Keyboard encoding</td>
+<td>DECKPM</td>
+</tr>
+<tr>
+<td>Auto repeat</td>
+<td>DECARM</td>
+</tr>
+<tr>
+<td>Data processing keys</td>
+<td>DECKBUM</td>
+</tr>
+<tr>
+<td>Application cursor keys</td>
+<td>DECCKM</td>
+</tr>
+<tr>
+<td>Application keypad mode</td>
+<td>DECKPNM, DECKPAM, DECNKM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.8.1">2.8.1 Keyboard Language</h3>
+<p>Some keyboards allow you to select two different keyboard layouts and easily
+switch between them (English and Hebrew, for example). This feature allows
+the VT510 to support both existing conventions and emerging standards for
+extending the graphic input and/or switching between languages in dual language
+environments. (The North American keyboard has only one keyboard language,
+English.)</p>
+<p>The primary keyboard language corresponds to Group 1 (per DIN 2137) and
+generally references the legends on the left half of the keytops.</p>
+<p>The secondary keyboard language corresponds to Group 2 (Group Shift per DIN
+2137) and generally references the legends on the right half of the keytops.</p>
+<p>Unless overridden, <span class="keyname">Ctrl/Alt/F1</span> makes the primary keyboard language active, and
+<span class="keyname">Ctrl/Alt/F2</span> makes the secondary keyboard language active. (These are factory
+defaults, standard on PCs.)</p>
+<p>Selecting a new keyboard language in Set-Up automatically initializes the
+keyboard character set, as described in Chapter 8, <a href="chapter8.html">Keyboard Processing</a>.</p>
+<p>Changes to this field take effect immediately. Changing this field to North
+American or Dutch and then exiting Set-Up or going to another menu resets the
+<b class="feature">7-bit NRCS characters</b> feature to disabled. There is no "7-bit characters" mode
+for the North American or Dutch keyboards. This field affects the language of the
+keyboard indicator line.</p>
+<h3 id="S2.8.2">2.8.2 Define Key Editor</h3>
+<p>The Define Key Editor is an advanced function that allows the terminal to adapt
+to environments that do not match the preprogrammed settings.</p>
+<div class="note"><span class="notehead">Caution</span>
+<div class="notebody"><p>This function is designed to be easy to use; however, unless you
+understand the consequences of remapping various key combinations,
+use caution when using this feature. When you press <span class="keyname">F3</span> as the first key
+after the terminal is powered on, you always enter Set-Up, regardless of
+which keyboard you use or how <span class="keyname">F3</span> is defined.</p></div></div>
+<p>The <b class="feature">Define key</b> menu invokes the Define Key Editor.</p>
+<p>To ensure consistent access to Set-Up features, the following rules apply for
+interpreting keystrokes.</p>
+<ul>
+<li>Within Set-Up and the Define Key Editor, the four arrow keys along with
+<span class="keyname">Enter</span>, <span class="keyname">Return</span>, <span class="keyname">Do</span>, and <span class="keyname">Select</span> are interpreted according to their standard
+definitions, regardless of how they may be redefined at other times. The one
+exception is when pressing the key to be defined.</li>
+<li>When copying one key definition to another, the standard key definition for
+a key is copied, not the current definition. This copy method ensures that
+keyboard functions are not lost within the Define Key Editor.</li>
+</ul>
+<table id="F2-18" class="figure">
+<caption><span class="tabfigid">Figure 2–18</span> Define Key Editor, Select Function</caption>
+<tbody>
+<tr>
+<td><img src="f2-18.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h4 id="S2.8.2.1">2.8.2.1 Copy of Key Default—Moving a Standard Function</h4>
+<p>The simplest way to reprogram a key is to copy the behavior of another key. You
+can use <b class="feature">Copy of key default</b> to copy the factory default for a key to be defined
+to any position on the keyboard. You cannot, however, use this feature to edit the
+code transmitted by individual keys. To move factory default key functions:</p>
+<ol>
+<li>From the <b class="feature">Keyboard</b> menu item, select the <b class="feature">Define key . . .</b> function, and the
+<b class="feature">Define Key Editor</b> menu will appear.</li>
+<li>Press the key for which you want to assign a new behavior. If the key
+is a function key, a screen similar to <a href="#F2-18">Figure 2–18</a> is displayed. Names
+are displayed in the Set-Up language selected (not according to keyboard
+language). The ± symbol indicates a toggle feature. Names are truncated to
+12 characters in the definition field.</li>
+<li>Press <span class="keyname" title="Right">⇒</span> to highlight the <b class="feature">Copy of key default</b> radio button <img src="u+25c9.png" alt="(·)" height="15" width="15"/> and press
+<span class="keyname">Enter</span>.</li>
+<li>Press the key whose factory default behavior is what you want your defined
+key to do.</li>
+<li>Press <span class="keyname" title="Down">⇓</span> to highlight the OK or Apply button and press <span class="keyname">Enter</span>.</li>
+</ol>
+<h4 id="S2.8.2.2">2.8.2.2 Customization</h4>
+<p>If you want to program a key to behave differently than one of the factory defined
+keys, then you will need to know about the following VT510 key categories:</p>
+<table>
+<tbody>
+<tr>
+<td>Function:</td>
+<td>Keys such as the arrow keys (⇑, ⇓, ⇐, ⇒), the <span class="keyname">Shift</span> modifier key, or the
+Set-Up key, used to transmit function key sequences or to perform local
+terminal functions.</td>
+</tr>
+<tr>
+<td>Alphanumeric:</td>
+<td>Keys used to transmit alphanumeric characters.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="S2.8.2.3">2.8.2.3 Modifier Keys</h4>
+<p>Modifier keys vary from within the Function and Alphanumeric categories. A
+modifier key is a key that modifies the behavior of other keys when it is pressed
+and held down. For example, pressing an alphanumeric key in combination with
+the <span class="keyname">Shift</span> modifier key will normally send the shifted or uppercase characters for
+that key.</p>
+<p>Modifier keys are treated as a special kind of local terminal function. The VT510
+function modifier keys are: <span class="keyname">Shift</span>, <span class="keyname">Ctrl</span>, and <span class="keyname">Alt</span>. VT510 alphanumeric keys can also
+be modified by pressing <span class="keyname">Group Shift</span> (<span class="keyname">Alt Gr</span> on enhanced PC keyboards) and <span class="keyname">Alt/Shift</span>
+(Shift-2). Modifier keys themselves cannot normally be modified by other keys. A
+key assigned to act as the <span class="keyname">Shift</span> modifier, for example, cannot transmit a function
+sequence when pressed in combination with <span class="keyname">Alt</span>. Defining a key as a modifier key
+makes all assignable combinations of that key act as a modifier.</p>
+<h4 id="S2.8.2.4">2.8.2.4 Creating a New Function</h4>
+<p>To define a new function key:</p>
+<ol>
+<li>From the <b class="feature">Keyboard</b> menu item, select the <b class="feature">Define key . . .</b> function, and the
+<b class="feature">Define Key Editor</b> menu will appear.</li>
+<li>Press the key for which you want to assign a new behavior.</li>
+<li>Press the <span class="keyname" title="Left">⇐</span> or <span class="keyname" title="Right">⇒</span> key to highlight the <b class="feature">Function</b> radio button <img src="u+25c9.png" alt="(·)" height="15" width="15"/> and
+press <span class="keyname">Enter</span>.</li>
+<li>Press the <span class="keyname" title="Up">⇑</span> and <span class="keyname" title="Down">⇓</span> keys to highlight the modifier combination that you
+want to define (Unshifted, Shifted, Control, and so on) and press <span class="keyname">Enter</span>.</li>
+<li>Press the <span class="keyname" title="Right">⇒</span> key to move to the <b class="feature">Select function</b> scroll box. Press the <span class="keyname" title="Up">⇑</span>
+and <span class="keyname" title="Down">⇓</span> keys to highlight the desired keystroke function from the list and
+press <span class="keyname">Enter</span>.</li>
+<li>Press the <span class="keyname" title="Left">⇐</span> key to return to the <b class="feature">Modifiers</b>.</li>
+<li>Repeat steps 4 through 6 to define other modifier combinations as desired.</li>
+<li>Use the arrow keys (⇑, ⇓, ⇐, ⇒) to highlight the OK or Apply button and
+press <span class="keyname">Enter</span>.</li>
+</ol>
+<h4 id="S2.8.2.5">2.8.2.5 Examples of Creating New Functions</h4>
+<p>Examples of when to create new functions include:</p>
+<ul>
+<li>Changing the ⌫ or <span class="keyname">Delete</span> key to delete when unshifted and to backspace
+when shifted.</li>
+<li>Disabling the <span class="keyname">Compose</span>, <span class="keyname">Break</span>, and Set-Up keys by assigning them to have no
+function.</li>
+</ul>
+<h4 id="S2.8.2.6">2.8.2.6 Correcting a Mistake</h4>
+<p>If you make a mistake or want to start over, select the Cancel button or select
+the <b class="feature">Exit Set-Up</b> menu item. Your changes will not be recognized until you select
+the OK or Apply button. To save key definitions, select the <b class="feature">Save key definitions</b>
+menu item from the <b class="feature">Keyboard</b> menu.</p>
+<p>The Define Key Editor is very powerful and you may make mistakes in learning
+how to use it. But no matter how you redefine the keys, you can always enter
+Set-Up by pressing <span class="keyname">F3</span> after powering on. Additionally, you can always select the
+<b class="feature">Restore factory defaults</b> menu item from the <b class="feature">Actions</b> menu.</p>
+<h4 id="S2.8.2.7">2.8.2.7 Creating A New Alphanumeric Key or Keyboard Layout</h4>
+<p>The method for creating a new alphanumeric key is similar to that for function
+keys, except that you can define different modifier combinations and you enter
+alphanumeric values differently.</p>
+<p>If the key was previously programmed as a function key, the function definition
+will be empty. Once any function definition is applied, all the alphanumeric
+definitions for that key are lost. <em>A single key cannot act as both a function key
+and an alphanumeric key simultaneously</em>.</p>
+<p>To define a new alphanumeric key:</p>
+<ol>
+<li>From the <b class="feature">Keyboard</b> menu item, select the <b class="feature">Define key . . .</b> function, and the
+<b class="feature">Define Key Editor</b> menu will appear.</li>
+<li>Press the key for which you want to assign a new behavior.</li>
+<li>Press the <span class="keyname" title="Left">⇐</span> or <span class="keyname" title="Right">⇒</span> key to highlight the <b class="feature">Alphanumeric</b> radio button <img src="u+25c9.png" alt="(·)" height="15" width="15"/>
+and press <span class="keyname">Enter</span>. The character transmitted when this key is unshifted is
+highlighted.</li>
+<li>To select a different character, press the corresponding key on the keyboard,
+or use the numeric compose key to generate a new character.</li>
+<li>If desired, press the <span class="keyname" title="Right">⇒</span> key to move to the <b class="feature">Non-spacing accent</b> scroll box.
+Press the <span class="keyname" title="Up">⇑</span> and <span class="keyname" title="Down">⇓</span> keys to highlight any non-spacing accent from the list
+and press <span class="keyname">Enter</span>.</li>
+<li>The code transmitted by the unshifted alphanumeric key when pressed in
+combination with the Control key is calculated automatically and displayed in
+the <b class="feature">Definition</b> column. If desired, you may redefine this function.</li>
+<li>If desired, select an Alt Function modifier combination for the alphanumeric
+key from the <b class="feature">Select Function</b> scroll box. You may choose a function,
+including a user-defined key (UDK) sequence. The default for the Alt
+Function is <b class="feature">None</b>.</li>
+<li>Press the <span class="keyname" title="Left">⇐</span> key to return to the modifier selection.</li>
+<li>Use the arrow keys (⇑, ⇓, ⇐, ⇒) to highlight the OK or Apply button and
+press <span class="keyname">Enter</span>.</li>
+</ol>
+<table id="F2-19" class="figure">
+<caption><span class="tabfigid">Figure 2–19</span> Define Key Editor, Alphanumeric Alt Function</caption>
+<tbody>
+<tr>
+<td><img src="f2-19.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>To enter alphanumeric values you can type the desired character or numeral, you
+can compose the desired character including numeric keypad compose, or you can
+select a nonspacing accent from the nonspacing accent scroll box.</p>
+<h4 id="S2.8.2.8">2.8.2.8 Examples of Creating New Alphanumeric Keys</h4>
+<p>Examples of when to create new alphanumeric keys include:</p>
+<ul>
+<li>Making the comma and period keys send comma and period instead of angle
+brackets when shifted.</li>
+<li>Changing the keyboard from a QWERTY to QWERTZ layout.</li>
+<li>Defining an alternate key layout to match your own preference or local typing
+conventions (Dvorak, or Russian Cyrillic, instead of Bulgarian Cyrillic).</li>
+</ul>
+<h4 id="S2.8.2.9">2.8.2.9 User-Defined Keys</h4>
+<p>The <b class="feature">UDK</b> radio button allows any key to be programmed with a user-defined
+sequence. UDKs are a subset of function keys. A separate UDK dialog box is
+provided for simplicity. Selecting <b class="feature">UDK</b> causes a <b class="feature">UDK:</b> text field to be displayed
+so you can enter a key sequence. This text field can scroll left or right as needed
+to allow longer strings to be entered.</p>
+<p>Press <span class="keyname" title="Down">⇓</span> again to move the highlighting cursor to select one of the following
+UDK directions:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>Normal</td>
+<td>The sequence is sent to the host and/or to the screen depending on
+the communication settings (On-line, Local echo, Half duplex, and so
+on).</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Terminal only</td>
+<td>The sequence is sent only to the screen, as if it had just been
+received from the host.</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Host only</td>
+<td>The sequence is sent only to the host, regardless of the
+communication settings.</td>
+</tr>
+</tbody>
+</table>
+<p>Press <span class="keyname" title="Down">⇓</span> again to select one of the following buttons:</p>
+<table id="BUTTONS">
+<tbody>
+<tr>
+<td><span class="keyname">OK</span></td>
+<td><span class="keyname">Apply</span></td>
+<td><span class="keyname">Cancel</span></td>
+</tr>
+</tbody>
+</table>
+<p>When you select Cancel, you only cancel the changes to the currently selected
+modifier combination.</p>
+<h4 id="S2.8.2.10">2.8.2.10 Programming Notes</h4>
+<ul>
+<li>When you press <span class="keyname">F3</span> as the first key after the terminal is powered on, you
+always enter Set-Up, regardless of how <span class="keyname">F3</span> is defined.</li>
+<li>If a key is programmed to act as a modifier key, it operates as a modifier with
+any combination of <span class="keyname">Shift</span>, <span class="keyname">Alt</span>, or <span class="keyname">Control</span>.</li>
+<li>If a key is programmed to be a modifier key and modifier key reporting is
+enabled using DECSMKR, the key sends the VT sequence for the left modifier
+key when there is more than one.</li>
+<li><span class="keyname">Caps Lock</span> combinations such as <span class="keyname">Caps Lock/Print Screen</span> are local keyboard
+extensions and cannot be reprogrammed by DECPFK. The <span class="keyname">Caps Lock</span> key acts
+as a modifier. The <span class="keyname">Caps Lock</span> function can be moved to another key, but <span class="keyname">Pause</span>
+must still send the Break.</li>
+<li>Use of the Define Key Editor to redefine keys on the numeric keypad affects
+only the Num Lock off state of these keys. When Num Lock is engaged, these
+keys will always send their factory default ASCII numerals (and related
+characters) intended for numeric input. The Num Lock behavior of these
+keys cannot be reprogrammed. (This Num Lock behavior does not apply to
+numeric keypad mode on the VT keyboard or PC keyboard in VT style.)</li>
+<li>The toggle Num Lock function can be assigned to any single key combination.
+Although the Num Lock state modifies other keys, the toggle Num Lock
+function is not a modifier key. This means modifier combinations of
+<span class="keyname">Num Lock/Key</span> can be assigned to any other function or user-defined sequence.</li>
+<li>Use of the numeric keypad to compose characters by entering their decimal
+code in combination with <span class="keyname">Alt Gr</span> or <span class="keyname">Compose</span> (held down) should continue to
+work regardless of any reprogramming of keys on the numeric keypad, unless
+such reprogramming directly conflicts with use of the keypad in this manner.
+Example: A numeric keypad key has been defined as <span class="keyname">Compose</span> or <span class="keyname">Alt Gr</span>.</li>
+<li>Function keys also work in VT100 mode.</li>
+</ul>
+<h3 id="S2.8.3">2.8.3 Save Key Definitions</h3>
+<p>To save your key definitions so they will be available the next time you turn the
+power on, select the <b class="feature">Save key definitions</b> menu item from the <b class="feature">Keyboard</b> menu.</p>
+<p>This action field on the keyboard menu (<a href="#F2-17">Figure 2–17</a>) causes the <b class="feature">Define key</b>
+modifications to be saved to nonvolatile memory independently from any other
+Set-Up features. Key definitions are saved on a first-come first-served basis and
+are limited by the total amount of nonvolatile memory available.</p>
+<p>This feature cannot be invoked by a host control function.</p>
+<h3 id="S2.8.4">2.8.4 Recall Key Definitions</h3>
+<p>This action field causes previously saved <b class="feature">Define key</b> modifications to be recalled
+from nonvolatile memory independently from any other Set-Up features.</p>
+<h3 id="S2.8.5">2.8.5 Lock Key Definitions</h3>
+<p>The <b class="feature">Lock key definitions</b> menu item operates as a check box. When key
+definitions are locked, they cannot be reprogrammed from the host.</p>
+<h3 id="S2.8.6">2.8.6 Caps Lock Function</h3>
+<p>This function allows you to enable the <span class="keyname">Lock</span> or <span class="keyname">Caps Lock</span> key to do the following:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>Caps lock</td>
+<td>Lock alpha keys on main keypad in uppercase setting.</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Shift lock</td>
+<td>Lock alpha and numeric keys on main keypad in shifted setting.</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Reverse lock</td>
+<td>Lock numeric keys in shifted setting, but lock alpha keys in lowercase setting.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.8.7">2.8.7 Keyclick, Warning Bell, and Margin Bell Volume</h3>
+<p>The volume of these settings can be set to high, low, or off, with <b class="default">high</b> as the
+default.</p>
+<h3 id="S2.8.8">2.8.8 Keyboard Encoding</h3>
+<p>The <b class="feature">Keyboard encoding</b> menu allows you to select from the following:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>Character (ASCII)</td>
+<td>The keyboard uses normal ANSI/ISO character encoding.</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Scancode</td>
+<td>The keyboard transmits a scancode that represents the
+physical position of the key pressed within the keypad array.</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Key position</td>
+<td>The keyboard transmits key position codes for each down
+transition. This menu allows alternate keyboard layouts to be
+supported by application software.</td>
+</tr>
+</tbody>
+</table>
+<p>This feature corresponds to the DECKPM (key position mode) control function
+described in Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>.</p>
+<h3 id="S2.8.9">2.8.9 Auto Repeat</h3>
+<p>The <b class="feature">Auto repeat</b> feature selects whether keys begin auto repeating if still held
+down after a delay interval. The repeat rate is the number of "keystrokes" per
+second, not characters per second. Changes to this field take effect immediately.</p>
+<p>This is a user-preference feature. When it is unlocked, this feature can be invoked
+by the DECARM control function.</p>
+<h3 id="S2.8.10">2.8.10 Data Processing Keys</h3>
+<p>This feature corresponds to the DECKBUM control function described in
+Chapter 5, ANSI Control Functions. Changes to this field take effect immediately.</p>
+<h3 id="S2.8.11">2.8.11 Application Cursor Keys</h3>
+<p>This feature corresponds to the DECCKM control function described in Chapter 5,
+<a href="chapter5.html">ANSI Control Functions</a>. This feature cannot be saved in NVM and is reset to
+the factory default setting by DECSTR. This feature cannot be locked. Changes
+to this field take effect immediately.</p>
+<h3 id="S2.8.12">2.8.12 Application Keypad Mode</h3>
+<p>This feature selects whether the numeric keypad sends ASCII numerals or
+application function sequences. It corresponds to the DECKPNM, DECKPAM,
+and DECNKM control functions described in Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>.</p>
+<p>This field is not stored in NVR. This field is reset to the power-up setting when a
+soft reset occurs (Reset Session or receipt of DECSTR).</p>
+<p>This field is not a user-preference feature. It cannot be locked. Changes to this
+field take effect immediately so you can use the keypad to enter an Answerback
+message.</p>
+<h2 id="S2.9">2.9 Communication Menu</h2>
+<table id="F2-20" class="figure">
+<caption><span class="tabfigid">Figure 2–20</span> Communication Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-20.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>Several of the Communication features shown in <a href="#F2-20">Figure 2–20</a> are self-explanatory
+and correspond directly to control functions listed in <a href="#T2-7">Table 2–7</a>. These functions
+are described in Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>.</p>
+<table id="T2-7" class="truled">
+<caption><span class="tabfigid">Table 2–7</span> Communication Features and Control Functions</caption>
+
+
+<thead>
+<tr>
+<th>Set-Up Feature</th>
+<th>Control Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comm port select</td>
+<td>DECSCP</td>
+</tr>
+<tr>
+<td>Comm word size</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td>Comm parity</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td>Comm stop bits</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td>Comm transmit speed</td>
+<td>DECSCS</td>
+</tr>
+<tr>
+<td>Comm receive speed</td>
+<td>DECSCS</td>
+</tr>
+<tr>
+<td>Comm transmit flow control</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Comm receive flow control</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Comm flow control threshold</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Transmit rate limit</td>
+<td>DECXRLM, DECSTRL</td>
+</tr>
+<tr>
+<td>Fkey rate limit</td>
+<td>DECXRLM, DECSTRL</td>
+</tr>
+<tr>
+<td>Ignore Null character</td>
+<td>DECNULM</td>
+</tr>
+<tr>
+<td>Local echo</td>
+<td>SRM</td>
+</tr>
+<tr>
+<td>Half duplex</td>
+<td>DECHDPXM</td>
+</tr>
+<tr>
+<td>Auto answerback</td>
+<td>DECAAM</td>
+</tr>
+<tr>
+<td>Answerback message</td>
+<td>DECLANS</td>
+</tr>
+<tr>
+<td>Answerback concealed</td>
+<td>DECCANSM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.1">2.9.1 Port Select</h3>
+<p>This selection enables the cable configuration at the back of the terminal as
+follows:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>S1=comm1 print=comm2</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm1 print=parallel</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm2 print=comm1</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm2 print=parallel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.2">2.9.2 Word Size</h3>
+<p>The communication word size can be <b class="default">8 bits</b> (default) or 7 bits.</p>
+<h3 id="S2.9.3">2.9.3 Parity</h3>
+<p>You can select any of the following parity checks:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>None</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Even</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Odd</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Even, unchecked</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Odd, unchecked</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Mark</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Space</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.4">2.9.4 Stop Bits</h3>
+<p>For communication, <b class="default">1</b> (default) or 2 stop bits can be enabled.</p>
+<h3 id="S2.9.5">2.9.5 Transmit Speed</h3>
+<p>The communication <b class="feature">Transmit speed</b> is set to 9600 baud. You can select transmit
+speeds from the menu shown in <a href="#F2-21">Figure 2–21</a>.</p>
+<table id="F2-21" class="figure">
+<caption><span class="tabfigid">Figure 2–21</span> Communication Transmit Speed Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-21.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.6">2.9.6 Receive Speed</h3>
+<p>Like the communication <b class="feature">Transmit speed</b>, you can select the <b class="feature">Receive speed</b>
+from 300 to 115.2K baud. The default receive speed matches the transmit speed
+selection.</p>
+<h3 id="S2.9.7">2.9.7 Transmit Flow Control</h3>
+<p>The <b class="feature">Transmit flow control</b> method can be one of the following:</p>
+<table>
+<tbody>
+<tr>
+<td>◦</td>
+<td>None</td>
+</tr>
+<tr>
+<td>•</td>
+<td>XON/XOFF</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>DSR (Data Send Ready)</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>When an ASCII emulation is selected, the default <b class="feature">Transmit flow control</b>
+is <b class="default">None</b>.</p></div></div>
+<h3 id="S2.9.8">2.9.8 Receive Flow Control</h3>
+<p>The <b class="feature">Receive flow control</b> method can be one of the following:</p>
+<table>
+<tbody>
+<tr>
+<td>◦</td>
+<td>None</td>
+</tr>
+<tr>
+<td>•</td>
+<td>XON/XOFF or XPC</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>DTR (Data Transmit Ready)</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.9">2.9.9 Flow Control Threshold</h3>
+<p>You can set the <b class="feature">Flow control threshold</b> to Low (64 characters) or to High (768
+characters). The default is <b class="default">64</b>.</p>
+<h3 id="S2.9.10">2.9.10 Transmit Rate Limit, Fkey Rate Limit</h3>
+<p>The <b class="feature">Transmit rate limit</b> choice limits the character rate from the keyboard
+to between 30 and 150 characters per second (selectable with fairly uniform
+separation), regardless of baud rate. This is fast enough to allow any keystroke
+to auto repeat at 30 Hz (baud rate permitting). The default is <b class="default">150</b>.</p>
+<p>This feature allows you to limit the transmit rate from the terminal so as to
+reduce the interrupt burden on the operating system.</p>
+<p>You can select a different transmit rate for graphic keys and function keys using
+<b class="feature">Fkey rate limit</b>. The F keys transmit more than 1 byte per key press. This
+function may be selected through the DECXRLM and DECSTRL control function.
+Refer to Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>, for details.</p>
+<table id="F2-22" class="figure">
+<caption><span class="tabfigid">Figure 2–22</span> Communication Fkey Rate Limit Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-22.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.9.11">2.9.11 Ignore Null Character</h3>
+<p>When this menu item is selected, the terminal ignores received NUL control
+codes.</p>
+<h3 id="S2.9.12">2.9.12 Local Echo</h3>
+<p>With <b class="feature">Local echo</b> enabled, most characters sent from the keyboard to the host
+are also displayed on the screen. The answerback message and XON/XOFFs are
+not echoed locally. Everything else is.</p>
+<p>This feature corresponds to the SRM control function described in Chapter 5,
+<a href="chapter5.html">ANSI Control Functions</a>.</p>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p><b class="feature">Local echo</b> is different from the "Local" setting of <b class="feature">On-line</b> in the main
+menu of the Set-Up directory. <b class="feature">Local echo</b> causes keystrokes to be echoed
+on the screen, but it does not direct keyboard input to the ANSI parser,
+which also updates the screen. <b class="feature">Local echo</b> is temporarily disabled when
+the terminal is in either Local mode or Local Controller mode, because
+the keyboard input is already being redirected to the screen through the
+parser or to the printer.</p></div></div>
+<h3 id="S2.9.13">2.9.13 Half Duplex</h3>
+<p>You can enable or disable <b class="feature">Half duplex</b> communication. The default is <b class="default">disabled</b>.
+Half duplex communication is available only on the Comm1 communications port.
+If communication is set for the Comm2 port, this feature is disabled (dimmed).</p>
+<h3 id="S2.9.14">2.9.14 Auto Answerback</h3>
+<p>This item is used to enable or disable <b class="feature">Auto answerback</b> on power-up or upon
+connection. The factory default is <b class="default">disabled</b>.</p>
+<h3 id="S2.9.15">2.9.15 Answerback Message</h3>
+<p>The <b class="feature">Answerback message . . .</b> menu item invokes a dialog box with a 30-character limit. All characters that can be generated by the keyboard are legal
+in this field (including primary and secondary keyboard language characters).
+As such, no errors are reported, except when trying to enter more than 30
+characters. In this case, the bell rings (if enabled), and no more characters are
+accepted. The factory default message is no message at all (a blank field). Only
+a single Answerback message is saved in the NVR. The last session from which a
+<b class="feature">Save settings</b> is performed overwrites this single Answerback message.</p>
+<p>When this feature is selected, a dialog box is displayed with a reverse video text
+entry area 30 characters long. If an Answerback message is currently defined,
+the message is displayed in the text entry area. The ⌫ or <span class="keyname">Delete</span> key can then
+be used to delete backwards and enter a new Answerback message.</p>
+<p>If the Answerback message is concealed, the cursor is displayed in the first
+position of the text entry area. In this case, the existing Answerback message
+does not need to be deleted before entering a new message.</p>
+<table id="F2-23" class="figure">
+<caption><span class="tabfigid">Figure 2–23</span> Communication Answerback Dialog Box</caption>
+<tbody>
+<tr>
+<td><img src="f2-23.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The Answerback message can be up to 30 characters in length. Control characters
+are displayed using the CRM font. Pressing <span class="keyname">Return</span> enters a return character in
+the Answerback message. Pressing <span class="keyname" title="Down">⇓</span> with the highlighting cursor in the
+Answerback text field moves to the OK button.</p>
+<p>The current Answerback message is displayed in the answerback dialog
+box unless <b class="feature">Answerback concealed</b> is selected. In this case, the previous
+Answerback message is not shown. Choosing the OK button to enter a new
+Answerback message clears the Answerback concealed check box.</p>
+<h3 id="S2.9.16">2.9.16 Answerback Concealed</h3>
+<p>Changes to this field take effect immediately. The factory default is <b class="default">disabled</b>.</p>
+<p>If disabled, the Answerback message is visible in Set-Up. If enabled, the message
+is not visible and the text "&lt;concealed&gt;" replaces the message. The only way to
+return this field to disabled (visible) is to enter a new message.</p>
+<h2 id="S2.10">2.10 Modem Menu</h2>
+<p>You can select several modem features using the menu shown in <a href="#F2-24">Figure 2–24</a>.</p>
+<table id="F2-24" class="figure">
+<caption><span class="tabfigid">Figure 2–24</span> Modem Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-24.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.10.1">2.10.1 Enable Modem Control</h3>
+<p>The field allows you to select whether the additional hardware control signals
+at the interface connector are used for modem control. Modem control disabled
+is also referred to as "Data leads only." Refer to Chapter 9, <a href="chapter9.html">Communications</a>, for
+details on modem control signals.</p>
+<p>This feature corresponds to DECMCM in Chapter 5, <a href="chapter5.html">ANSI Control Functions</a>.</p>
+<h3 id="S2.10.2">2.10.2 Disconnect Delay</h3>
+<p>When modem control is enabled, the <b class="feature">Disconnect delay</b> feature determines
+the time allowed before the terminal disconnects from the communications line
+when the received line signal detect (RLSD) is lost. Disconnect delay is in effect
+only when RLSD (CD) is lost. If DSR is lost, the terminal performs a disconnect
+immediately. The following selections are available:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>2 seconds</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>60 ms</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>No disconnect</td>
+</tr>
+</tbody>
+</table>
+<p>All countries except the United Kingdom should use a delay of 2 seconds. The 60
+ms delay is for use in the United Kingdom.</p>
+<p>If the VT510 detects a loss of carrier and you selected No disconnect, the VT510
+ignores RLSD (CD) after the beginning of the connection.</p>
+<p>If you try to disconnect and reconnect the line, the VT510 checks if RLSD is
+asserted before granting the connection. Once it is connected, the terminal
+ignores the loss of carrier.</p>
+<p>You can select disconnect delay through Set-Up or through control function
+DECSDDT. Refer to Chapter 9, <a href="chapter9.html">Communications</a>, for details on the connect and
+disconnect process.</p>
+<h3 id="S2.10.3">2.10.3 Modem High Speed</h3>
+<table id="F2-25" class="figure">
+<caption><span class="tabfigid">Figure 2–25</span> Modem High Speed Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-25.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>When modem control is enabled, the speed indicator signal (SI) from the
+modem may be used to select the communication rate. This feature sets the
+communication rate to be used when the speed indicator line is "on." Selecting
+Ignore causes the terminal to use its regular transmit and receive speeds as it
+would when modem control is disabled.</p>
+<p>This feature can be invoked by DECSCS.</p>
+<h3 id="S2.10.4">2.10.4 Modem Low Speed</h3>
+<p>These selections are the same as the modem high speed selections shown in
+<a href="#F2-25">Figure 2–25</a>. When modem control is enabled, the speed indicator (SI) signal
+from the modem may be used to select the communication rate. This feature sets
+the communication rate to be used when the speed indicator line is "off." Selecting
+Ignore causes the terminal to use its regular transmit and receive speed as it
+would when modem control is disabled. This feature can be invoked by DECSCS.</p>
+<h2 id="S2.11">2.11 Printer Menu</h2>
+<table id="F2-26" class="figure">
+<caption><span class="tabfigid">Figure 2–26</span> Printer Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-26.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>Printer features shown in <a href="#F2-26">Figure 2–26</a> correspond to the control functions
+listed in <a href="#T2-8">Table 2–8</a>. These functions are described in Chapter 5, <a href="chapter5.html">ANSI Control
+Functions</a> and Chapter 10, <a href="chapter10.html">Printer Port</a>.</p>
+<h3 id="S2.11.1">2.11.1 Port Select</h3>
+<p>The <b class="feature">Port select</b> menu is the same one that appears in the <b class="feature">Communication</b>
+menu. You can select the cable connections from either menu.</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>S1=comm1 print=comm2</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm1 print=parallel</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm2 print=comm1</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>S1=comm2 print=parallel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.2">2.11.2 Print Mode</h3>
+<p>The <b class="feature">Print mode</b> menu allows you to select the printer operating mode as follows:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Autoprint</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Controller</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>We recommend that you do not save the Controller mode selection in NVR
+because this may result in a "hung" terminal if the printer does not have
+DTR asserted.</p>
+<p>Local echo is temporarily disabled when the terminal is in either Local
+mode or Local Controller mode, because the keyboard input is already
+being redirected to the screen through the parser or to the printer.</p></div></div>
+<table id="T2-8" class="truled">
+<caption><span class="tabfigid">Table 2–8</span> Printer Features and Control Functions</caption>
+<thead>
+<tr>
+<th>Set-Up Feature</th>
+<th>Control Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port select</td>
+<td>DECSCP</td>
+</tr>
+<tr>
+<td>Print mode</td>
+<td>MC</td>
+</tr>
+<tr>
+<td>Printer type</td>
+<td>DECSPRTT</td>
+</tr>
+<tr>
+<td>DEC/ISO char sets</td>
+<td>DECSDPT</td>
+</tr>
+<tr>
+<td>PC character sets</td>
+<td>DECSPPCS</td>
+</tr>
+<tr>
+<td>Print extent</td>
+<td>DECPEX</td>
+</tr>
+<tr>
+<td>Print terminator</td>
+<td>DECPFF</td>
+</tr>
+<tr>
+<td>Serial print speed</td>
+<td>DECSCS</td>
+</tr>
+<tr>
+<td>2-way communication</td>
+<td>MC</td>
+</tr>
+<tr>
+<td>Transmit flow control</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Receive flow control</td>
+<td>DECSFC</td>
+</tr>
+<tr>
+<td>Word size</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>DECSPP</td>
+</tr>
+<tr>
+<td>Stop bits</td>
+<td>DECSPP</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.3">2.11.3 Printer Type</h3>
+<p>You can select the printer type as follows:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>DEC ANSI</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>IBM ProPrinter</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>DEC + IBM</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.4">2.11.4 DEC/ISO Character Sets</h3>
+<p>On the international versions of the terminal, you can enable the character set
+categories shown in <a href="#F2-27">Figure 2–27</a>.</p>
+<table id="F2-27" class="figure">
+<caption><span class="tabfigid">Figure 2–27</span> DEC/ISO Character Sets Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-27.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.5">2.11.5 PC Character Sets</h3>
+<p>On the international versions of the terminal, you can enable the character set
+categories shown in <a href="#F2-28">Figure 2–28</a>. The numbers in parentheses refer to standard
+PC code pages.</p>
+<table id="F2-28" class="figure">
+<caption><span class="tabfigid">Figure 2–28</span> PC Character Sets Menu</caption>
+<tbody>
+<tr>
+<td><img src="f2-28.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.6">2.11.6 Print Extent</h3>
+<p>This selection allows you to print a <b class="default">full page</b> or just the scroll region.</p>
+<h3 id="S2.11.7">2.11.7 Print Terminator</h3>
+<p>The print terminator can be <b class="default">None</b> or FF (form feed).</p>
+<h3 id="S2.11.8">2.11.8 Serial Print Speed</h3>
+<p>Like the <b class="feature">Communication</b> menu speed selection (see <a href="#F2-21">Figure 2–21</a>), you can select
+the serial printer speed from 300 to 115.2K baud. The default is <b class="default">4800</b> baud.</p>
+<h3 id="S2.11.9">2.11.9 2-Way Communication</h3>
+<p>This item allows you to enable and disable bidirectional communications on the
+printer port. The default is 2-way communication <b class="default">disabled</b>.</p>
+<h3 id="S2.11.10">2.11.10 Transmit Flow Control</h3>
+<p>The printer transmit flow control method can be one of the following:</p>
+<table>
+<tbody>
+<tr>
+<td>◦</td>
+<td>None</td>
+</tr>
+<tr>
+<td>•</td>
+<td>XON/XOFF</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>DSR (Data Send Ready)</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.11">2.11.11 Receive Flow Control</h3>
+<p>The printer receive flow control method can be one of the following:</p>
+<table>
+<tbody>
+<tr>
+<td>◦</td>
+<td>None</td>
+</tr>
+<tr>
+<td>•</td>
+<td>XON/XOFF</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>DTR (Data Terminal Ready)</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Both</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.12">2.11.12 Word Size</h3>
+<p>The printer word size can be <b class="default">8 bits</b> (default) or 7 bits.</p>
+<h3 id="S2.11.13">2.11.13 Parity</h3>
+<p>You can select any of the following parity checks to the printer:</p>
+<table>
+<tbody>
+<tr>
+<td>•</td>
+<td>None</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Even</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Odd</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Mark</td>
+</tr>
+<tr>
+<td>◦</td>
+<td>Space</td>
+</tr>
+</tbody>
+</table>
+<h3 id="S2.11.14">2.11.14 Stop Bits</h3>
+<p>For the printer, <b class="default">1</b> (default) or 2 stop bits can be enabled.</p>
+<h2 id="S2.12">2.12 Tabs . . .</h2>
+<p>The <b class="feature">Tabs . . .</b> menu item is used to invoke the Tab Set-Up dialog box, displaying
+a 132-column tab ruler. <a href="#F2-29">Figure 2–29</a> shows that tab stops are indicated by the
+letter T.</p>
+<p>The highlighting cursor is initially displayed over the entire tab field. The normal
+character cursor appears in column 1 of the tab field.</p>
+<p>The <span class="keyname" title="Left">⇐</span> and <span class="keyname" title="Right">⇒</span> keys move the cursor within the tab field. Pressing <span class="keyname">Tab</span>
+advances the cursor to the next tab stop in the tab field (if any). The character
+cursor automatically wraps between the end of the first row and the beginning of
+the second row in the tab field.</p>
+<table id="F2-29" class="figure">
+<caption><span class="tabfigid">Figure 2–29</span> Tab Set-Up Dialog Box</caption>
+<tbody>
+<tr>
+<td><img src="f2-29.png" alt=""/></td>
+</tr>
+</tbody>
+</table>
+<p>The labeled buttons allow you to clear all tabs or to set 8-column tabs directly. To
+set individual tabs:</p>
+<ol>
+<li>Position the cursor in the desired column.</li>
+<li>Press <span class="keyname">Enter</span> to set or clear a tab in that column.</li>
+</ol>
+<p>Tab setting can also be invoked by the HTS and DECST8C control functions.</p>
+<h2 id="S2.13">2.13 Default All Modes</h2>
+<p><a href="#T2-9">Table 2–9</a> lists the default for each feature in the Set-up Menu.</p>
+<table id="T2-9" class="truled">
+<caption><span class="tabfigid">Table 2–9</span> Default All Modes</caption>
+
+
+
+<thead>
+<tr>
+<th>From Set-up
+Menu . . .</th>
+<th>Set-Up Feature</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="10"><b class="feature">Display</b> ▹</td>
+<td>Columns per page</td>
+<td>80</td>
+</tr>
+<tr>
+<td>Clear on change</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Screen background</td>
+<td>Dark</td>
+</tr>
+<tr>
+<td>Cursor display</td>
+<td>Block, Blink, On</td>
+</tr>
+<tr>
+<td>Auto wrap</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>New line mode</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Status display</td>
+<td>Local status</td>
+</tr>
+<tr>
+<td>Scrolling mode</td>
+<td>Slow smooth</td>
+</tr>
+<tr>
+<td>CRT Saver</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Show control characters</td>
+<td>Off</td>
+</tr>
+<tr>
+<td><b class="feature">Terminal Type</b> ▹</td>
+<td>Emulation mode</td>
+<td>WYSE 160/60 Native</td>
+</tr>
+<tr>
+<td rowspan="16"><b class="feature">ASCII Emulation</b> ▹</td>
+<td>Data lines</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Character cell</td>
+<td>10 × 16</td>
+</tr>
+<tr>
+<td>Pages</td>
+<td>1 × lines</td>
+</tr>
+<tr>
+<td>Attribute</td>
+<td>Char</td>
+</tr>
+<tr>
+<td>Write protect attributes</td>
+<td>Dim</td>
+</tr>
+<tr>
+<td>Page edit</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Received CR</td>
+<td>CR</td>
+</tr>
+<tr>
+<td>Recognize DEL</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Enhance</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Autoscroll</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Autopage</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Send ACK</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Auto Answerback</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Font load</td>
+<td>On</td>
+</tr>
+<tr>
+<td>Block mode</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Block end</td>
+<td>US/CR</td>
+</tr>
+<tr>
+<td rowspan="7"><b class="feature">Keyboard</b> ▹</td>
+<td>Keyboard language</td>
+<td>North American</td>
+</tr>
+<tr>
+<td>Caps lock function</td>
+<td>Caps lock</td>
+</tr>
+<tr>
+<td>Keyclick volume</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Warning bell volume</td>
+<td>High</td>
+</tr>
+<tr>
+<td>Margin bell</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Keyboard encoding</td>
+<td>Character (ASCII)</td>
+</tr>
+<tr>
+<td>Auto repeat</td>
+<td>On</td>
+</tr>
+<tr>
+<td rowspan="13"><b class="feature">Communication</b> ▹</td>
+<td>Port select</td>
+<td>S1=comm1, print=parallel</td>
+</tr>
+<tr>
+<td>Word size</td>
+<td>8 bits</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Stop bits</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Transmit speed</td>
+<td>9600 baud</td>
+</tr>
+<tr>
+<td>Receive speed</td>
+<td>Transmit speed</td>
+</tr>
+<tr>
+<td>Transmit flow control</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Receive flow control</td>
+<td>XON/XOFF or XPC</td>
+</tr>
+<tr>
+<td>Flow control threshold</td>
+<td>Low (64)</td>
+</tr>
+<tr>
+<td>Transmit rate limit</td>
+<td>150 cps</td>
+</tr>
+<tr>
+<td>Fkey rate limit</td>
+<td>150 cps</td>
+</tr>
+<tr>
+<td>Auto answerback</td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Answerback concealed</td>
+<td>Off</td>
+</tr>
+<tr>
+<td rowspan="2"><b class="feature">Printer</b> ▹</td>
+<td>Port select</td>
+<td>S1=comm1, print=parallel</td>
+</tr>
+<tr>
+<td>Print mode</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td><b class="feature">Set-Up Language</b> ▹</td>
+<td></td>
+<td>English</td>
+</tr>
+<tr>
+<td><b class="feature">Tabs . . .</b> ▹</td>
+<td></td>
+<td>Set 8 column tabs</td>
+</tr>
+</tbody>
+</table></div>
+<footer>
+<nav class="sections"><a href="chapter1.html">Chapter 1</a><a href="contents.html">Contents</a><a href="chapter3.html">Chapter 3</a></nav>
+</footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+body {
+    background: #fff none;
+    color: #000;
+    font-family: sans-serif;
+    line-height: 150%;
+}
+/* This is the mobile & universal stuff. */
+table { border-collapse: collapse; margin: 1em 0 }
+caption { padding: 0.5em; text-align: left; font-weight: bolder }
+/* Some huge tables have "repeater" headers or sub-heads,
+ * <tr class="th"> that need to align as if they were in thead.
+ */
+table thead tr,
+table tbody tr.th { vertical-align: bottom }
+table tbody tr,
+table tfoot tr { vertical-align: top }
+table th { text-align: left }
+table th, table td { padding: 0.2em 0.5em }
+/* Alignment overrides */
+th.c, td.c { text-align: center }
+th.r, td.r { text-align: right }
+td p:first-child { margin-top: 0 }
+
+/* Images and inlined SVGs should be constrained to document width */
+img, svg { max-width: 100%; height: auto }
+
+/* end of universal */
+
+/* Site style */
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top:    thin solid black; padding: 0.5em 0 0 0 }
+
+/* Site logo has one pixel underneath the text, for alignment with the terminal icon,
+ * so align the text with following text. */
+#vt100-net-site-logo {
+    display: inline-block;
+    position: relative;
+    bottom: -1px
+}
+
+nav.breadcrumbs ol { display: inline; margin: 0; padding: 0 }
+nav.breadcrumbs li { display: inline; list-style-type: none }
+nav.breadcrumbs li + li:before { content: ' › ' }
+
+/* Used for manuals */
+nav.sections a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav.sections a:nth-child(1) { text-align: left }
+nav.sections a:nth-child(2) { text-align: center }
+nav.sections a:nth-child(3) { text-align: right }
+
+caption { color: #66c }
+.keyname { border: thin solid black; padding: 0em 0.2em; font-family: sans-serif }
+.settings { list-style: none; margin-left: 2em; margin-top: 0em }
+.note { font-weight: bolder }
+.majorstep { font-size: larger; font-weight: bolder; color: #396 }
+.goto { text-align: center; font-weight: bolder }
+/* Original used this in Chapter 9, with bold. We're now also using it for previous tt things,
+ * which weren't bold. As a consequence, some text in earlier chapters now displays bolder. */
+code { font-family: sans-serif; font-weight: bolder }
+/* Earlier, non-bold, references seem to be to screen output. So mark up these explicitly. */
+code.screen { font-weight: normal }
+/* strong { color: #f00 }*/
+/* tfoot { background: #cfc none } */
+.figure { margin-left: auto; margin-right: auto }
+.figure caption { caption-side: bottom; text-align: center }
+h1 { background: #ccc none; padding: 1em; border: thin solid black; text-align: right; line-height: 1.5em }
+h2.fancy { background: #ccc none; border: thin solid black; padding: 0.2em }
+.chapnum { color: #66c; font-size: 1.5em }
+/* a { text-decoration: none } */
+.rev { background: #000 none; color: #fff; padding-left: 0.2em; padding-right: 0.2em }
+kbd { font-weight: bolder }
+hr.navbar { margin-top: 30px }
+#BOOKTITLE, #CONTENTS { background: #fff none; padding: 0em; border: none; text-align: center }
+#COVER, .contentslink { text-align: center }
+ol.alpha { list-style: lower-alpha }
+img.button { border: none }
+
+/* horizontally ruled tables */
+table.truled { margin-bottom: 1em }
+table.truled caption { font-weight: bolder; margin-top: 1em }
+table.truled > thead,
+table.truled > tbody,
+table.truled > tfoot { border-top: thin solid black; border-bottom: thin solid black }
+table.truled th.spanning { border-bottom: 1px solid black }
+table.truled .abovesubhead td { padding-bottom: 1em }
+
+/* special for Chapter 9, isn't used elsewhere */
+th.subhead { background: #eee none; border-top: thin solid black; border-bottom: thin solid black; padding-top: 0.4 em; padding-bottom: 0.4em }
+
+/* only used in Glossary */
+dt { font-weight: bolder }
+dd a { font-style: italic }
+
+/* TESTING */
+/*code { background-color: #fcf; }
+code.screen { background-color: #ffc; }*/

@@ -1,0 +1,172 @@
+/* Manual is printed in Univers. */
+
+body {
+    background: #fff none;
+    color: #000;
+    font-family: sans-serif;
+    line-height: 150%;
+}
+
+/* This is the mobile & universal stuff. */
+table { border-collapse: collapse; margin: 1em 0 }
+caption { padding: 0.5em; text-align: left; font-weight: bolder }
+/* Some huge tables have "repeater" headers or sub-heads,
+ * <tr class="th"> that need to align as if they were in thead.
+ */
+thead tr,
+tbody tr.th { vertical-align: bottom }
+tbody tr,
+tfoot tr { vertical-align: top }
+th { text-align: left }
+th, td { padding: 0.2em 0.5em }
+/* Alignment overrides */
+th.c, td.c { text-align: center }
+th.r, td.r { text-align: right }
+td p:first-child { margin-top: 0 }
+/* Preventing mis-alignment of table cell blocks */
+td pre { margin: 0 }
+
+/* Images and inlined SVGs should be constrained to document width */
+img, svg { max-width: 100%; height: auto }
+
+/* end of universal */
+
+/* Site style */
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top: thin solid black; padding: 0.5em 0 0 0 }
+
+/* Site logo has one pixel underneath the text, for alignment with the terminal icon,
+ * so align the text with following text. */
+#vt100-net-site-logo {
+    display: inline-block;
+    position: relative;
+    bottom: -1px
+}
+
+nav.breadcrumbs ol { display: inline; margin: 0; padding: 0 }
+nav.breadcrumbs li { display: inline; list-style-type: none }
+nav.breadcrumbs li + li:before { content: ' › ' }
+
+/* Used for manuals */
+nav.sections a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav.sections a:nth-child(1) { text-align: left }
+nav.sections a:nth-child(2) { text-align: center }
+nav.sections a:nth-child(3) { text-align: right }
+
+.wide-table {
+    display: block;
+    max-width: fit-content;
+    overflow-x: auto
+}
+
+
+h1 { line-height: 150% }
+h2 { color: #c40; }
+
+.note { font-style: italic; }
+.keyname, code { color: #c40; font-weight: bolder }
+a { text-decoration: none; }
+.example { color: #c40; }
+.chapnum { display: block }
+
+/* Chapter headings are also <h1>, but they are not centred */
+h1.booktitle { text-align: center; }
+.bookcover, .contentslink { text-align: center; }
+
+img.button { border: none }
+
+
+/* HTML5 - compact no longer works */
+/* dl.compact dt { display: compact } */
+
+.display-table { border-collapse: collapse; table-layout: fixed; background: #fdc none }
+.display-table thead,
+.display-table tbody { border-bottom: medium solid white }
+.display-table colgroup { border-left: medium solid white }
+.display-table th,
+.display-table td { padding: 2px 0.5em }
+.display-table caption { font-weight: bolder; text-align: left; border-bottom: medium solid white }
+
+.numeric-table td,
+.numeric-table th { text-align: right }
+
+/* TC-1 is the only table which requires .aligndot */
+#TC-1 col { width: 11% }
+.aligndot { visibility: hidden }
+
+colgroup col.first { border-left: medium solid white; border-right-color: #fcc }
+colgroup col.last { border-right: medium solid white; border-left-color: #fcc }
+
+/* chapter5 */
+#ACCFIG { text-align: center }
+
+.equation-table tr { vertical-align: top }
+
+.seq-table { width: 100% }
+.seq-table .def { text-align: right }
+
+.spec-table { width: 100% }
+.spec-table td:nth-child(1) { width: 30% }
+.spec-table caption { font-weight: bolder; text-align: left }
+
+/* Small arrow keycaps, included in paragraphs */
+.inlinekey { position: relative; bottom: -6px }
+
+.supplies-t { width: 100% }
+.supplies-t .itn { width: 20% }
+.supplies-t .dpn { width: 20% }
+
+.key.brown { fill: #c40 }
+.key.black { fill: #000 }
+
+/* VT100 special graphics, used inline */
+.inline-specgr { position: relative; bottom: -5px }
+
+/* SVG solution to all the old brace-table line-height messing never-quite-joining Unicode
+ * multi-line maths characters shenanigans. Apply class="brace" to the SVG within the
+ * rowspanning td. */
+/*td > svg.brace, svg.brace { height: 100%; width: 1.5em }*/
+.brace-col { width: 1.5em }
+.dynbrace path { stroke: #000; stroke-width: 1 }
+
+/* Help out mobile by making data tables smaller (should look at
+ * splitting width of some of these but following print layout
+ * for now.) */
+@media
+only screen and (max-width: 700px) {
+  /* figure { background-color: cyan } */
+  figure { margin: 1em 0 }
+  #T2-2 { font-size: smaller }
+  #TC-1 { font-size: xx-small }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #111;
+        color: white;
+    }
+    a:link { color: #69f }
+    a:visited { color: #c6c }
+    header { border-bottom: thin solid white }
+    footer { border-top: thin solid white }
+    /* Used in dec_ansi_parser to make background yellow, but in dark mode
+     * we need this to also contrast with white text, so make background
+     * a deep pink */
+    .hilite { background: #099 }
+    ol.ruler:before { background: white }
+
+    .manxtermlist thead tr { background-color: #444; border-top: solid thin #888; border-bottom: solid thin #888; }
+    .manxtermlist .odd td { background-color: #222 }
+    .manxtermlist .even td { background-color: #000 }
+
+    /* VT100 special graphics have <g class="spgr-scanlines"> */
+    .spgr-scanlines { stroke: #fff }
+
+    .display-table { background-color: #40332c }
+    .display-table thead,
+    .display-table tbody { border-bottom: medium solid #111 }
+    .display-table colgroup { border-left: medium solid #111 }
+    .display-table caption { font-weight: bolder; text-align: left; border-bottom: medium solid #111 }
+
+    .dynbrace path { stroke: #fff; stroke-width: 1 }
+}

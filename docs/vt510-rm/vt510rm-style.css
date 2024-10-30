@@ -1,0 +1,163 @@
+body {
+    font-family: "New Century Schoolbook", Times, serif;
+    background: #fff;
+    color: #000
+}
+
+/* This is the mobile & universal stuff. */
+table { border-collapse: collapse }
+/* Some huge tables have "repeater" headers or sub-heads,
+ * <tr class="th"> that need to align as if they were in thead.
+ */
+table thead tr,
+table tbody tr.th { vertical-align: bottom }
+table tbody tr { vertical-align: top }
+table th { text-align: left }
+/* Clean padding that doesn't affect outer colums, and
+ * also doesn't look odd with nesting. Take a look at
+ * the table in 4.3.3.1 without the adjusted outer padding
+ * to see why. */
+table th, table td { padding: 0 0.5em }
+table th:first-child,
+table td:first-child { padding: 0 0.5em 0 0 }
+table th:last-child,
+table td:last-child { padding: 0 0 0 0.5em }
+/* Alignment overrides */
+th.c, td.c { text-align: center }
+th.r, td.r { text-align: right }
+
+img { max-width: 100%; height: auto }
+
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top: thin solid black; padding: 0.5em 0 0 0 }
+
+/* Site logo has one pixel underneath the text, for alignment with the terminal icon,
+ * so align the text with following text. */
+#vt100-net-site-logo {
+    display: inline-block;
+    position: relative;
+    bottom: -1px
+}
+
+nav.breadcrumbs ol { display: inline; margin: 0; padding: 0 }
+nav.breadcrumbs li { display: inline; list-style-type: none }
+nav.breadcrumbs li + li:before { content: ' › ' }
+
+/* Used for manuals */
+nav.sections a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav.sections a:nth-child(1) { text-align: left }
+nav.sections a:nth-child(2) { text-align: center }
+nav.sections a:nth-child(3) { text-align: right }
+
+/* Out-denting of headings for desktop is in a separate section below! */
+#T8-5 td, #T8-5 th { font-size: xx-small; }
+
+p { margin-top: 0; margin-bottom: 0.5em }
+ul { margin: 0 0 0 2em; padding-left: 0 }
+ul li { margin-top: 0; margin-bottom: 0.5em }
+ol { margin: 0 0 0 2em; padding-left: 0 }
+ol li { margin-top: 0; margin-bottom: 0.5em }
+
+.notebody ul { margin-top: 0.5em }
+
+/* <H1><SPAN>1</SPAN> title</H1> or <H1><SPAN>&nbsp;</SPAN> title</H1> tested on Opera 6.05, IE5.5, Mozilla 1.1 */
+h1 { text-align: right; margin: 2em 0 1em 0; padding: 0; font-family: Helvetica, Arial, sans-serif; font-size: 160%; }
+h1 span { font-size: 180%; float: right; width: 100%; position: relative; top: -0.2em; border-bottom: thin solid black }
+h2 { font-family: Helvetica, Arial, sans-serif; font-size: 140%; margin-bottom: 0.5em }
+h3 { font-family: Helvetica, Arial, sans-serif; font-size: 120%; margin-bottom: 0.5em }
+h4 { font-family: Helvetica, Arial, sans-serif; font-size: 100%; margin-bottom: 0.5em }
+h5 { font-family: Helvetica, Arial, sans-serif; font-size: 100%; margin-bottom: 0.5em }
+
+.lit { font-weight: bolder }
+.litr { font-weight: bolder }
+/* var { font-style: italic } */
+.ctrlseq { font-family: "Helvetica Narrow", "Arial Narrow", sans-serif }
+/* B.parahead for paragraphs that have headings/titles */
+.parahead { font-family: Helvetica, Arial, sans-serif }
+
+table.ctrlseq td { padding: 0 0.5em; font-family: "Helvetica Narrow", "Arial Narrow", sans-serif }
+
+table.truled { margin-bottom: 1em; border-collapse: collapse }
+table.truled caption { text-align: left; font-family: Helvetica, Arial, sans-serif; font-weight: bolder; margin-top: 1em }
+table.truled thead { border-top: thin solid black; border-bottom: thin solid black }
+/* If this direct nesting isn't made clear, T4-3 has some embedded tables that gain extra horizontal
+ * lines that strangely never used to appear in the HTML 4 version.
+ */
+table.truled > tbody { border-top: thin solid black; border-bottom: thin solid black }
+table.truled tfoot { border-top: thin solid black; border-bottom: thin solid black }
+table.truled th { font-family: Helvetica, Arial, sans-serif }
+/* Two rules to overcome Mozilla's failure to take alignment from COL */
+table.truled th.spanning { border-bottom: 1px solid black }
+table.truled .abovesubhead td { padding-bottom: 1em }
+table.truled th,
+table.truled td { padding: 4px }
+/* OBSOLETE table.truled tr { vertical-align: top }*/
+
+/* table.figure { border: thin solid green } */
+table.figure { margin-top: 1em }
+table.figure caption { font-family: Helvetica, Arial, sans-serif; font-weight: bolder; margin-top: 1em; text-align: left }
+table.txtfigure caption { font-family: Helvetica, Arial, sans-serif; font-weight: bolder; margin-top: 1em; text-align: left } /* For F2-11. Could make this a graphic? */
+
+figure { margin-top: 1em }
+figcaption { font-family: Helvetica, Arial, sans-serif; font-weight: bolder; margin-top: 1em; text-align: left }
+/* screen alignment display needs a border */
+
+/* outdented figures */
+/*#F2-1, #F2-8 { margin-left: -8em; margin-right: -8em; border: thin solid #800 }*/
+/* This is not a header for the table or for a nested table, but for a mini table using the same columns
+ * as parent. Not using TH because this complicates my simple autmomated parsing of the structure.
+ */
+td.minhead { text-decoration: underline }
+
+.tabfigid { padding-right: 1em }
+.keyname { font-family: Helvetica, Arial, sans-serif; font-size: 85%; border: 0.5pt solid black; padding: 0.2em 0.2em 0 0.2em; font-weight: normal }
+b.feature { }
+i.ctxfeature { }
+b.default { }
+.elaboration { margin-left: 2em }
+.example { margin-left: 2em; margin-right: 2em }
+strong { text-decoration: underline; font-weight: normal }
+span.underbar { border-bottom: thin solid black }
+
+#F2-11 { border: 1px solid black }
+#F2-11 td { padding: 1em; font-family: Helvetica, Arial, sans-serif; font-size: 60% }
+#F2-11 td p { margin: 0 0 0.5em 0 }
+table#BUTTONS td { padding: 0 1em }
+
+.note { margin: 1em 2em; text-align: center }
+.notehead { font-family: Helvetica, Arial, sans-serif; font-weight: bolder;
+	color: #000; background: #fff;
+	padding: 0 0.5em; position:relative; bottom: -0.4em }
+.notebody { text-align: left; border-top: 0.5pt solid black; border-bottom: 0.5pt solid black;
+	color: #000; background: #fff;
+	padding-bottom: 0.5em }
+.note p { margin: 0.5em }
+.note li { margin-left: 0.5em; margin-right: 0.5em }
+.note ol { margin-top: 0.5em }
+
+td.subhead { font-style: italic }
+td.subhead2 { font-style: italic; padding-top: 1em }
+
+img.button { border: none }
+div.navbot { text-align: right }
+#BOOKTITLE { text-align: center }
+
+table.truled td.sub { padding-left: 1em }
+.sub tbody th { font-family: "New Century Schoolbook", Times, serif; font-weight: normal; text-decoration: underline; padding: 0 2em 0 0 }
+.sub tbody td { padding: 0 2em 0 0 }
+
+#T4-1 col:nth-child(1) { width: 30% }
+#T4-1 col:nth-child(2) { width: 20% }
+#T4-1 col:nth-child(3) { width: 50% }
+#T4-2 col:nth-child(1) { width: 30% }
+#T4-2 col:nth-child(2) { width: 20% }
+#T4-2 col:nth-child(3) { width: 50% }
+
+/* Mobile/small screen view above. Wider screens look more like the print version
+of the manual, with wide left margin and outdented headings. */
+@media (min-width: 600px) {
+    .main { margin-left: 8em }
+    h2 { margin-left: -5.7em }
+    h3 { margin-left: -6.6em }
+    h4 { margin-left: -8em }
+}

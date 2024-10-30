@@ -1,0 +1,597 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="201.9mm"
+    height="290.5mm"
+    viewBox="0 0 424 610"
+    version="1.1" style="fill:white">
+<title>Difference Finger from VT102 to VT220</title>
+
+<style>
+text { font-family: Helvetica, sans-serif; font-style: normal; fill: #000 }
+.exist { fill: #eee; stroke: #888; stroke-width: 0.3 }
+.added { fill: #080; stroke: #888; stroke-width: 0.3 }
+.removed { fill: #800; stroke: #888; stroke-width: 0.3 }
+.present { fill: #000; stroke: #888; stroke-width: 0.3 }
+.not { fill: #e8e8ff; stroke: #eee; stroke-width: 0.3 }
+.grpleg { font-weight: bold; font-size: 6px; text-anchor: middle }
+.colleg { font-weight: normal; font-size: 6px; }
+.title { font-weight: bold; font-size: 12px }
+.rule { stroke: #33f; stroke-width: 0.3 }
+circle.key { fill: #900; stroke:#d33; stroke-width: 1; opacity: 0.8 }
+text.key { font-weight: bold; font-size: 16px; text-anchor: middle; fill: white; opacity: 0.8 }
+@media (prefers-color-scheme: dark) {
+    text { fill: #fff }
+    .margin, .diagbg { fill: #000 }
+    .not { fill: #033; stroke: #033 }
+    .exist { fill: #333; stroke: #ccc }
+    .present { fill: #fff; stroke: #ccc }
+    .rule { stroke: #0ff }
+    .mark4a { stroke: #0ff }
+}
+</style>
+<rect class="margin" x="0" y="0" width="424" height="610" fill="#fff"/>
+<g transform="translate(10,10)">
+<rect class="diagbg" x="0" y="0" width="404" height="590" fill="#fff"/><text class="title" x="212.0" y="10.0" text-anchor="middle"><tspan>Difference Finger from VT102 to VT220</tspan></text>
+<g class="c0c1" transform="translate(10,40)"><text class="grpleg" x="10.0" y="-19.2"><tspan>C0</tspan></text>
+<text class="colleg" x="5.0" y="-4.8" text-anchor="middle"><tspan>0&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="160"/>
+<text class="colleg" x="15.0" y="-4.8" text-anchor="middle"><tspan>1&#x1d465;</tspan></text>
+<rect class="not" x="10" y="0" width="10" height="160"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="24.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="24.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="24.0" y2="120.0"/>
+<text class="colleg" y="-2.6" text-anchor="end"><tspan x="-2" dy="10">0</tspan><tspan x="-2" dy="10">1</tspan><tspan x="-2" dy="10">2</tspan><tspan x="-2" dy="10">3</tspan><tspan x="-2" dy="10">4</tspan><tspan x="-2" dy="10">5</tspan><tspan x="-2" dy="10">6</tspan><tspan x="-2" dy="10">7</tspan><tspan x="-2" dy="10">8</tspan><tspan x="-2" dy="10">9</tspan><tspan x="-2" dy="10">a</tspan><tspan x="-2" dy="10">b</tspan><tspan x="-2" dy="10">c</tspan><tspan x="-2" dy="10">d</tspan><tspan x="-2" dy="10">e</tspan><tspan x="-2" dy="10">f</tspan></text>
+<rect class="present" x="0" y="0" width="10" height="10"><title>NUL—Null</title></rect>
+<rect class="exist" x="0" y="10" width="10" height="10"><title>SOH—Start Of Heading</title></rect>
+<rect class="exist" x="0" y="20" width="10" height="10"><title>STX—Start of Text</title></rect>
+<rect class="exist" x="0" y="30" width="10" height="10"><title>ETX—End of Text</title></rect>
+<rect class="exist" x="0" y="40" width="10" height="10"><title>EOT—End Of Transmission</title></rect>
+<rect class="present" x="0" y="50" width="10" height="10"><title>ENQ—Enquiry</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>ACK—Acknowledge</title></rect>
+<rect class="present" x="0" y="70" width="10" height="10"><title>BEL—Bell</title></rect>
+<rect class="present" x="0" y="80" width="10" height="10"><title>BS—Backspace</title></rect>
+<rect class="present" x="0" y="90" width="10" height="10"><title>HT—Character Tabulation</title></rect>
+<rect class="present" x="0" y="100" width="10" height="10"><title>LF—Line Feed</title></rect>
+<rect class="present" x="0" y="110" width="10" height="10"><title>VT—Line Tabulation</title></rect>
+<rect class="present" x="0" y="120" width="10" height="10"><title>FF—Form Feed</title></rect>
+<rect class="present" x="0" y="130" width="10" height="10"><title>CR—Carriage Return</title></rect>
+<rect class="present" x="0" y="140" width="10" height="10"><title>SO—Shift-Out</title></rect>
+<rect class="present" x="0" y="150" width="10" height="10"><title>SI—Shift-In</title></rect>
+<rect class="exist" x="10" y="0" width="10" height="10"><title>DLE—Data Link Escape</title></rect>
+<rect class="present" x="10" y="10" width="10" height="10"><title>DC1—Device Control One</title></rect>
+<rect class="exist" x="10" y="20" width="10" height="10"><title>DC2—Device Control Two</title></rect>
+<rect class="present" x="10" y="30" width="10" height="10"><title>DC3—Device Control Three</title></rect>
+<rect class="exist" x="10" y="40" width="10" height="10"><title>DC4—Device Control Four</title></rect>
+<rect class="exist" x="10" y="50" width="10" height="10"><title>NAK—Negative Acknowledge</title></rect>
+<rect class="exist" x="10" y="60" width="10" height="10"><title>SYN—Synchronous Idle</title></rect>
+<rect class="exist" x="10" y="70" width="10" height="10"><title>ETB—End of Transmission Block</title></rect>
+<rect class="present" x="10" y="80" width="10" height="10"><title>CAN—Cancel</title></rect>
+<rect class="exist" x="10" y="90" width="10" height="10"><title>EM—End of Medium</title></rect>
+<rect class="present" x="10" y="100" width="10" height="10"><title>SUB—Substitute</title></rect>
+<rect class="present" x="10" y="110" width="10" height="10"><title>ESC—Escape</title></rect>
+<rect class="exist" x="10" y="120" width="10" height="10"><title>FS—Field Separator</title></rect>
+<rect class="exist" x="10" y="130" width="10" height="10"><title>GS—Group Separator</title></rect>
+<rect class="exist" x="10" y="140" width="10" height="10"><title>RS—Record Separator</title></rect>
+<rect class="exist" x="10" y="150" width="10" height="10"><title>US—Unit Separator</title></rect>
+<text class="grpleg" x="34.0" y="-19.2"><tspan>C1</tspan></text>
+<text class="colleg" x="29.0" y="-4.8" text-anchor="middle"><tspan>8&#x1d465;</tspan></text>
+<rect class="not" x="24" y="0" width="10" height="160"/>
+<text class="colleg" x="39.0" y="-4.8" text-anchor="middle"><tspan>9&#x1d465;</tspan></text>
+<rect class="not" x="34" y="0" width="10" height="160"/>
+<line class="rule" x1="20.0" y1="40.0" x2="54.0" y2="40.0"/>
+<line class="rule" x1="20.0" y1="80.0" x2="54.0" y2="80.0"/>
+<line class="rule" x1="20.0" y1="120.0" x2="54.0" y2="120.0"/>
+<rect class="exist" x="24" y="20" width="10" height="10"><title>BPH—Break Permitted Here</title></rect>
+<rect class="exist" x="24" y="30" width="10" height="10"><title>NBH—No Break Here</title></rect>
+<rect class="added" x="24" y="40" width="10" height="10"><title>IND—Index</title></rect>
+<rect class="added" x="24" y="50" width="10" height="10"><title>NEL—Next Line</title></rect>
+<rect class="exist" x="24" y="60" width="10" height="10"><title>SSA—Start of Selected Area</title></rect>
+<rect class="exist" x="24" y="70" width="10" height="10"><title>ESA—End of Selected Area</title></rect>
+<rect class="added" x="24" y="80" width="10" height="10"><title>HTS—Character Tabulation Set</title></rect>
+<rect class="exist" x="24" y="90" width="10" height="10"><title>HTJ—Character Tabulation with Justification</title></rect>
+<rect class="exist" x="24" y="100" width="10" height="10"><title>VTS—Line Tabulation Set</title></rect>
+<rect class="exist" x="24" y="110" width="10" height="10"><title>PLD—Partial Line Forward</title></rect>
+<rect class="exist" x="24" y="120" width="10" height="10"><title>PLU—Partial Line Backward</title></rect>
+<rect class="added" x="24" y="130" width="10" height="10"><title>RI—Reverse Line Feed</title></rect>
+<rect class="added" x="24" y="140" width="10" height="10"><title>SS2—Single-Shift Two</title></rect>
+<rect class="added" x="24" y="150" width="10" height="10"><title>SS3—Single-Shift Three</title></rect>
+<rect class="added" x="34" y="0" width="10" height="10"><title>DCS—Device Control String</title></rect>
+<rect class="exist" x="34" y="10" width="10" height="10"><title>PU1—Private Use One</title></rect>
+<rect class="exist" x="34" y="20" width="10" height="10"><title>PU2—Private Use Two</title></rect>
+<rect class="exist" x="34" y="30" width="10" height="10"><title>STS—Set Transmit State</title></rect>
+<rect class="exist" x="34" y="40" width="10" height="10"><title>CCH—Cancel Character</title></rect>
+<rect class="exist" x="34" y="50" width="10" height="10"><title>MW—Message Waiting</title></rect>
+<rect class="exist" x="34" y="60" width="10" height="10"><title>SPA—Start of Guarded Area</title></rect>
+<rect class="exist" x="34" y="70" width="10" height="10"><title>EPA—End of Guarded Area</title></rect>
+<rect class="exist" x="34" y="80" width="10" height="10"><title>SOS—Start Of String</title></rect>
+<rect class="exist" x="34" y="100" width="10" height="10"><title>DECID—Identify Terminal</title></rect>
+<rect class="added" x="34" y="110" width="10" height="10"><title>CSI—Control Sequence Introducer</title></rect>
+<rect class="added" x="34" y="120" width="10" height="10"><title>ST—String Terminator</title></rect>
+<rect class="exist" x="34" y="130" width="10" height="10"><title>OSC—Operating System Command</title></rect>
+<rect class="exist" x="34" y="140" width="10" height="10"><title>PM—Privacy Message</title></rect>
+<rect class="exist" x="34" y="150" width="10" height="10"><title>APC—Application Program Command</title></rect>
+</g>
+<g class="escstd" transform="translate(68,40)"><text class="grpleg" x="20.0" y="-19.2"><tspan>ESC final</tspan></text>
+<text class="colleg" x="5.0" y="-4.8" text-anchor="middle"><tspan>4&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="160"/>
+<text class="colleg" x="15.0" y="-4.8" text-anchor="middle"><tspan>5&#x1d465;</tspan></text>
+<rect class="not" x="10" y="0" width="10" height="160"/>
+<text class="colleg" x="25.0" y="-4.8" text-anchor="middle"><tspan>6&#x1d465;</tspan></text>
+<rect class="not" x="20" y="0" width="10" height="160"/>
+<text class="colleg" x="35.0" y="-4.8" text-anchor="middle"><tspan>7&#x1d465;</tspan></text>
+<rect class="not" x="30" y="0" width="10" height="150"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="44.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="44.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="44.0" y2="120.0"/>
+<rect class="present" x="0" y="40" width="10" height="10"><title>IND—Index</title></rect>
+<rect class="present" x="0" y="50" width="10" height="10"><title>NEL—Next Line</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>SSA—Start of Selected Area</title></rect>
+<rect class="exist" x="0" y="70" width="10" height="10"><title>ESA—End of Selected Area</title></rect>
+<rect class="present" x="0" y="80" width="10" height="10"><title>HTS—Character Tabulation Set</title></rect>
+<rect class="exist" x="0" y="90" width="10" height="10"><title>HTJ—Character Tabulation with Justification</title></rect>
+<rect class="exist" x="0" y="100" width="10" height="10"><title>VTS—Line Tabulation Set</title></rect>
+<rect class="exist" x="0" y="110" width="10" height="10"><title>PLD—Partial Line Forward</title></rect>
+<rect class="exist" x="0" y="120" width="10" height="10"><title>PLU—Partial Line Backward</title></rect>
+<rect class="present" x="0" y="130" width="10" height="10"><title>RI—Reverse Line Feed</title></rect>
+<rect class="present" x="0" y="140" width="10" height="10"><title>SS2—Single-Shift Two</title></rect>
+<rect class="present" x="0" y="150" width="10" height="10"><title>SS3—Single-Shift Three</title></rect>
+<rect class="added" x="10" y="0" width="10" height="10"><title>DCS—Device Control String</title></rect>
+<rect class="exist" x="10" y="10" width="10" height="10"><title>PU1—Private Use One</title></rect>
+<rect class="exist" x="10" y="20" width="10" height="10"><title>PU2—Private Use Two</title></rect>
+<rect class="exist" x="10" y="30" width="10" height="10"><title>STS—Set Transmit State</title></rect>
+<rect class="exist" x="10" y="40" width="10" height="10"><title>CCH—Cancel Character</title></rect>
+<rect class="exist" x="10" y="50" width="10" height="10"><title>MW—Message Waiting</title></rect>
+<rect class="exist" x="10" y="60" width="10" height="10"><title>SPA—Start of Guarded Area</title></rect>
+<rect class="exist" x="10" y="70" width="10" height="10"><title>EPA—End of Guarded Area</title></rect>
+<rect class="exist" x="10" y="80" width="10" height="10"><title>SOS—Start Of String</title></rect>
+<rect class="present" x="10" y="100" width="10" height="10"><title>DECID—Identify Terminal</title></rect>
+<rect class="present" x="10" y="110" width="10" height="10"><title>CSI—Control Sequence Introducer</title></rect>
+<rect class="added" x="10" y="120" width="10" height="10"><title>ST—String Terminator</title></rect>
+<rect class="exist" x="10" y="130" width="10" height="10"><title>OSC—Operating System Command</title></rect>
+<rect class="exist" x="10" y="140" width="10" height="10"><title>PM—Privacy Message</title></rect>
+<rect class="exist" x="10" y="150" width="10" height="10"><title>APC—Application Program Command</title></rect>
+<rect class="exist" x="20" y="0" width="10" height="10"><title>DMI—Disable Manual Input</title></rect>
+<rect class="exist" x="20" y="10" width="10" height="10"><title>INT—Interrupt</title></rect>
+<rect class="exist" x="20" y="20" width="10" height="10"><title>EMI—Enable Manual Input</title></rect>
+<rect class="present" x="20" y="30" width="10" height="10"><title>RIS—Reset to Initial State</title></rect>
+<rect class="exist" x="20" y="40" width="10" height="10"><title>CMD—Coding Method Delimiter</title></rect>
+<rect class="added" x="20" y="140" width="10" height="10"><title>LS2—Locking Shift Two</title></rect>
+<rect class="added" x="20" y="150" width="10" height="10"><title>LS3—Locking Shift Three</title></rect>
+<rect class="added" x="30" y="120" width="10" height="10"><title>LS3R—Locking Shift Three Right</title></rect>
+<rect class="added" x="30" y="130" width="10" height="10"><title>LS2R—Locking Shift Two Right</title></rect>
+<rect class="added" x="30" y="140" width="10" height="10"><title>LS1R—Locking Shift One Right</title></rect>
+<text class="grpleg" x="64.0" y="-19.2"><tspan>ESC SP final</tspan></text>
+<text class="colleg" x="49.0" y="-4.8" text-anchor="middle"><tspan>4&#x1d465;</tspan></text>
+<rect class="not" x="44" y="0" width="10" height="160"/>
+<text class="colleg" x="59.0" y="-4.8" text-anchor="middle"><tspan>5&#x1d465;</tspan></text>
+<rect class="not" x="54" y="0" width="10" height="160"/>
+<text class="colleg" x="69.0" y="-4.8" text-anchor="middle"><tspan>6&#x1d465;</tspan></text>
+<rect class="not" x="64" y="0" width="10" height="160"/>
+<text class="colleg" x="79.0" y="-4.8" text-anchor="middle"><tspan>7&#x1d465;</tspan></text>
+<rect class="not" x="74" y="0" width="10" height="150"/>
+<line class="rule" x1="40.0" y1="40.0" x2="84.0" y2="40.0"/>
+<line class="rule" x1="40.0" y1="80.0" x2="84.0" y2="80.0"/>
+<line class="rule" x1="40.0" y1="120.0" x2="84.0" y2="120.0"/>
+<rect class="added" x="44" y="60" width="10" height="10"><title>S7C1T—Select 7-bit C1 Transmission</title></rect>
+<rect class="added" x="44" y="70" width="10" height="10"><title>S8C1T—Select 8-bit C1 Transmission</title></rect>
+<rect class="exist" x="44" y="120" width="10" height="10"><title>ASCEF—Announce Subset of Code Extension Facilities</title></rect>
+<rect class="exist" x="44" y="130" width="10" height="10"><title>ASCEF—Announce Subset of Code Extension Facilities</title></rect>
+<rect class="exist" x="44" y="140" width="10" height="10"><title>ASCEF—Announce Subset of Code Extension Facilities</title></rect>
+</g>
+<g class="escpri" transform="translate(166,40)"><text class="grpleg" x="115.0" y="-19.2"><tspan>ESC inter final</tspan></text>
+<text class="colleg" text-anchor="middle"><tspan x="5.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="19.0" y="-12.0">20</tspan><tspan x="19.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="14" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="33.0" y="-12.0">21</tspan><tspan x="33.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="28" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="47.0" y="-12.0">22</tspan><tspan x="47.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="42" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="61.0" y="-12.0">23</tspan><tspan x="61.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="56" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="75.0" y="-12.0">24</tspan><tspan x="75.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="70" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="89.0" y="-12.0">25</tspan><tspan x="89.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="84" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="103.0" y="-12.0">26</tspan><tspan x="103.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="98" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="117.0" y="-12.0">27</tspan><tspan x="117.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="112" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="131.0" y="-12.0">28</tspan><tspan x="131.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="126" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="145.0" y="-12.0">29</tspan><tspan x="145.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="140" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="159.0" y="-12.0">2a</tspan><tspan x="159.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="154" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="173.0" y="-12.0">2b</tspan><tspan x="173.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="168" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="187.0" y="-12.0">2c</tspan><tspan x="187.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="182" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="201.0" y="-12.0">2d</tspan><tspan x="201.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="196" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="215.0" y="-12.0">2e</tspan><tspan x="215.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="210" y="0" width="10" height="160"/>
+<text class="colleg" text-anchor="middle"><tspan x="229.0" y="-12.0">2f</tspan><tspan x="229.0" y="-4.8">3&#x1d465;</tspan></text>
+<rect class="not" x="224" y="0" width="10" height="160"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="234.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="234.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="234.0" y2="120.0"/>
+<text class="colleg" y="-2.6" text-anchor="end"><tspan x="-2" dy="10">0</tspan><tspan x="-2" dy="10">1</tspan><tspan x="-2" dy="10">2</tspan><tspan x="-2" dy="10">3</tspan><tspan x="-2" dy="10">4</tspan><tspan x="-2" dy="10">5</tspan><tspan x="-2" dy="10">6</tspan><tspan x="-2" dy="10">7</tspan><tspan x="-2" dy="10">8</tspan><tspan x="-2" dy="10">9</tspan><tspan x="-2" dy="10">a</tspan><tspan x="-2" dy="10">b</tspan><tspan x="-2" dy="10">c</tspan><tspan x="-2" dy="10">d</tspan><tspan x="-2" dy="10">e</tspan><tspan x="-2" dy="10">f</tspan></text>
+<rect class="exist" x="0" y="10" width="10" height="10"><title>DECHTS—Horizontal Tab Set</title></rect>
+<rect class="exist" x="0" y="20" width="10" height="10"><title>DECCAHT—Clear All Horizontal Tabs</title></rect>
+<rect class="exist" x="0" y="30" width="10" height="10"><title>DECVTS—Vertical Tab Set</title></rect>
+<rect class="exist" x="0" y="40" width="10" height="10"><title>DECCAVT—Clear All Vertical Tabs</title></rect>
+<rect class="exist" x="0" y="50" width="10" height="10"><title>DECXMIT—Transmit</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>DECBI—Back Index</title></rect>
+<rect class="present" x="0" y="70" width="10" height="10"><title>DECSC—Save Cursor</title></rect>
+<rect class="present" x="0" y="80" width="10" height="10"><title>DECRC—Restore Cursor</title></rect>
+<rect class="exist" x="0" y="90" width="10" height="10"><title>DECFI—Forward Index</title></rect>
+<rect class="present" x="0" y="130" width="10" height="10"><title>DECKPAM—Keypad Application Mode</title></rect>
+<rect class="present" x="0" y="140" width="10" height="10"><title>DECKPNM—Keypad Numeric Mode</title></rect>
+<rect class="exist" x="14" y="60" width="10" height="10"><title>S7C1R—Select 7-bit C1 Reception</title></rect>
+<rect class="exist" x="14" y="70" width="10" height="10"><title>S8C1R—Select 8-bit C1 Reception</title></rect>
+<rect class="present" x="56" y="30" width="10" height="10"><title>DECDHL—Double-Height Line</title></rect>
+<rect class="present" x="56" y="40" width="10" height="10"><title>DECDHL—Double-Height Line</title></rect>
+<rect class="present" x="56" y="50" width="10" height="10"><title>DECSWL—Single-Width Line</title></rect>
+<rect class="present" x="56" y="60" width="10" height="10"><title>DECDWL—Double-Width Line</title></rect>
+<rect class="exist" x="56" y="70" width="10" height="10"><title>DECHCP—Hardcopy</title></rect>
+<rect class="present" x="56" y="80" width="10" height="10"><title>DECALN—Screen Alignment Display</title></rect>
+<rect class="exist" x="56" y="90" width="10" height="10"><title>DECFPP—Positioning</title></rect>
+<rect class="exist" x="84" y="0" width="10" height="10"><title>DECTCS—Exit NAPLPS</title></rect>
+<rect class="exist" x="84" y="40" width="10" height="10"><title>DECSCCS—Enter NAPLPS</title></rect>
+<rect class="exist" x="84" y="80" width="10" height="10"><title>DECHPPCL—Enter HP PCL emulation mode</title></rect>
+<rect class="exist" x="126" y="10" width="10" height="10"><title>DDD3—Report Hebrew Settings</title></rect>
+<rect class="exist" x="140" y="10" width="10" height="10"><title>DDD1—Report Hebrew Settings</title></rect>
+</g>
+<g class="csistd" transform="translate(68,240)"><text class="grpleg" x="15.0" y="-19.2"><tspan>CSI final</tspan></text>
+<text class="colleg" x="5.0" y="-4.8" text-anchor="middle"><tspan>4&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="160"/>
+<text class="colleg" x="15.0" y="-4.8" text-anchor="middle"><tspan>5&#x1d465;</tspan></text>
+<rect class="not" x="10" y="0" width="10" height="160"/>
+<text class="colleg" x="25.0" y="-4.8" text-anchor="middle"><tspan>6&#x1d465;</tspan></text>
+<rect class="not" x="20" y="0" width="10" height="160"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="40.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="40.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="40.0" y2="120.0"/>
+<text class="colleg" y="-2.6" text-anchor="end"><tspan x="-2" dy="10">0</tspan><tspan x="-2" dy="10">1</tspan><tspan x="-2" dy="10">2</tspan><tspan x="-2" dy="10">3</tspan><tspan x="-2" dy="10">4</tspan><tspan x="-2" dy="10">5</tspan><tspan x="-2" dy="10">6</tspan><tspan x="-2" dy="10">7</tspan><tspan x="-2" dy="10">8</tspan><tspan x="-2" dy="10">9</tspan><tspan x="-2" dy="10">a</tspan><tspan x="-2" dy="10">b</tspan><tspan x="-2" dy="10">c</tspan><tspan x="-2" dy="10">d</tspan><tspan x="-2" dy="10">e</tspan><tspan x="-2" dy="10">f</tspan></text>
+<rect class="added" x="0" y="0" width="10" height="10"><title>ICH—Insert Character</title></rect>
+<rect class="present" x="0" y="10" width="10" height="10"><title>CUU—Cursor Up</title></rect>
+<rect class="present" x="0" y="20" width="10" height="10"><title>CUD—Cursor Down</title></rect>
+<rect class="present" x="0" y="30" width="10" height="10"><title>CUF—Cursor Forward (Cursor Right)</title></rect>
+<rect class="present" x="0" y="40" width="10" height="10"><title>CUB—Cursor Backward (Cursor Left)</title></rect>
+<rect class="exist" x="0" y="50" width="10" height="10"><title>CNL—Cursor Next Line</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>CPL—Cursor Preceding Line</title></rect>
+<rect class="exist" x="0" y="70" width="10" height="10"><title>CHA—Cursor Horizontal (Character) Absolute</title></rect>
+<rect class="present" x="0" y="80" width="10" height="10"><title>CUP—Cursor Position</title></rect>
+<rect class="exist" x="0" y="90" width="10" height="10"><title>CHT—Cursor Horizontal Forward Tabulation</title></rect>
+<rect class="present" x="0" y="100" width="10" height="10"><title>ED—Erase in Display (Erase in Page)</title></rect>
+<rect class="present" x="0" y="110" width="10" height="10"><title>EL—Erase in Line</title></rect>
+<rect class="present" x="0" y="120" width="10" height="10"><title>IL—Insert Line</title></rect>
+<rect class="present" x="0" y="130" width="10" height="10"><title>DL—Delete Line</title></rect>
+<rect class="exist" x="0" y="140" width="10" height="10"><title>EF—Erase in Field</title></rect>
+<rect class="exist" x="0" y="150" width="10" height="10"><title>EA—Erase in Area</title></rect>
+<rect class="present" x="10" y="0" width="10" height="10"><title>DCH—Delete Character</title></rect>
+<rect class="exist" x="10" y="10" width="10" height="10"><title>SEM—Select Editing Extent Mode</title></rect>
+<rect class="present" x="10" y="20" width="10" height="10"><title>CPR—Cursor Position Report (Active Position Report)</title></rect>
+<rect class="exist" x="10" y="30" width="10" height="10"><title>SU—Scroll Up (Pan Down)</title></rect>
+<rect class="exist" x="10" y="40" width="10" height="10"><title>SD—Scroll Down (Pan Up)</title></rect>
+<rect class="exist" x="10" y="50" width="10" height="10"><title>NP—Next Page</title></rect>
+<rect class="exist" x="10" y="60" width="10" height="10"><title>PP—Preceding Page</title></rect>
+<rect class="exist" x="10" y="70" width="10" height="10"><title>CTC—Cursor Tabulation Control</title></rect>
+<rect class="added" x="10" y="80" width="10" height="10"><title>ECH—Erase Character</title></rect>
+<rect class="exist" x="10" y="90" width="10" height="10"><title>CVT—Cursor Vertical Tabulation (Cursor Line Tabulation)</title></rect>
+<rect class="exist" x="10" y="100" width="10" height="10"><title>CBT—Cursor Backward Tabulation</title></rect>
+<rect class="exist" x="10" y="110" width="10" height="10"><title>SRS—Start Reversed String</title></rect>
+<rect class="exist" x="10" y="120" width="10" height="10"><title>PTX—Parallel Texts</title></rect>
+<rect class="exist" x="10" y="130" width="10" height="10"><title>SDS—Start Directed String</title></rect>
+<rect class="exist" x="10" y="140" width="10" height="10"><title>SIMD—Select Implicit Movement Direction</title></rect>
+<rect class="exist" x="20" y="0" width="10" height="10"><title>HPA—Horizontal Position Absolute (Character Position Absolute)</title></rect>
+<rect class="exist" x="20" y="10" width="10" height="10"><title>HPR—Horizontal Position Relative (Character Position Forward)</title></rect>
+<rect class="exist" x="20" y="20" width="10" height="10"><title>REP—Repeat</title></rect>
+<rect class="present" x="20" y="30" width="10" height="10"><title>DA1—Primary Device Attributes</title></rect>
+<rect class="exist" x="20" y="40" width="10" height="10"><title>VPA—Vertical Position Absolute (Line Position Absolute)</title></rect>
+<rect class="exist" x="20" y="50" width="10" height="10"><title>VPR—Vertical Position Relative (Line Position Forward)</title></rect>
+<rect class="present" x="20" y="60" width="10" height="10"><title>HVP—Horizontal and Vertical Position (Character and Line Position)</title></rect>
+<rect class="present" x="20" y="70" width="10" height="10"><title>TBC—Tabulation Clear</title></rect>
+<rect class="present" x="20" y="80" width="10" height="10"><title>SM—Set Mode</title></rect>
+<rect class="present" x="20" y="90" width="10" height="10"><title>MC—Media Copy</title></rect>
+<rect class="exist" x="20" y="100" width="10" height="10"><title>HPB—Horizontal Position Backward (Character Position Backward)</title></rect>
+<rect class="exist" x="20" y="110" width="10" height="10"><title>VPB—Vertical Position Backward (Line Position Backward)</title></rect>
+<rect class="present" x="20" y="120" width="10" height="10"><title>RM—Reset Mode</title></rect>
+<rect class="present" x="20" y="130" width="10" height="10"><title>SGR—Set Graphic Rendition</title></rect>
+<rect class="present" x="20" y="140" width="10" height="10"><title>DSR—Device Status Report</title></rect>
+<rect class="exist" x="20" y="150" width="10" height="10"><title>DAQ—Define Area Qualification</title></rect>
+<text class="grpleg" x="59.0" y="-19.2"><tspan>CSI SP final</tspan></text>
+<text class="colleg" x="49.0" y="-4.8" text-anchor="middle"><tspan>4&#x1d465;</tspan></text>
+<rect class="not" x="44" y="0" width="10" height="160"/>
+<text class="colleg" x="59.0" y="-4.8" text-anchor="middle"><tspan>5&#x1d465;</tspan></text>
+<rect class="not" x="54" y="0" width="10" height="160"/>
+<text class="colleg" x="69.0" y="-4.8" text-anchor="middle"><tspan>6&#x1d465;</tspan></text>
+<rect class="not" x="64" y="0" width="10" height="160"/>
+<line class="rule" x1="40.0" y1="40.0" x2="74.0" y2="40.0"/>
+<line class="rule" x1="40.0" y1="80.0" x2="74.0" y2="80.0"/>
+<line class="rule" x1="40.0" y1="120.0" x2="74.0" y2="120.0"/>
+<rect class="exist" x="44" y="0" width="10" height="10"><title>SL—Scroll Left</title></rect>
+<rect class="exist" x="44" y="10" width="10" height="10"><title>SR—Scroll Right</title></rect>
+<rect class="exist" x="44" y="20" width="10" height="10"><title>GSM—Graphic Size Modification</title></rect>
+<rect class="exist" x="44" y="30" width="10" height="10"><title>GSS—Graphic Size Selection</title></rect>
+<rect class="exist" x="44" y="40" width="10" height="10"><title>FNT—Font Selection</title></rect>
+<rect class="exist" x="44" y="50" width="10" height="10"><title>TSS—Thin Space Specification</title></rect>
+<rect class="exist" x="44" y="60" width="10" height="10"><title>JFY—Justify</title></rect>
+<rect class="exist" x="44" y="70" width="10" height="10"><title>SPI—Spacing Increment</title></rect>
+<rect class="exist" x="44" y="80" width="10" height="10"><title>QUAD—Quad</title></rect>
+<rect class="exist" x="44" y="90" width="10" height="10"><title>SSU—Select Size Unit</title></rect>
+<rect class="exist" x="44" y="100" width="10" height="10"><title>PFS—Page Format Selection</title></rect>
+<rect class="exist" x="44" y="110" width="10" height="10"><title>SHS—Select Character Spacing</title></rect>
+<rect class="exist" x="44" y="120" width="10" height="10"><title>SVS—Select Line Spacing</title></rect>
+<rect class="exist" x="44" y="130" width="10" height="10"><title>IGS—Identify Graphic Subrepertoire</title></rect>
+<rect class="exist" x="44" y="140" width="10" height="10"><title>HTSA—Character Tabulation Set Absolute</title></rect>
+<rect class="exist" x="44" y="150" width="10" height="10"><title>IDCS—Identify Device Control String</title></rect>
+<rect class="exist" x="54" y="0" width="10" height="10"><title>PPA—Page Position Absolute</title></rect>
+<rect class="exist" x="54" y="10" width="10" height="10"><title>PPR—Page Position Relative (Page Position Forward)</title></rect>
+<rect class="exist" x="54" y="20" width="10" height="10"><title>PPB—Page Position Backward</title></rect>
+<rect class="exist" x="54" y="30" width="10" height="10"><title>SPD—Select Presentation Directions</title></rect>
+<rect class="exist" x="54" y="40" width="10" height="10"><title>DTA—Dimension Text Area</title></rect>
+<rect class="exist" x="54" y="50" width="10" height="10"><title>SLH—Set Line Home</title></rect>
+<rect class="exist" x="54" y="60" width="10" height="10"><title>SLL—Set Line Limit</title></rect>
+<rect class="exist" x="54" y="70" width="10" height="10"><title>FNK—Function Key</title></rect>
+<rect class="exist" x="54" y="80" width="10" height="10"><title>SPQR—Select Print Quality and Rapidity</title></rect>
+<rect class="exist" x="54" y="90" width="10" height="10"><title>SEF—Sheet Eject and Feed</title></rect>
+<rect class="exist" x="54" y="100" width="10" height="10"><title>PEC—Presentation Expand or Contract</title></rect>
+<rect class="exist" x="54" y="110" width="10" height="10"><title>SSW—Select Space Width</title></rect>
+<rect class="exist" x="54" y="120" width="10" height="10"><title>SACS—Set Additional Character Separation</title></rect>
+<rect class="exist" x="54" y="130" width="10" height="10"><title>SAPV—Set Alternative Presentation Variants</title></rect>
+<rect class="exist" x="54" y="140" width="10" height="10"><title>STAB—Selective Tabulation</title></rect>
+<rect class="exist" x="54" y="150" width="10" height="10"><title>GCC—Graphic Character Combination</title></rect>
+<rect class="exist" x="64" y="0" width="10" height="10"><title>TATE—Tabulation Aligned Trailing Edge</title></rect>
+<rect class="exist" x="64" y="10" width="10" height="10"><title>TALE—Tabulation Aligned Leading Edge</title></rect>
+<rect class="exist" x="64" y="20" width="10" height="10"><title>TAC—Tabulation Aligned Centred</title></rect>
+<rect class="exist" x="64" y="30" width="10" height="10"><title>TCC—Tabulation Centred on Character</title></rect>
+<rect class="exist" x="64" y="40" width="10" height="10"><title>TSR—Tab Stop Remove</title></rect>
+<rect class="exist" x="64" y="50" width="10" height="10"><title>SCO—Set Character Orientation</title></rect>
+<rect class="exist" x="64" y="60" width="10" height="10"><title>SRCS—Set Reduced Character Separation</title></rect>
+<rect class="exist" x="64" y="70" width="10" height="10"><title>SCS—Set Character Spacing</title></rect>
+<rect class="exist" x="64" y="80" width="10" height="10"><title>SLS—Set Line Spacing</title></rect>
+<rect class="exist" x="64" y="90" width="10" height="10"><title>SPH—Set Page Home</title></rect>
+<rect class="exist" x="64" y="100" width="10" height="10"><title>SPL—Set Page Limit</title></rect>
+<rect class="exist" x="64" y="110" width="10" height="10"><title>SCP—Select Character Path</title></rect>
+</g>
+<g class="csipri" transform="translate(166,240)"><text class="grpleg" x="115.0" y="-19.2"><tspan>CSI inter final</tspan></text>
+<text class="colleg" text-anchor="middle"><tspan x="5.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="19.0" y="-12.0">20</tspan><tspan x="19.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="14" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="33.0" y="-12.0">21</tspan><tspan x="33.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="28" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="47.0" y="-12.0">22</tspan><tspan x="47.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="42" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="61.0" y="-12.0">23</tspan><tspan x="61.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="56" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="75.0" y="-12.0">24</tspan><tspan x="75.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="70" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="89.0" y="-12.0">25</tspan><tspan x="89.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="84" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="103.0" y="-12.0">26</tspan><tspan x="103.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="98" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="117.0" y="-12.0">27</tspan><tspan x="117.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="112" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="131.0" y="-12.0">28</tspan><tspan x="131.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="126" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="145.0" y="-12.0">29</tspan><tspan x="145.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="140" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="159.0" y="-12.0">2a</tspan><tspan x="159.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="154" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="173.0" y="-12.0">2b</tspan><tspan x="173.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="168" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="187.0" y="-12.0">2c</tspan><tspan x="187.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="182" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="201.0" y="-12.0">2d</tspan><tspan x="201.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="196" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="215.0" y="-12.0">2e</tspan><tspan x="215.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="210" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="229.0" y="-12.0">2f</tspan><tspan x="229.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="224" y="0" width="10" height="150"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="234.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="234.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="234.0" y2="120.0"/>
+<text class="colleg" y="-2.6" text-anchor="end"><tspan x="-2" dy="10">0</tspan><tspan x="-2" dy="10">1</tspan><tspan x="-2" dy="10">2</tspan><tspan x="-2" dy="10">3</tspan><tspan x="-2" dy="10">4</tspan><tspan x="-2" dy="10">5</tspan><tspan x="-2" dy="10">6</tspan><tspan x="-2" dy="10">7</tspan><tspan x="-2" dy="10">8</tspan><tspan x="-2" dy="10">9</tspan><tspan x="-2" dy="10">a</tspan><tspan x="-2" dy="10">b</tspan><tspan x="-2" dy="10">c</tspan><tspan x="-2" dy="10">d</tspan><tspan x="-2" dy="10">e</tspan></text>
+<rect class="exist" x="0" y="0" width="10" height="10"><title>DECSSL—Select Set-Up Language</title></rect>
+<rect class="removed" x="0" y="10" width="10" height="10"><title>DECLL—Load LEDs</title></rect>
+<rect class="present" x="0" y="20" width="10" height="10"><title>DECSTBM—Set Top and Bottom Margins</title></rect>
+<rect class="exist" x="0" y="30" width="10" height="10"><title>DECSLRM—Set Left and Right Margins</title></rect>
+<rect class="exist" x="0" y="40" width="10" height="10"><title>DECSLPP—Set Lines per Physical Page</title></rect>
+<rect class="exist" x="0" y="50" width="10" height="10"><title>DECSHTS—Set Horizontal Tabulation Stops</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>DECSVTS—Set Vertical Tabulation Stops</title></rect>
+<rect class="exist" x="0" y="70" width="10" height="10"><title>DECSHORP—Set Horizontal Pitch</title></rect>
+<rect class="exist" x="0" y="80" width="10" height="10"><title>DECREQTPARM—Request Terminal Parameters</title></rect>
+<rect class="present" x="0" y="90" width="10" height="10"><title>DECTST—Invoke Confidence Test</title></rect>
+<rect class="exist" x="0" y="100" width="10" height="10"><title>DECVERP—Set Vertical Pitch</title></rect>
+<rect class="exist" x="0" y="120" width="10" height="10"><title>DECTTC—Select Transmit Termination Character</title></rect>
+<rect class="exist" x="0" y="130" width="10" height="10"><title>DECPRO—Set Protected Field Attributes</title></rect>
+<rect class="added" x="0" y="140" width="10" height="10"><title>DECFNK—Function Key</title></rect>
+<rect class="exist" x="14" y="0" width="10" height="10"><title>DECSSCLS—Set Scroll Speed</title></rect>
+<rect class="exist" x="14" y="10" width="10" height="10"><title>DECSCUSR—Set Cursor Style</title></rect>
+<rect class="exist" x="14" y="20" width="10" height="10"><title>DECSKCV—Set Keyclick Volume</title></rect>
+<rect class="exist" x="14" y="30" width="10" height="10"><title>DECNS—New Sheet</title></rect>
+<rect class="exist" x="14" y="40" width="10" height="10"><title>DECSWBV—Set Warning Bell Volume</title></rect>
+<rect class="exist" x="14" y="50" width="10" height="10"><title>DECSMBV—Set Margin Bell Volume</title></rect>
+<rect class="exist" x="14" y="60" width="10" height="10"><title>DECSLCK—Set Lock Key Style</title></rect>
+<rect class="exist" x="14" y="70" width="10" height="10"><title>DECSITF—Select Input Tray Failover</title></rect>
+<rect class="exist" x="14" y="80" width="10" height="10"><title>DECSDPM—Set Duplex Print Mode</title></rect>
+<rect class="exist" x="14" y="100" width="10" height="10"><title>DECVPFS—Variable Page Format Select</title></rect>
+<rect class="exist" x="14" y="110" width="10" height="10"><title>DECSSS—Set Sheet Size</title></rect>
+<rect class="exist" x="14" y="120" width="10" height="10"><title>DECRVEC—Draw Relative Vector</title></rect>
+<rect class="exist" x="14" y="130" width="10" height="10"><title>DECKBD—Keyboard Language Selection</title></rect>
+<rect class="exist" x="14" y="140" width="10" height="10"><title>DECTME—Terminal Mode Emulation</title></rect>
+<rect class="added" x="28" y="0" width="10" height="10"><title>DECSTR—Soft Terminal Reset</title></rect>
+<rect class="exist" x="28" y="10" width="10" height="10"><title>decVKPPI—Print Partial Image</title></rect>
+<rect class="exist" x="28" y="20" width="10" height="10"><title>DECNVR—Nonvolatile RAM Feature Settings</title></rect>
+<rect class="exist" x="28" y="30" width="10" height="10"><title>DECFIL—Right Justification</title></rect>
+<rect class="exist" x="28" y="50" width="10" height="10"><title>DECFNVR—Loading Factory NVR Settings</title></rect>
+<rect class="exist" x="28" y="60" width="10" height="10"><title>DECASFC—Automatic Sheet Feeder Control</title></rect>
+<rect class="exist" x="28" y="70" width="10" height="10"><title>DECUND—Programmable Underline Character</title></rect>
+<rect class="exist" x="28" y="80" width="10" height="10"><title>DECPTS—Printwheel Table Select</title></rect>
+<rect class="exist" x="28" y="90" width="10" height="10"><title>DECSS—Set Space Size</title></rect>
+<rect class="exist" x="28" y="120" width="10" height="10"><title>DECVEC—Draw Vector</title></rect>
+<rect class="exist" x="28" y="130" width="10" height="10"><title>DECFIN—Document Finishing</title></rect>
+<rect class="added" x="42" y="0" width="10" height="10"><title>DECSCL—Set Conformance Level</title></rect>
+<rect class="added" x="42" y="10" width="10" height="10"><title>DECSCA—Select Character Attributes</title></rect>
+<rect class="exist" x="42" y="30" width="10" height="10"><title>DECHPWA—Page Width Alignment</title></rect>
+<rect class="exist" x="42" y="40" width="10" height="10"><title>DECSRFR—Select Refresh Rate</title></rect>
+<rect class="exist" x="42" y="50" width="10" height="10"><title>DECSTRL—Set Transmit Rate Limit</title></rect>
+<rect class="exist" x="42" y="60" width="10" height="10"><title>DECRQDE—Request Device Extent</title></rect>
+<rect class="exist" x="42" y="70" width="10" height="10"><title>DECRPDE—Report Device Extent</title></rect>
+<rect class="exist" x="42" y="80" width="10" height="10"><title>DECFCR—Font Configuration Request</title></rect>
+<rect class="exist" x="42" y="100" width="10" height="10"><title>DECDEN—Select Density</title></rect>
+<rect class="exist" x="42" y="110" width="10" height="10"><title>DECRFS—Request Font Status</title></rect>
+<rect class="exist" x="70" y="0" width="10" height="10"><title>DECRQM—Request Mode Settings</title></rect>
+<rect class="exist" x="70" y="10" width="10" height="10"><title>DECSDDT—Select Disconnect Delay Time</title></rect>
+<rect class="exist" x="70" y="20" width="10" height="10"><title>DECCARA—Change Attributes in Rectangular Area</title></rect>
+<rect class="exist" x="70" y="30" width="10" height="10"><title>DECSPRTT—Select Printer Type</title></rect>
+<rect class="exist" x="70" y="40" width="10" height="10"><title>DECRARA—Reverse Attributes in Rectangular Area</title></rect>
+<rect class="exist" x="70" y="50" width="10" height="10"><title>DECRQTSR—Request Terminal State Report</title></rect>
+<rect class="exist" x="70" y="60" width="10" height="10"><title>DECCRA—Copy Rectangular Area</title></rect>
+<rect class="exist" x="70" y="70" width="10" height="10"><title>DECRQPSR—Request Presentation State Report</title></rect>
+<rect class="exist" x="70" y="80" width="10" height="10"><title>DECFRA—Fill Rectangular Area</title></rect>
+<rect class="exist" x="70" y="90" width="10" height="10"><title>DECRPM—Report Mode Settings</title></rect>
+<rect class="exist" x="70" y="100" width="10" height="10"><title>DECERA—Erase Rectangular Area</title></rect>
+<rect class="exist" x="70" y="110" width="10" height="10"><title>DECSERA—Selective Erase Rectangular Area</title></rect>
+<rect class="exist" x="70" y="120" width="10" height="10"><title>DECSCPP—Set Columns Per Page</title></rect>
+<rect class="exist" x="70" y="130" width="10" height="10"><title>DECSASD—Select Active Status Display</title></rect>
+<rect class="exist" x="70" y="140" width="10" height="10"><title>DECSSDT—Select Status Display Type</title></rect>
+<rect class="exist" x="98" y="10" width="10" height="10"><title>DECSNC—Set Number of Copies</title></rect>
+<rect class="exist" x="98" y="50" width="10" height="10"><title>DECRQUPSS—Request User-Preferred Supplemental Set</title></rect>
+<rect class="exist" x="98" y="70" width="10" height="10"><title>DECLRP—Locator Report</title></rect>
+<rect class="exist" x="98" y="80" width="10" height="10"><title>DECES—Enable Session</title></rect>
+<rect class="exist" x="98" y="100" width="10" height="10"><title>DECSPO—Set Page Orientation</title></rect>
+<rect class="exist" x="98" y="110" width="10" height="10"><title>DECSGD—Set Graphics Density</title></rect>
+<rect class="exist" x="98" y="120" width="10" height="10"><title>DECDLG—Deleting Logos Sequence</title></rect>
+<rect class="exist" x="98" y="130" width="10" height="10"><title>DECILG—Select Logo Sequence</title></rect>
+<rect class="exist" x="98" y="140" width="10" height="10"><title>DECFMSR—Request Forms Status</title></rect>
+<rect class="exist" x="112" y="0" width="10" height="10"><title>DECRLGS—Request Logo Status</title></rect>
+<rect class="exist" x="112" y="10" width="10" height="10"><title>DECSBCA—Select Bar Code Attributes</title></rect>
+<rect class="exist" x="112" y="20" width="10" height="10"><title>DECBCS—Setting Block Character Parameters</title></rect>
+<rect class="exist" x="112" y="30" width="10" height="10"><title>DECTLTC—Transmit Line Termination Characters</title></rect>
+<rect class="exist" x="112" y="70" width="10" height="10"><title>DECEFR—Enable Filter Rectangle</title></rect>
+<rect class="exist" x="112" y="100" width="10" height="10"><title>DECELR—Enable Locator Reports</title></rect>
+<rect class="exist" x="112" y="110" width="10" height="10"><title>DECSLE—Select Locator Events</title></rect>
+<rect class="exist" x="112" y="120" width="10" height="10"><title>DECRQLP—Request Locator Position</title></rect>
+<rect class="exist" x="112" y="130" width="10" height="10"><title>DECIC—Insert Column</title></rect>
+<rect class="exist" x="112" y="140" width="10" height="10"><title>DECDC—Delete Column</title></rect>
+<rect class="exist" x="140" y="0" width="10" height="10"><title>DECSDPT—Select Digital Printed Data Type</title></rect>
+<rect class="exist" x="140" y="130" width="10" height="10"><title>DECSTGLT—Select Text/Graphics Look-Up Table</title></rect>
+<rect class="exist" x="154" y="0" width="10" height="10"><title>DECSPPCS—Select ProPrinter Character Set</title></rect>
+<rect class="exist" x="154" y="10" width="10" height="10"><title>DECSRC—Secure Reset Confirmation</title></rect>
+<rect class="exist" x="154" y="20" width="10" height="10"><title>DECSCS—Select Communication Speed</title></rect>
+<rect class="exist" x="154" y="30" width="10" height="10"><title>DECSFC—Select Flow Control</title></rect>
+<rect class="exist" x="154" y="50" width="10" height="10"><title>DECSCP—Select Communication Port</title></rect>
+<rect class="exist" x="154" y="80" width="10" height="10"><title>DECSACE—Select Attribute Change Extent</title></rect>
+<rect class="exist" x="154" y="90" width="10" height="10"><title>DECRQCRA—Request Checksum of Rectangular Area</title></rect>
+<rect class="exist" x="154" y="100" width="10" height="10"><title>DECINVM—Invoke Macro</title></rect>
+<rect class="exist" x="154" y="110" width="10" height="10"><title>DECMSR—Macro Space Report</title></rect>
+<rect class="exist" x="154" y="120" width="10" height="10"><title>DECSNLS—Select Number of Lines per Screen</title></rect>
+<rect class="exist" x="154" y="130" width="10" height="10"><title>DECLFKC—Local Function Key Control</title></rect>
+<rect class="exist" x="168" y="0" width="10" height="10"><title>DECSR—Secure Reset</title></rect>
+<rect class="exist" x="168" y="10" width="10" height="10"><title>DECELF—Enable Local Functions</title></rect>
+<rect class="exist" x="168" y="20" width="10" height="10"><title>DECSMKR—Select Modifier Key Reporting</title></rect>
+<rect class="exist" x="168" y="60" width="10" height="10"><title>DECMM—Memory Management</title></rect>
+<rect class="exist" x="168" y="70" width="10" height="10"><title>DECSPP—Set Port Parameter</title></rect>
+<rect class="exist" x="168" y="80" width="10" height="10"><title>DECRQPKFM—Program Key Free Memory Inquiry</title></rect>
+<rect class="exist" x="168" y="90" width="10" height="10"><title>DECPKFMR—Program Key Free Memory Report</title></rect>
+<rect class="exist" x="168" y="100" width="10" height="10"><title>DECPKA—Program Key Action</title></rect>
+<rect class="exist" x="182" y="0" width="10" height="10"><title>DECLTOD—Load Time of Day</title></rect>
+<rect class="exist" x="182" y="10" width="10" height="10"><title>DECTID—Select Terminal ID</title></rect>
+<rect class="exist" x="182" y="50" width="10" height="10"><title>DECRQKT—Key Type Inquiry</title></rect>
+<rect class="exist" x="182" y="60" width="10" height="10"><title>DECRPKT—Report Key Type</title></rect>
+<rect class="exist" x="182" y="70" width="10" height="10"><title>DECRQKD—Request Key Definition</title></rect>
+<rect class="exist" x="182" y="80" width="10" height="10"><title>DECSPMA—Session Page Memory Allocation</title></rect>
+<rect class="exist" x="182" y="90" width="10" height="10"><title>DECUS—Update Session</title></rect>
+<rect class="exist" x="182" y="100" width="10" height="10"><title>DECDLDA—Down Line Load Allocation</title></rect>
+<rect class="exist" x="182" y="110" width="10" height="10"><title>DECSZS—Select Zero Symbol</title></rect>
+<rect class="exist" x="182" y="120" width="10" height="10"><title>DECAC—Assign Color</title></rect>
+<rect class="exist" x="182" y="130" width="10" height="10"><title>DECATC—Alternate Text Color</title></rect>
+<rect class="exist" x="182" y="140" width="10" height="10"><title>DECPS—Play Sound</title></rect>
+<rect class="exist" x="196" y="0" width="10" height="10"><title>DECARR—Select Auto Repeat Rate</title></rect>
+<rect class="exist" x="196" y="10" width="10" height="10"><title>DECCRTST—CRT Saver Timing</title></rect>
+<rect class="exist" x="196" y="20" width="10" height="10"><title>DECSEST—Energy Saver Timing</title></rect>
+</g>
+<g class="dcspri" transform="translate(166,440)"><text class="grpleg" x="115.0" y="-19.2"><tspan>DCS inter final</tspan></text>
+<text class="colleg" text-anchor="middle"><tspan x="5.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="0" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="19.0" y="-12.0">20</tspan><tspan x="19.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="14" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="33.0" y="-12.0">21</tspan><tspan x="33.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="28" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="47.0" y="-12.0">22</tspan><tspan x="47.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="42" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="61.0" y="-12.0">23</tspan><tspan x="61.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="56" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="75.0" y="-12.0">24</tspan><tspan x="75.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="70" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="89.0" y="-12.0">25</tspan><tspan x="89.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="84" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="103.0" y="-12.0">26</tspan><tspan x="103.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="98" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="117.0" y="-12.0">27</tspan><tspan x="117.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="112" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="131.0" y="-12.0">28</tspan><tspan x="131.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="126" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="145.0" y="-12.0">29</tspan><tspan x="145.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="140" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="159.0" y="-12.0">2a</tspan><tspan x="159.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="154" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="173.0" y="-12.0">2b</tspan><tspan x="173.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="168" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="187.0" y="-12.0">2c</tspan><tspan x="187.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="182" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="201.0" y="-12.0">2d</tspan><tspan x="201.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="196" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="215.0" y="-12.0">2e</tspan><tspan x="215.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="210" y="0" width="10" height="150"/>
+<text class="colleg" text-anchor="middle"><tspan x="229.0" y="-12.0">2f</tspan><tspan x="229.0" y="-4.8">7&#x1d465;</tspan></text>
+<rect class="not" x="224" y="0" width="10" height="150"/>
+<line class="rule" x1="-4.0" y1="40.0" x2="234.0" y2="40.0"/>
+<line class="rule" x1="-4.0" y1="80.0" x2="234.0" y2="80.0"/>
+<line class="rule" x1="-4.0" y1="120.0" x2="234.0" y2="120.0"/>
+<text class="colleg" y="-2.6" text-anchor="end"><tspan x="-2" dy="10">0</tspan><tspan x="-2" dy="10">1</tspan><tspan x="-2" dy="10">2</tspan><tspan x="-2" dy="10">3</tspan><tspan x="-2" dy="10">4</tspan><tspan x="-2" dy="10">5</tspan><tspan x="-2" dy="10">6</tspan><tspan x="-2" dy="10">7</tspan><tspan x="-2" dy="10">8</tspan><tspan x="-2" dy="10">9</tspan><tspan x="-2" dy="10">a</tspan><tspan x="-2" dy="10">b</tspan><tspan x="-2" dy="10">c</tspan><tspan x="-2" dy="10">d</tspan><tspan x="-2" dy="10">e</tspan></text>
+<rect class="exist" x="0" y="0" width="10" height="10"><title>decREGIS—ReGIS graphics</title></rect>
+<rect class="exist" x="0" y="10" width="10" height="10"><title>decSIXEL—Sixel graphics</title></rect>
+<rect class="exist" x="0" y="20" width="10" height="10"><title>DECLBAN—Load Banner Message</title></rect>
+<rect class="exist" x="0" y="30" width="10" height="10"><title>decVKPK—GIGI program keys</title></rect>
+<rect class="exist" x="0" y="40" width="10" height="10"><title>decVT105G—Emulate VT105 graphics</title></rect>
+<rect class="exist" x="0" y="50" width="10" height="10"><title>decPPTL—Printwheel Parameter Table Load</title></rect>
+<rect class="exist" x="0" y="60" width="10" height="10"><title>DECLANS—Load Answerback Message</title></rect>
+<rect class="exist" x="0" y="90" width="10" height="10"><title>DECLFF—Load Font File</title></rect>
+<rect class="exist" x="0" y="100" width="10" height="10"><title>decTALK—DECtalk Commands and Responses</title></rect>
+<rect class="added" x="0" y="110" width="10" height="10"><title>DECDLD—Downline Load</title></rect>
+<rect class="added" x="0" y="120" width="10" height="10"><title>DECUDK—User-Defined Keys</title></rect>
+<rect class="exist" x="0" y="130" width="10" height="10"><title>DECATFF—Assign Type Family or Font</title></rect>
+<rect class="exist" x="0" y="140" width="10" height="10"><title>DECDTFF—Delete Type Family or Font</title></rect>
+<rect class="exist" x="28" y="10" width="10" height="10"><title>decGIDIS—Enter GIDIS mode</title></rect>
+<rect class="exist" x="28" y="50" width="10" height="10"><title>DECAUPSS—Assign User-Preferred Supplemental Set</title></rect>
+<rect class="exist" x="28" y="100" width="10" height="10"><title>DECDMAC—Define Macro</title></rect>
+<rect class="exist" x="28" y="110" width="10" height="10"><title>DECSTUI—Set Terminal Unit ID (Restricted)</title></rect>
+<rect class="exist" x="28" y="120" width="10" height="10"><title>DECRPTUI—Report Terminal Unit Information</title></rect>
+<rect class="exist" x="28" y="140" width="10" height="10"><title>DECCKSR—Memory Checksum Report</title></rect>
+<rect class="exist" x="42" y="80" width="10" height="10"><title>DECPFK—Program Function Key</title></rect>
+<rect class="exist" x="42" y="90" width="10" height="10"><title>DECPAK—Program Alphanumeric Key</title></rect>
+<rect class="exist" x="42" y="100" width="10" height="10"><title>DECCKD—Copy Key Default</title></rect>
+<rect class="exist" x="42" y="110" width="10" height="10"><title>DECFSR—Font Status Report</title></rect>
+<rect class="exist" x="42" y="130" width="10" height="10"><title>DECRPFK—Report Function Key Definition</title></rect>
+<rect class="exist" x="42" y="140" width="10" height="10"><title>DECRPAK—Report All Modifiers/Alphanumeric Key State</title></rect>
+<rect class="exist" x="70" y="0" width="10" height="10"><title>DECRSTS—Restore Terminal State</title></rect>
+<rect class="exist" x="70" y="10" width="10" height="10"><title>DECRQSS—Request Control Function Settings</title></rect>
+<rect class="exist" x="70" y="20" width="10" height="10"><title>DECRPSS—Report Control Function Settings</title></rect>
+<rect class="exist" x="70" y="30" width="10" height="10"><title>DECTSR—Terminal State Report</title></rect>
+<rect class="exist" x="70" y="40" width="10" height="10"><title>DECRSPS—Restore Presentation State</title></rect>
+<rect class="exist" x="70" y="50" width="10" height="10"><title>DECTABSR—Tab Stop Report</title></rect>
+<rect class="exist" x="70" y="70" width="10" height="10"><title>DECLBD—Locator Button Definition</title></rect>
+<rect class="exist" x="98" y="0" width="10" height="10"><title>DECLFM—Loading Forms Sequence</title></rect>
+<rect class="exist" x="98" y="10" width="10" height="10"><title>DECDFM—Delete Forms Sequence</title></rect>
+<rect class="exist" x="98" y="20" width="10" height="10"><title>DECIFM—Start Forms Sequence</title></rect>
+<rect class="exist" x="98" y="30" width="10" height="10"><title>DECRFMS—Form Status Report</title></rect>
+<rect class="exist" x="98" y="40" width="10" height="10"><title>DECLLG—Loading Logos Sequence</title></rect>
+<rect class="exist" x="98" y="70" width="10" height="10"><title>DECLGSR—Logo Status Report</title></rect>
+</g>
+</g>
+</svg>

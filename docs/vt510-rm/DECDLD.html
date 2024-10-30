@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>DECDLD—Dynamically Redefinable Character Sets</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="DECDHL.html">DECDHL</a><a href="contents.html">Contents</a><a href="DECDMAC.html">DECDMAC</a></nav>
+</header>
+<div class="main"><h2 id="NDECDLD">DECDLD—Dynamically Redefinable Character Sets</h2>
+<p>DECDLD loads your soft character set into dynamically redefinable character set
+(DRCS) font buffers. Although the terminal has six font buffers, it only supports
+four buffers for soft character sets.</p>
+<p>The terminal arranges the DRCS font buffers into sets. Each DRCS set has two
+font buffers: one for 80-column fonts and one for 132-column fonts. These buffers
+also allow you to load two different font heights or character sets in both 80- and
+132-column widths.</p>
+<p>Although the terminal allows you to use two different soft character sets at one
+time, it only allows you to use one DRCS set at one time.</p>
+<h3>Format</h3>
+<p>DCS <var>Pfn ; Pcn; Pe; Pcmw; Pss; Pt; Pcmh; Pcss f Dscs Sxbp1 ; Sxbp2 ; . . . ; Sxbpn</var>
+ST</p>
+<h3>Description</h3>
+<p>DCS is the <dfn>device control string introducer</dfn>. DCS is an 8-bit C1 character. You
+can use the equivalent 7-bit sequence, ESC P (1/11, 5/0), when coding for a 7-bit
+environment.</p>
+<p>ST is the <dfn>string terminator</dfn>. ST is an 8-bit C1 character. You can use
+the equivalent 7-bit sequence, ESC \ (1/11, 5/12), when coding for a 7-bit
+environment.</p>
+<h3>Parameters</h3>
+<p><b class="parahead">Pfn; Pcn; Pe; Pcmw; Pss; Pt; Pcmh; Pcss</b><br/>
+are <dfn>parameter characters</dfn>, separated by semicolons (3/11). <a href="#T5-2">Table 5–2</a> describes
+these parameters and lists their possible values. <a href="#T5-3">Table 5–3</a> describes the
+combinations of <var>Pcmw</var>, <var>Pt</var>, and <var>Pcmh</var> that you can use for 80- and 132-column
+fonts. If you use any other combinations, then the terminal ignores the DECDLD
+string.</p>
+<p><b class="parahead">{</b><br/>
+is the <dfn>final character</dfn>. It marks the end of the parameter characters and indicates
+that this string is a DECDLD function.</p>
+<p><b class="parahead">Dscs</b><br/>
+defines the name for the soft character set. You use this name in the select
+character set (SCS) escape sequence. You use the following format for the <var>Dscs</var>
+name:</p>
+<p><var>I F</var></p>
+<table>
+<tbody>
+<tr>
+<td>I</td>
+<td>is 0, 1, or 2 intermediate characters from the 2/0 to 2/15 range in the
+ASCII character set.</td>
+</tr>
+<tr>
+<td>F</td>
+<td>is a final character in the 3/0 to 7/14 range.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Notes</span>
+<div class="notebody"><ul>
+<li>If two downline loaded soft character sets have the same <var>Dscs</var>,
+then the most recently loaded set is used. The terminal looks for a
+matching <var>Dscs</var> in reverse load order (last loaded first).</li>
+<li>If the terminal receives a DRCS control string for a given font number
+with a different <var>Dscs</var> (designating sequence), <var>Pcmh</var> (height) or <var>Pcss</var>
+(character set size), then the terminal erases the previously downline
+loaded set (if any) in both 80- and 132-column mode.</li>
+<li>If there is no DRCS available that is compatible with the current
+number of lines per screen (font height), then the terminal displays a
+reverse question mark in place of any characters.</li>
+</ul></div></div>
+<p><b>Examples of Dscs Names</b></p>
+<table>
+
+
+
+
+<thead>
+<tr>
+<th colspan="3">Name</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="litr">SP</span><br/>2/0</td>
+<td><span class="litr">@</span><br/>4/0</td>
+<td></td>
+<td>Defines the character set as an unregistered soft set.
+<b>This value is the recommended default for user-defined
+sets.</b> The value of <var>Pcss</var> defines whether this
+set has 94 or 96 characters.</td>
+</tr>
+<tr>
+<td><span class="litr">A</span><br/>4/2</td>
+<td></td>
+<td></td>
+<td><p>If <var>Pcss</var> is 0, then A defines the soft character set as the
+U.K. national replacement character set.</p>
+<p>If Pcss is 1, then A defines the soft character set as the
+ISO Latin-1 supplemental set.</p></td>
+</tr>
+<tr>
+<td><span class="litr">&amp;</span><br/>2/6</td>
+<td><span class="litr">%</span><br/>2/5</td>
+<td><span class="litr">C</span><br/>4/3</td>
+<td>Defines the soft character set as % C, which is currently
+an unregistered set. The value of <var>Pcss</var> defines whether
+this set has 94 or 96 characters.</td>
+</tr>
+</tbody>
+</table>
+<p><b class="parahead">Sxbp1 ; Sxbp2 ; . . . ; Sxbpn</b><br/>
+are the sixel bit patterns for individual characters, separated by semicolons (3/11).
+Your character set can have 1 to 94 patterns or 1 to 96 patterns, depending on
+the setting of the character set size parameter (<var>Pcss</var>). Each sixel bit pattern is in
+the following format:</p>
+<p><var>S...S/S...S</var></p>
+<p>the first <var>S...S</var><br/>
+represents the sixels in Group A of the soft character.</p>
+<p>/ (2/5)<br/>
+advances the sixel pattern to Group B of the soft character.</p>
+<p>the second <var>S...S</var><br/>
+represents the sixels in Group B of the soft character.</p>
+<table id="T5-2" class="truled">
+<caption><span class="tabfigid">Table 5–2</span> DECDLD Parameter Characters</caption>
+
+
+
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><var>Pfn</var></td>
+<td>Font number</td>
+<td>Selects the DRCS (soft character set) to load.
+The previous set (if any), that you load with
+that font number, is erased or overwritten
+as specified by the control sequence. You can
+assign a value of 0, 1, and 2 to <var>Pfn</var>. Other
+values cause the terminal to ignore the entire
+sequence. <var>Pfn</var> = 0 defaults to the first empty
+font buffer, or, if none are empty, to font buffer
+1.</td>
+</tr>
+<tr>
+<td><var>Pcn</var></td>
+<td>Starting
+character</td>
+<td>Selects where to load the first character in the
+DRCS font buffer. The location corresponds
+to a location in the ASCII code table. For
+example, a <var>Pcn</var> value of 0 means that the first
+soft character is loaded into position 2/0 of the
+character table. A <var>Pcn</var> value of 1 means position
+2/1 in the table, and so on, up to
+<var>Pcn</var> = 95 (position 7/15).<br/>
+<var>Pcn</var> is affected by the character set size. See
+<var>Pcss</var> below.</td>
+</tr>
+<tr>
+<td><var>Pe</var></td>
+<td>Erase control</td>
+<td>Selects which characters to erase from the
+DRCS buffer before loading the new font.
+<table>
+<tbody>
+<tr>
+<td>0</td>
+<td>=</td>
+<td>Erases all characters in the DRCS
+buffer with this number, width, and
+rendition.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>Erases only characters in locations
+being reloaded.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>Erases all renditions of the soft
+character set (normal, bold, 80-column, 132-column).</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>Erased characters are undefined (not
+blank). The terminal displays these
+characters as the error character (reverse
+question mark).</p></div></div></td>
+</tr>
+<tr>
+<td><var>Pcmw</var></td>
+<td>Character
+matrix width</td>
+<td>Selects the maximum character cell width.
+<p>When <var>Pss</var> specifies 80 columns, <var>Pt</var> specifies font
+usage full cell as follows:</p>
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">10 pixels wide for 80 columns,
+6 pixels wide for 132 columns.
+(default).</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>5 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>=</td>
+<td>6 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>=</td>
+<td>7 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>=</td>
+<td>5 pixels wide.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>=</td>
+<td>6 pixels wide.</td>
+</tr>
+<tr>
+<td>.<br/>.<br/>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>=</td>
+<td>10 pixels wide.</td>
+</tr>
+</tbody>
+</table>
+<p>When <var>Pss</var> specifies 80 columns, <var>Pt</var> specifies font
+usage text as follows:</p>
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">10 pixels wide for 80 columns,
+6 pixels wide for 132 columns.
+(default)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>5 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>=</td>
+<td>6 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>=</td>
+<td>7 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>=</td>
+<td>5 pixels wide.</td>
+</tr>
+<tr>
+<td>.<br/>.<br/>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>=</td>
+<td>9 pixels wide.</td>
+</tr>
+</tbody>
+</table>
+<p>When <var>Pss</var> specifies 132 columns, <var>Pt</var> specifies
+font usage full cell as follows:</p>
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">10 pixels wide for 80 columns,
+6 pixels wide for 132 columns.
+(default)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>5 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>=</td>
+<td>6 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>=</td>
+<td>7 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>=</td>
+<td>5 pixels wide.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>=</td>
+<td>6 pixels wide.</td>
+</tr>
+</tbody>
+</table>
+<p>When <var>Pss</var> specifies 132 columns, <var>Pt</var> specifies
+font usage text as follows:</p>
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">10 pixels wide for 80 columns,
+6 pixels wide for 132 columns.
+(default)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>5 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>=</td>
+<td>6 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>=</td>
+<td>7 × 10 pixel cell (width × height).</td>
+</tr>
+<tr>
+<td>5</td>
+<td>=</td>
+<td>5 pixels wide.</td>
+</tr>
+</tbody>
+</table>
+<p>If you omit a <var>Pcmw</var> value, the terminal uses the
+default character width. If the <var>Pe</var> parameter
+is 0, <var>Pcmw</var> must be less than 10. Any <var>Pcmw</var>
+value over 10 is illegal. For illegal values of
+<var>Pcmw</var>, the terminal ignores the rest of the load
+sequence.</p></td>
+</tr>
+<tr>
+<td colspan="3"><p><b>For VT200 compatible software:</b> Use a <var>Pcmw</var> value of 2, 3, or 4. When you
+use these values, the VT510 doubles the height of the font definitions in memory.
+This makes the soft set the same height as the hard sets. If you use a <var>Pcmw</var>
+value of 0, then the VT510 does not double the height and the soft set appears
+smaller than the hard sets. Remember that the VT200 fonts may appear different
+on the VT510.</p>
+<p><b>For fonts designed for the VT510:</b> Use values 5 through 10.</p>
+<p><b>For compatibility between VT200 and VT510 terminals:</b> Use a Pcmw value
+of 5, 6, or 7.</p></td>
+</tr>
+<tr>
+<td><var>Pss</var></td>
+<td>Font set size</td>
+<td>Defines the screen width and screen height for
+this font.
+<table>
+<tbody>
+<tr>
+<td><b class="default">0,1</b></td>
+<td>=</td>
+<td><b class="default">80 columns, 24 lines. (default)</b></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>132 columns, 24 lines</td>
+</tr>
+<tr>
+<td>11</td>
+<td>=</td>
+<td>80 columns, 36 lines</td>
+</tr>
+<tr>
+<td>12</td>
+<td>=</td>
+<td>132 columns, 36 lines</td>
+</tr>
+<tr>
+<td>21</td>
+<td>=</td>
+<td>80 columns, 48 lines</td>
+</tr>
+<tr>
+<td>22</td>
+<td>=</td>
+<td>132 columns, 48 lines</td>
+</tr>
+</tbody>
+</table>
+<p>For illegal values of <var>Pss</var>, the terminal ignores
+the rest of the load sequence.</p>
+<p>If the number of columns or lines/screen
+changes, then the terminal uses the appropriate
+variation of the soft set. If you try to display
+a DRCS character when there is no soft set
+defined for the current number of lines and
+columns, then the terminal displays the error
+character (reverse question mark).</p></td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2"><div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>For VT220 compatibility, you must use a soft font of 80 or
+132 columns (not both). The VT220 allows a single font to
+be used for 80 and 132 columns.</p></div></div></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><p>You can load a font for any of the six sizes at
+any time. When a new soft set is loaded, any
+characters from the previous soft set are lost.
+Characters currently displayed from the old set
+become reverse question marks.</p></td>
+</tr>
+<tr>
+<td><var>Pt</var></td>
+<td>Text or full
+cell</td>
+<td>Defines the font as a text font or <dfn>full-cell font</dfn>.
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">text. (default)</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>text.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>full cell.</td>
+</tr>
+</tbody>
+</table>
+<p>Full-cell fonts can individually address all pixels
+in a cell.</p>
+<p>Text fonts cannot individually address all pixels.
+If you specify a text cell, then the terminal
+automatically performs spacing and centering of
+the characters.</p></td>
+</tr>
+<tr>
+<td><var>Pcmh</var></td>
+<td>Character
+matrix
+height</td>
+<td>Selects the maximum character cell height.
+<table>
+<tbody>
+<tr>
+<td><b class="default">0 or omitted</b></td>
+<td>=</td>
+<td><b class="default">16 pixels high. (default)</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>1 pixel high.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td>2 pixels high.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>=</td>
+<td>3 pixels high.</td>
+</tr>
+<tr>
+<td>.<br/>.<br/>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>=</td>
+<td>16 pixels high.</td>
+</tr>
+</tbody>
+</table>
+<p><var>Pcmh</var> values over 16 are illegal. If the value of
+<var>Pcmw</var> is 2, 3, or 4, then <var>Pcmh</var> is ignored.</p></td>
+</tr>
+<tr>
+<td><var>Pcss</var></td>
+<td>Character
+set size</td>
+<td>Defines the character set as a 94- or 96-
+character graphic set.
+<table>
+<tbody>
+<tr>
+<td><b class="default">0</b></td>
+<td>=</td>
+<td><b class="default">94-character set. (default)</b></td>
+</tr>
+<tr>
+<td>1</td>
+<td>=</td>
+<td>96-character set.</td>
+</tr>
+</tbody>
+</table>
+<p>The value of <var>Pcss</var> changes the meaning of the
+<var>Pcn</var> (starting character) parameter above.</p></td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2"><p><b>If Pcss = 0 (94-character set)</b><br/>
+The terminal ignores any attempt to load characters into the 2/0
+or 7/15 table positions.</p></td>
+</tr>
+<tr>
+<td></td>
+<td><b>Pcn</b></td>
+<td><b>Specifies</b></td>
+</tr>
+<tr>
+<td></td>
+<td>1</td>
+<td>column 2/row 1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>.<br/>.<br/>.</td>
+</tr>
+<tr>
+<td></td>
+<td>94</td>
+<td>column 7/row 14</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2"><p><b>If Pcss = 1 (96-character set)</b></p></td>
+</tr>
+<tr>
+<td></td>
+<td><b>Pcn</b></td>
+<td><b>Specifies</b></td>
+</tr>
+<tr>
+<td></td>
+<td>0</td>
+<td>column 2/row 0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>.<br/>.<br/>.</td>
+</tr>
+<tr>
+<td></td>
+<td>95</td>
+<td>column 7/row 15</td>
+</tr>
+</tbody>
+</table>
+<table id="T5-3" class="truled">
+<caption><span class="tabfigid">Table 5–3</span> Valid DECDLD Parameter Combinations</caption>
+
+
+
+
+<thead>
+<tr>
+<th>Pt</th>
+<th>Pcmw</th>
+<th>Pcmh</th>
+<th>Pss†</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="subhead">80-column, 24 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 8</td>
+<td>0 to 16</td>
+<td>0 or 1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 10</td>
+<td>0 to 16</td>
+<td>0, 1</td>
+</tr>
+<tr>
+<td class="subhead2">132-column, 24 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 5</td>
+<td>0 to 16</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 6</td>
+<td>1 to 16</td>
+<td>2</td>
+</tr>
+<tr>
+<td class="subhead2">80-column, 36 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 8</td>
+<td>0 to 10</td>
+<td>11</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 10</td>
+<td>0 to 10</td>
+<td>11</td>
+</tr>
+<tr>
+<td class="subhead2">132-column, 36 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 5</td>
+<td>0 to 10</td>
+<td>12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 6</td>
+<td>0 to 10</td>
+<td>12</td>
+</tr>
+<tr>
+<td class="subhead2">80-column, 48 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 8</td>
+<td>0 to 8</td>
+<td>21</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 10</td>
+<td>0 to 8</td>
+<td>21</td>
+</tr>
+<tr>
+<td class="subhead2">132-column, 48 lines</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>0 or 1</td>
+<td>0 to 5</td>
+<td>0 to 8</td>
+<td>22</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0 to 6</td>
+<td>0 to 8</td>
+<td>22</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="4">†The default values are the maximum legal values in each case.</td>
+</tr>
+</tfoot>
+</table>
+<div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>For illegal combinations of the <var>Pss</var>, <var>Pt</var>, <var>Pcmw</var>, and <var>Pcmh</var> parameters, the
+terminal ignores the rest of the sequence.</p></div></div>
+<table id="T5-4" class="truled">
+<caption><span class="tabfigid">Table 5–4</span> VT510 Font Sizes</caption>
+
+
+
+<thead>
+<tr>
+<th>80 Columns</th>
+<th>132 Columns</th>
+<th>Maximum Number of Lines</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10 × 16</td>
+<td>6 × 16</td>
+<td>26 lines + keyboard indicator line</td>
+</tr>
+<tr>
+<td>10 × 10</td>
+<td>6 × 10</td>
+<td>42 lines + keyboard indicator line</td>
+</tr>
+<tr>
+<td>10 × 8</td>
+<td>6 × 8</td>
+<td>53 lines + keyboard indicator line</td>
+</tr>
+<tr>
+<td>10 × 13</td>
+<td>6 × 13</td>
+<td>26 lines + keyboard indicator line<br/>
+(72 Hz with overscan)</td>
+</tr>
+</tbody>
+</table></div>
+<footer>
+<nav class="sections"><a href="DECDHL.html">DECDHL</a><a href="contents.html">Contents</a><a href="DECDMAC.html">DECDMAC</a></nav>
+</footer>
+</body>
+</html>

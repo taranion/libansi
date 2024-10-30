@@ -1,0 +1,6261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width"/>
+<title>ASCII Escape Sequences</title>
+<link href="vt510rm-style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="/cover-logo-096.png" sizes="96x96"/>
+</head>
+<body>
+<header>
+<a href="../../"><svg xmlns="http://www.w3.org/2000/svg" width="92" height="16" version="1.1" id="vt100-net-site-logo">
+  <title>VT100.net</title>
+  <style>
+  .blk { fill: #000000 }
+  .g25 { fill: #626262 }
+  .g50 { fill: #9b9b9b }
+  .g75 { fill: #cccccc }
+  .grd { fill: #006600 }
+  .grl { fill: #00ff00 }
+  .scanlines { fill: black; stroke: #5e5e5e; stroke-width: 0.4; paint-order:stroke fill markers }
+  .dotnet { fill: #404040 }
+  @media (prefers-color-scheme: dark) {
+    .blk { fill: #626262 }
+    .g25 { fill: #9b9b9b }
+    .g50 { fill: #cccccc }
+    .g75 { fill: #ffffff }
+    .scanlines { fill: #00ff00; stroke: #009900 }
+    .dotnet { fill: #909090 }
+  }
+  </style>
+  <g id="term">
+    <rect class="g50" x="05" y="02" width="9" height="1"/>
+    <rect class="blk" x="14" y="02" height="1" width="1"/>
+    <rect class="g50" x="04" y="03" width="11" height="8"/>
+    <rect class="g25" x="05" y="03" width="9" height="7"/>
+    <rect class="blk" x="15" y="03" height="8" width="1"/>
+    <rect class="blk" x="06" y="04" width="8" height="6"/>
+    <rect class="grd" x="07" y="05" width="6" height="4"/>
+    <rect class="grl" x="08" y="05" width="1" height="1"/>
+    <rect class="grl" x="10" y="05" width="1" height="1"/>
+    <rect class="grl" x="07" y="06" width="1" height="1"/>
+    <rect class="grl" x="09" y="06" width="1" height="1"/>
+    <rect class="grl" x="08" y="07" width="1" height="1"/>
+    <rect class="grl" x="10" y="07" width="1" height="1"/>
+    <rect class="blk" x="05" y="11" height="1" width="10"/>
+    <rect class="blk" x="07" y="12" width="1" height="1"/>
+    <rect class="g25" x="08" y="12" width="4" height="1"/>
+    <rect class="blk" x="12" y="12" width="1" height="1"/>
+    <rect class="g25" x="03" y="13" width="13" height="1"/>
+    <rect class="g75" x="04" y="13" width="1" height="1"/>
+    <rect class="g75" x="06" y="13" width="1" height="1"/>
+    <rect class="g75" x="08" y="13" width="1" height="1"/>
+    <rect class="g75" x="10" y="13" width="1" height="1"/>
+    <rect class="g75" x="12" y="13" width="1" height="1"/>
+    <rect class="g75" x="14" y="13" width="1" height="1"/>
+    <rect class="blk" x="16" y="13" width="1" height="1"/>
+    <rect class="g25" x="02" y="14" width="15" height="1"/>
+    <rect class="blk" x="17" y="14" width="1" height="1"/>
+    <rect class="blk" x="02" y="15" width="16" height="1"/>
+  </g>
+  <g id="g1754" style="display:inline">
+    <g class="scanlines">
+      <path d="m 21.632883,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480009,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -3.584007,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -2.688005,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0.896002,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1765"/>
+      <path d="m 30.342891,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 6.794678 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -6.794678 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 2.688004,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1767"/>
+      <path d="m 40.490903,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 2.314671 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -2.314671 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896001,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 1.792003,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 0,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 0,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -1.792003,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 5.002676 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -5.002676 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1769"/>
+      <path class="scanlines" d="m 47.80491,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210673 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210673 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.41867 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.41867 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.37601,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.37601,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.37601,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480009,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.41867 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.41867 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210673 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210673 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1771"/>
+      <path class="scanlines" d="m 56.514917,3.3333123 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 3.210672 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -3.210672 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -0.896002,1.86667 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 3.584007,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -4.480008,1.86667 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613339 0.07467,0.4666676 0.186667,0.4666676 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666676 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666701 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112001,0 -0.186667,0.2053337 -0.186667,0.4666675 z m 5.376009,0 c 0,0.2613338 0.07467,0.4666675 0.186667,0.4666675 h 1.418669 c 0.112001,0 0.186667,-0.2053337 0.186667,-0.4666675 c 0,-0.2613338 -0.07467,-0.4666675 -0.186667,-0.4666675 h -1.418669 c -0.112,0 -0.186667,0.2053337 -0.186667,0.4666675 z m -5.376009,1.8666696 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m 5.376009,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m -4.480008,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112001,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z m 3.584007,0 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 1.418669 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -1.418669 c -0.112001,0 -0.186667,0.205334 -0.186667,0.466667 z m -2.688005,1.86667 c 0,0.261334 0.07467,0.466668 0.186667,0.466668 h 3.210672 c 0.112,0 0.186667,-0.205334 0.186667,-0.466668 c 0,-0.261333 -0.07467,-0.466667 -0.186667,-0.466667 h -3.210672 c -0.112,0 -0.186667,0.205334 -0.186667,0.466667 z" id="path1773"/>
+    </g>
+    <g class="dotnet">
+      <path d="m 65.076956,12.647997 q 0.466667,0 0.784001,0.336 q 0.336001,0.336001 0.336001,0.802669 q 0,0.504 -0.354668,0.858668 q -0.354667,0.354667 -0.858668,0.354667 q -0.448001,0 -0.802668,-0.298667 q -0.336001,-0.298667 -0.336001,-0.746668 q 0,-0.541335 0.354668,-0.914669 q 0.354667,-0.392 0.877335,-0.392 z" id="path1756"/>
+      <path d="m 68.362297,13.394665 l 1.661336,-4.6480086 q 0.112,-0.2240004 0.09333,-0.5040009 q -0.01867,-0.2800005 -0.224001,-0.2800005 q -0.410667,0 -0.933335,0.4293341 q -0.504001,0.4106674 -0.578668,0.4106674 q -0.205333,0 -0.205333,-0.3920007 q 0,-0.3920007 0.858668,-1.1013353 q 0.858668,-0.7093346 1.680003,-0.7093346 q 1.064002,0 0.634668,1.86667 q -0.01867,0.093333 0.056,0.1306669 q 0.07467,0.037333 0.149334,-0.018667 q 1.997336,-1.9786702 3.714673,-1.9786702 q 0.634668,0 0.765335,0.7840014 q 0.149333,0.7653347 -0.168001,1.6426696 l -1.437336,4.1253411 q -0.112,0.317334 0.149334,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616001,-0.448001 q 0.130667,0 0.130667,0.242667 q 0,0.522668 -0.952001,1.306669 q -0.952002,0.765335 -1.75467,0.765335 q -0.821335,0 -0.821335,-0.765335 q 0,-0.28 0.112,-0.578668 l 1.493336,-4.2560073 q 0.597335,-1.6426696 -0.01867,-1.6426696 q -0.840001,0 -1.848003,1.1573354 q -1.008002,1.1573354 -1.773336,2.6133385 q -0.746668,1.437335 -1.269336,2.893338 q -0.186667,0.560001 -0.448001,0.578668 q -0.224,0.01867 -0.560001,-0.186667 q -0.317334,-0.186667 -0.317334,-0.280001 q 0,-0.224 0.280001,-1.026668 z" id="path1758"/>
+      <path d="m 79.487639,10.071992 q 0,0.130667 0.112,0.130667 q 1.026669,0 1.829337,-0.8026681 q 0.821335,-0.8213348 0.821335,-1.6053362 q 0,-0.4480008 -0.672001,-0.4480008 q -0.448001,0 -1.269336,1.0266685 q -0.821335,1.0080018 -0.821335,1.6986696 z m 2.370671,-3.4720061 q 1.792003,0 1.792003,1.4373359 q 0,1.0453352 -1.512002,1.9600035 q -1.493336,0.8960017 -2.725339,0.8960017 q -0.130667,0 -0.224,0.317334 q -0.09333,0.298667 -0.09333,0.616001 q 0,0.728001 0.280001,1.250669 q 0.28,0.522668 0.858668,0.522668 q 0.373334,0 0.802668,-0.205334 q 0.429334,-0.224001 0.728002,-0.448001 q 0.298667,-0.224 0.354667,-0.224 q 0.261334,0 0.261334,0.448 q 0,0.429335 -0.989335,1.064002 q -0.989336,0.616001 -1.978671,0.616001 q -0.914668,0 -1.437336,-0.821334 q -0.522667,-0.821335 -0.522667,-1.885337 q 0,-2.053337 1.400002,-3.7893403 q 1.400003,-1.7546698 3.005339,-1.7546698 z" id="path1760"/>
+      <path d="m 87.663666,4.9759829 q 0.317334,0 0.317334,0.4666675 q 0,0.4480009 -0.280001,1.5306695 h 1.885337 q 0.485334,0 0.485334,0.2800005 q 0,0.186667 -0.298667,0.4853342 q -0.280001,0.2800005 -0.560001,0.2800005 h -1.736003 l -1.362669,5.1333429 q -0.07467,0.317334 0.149333,0.317334 q 0.392001,0 0.914668,-0.448001 q 0.522668,-0.448001 0.616002,-0.448001 q 0.130666,0 0.130666,0.242667 q 0,0.522668 -0.914668,1.306669 q -0.896001,0.765335 -1.69867,0.765335 q -0.821334,0 -0.821334,-0.765335 q 0,-0.130667 0.112,-0.578668 l 1.456002,-5.5253429 h -0.877334 q -0.429335,0 -0.429335,-0.2613338 q 0,-0.2426671 0.242668,-0.5040009 q 0.261333,-0.2800005 0.541334,-0.2800005 h 0.746668 l 0.261334,-1.0453352 q 0.03733,-0.2240005 0.373334,-0.5786678 q 0.354667,-0.373334 0.746668,-0.373334 z" id="path1762"/>
+    </g>
+  </g>
+</svg></a> VT510 Video Terminal Programmer Information
+<nav class="sections"><a href="chapter11.html">Chapter 11</a><a href="contents.html">Contents</a><a href="chapter13.html">Chapter 13</a></nav>
+</header>
+<h1 id="S12"><span>12</span> ASCII Escape Sequences</h1>
+<div class="main"><p>This chapter summarizes the ASCII escape and control Sequences that the VT510
+recognizes when it is operating in its ASCII emulation modes.</p>
+<h2 id="S12.1">12.1 ASCII Communications</h2>
+<p><a href="#T12-1">Table 12–1</a> lists the serial port control functions for each mode. The word "same"
+in <a href="#T12-1">Table 12–1</a> signifies the same control sequence as the WYSE 160/60 column.</p></div>
+<table id="T12-1" class="truled">
+<caption><span class="tabfigid">Table 12–1</span> Serial Port Control Functions</caption>
+
+
+
+
+
+
+
+
+
+<thead>
+<tr>
+<th rowspan="2">ACK Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACK Mode On (default)</td>
+<td>ESC e 7</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>ACK Mode Off</td>
+<td>ESC e 6</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Answerback Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Answerback Off (default)</td>
+<td>ESC e Sp</td>
+<td>n/a</td>
+<td></td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Answerback On</td>
+<td>ESC e !</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td rowspan="3">Answerback Message</td>
+<td colspan="8">ESC c ; <var>answer</var> Ctrl/Y</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="7">ESC ] <var>answer</var> Ctrl/M</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Send Answerback message – Format 1:</td>
+<td>ESC c &lt;</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Format 2:</td>
+<td>Ctrl/E</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Conceal Answerback</td>
+<td>ESC c =</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Assign Serial Ports</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>S1=comm1 (host)</td>
+<td>ESC e 8</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>S1=comm2 (host)</td>
+<td>ESC e 9</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Monitor Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Monitor Mode Off (default)</td>
+<td>ESC u or ESC X</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH on or off</td>
+</tr>
+<tr>
+<td>Monitor Mode On</td>
+<td>ESC U</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Receive Null Character Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Ignore Null Characters from Host (default)</td>
+<td>ESC e R</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Accept Null Characters from Host</td>
+<td>ESC e S</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Serial Port Parameters</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Set Comm1 parameters</td>
+<td colspan="4">ESC c 0 <var>Baud Stop Parity Word</var></td>
+<td colspan="4">ESC { <var>Baud Stop Parity Word</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Set Comm2 parameters</td>
+<td colspan="4">ESC c 1 <var>Baud Stop Parity Word</var></td>
+<td colspan="4">ESC } <var>Baud Stop Parity Word</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="24"></td>
+<td class="minhead" colspan="2">Baud (Comm1)</td>
+<td class="minhead" colspan="3">Baud (Comm2)</td>
+<td class="minhead" colspan="3">Description</td>
+</tr>
+<tr>
+<td colspan="2">D</td>
+<td colspan="3">N/A</td>
+<td colspan="3">115200</td>
+</tr>
+<tr>
+<td colspan="2">B</td>
+<td colspan="3">N/A</td>
+<td colspan="3">76800</td>
+</tr>
+<tr>
+<td colspan="2">C</td>
+<td colspan="3">N/A</td>
+<td colspan="3">56700</td>
+</tr>
+<tr>
+<td colspan="2">0</td>
+<td colspan="3">@ (4/0)</td>
+<td colspan="3">38400</td>
+</tr>
+<tr>
+<td colspan="2">1</td>
+<td colspan="3">0 (3/0)</td>
+<td colspan="3">19200</td>
+</tr>
+<tr>
+<td colspan="2">2</td>
+<td colspan="3">1 (3/1)</td>
+<td colspan="3">9600</td>
+</tr>
+<tr>
+<td colspan="2">3</td>
+<td colspan="3">3 (3/3)</td>
+<td colspan="3">4800</td>
+</tr>
+<tr>
+<td colspan="2">4</td>
+<td colspan="3">5 (3/5)</td>
+<td colspan="3">2400</td>
+</tr>
+<tr>
+<td colspan="2">7</td>
+<td colspan="3">8 (3/8)</td>
+<td colspan="3">1200</td>
+</tr>
+<tr>
+<td colspan="2">8</td>
+<td colspan="3">9 (3/9)</td>
+<td colspan="3">600</td>
+</tr>
+<tr>
+<td colspan="2">9</td>
+<td colspan="3">: (3/10)</td>
+<td colspan="3">300</td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Stop</td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">0 (3/0)</td>
+<td colspan="6">1 Stop Bit (default)</td>
+</tr>
+<tr>
+<td colspan="2">1 (3/1)</td>
+<td colspan="6">2 Stop Bits</td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Word</td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">0 (3/0)</td>
+<td colspan="6">7 bits</td>
+</tr>
+<tr>
+<td colspan="2">1 (3/1)</td>
+<td colspan="6">8 bits (default)</td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Parity</td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">0 (3/0)</td>
+<td colspan="6">No Parity (default)</td>
+</tr>
+<tr>
+<td colspan="2">1 (3/1)</td>
+<td colspan="6">Odd Parity</td>
+</tr>
+<tr>
+<td colspan="2">2 (3/2)</td>
+<td colspan="6">Mark Parity</td>
+</tr>
+<tr>
+<td colspan="2">3 (3/3)</td>
+<td colspan="6">Even Parity</td>
+</tr>
+<tr>
+<td colspan="2">4 (3/4)</td>
+<td colspan="6">Space Parity</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Serial Port Handshaking</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Set Comm1 Receive</td>
+<td colspan="8">ESC c 2 <var>Handshaking</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Set Comm2 Receive</td>
+<td colspan="8">ESC c 3 <var>Handshaking</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Set Comm1 Transmit</td>
+<td colspan="8">ESC c 4 <var>Handshaking</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Set Comm2 Transmit</td>
+<td colspan="8">ESC c 5 <var>Handshaking</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="5"></td>
+<td class="minhead" colspan="2">Handshaking</td>
+<td class="minhead" colspan="3">Receive Flow Control</td>
+<td class="minhead" colspan="3">Transmit Flow Control</td>
+</tr>
+<tr>
+<td colspan="2">0</td>
+<td colspan="3">None</td>
+<td colspan="3">None (default)</td>
+</tr>
+<tr>
+<td colspan="2">1</td>
+<td colspan="3">XON-XOFF/XPC (default)</td>
+<td colspan="3">XON/XOFF</td>
+</tr>
+<tr>
+<td colspan="2">2</td>
+<td colspan="3">DTR</td>
+<td colspan="3">DSR</td>
+</tr>
+<tr>
+<td colspan="2">3</td>
+<td colspan="3">XON-XOFF/XPC and DTR</td>
+<td colspan="3">XON/XOFF and DSR</td>
+</tr>
+<tr>
+<td>Set Host port Receive to DTR</td>
+<td>n/a</td>
+<td>Ctrl/N</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Ctrl/N</td>
+<td>Ctrl/N</td>
+<td>Ctrl/N</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Set Host port Receive to XON/XOFF or XPC</td>
+<td>n/a</td>
+<td>Ctrl/O</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Ctrl/O</td>
+<td>Ctrl/O</td>
+<td>Ctrl/O</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Duplex Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Full-Duplex On (default)</td>
+<td>ESC D F</td>
+<td>ESC }</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Half-Duplex On</td>
+<td>ESC D H</td>
+<td>ESC {</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Block Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Block Mode Off (default)</td>
+<td>ESC C</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Block Mode On</td>
+<td>ESC B</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same or ESC c</td>
+<td>same or ESC c</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Local Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Set Local Mode</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC c</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Maximum Transmit Rate Limit</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Transmit Speed</td>
+<td>ESC c 6 <var>Max</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Function Keys</td>
+<td>ESC c 7 <var>Max</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="5"></td>
+<td class="minhead" colspan="2">Max</td>
+<td class="minhead" colspan="6">Characters Per Second</td>
+</tr>
+<tr>
+<td colspan="2">0</td>
+<td colspan="6">30</td>
+</tr>
+<tr>
+<td colspan="2">1</td>
+<td colspan="6">50</td>
+</tr>
+<tr>
+<td colspan="2">2</td>
+<td colspan="6">No Limit (default)</td>
+</tr>
+<tr>
+<td colspan="2">3</td>
+<td colspan="6">150</td>
+</tr>
+</tbody>
+</table>
+<div class="main"><h2 id="S12.2">12.2 Terminal Management</h2>
+<p><a href="#T12-2">Table 12–2</a> lists the terminal management control functions. The word "same" in
+<a href="#T12-2">Table 12–2</a> signifies the same control sequence as in the WYSE 160/60 column.</p></div>
+<table id="T12-2" class="truled">
+<caption><span class="tabfigid">Table 12–2</span> Terminal Management Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Select Terminal Personality</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADDS A2</td>
+<td>ESC ~ %</td>
+<td>ESC v %</td>
+<td>same as 160/60</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>TVI 950</td>
+<td>ESC ~ (</td>
+<td>ESC v (</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>TVI 925</td>
+<td>ESC ~ $</td>
+<td>ESC v $</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>TVI 910</td>
+<td>ESC ~ #</td>
+<td>ESC v #</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>VT510, 7-bit</td>
+<td>ESC ~ &lt;</td>
+<td>ESC v &lt;</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>VT510, 8-bit</td>
+<td>ESC ~ =</td>
+<td>ESC v =</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>VT100</td>
+<td>ESC ~ ;</td>
+<td>ESC v ;</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>VT52</td>
+<td>ESC ~ 6</td>
+<td>ESC v 6</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>WYSE 160/60</td>
+<td>ESC ~ 4</td>
+<td>ESC v 4</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>WYSE 160/60 PCTerm</td>
+<td>ESC ~ 5</td>
+<td>ESC v 5</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>WYSE 150/120</td>
+<td>ESC ~ 3</td>
+<td>ESC v 3</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>WYSE 50+</td>
+<td>ESC ~ "</td>
+<td>ESC v "</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Send Terminal ID</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Inquire emulation ID</td>
+<td>ESC Sp</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC M</td>
+<td>ESC M</td>
+<td>ESC M</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Set Enhanced Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Enhanced Mode On (EnH) (default)</td>
+<td>ESC ~ !</td>
+<td>ESC v !</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+<tr>
+<td>Enhanced Mode Off</td>
+<td>ESC ~ Sp</td>
+<td>ESC v Sp</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Save Set-Up Modes</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>To NVM (except Tabs)</td>
+<td>ESC c V</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>To NVM with Tabs</td>
+<td>ESC c W</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Select Terminal Defaults</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>PCTerm Mode Group<sup>1</sup></td>
+<td>n/a</td>
+<td>ESC m</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>All Modes<sup>2</sup></td>
+<td>ESC c T</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Power On Reset</td>
+<td>ESC c X</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Load/Send Time of Day</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="3">Load Time of Day<sup>3</sup></td>
+<td colspan="8">ESC c 8 <var>Hr Min</var></td>
+</tr>
+<tr>
+<td></td>
+<td colspan="7">ESC Sp 1 <var>a/p Hr Min</var></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC Sp 1 <var>a/p Hr Min</var></td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Send Time of Day</td>
+<td>n/a</td>
+<td>ESC Sp 2</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC Sp 2</td>
+<td>ESC Sp 2</td>
+<td>ESC Sp 2</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Sets the following parameters for PCTerm mode:</p>
+<ul>
+<li>Autoscroll = On</li>
+<li>Received CR = CR</li>
+<li>Communication Mode = Full Duplex</li>
+<li>Enhanced Mode = Off</li>
+<li>Wrap EOL = Off</li>
+<li>Attribute = Char</li>
+</ul>
+<p><sup>2</sup>Sets the parameters shown in <a href="chapter11.html#T11-2">Table 11-2</a>.</p>
+<p><sup>3</sup><var>Hour</var> ranges from 00 to 23; <var>Minute</var> ranges from 00 to 59 decimal. Entering "00" in hour is displayed as 12 AM. The a/p
+is a single character—a = AM, p = PM.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><h2 id="S12.3">12.3 Keyboard Processing</h2>
+<p><a href="#T12-3">Table 12–3</a> lists the keyboard processing control functions. The word "same" in
+<a href="#T12-3">Table 12–3</a> signifies the same control sequences as in the WYSE 160/60 column.</p></div>
+<table id="T12-3" class="truled">
+<caption><span class="tabfigid">Table 12–3</span> Keyboard Processing Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Locking the Keyboard</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unlock keyboard (default)</td>
+<td>Ctrl/N or ESC "</td>
+<td>ESC "</td>
+<td>same</td>
+<td>same</td>
+<td>ESC "</td>
+<td>ESC "</td>
+<td>ESC "</td>
+<td>Ctrl/B ESC 6</td>
+</tr>
+<tr>
+<td>Lock keyboard</td>
+<td>Ctrl/O or ESC #</td>
+<td>ESC #</td>
+<td>same</td>
+<td>same</td>
+<td>ESC #</td>
+<td>ESC #</td>
+<td>ESC #</td>
+<td>Ctrl/D ESC 5</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Enable/Disable Key Repeat</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Key Repeat On (default)</td>
+<td>ESC e -</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Key Repeat Off</td>
+<td>ESC e ,</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Caps Lock</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Caps Lock off</td>
+<td>ESC e '</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Caps Lock on</td>
+<td>ESC e &amp;</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Lock key=Caps Lock (default)</td>
+<td>ESC e T</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Lock key=Shift Lock</td>
+<td>ESC e V</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Lock key=Reverse Lock</td>
+<td>ESC e U</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Keycode Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>ASCII Key Codes<sup>1</sup></td>
+<td>ESC e H</td>
+<td>ESC c</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>PC Scan Codes</td>
+<td>ESC e I</td>
+<td>ESC H</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Keyclick</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>ESC e %</td>
+<td>ESC &gt;</td>
+<td>same</td>
+<td>same</td>
+<td>ESC &gt;</td>
+<td>ESC &gt;</td>
+<td>ESC &gt;</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>ESC e $</td>
+<td>ESC &lt;</td>
+<td>same</td>
+<td>same</td>
+<td>ESC &lt;</td>
+<td>ESC &lt;</td>
+<td>ESC &lt;</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Margin Bell</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Sound Bell</td>
+<td>Ctrl/G</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Select Bell tone</td>
+<td>ESC c \ <var>Tone</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>Wyse</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="5"></td>
+<td class="minhead">Tone</td>
+<td class="minhead" colspan="7">Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Off</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">Low pitch</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="7">High pitch</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="7">High pitch</td>
+</tr>
+<tr>
+<td>Margin Bell off (default)</td>
+<td>ESC e L</td>
+<td>ESC n</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Margin Bell on<sup>2</sup></td>
+<td>ESC e M</td>
+<td>ESC o</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Set Margin Bell at cursor</td>
+<td>ESC ` J</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Set Margin Bell on and set position</td>
+<td>n/a</td>
+<td>ESC o</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Modifier Keys</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Request Status Inquiry</td>
+<td>n/a</td>
+<td>ESC [</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td rowspan="10" colspan="2"></td>
+<td colspan="7">Report: 81(Hex) + <var>a</var><br/>
+where <var>a</var> indicates the modifier key being pressed as follows:</td>
+</tr>
+<tr>
+<td class="minhead">Bit</td>
+<td class="minhead" colspan="6">Modifier Key</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="6">Caps lock</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="6">Always 0</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="6">Always 0</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="6">Scroll lock On</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="6">Alt</td>
+</tr>
+<tr>
+<td>5</td>
+<td colspan="6">Ctrl</td>
+</tr>
+<tr>
+<td>6</td>
+<td colspan="6">Num lock On</td>
+</tr>
+<tr>
+<td>7</td>
+<td colspan="6">Shift key</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Redefining Keys<sup>3</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="19">Program Function keys<sup>4</sup></td>
+<td colspan="8">ESC z <var>Fkey Seq</var> DEL</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Fkey Unshifted</td>
+<td class="minhead" colspan="2">Fkey Shifted</td>
+<td class="minhead" colspan="2">VT Keyboard</td>
+<td class="minhead" colspan="2">Enhanced PC Keyboard</td>
+</tr>
+<tr>
+<td colspan="2">@</td>
+<td colspan="2">`</td>
+<td colspan="2">F1</td>
+<td colspan="2">F1</td>
+</tr>
+<tr>
+<td colspan="2">A</td>
+<td colspan="2">a</td>
+<td colspan="2">F2</td>
+<td colspan="2">F2</td>
+</tr>
+<tr>
+<td colspan="2">B</td>
+<td colspan="2">b</td>
+<td colspan="2">F3</td>
+<td colspan="2">F3</td>
+</tr>
+<tr>
+<td colspan="2">C</td>
+<td colspan="2">c</td>
+<td colspan="2">F4</td>
+<td colspan="2">F4</td>
+</tr>
+<tr>
+<td colspan="2">D</td>
+<td colspan="2">d</td>
+<td colspan="2">F5</td>
+<td colspan="2">F5</td>
+</tr>
+<tr>
+<td colspan="2">E</td>
+<td colspan="2">e</td>
+<td colspan="2">F6</td>
+<td colspan="2">F6</td>
+</tr>
+<tr>
+<td colspan="2">F</td>
+<td colspan="2">f</td>
+<td colspan="2">F7</td>
+<td colspan="2">F7</td>
+</tr>
+<tr>
+<td colspan="2">G</td>
+<td colspan="2">g</td>
+<td colspan="2">F8</td>
+<td colspan="2">F8</td>
+</tr>
+<tr>
+<td colspan="2">H</td>
+<td colspan="2">h</td>
+<td colspan="2">F9</td>
+<td colspan="2">F9</td>
+</tr>
+<tr>
+<td colspan="2">I</td>
+<td colspan="2">i</td>
+<td colspan="2">F10</td>
+<td colspan="2">F10</td>
+</tr>
+<tr>
+<td colspan="2">J</td>
+<td colspan="2">j</td>
+<td colspan="2">F11</td>
+<td colspan="2">F11</td>
+</tr>
+<tr>
+<td colspan="2">K</td>
+<td colspan="2">k</td>
+<td colspan="2">F12</td>
+<td colspan="2">F12</td>
+</tr>
+<tr>
+<td colspan="2">L</td>
+<td colspan="2">l</td>
+<td colspan="2">F13</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2">M</td>
+<td colspan="2">m</td>
+<td colspan="2">F14</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2">N</td>
+<td colspan="2">n</td>
+<td colspan="2">F15</td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2">O</td>
+<td colspan="2">o</td>
+<td colspan="2">F16</td>
+<td colspan="2"></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Program Key Direction</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Program Key Direction</td>
+<td colspan="2">ESC Z <var>Dir Key Seq</var> DEL</td>
+<td>same</td>
+<td>same</td>
+<td></td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="3">ESC | <var>FKey Dir Seq</var> Ctrl-Y</td>
+<td colspan="3">ESC | <var>FKey Dir Seq</var> Ctrl-Y</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="13"><b>Key-Sent direction</b></td>
+<td colspan="3"><b>Communication Mode</b></td>
+<td colspan="5"><b>Key Definition is Sent to . . .</b></td>
+</tr>
+<tr>
+<td colspan="3">Local</td>
+<td colspan="5">Terminal screen only</td>
+</tr>
+<tr>
+<td colspan="3">Remote</td>
+<td colspan="5">Host only</td>
+</tr>
+<tr>
+<td colspan="3">Normal</td>
+<td colspan="5">Depending on Comm mode:</td>
+</tr>
+<tr>
+<td colspan="3">Full-duplex</td>
+<td colspan="5">Host only</td>
+</tr>
+<tr>
+<td colspan="3">Half-duplex</td>
+<td colspan="5">Both the host and the terminal screen</td>
+</tr>
+<tr>
+<td colspan="3">Block</td>
+<td colspan="5">Terminal screen only</td>
+</tr>
+<tr>
+<td colspan="3">Half Block</td>
+<td colspan="5">Both the host and the terminal screen</td>
+</tr>
+<tr>
+<td class="minhead">Dir</td>
+<td class="minhead" colspan="7">Key Transmission Direction</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Normal</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">Remote (default)</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="7">Local</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="7">Normal (TVI950 and WYSE 160/60 PCTerm only)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Inquire Key Direction</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Inquiry:</td>
+<td>ESC Z ~ <var>Key</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Response:</td>
+<td colspan="8"><var>Dir Key Sequence</var> DEL</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Clear Key Definitions</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Clear Function key direction and definition</td>
+<td>ESC z <var>Fkey</var> DEL</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Set key direction and Clear key definition</td>
+<td colspan="8">ESC Z <var>Dir Key</var> DEL</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear all redefinable key definitions</td>
+<td>ESC c U</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Default for all but PCTerm mode.</p>
+<p><sup>2</sup>Default = 72 for 80-column mode; 124 for 132-column mode.</p>
+<p><sup>3</sup> See <a href="#T12-4">Table 12–4</a> for redefinable keys.</p>
+<p><sup>4</sup><var>Seq</var> is an ASCII character data string sequence. Any 7-bit character except "DEL" (Hex 7F) is legal for the sequence.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p><a href="#T12-4">Table 12–4</a> lists the redefinable keys.</p>
+<table id="T12-4" class="truled">
+<caption><span class="tabfigid">Table 12–4</span> Redefinable Keys</caption>
+
+
+
+
+
+<thead>
+<tr>
+<th>Emulation</th>
+<th colspan="4">Redefinable Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="24">WYSE 160/60, WYSE 150/120, WYSE 50+, TVI925, and TVI 910</td>
+<td class="minhead">Unshifted</td>
+<td class="minhead">Shifted</td>
+<td class="minhead">VT Keyboard</td>
+<td class="minhead">EPC Keyboard</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>%</td>
+<td></td>
+<td><span class="keyname">ESC</span></td>
+</tr>
+<tr>
+<td>!</td>
+<td>&amp;</td>
+<td><span class="keyname">Tab</span></td>
+<td><span class="keyname">Tab</span></td>
+</tr>
+<tr>
+<td>"</td>
+<td>'</td>
+<td><span class="keyname">Backspace</span></td>
+<td><span class="keyname">Backspace</span></td>
+</tr>
+<tr>
+<td>#</td>
+<td>(</td>
+<td><span class="keyname">Remove</span></td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>)</td>
+<td><span class="keyname">Return</span></td>
+<td><span class="keyname">Enter</span></td>
+</tr>
+<tr>
+<td>*</td>
+<td>/</td>
+<td><span class="keyname">Select</span></td>
+<td><span class="keyname">Home</span></td>
+</tr>
+<tr>
+<td>+</td>
+<td>0</td>
+<td><span class="keyname" title="Up">⇑</span></td>
+<td><span class="keyname" title="Up">⇑</span></td>
+</tr>
+<tr>
+<td>,</td>
+<td>1</td>
+<td><span class="keyname" title="Down">⇓</span></td>
+<td><span class="keyname" title="Down">⇓</span></td>
+</tr>
+<tr>
+<td>-</td>
+<td>2</td>
+<td><span class="keyname" title="Left">⇐</span></td>
+<td><span class="keyname" title="Left">⇐</span></td>
+</tr>
+<tr>
+<td>.</td>
+<td>3</td>
+<td><span class="keyname" title="Right">⇒</span></td>
+<td><span class="keyname" title="Right">⇒</span></td>
+</tr>
+<tr>
+<td>s</td>
+<td>4</td>
+<td><span class="keyname">Enter</span></td>
+<td><span class="keyname">Enter</span> (keypad)</td>
+</tr>
+<tr>
+<td>q</td>
+<td>p</td>
+<td><span class="keyname">PF4</span></td>
+<td><span class="keyname">Insert</span></td>
+</tr>
+<tr>
+<td>r</td>
+<td>w</td>
+<td></td>
+<td><span class="keyname">Page Down</span></td>
+</tr>
+<tr>
+<td>}</td>
+<td>z</td>
+<td><span class="keyname">PF3</span></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td><span class="keyname">PF2</span></td>
+<td><span class="keyname">Delete</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>8</td>
+<td><span class="keyname">PF1</span></td>
+<td></td>
+</tr>
+<tr>
+<td>R</td>
+<td>X</td>
+<td></td>
+<td><span class="keyname">Print Screen</span></td>
+</tr>
+<tr>
+<td>:</td>
+<td>;</td>
+<td></td>
+<td><span class="keyname">Page Up</span></td>
+</tr>
+<tr>
+<td>\</td>
+<td>]</td>
+<td></td>
+<td><span class="keyname">End</span></td>
+</tr>
+<tr>
+<td>Q</td>
+<td>W</td>
+<td><span class="keyname">F17</span></td>
+<td></td>
+</tr>
+<tr>
+<td>S</td>
+<td>Y</td>
+<td><span class="keyname">F18</span></td>
+<td></td>
+</tr>
+<tr>
+<td>T</td>
+<td>Z</td>
+<td><span class="keyname">F19</span></td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td>V</td>
+<td><span class="keyname">F20</span></td>
+<td></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="17">TVI 950</td>
+<td class="minhead">Fkey</td>
+<td class="minhead">Fkey</td>
+<td class="minhead">VT Keyboard</td>
+<td class="minhead">Enhanced PC Keyboard</td>
+</tr>
+<tr>
+<td>1</td>
+<td>&lt;</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">F1</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>=</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">F2</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>&gt;</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">F3</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>?</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">F4</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>@</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">F5</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>A</td>
+<td><span class="keyname">F6</span></td>
+<td><span class="keyname">F6</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>B</td>
+<td><span class="keyname">F7</span></td>
+<td><span class="keyname">F7</span></td>
+</tr>
+<tr>
+<td>8</td>
+<td>C</td>
+<td><span class="keyname">F8</span></td>
+<td><span class="keyname">F8</span></td>
+</tr>
+<tr>
+<td>9</td>
+<td>D</td>
+<td><span class="keyname">F9</span></td>
+<td><span class="keyname">F9</span></td>
+</tr>
+<tr>
+<td>:</td>
+<td>E</td>
+<td><span class="keyname">F10</span></td>
+<td><span class="keyname">F10</span></td>
+</tr>
+<tr>
+<td>;</td>
+<td>F</td>
+<td><span class="keyname">F11</span></td>
+<td><span class="keyname">F11</span></td>
+</tr>
+<tr>
+<td>G</td>
+<td>L</td>
+<td><span class="keyname">F12</span></td>
+<td><span class="keyname">F12</span></td>
+</tr>
+<tr>
+<td>H</td>
+<td>M</td>
+<td><span class="keyname">F13</span></td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td>N</td>
+<td><span class="keyname">F14</span></td>
+<td></td>
+</tr>
+<tr>
+<td>J</td>
+<td>O</td>
+<td><span class="keyname">F15</span></td>
+<td></td>
+</tr>
+<tr>
+<td>K</td>
+<td>P</td>
+<td><span class="keyname">F16</span></td>
+<td></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="11">WYSE 160/60 PCTerm</td>
+<td class="minhead" colspan="2">Fkey Unshifted</td>
+<td class="minhead">VT Keyboard</td>
+<td class="minhead">EPC Keyboard</td>
+</tr>
+<tr>
+<td>1</td>
+<td>!</td>
+<td><span class="keyname">F1</span></td>
+<td><span class="keyname">F1</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td>@</td>
+<td><span class="keyname">F2</span></td>
+<td><span class="keyname">F2</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td>#</td>
+<td><span class="keyname">F3</span></td>
+<td><span class="keyname">F3</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td>$</td>
+<td><span class="keyname">F4</span></td>
+<td><span class="keyname">F4</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td>%</td>
+<td><span class="keyname">F5</span></td>
+<td><span class="keyname">F5</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td>^</td>
+<td><span class="keyname">F6</span></td>
+<td><span class="keyname">F6</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td>&amp;</td>
+<td><span class="keyname">F7</span></td>
+<td><span class="keyname">F7</span></td>
+</tr>
+<tr>
+<td>8</td>
+<td>*</td>
+<td><span class="keyname">F8</span></td>
+<td><span class="keyname">F8</span></td>
+</tr>
+<tr>
+<td>9</td>
+<td>(</td>
+<td><span class="keyname">F9</span></td>
+<td><span class="keyname">F9</span></td>
+</tr>
+<tr>
+<td>0</td>
+<td>)</td>
+<td><span class="keyname">F10</span></td>
+<td><span class="keyname">F10</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="S12.4">12.4 Screen Processing</h2>
+<p><a href="#T12-5">Table 12–5</a> lists the screen processing control functions. The word "same" in
+<a href="#T12-5">Table 12–5</a> signifies the same control sequences as in the WYSE 160/60 column.</p></div>
+<table id="T12-5" class="truled">
+<caption><span class="tabfigid">Table 12–5</span> Screen Processing Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Video Display Features</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Border Display (Overscan On/Off)</td>
+<td colspan="8">ESC c ] <var>Intensity</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="3"><b>Parameters:</b></td>
+<td class="minhead"><var>Intensity</var></td>
+<td class="minhead" colspan="7">Overscan</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Off (default)</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">On</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Screen Display On (default)</td>
+<td>ESC ` 9</td>
+<td>ESC N</td>
+<td>same</td>
+<td>same</td>
+<td>ESC n</td>
+<td>ESC n</td>
+<td>ESC n</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Screen Display Off</td>
+<td>ESC ` 8</td>
+<td>ESC O</td>
+<td>same</td>
+<td>same</td>
+<td>ESC o</td>
+<td>ESC o</td>
+<td>ESC o</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Normal background<sup>1</sup></td>
+<td>ESC ^ 0</td>
+<td>ESC d</td>
+<td>same</td>
+<td>same</td>
+<td>ESC d</td>
+<td>ESC d</td>
+<td>ESC d</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Reverse background</td>
+<td>ESC ^ 1</td>
+<td>ESC b</td>
+<td>same</td>
+<td>same</td>
+<td>ESC b</td>
+<td>ESC b</td>
+<td>ESC b</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Screen Saver on (default)</td>
+<td>ESC e Q</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Screen Saver off</td>
+<td>ESC e P</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Scroll Type</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>WYSE Mode</td>
+<td>ESC ` <var>Scroll</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td><b>Parameters:</b></td>
+<td class="minhead"><var>Scroll</var></td>
+<td class="minhead" colspan="7">Scrolling Type<sup>2</sup></td>
+</tr>
+<tr>
+<td rowspan="3"></td>
+<td>@</td>
+<td colspan="7">Jump Scroll (default)</td>
+</tr>
+<tr>
+<td>&lt;, =</td>
+<td colspan="7">Slow Smooth Scroll</td>
+</tr>
+<tr>
+<td>&gt;, ?</td>
+<td colspan="7">Fast Smooth Scroll</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>TVI - Smooth scroll off</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC 9</td>
+<td>ESC 9</td>
+<td>ESC 9</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>TVI - Smooth scroll on</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC 8</td>
+<td>ESC 8</td>
+<td>ESC 8</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Character Cell</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Select 10 × 16 size (def)</td>
+<td>ESC e &gt;</td>
+<td>n/a</td>
+<td>same</td>
+<td>Wyse</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Select 10 × 13 size</td>
+<td>ESC e ?</td>
+<td>n/a</td>
+<td>same</td>
+<td>Wyse</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Column Display</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Select 80-column display (default)</td>
+<td>ESC ` :</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Select 132-column display</td>
+<td>ESC ` ;</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Display Data Lines</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>24 data lines (default)</td>
+<td>ESC e (</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>25 data lines</td>
+<td>ESC e )</td>
+<td>ESC ^</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>42 data lines</td>
+<td>ESC e *</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>43 data lines</td>
+<td>ESC e +</td>
+<td>ESC _</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="8"><p>In ASCII emulation mode, the VT510 displays four types of data lines:</p>
+<ul>
+<li>24 data lines, 1 status line, and 2 label lines</li>
+<li>25 data lines, 1 status line, and 1 label line</li>
+<li>42 data lines, 1 status line, and 2 label lines<sup>4</sup></li>
+<li>43 data lines, 1 status line, and 1 label line</li>
+</ul></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Fill Page with "H"s in PCTerm Mode</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Fill page with "H"s</td>
+<td>n/a</td>
+<td>ESC F</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Width-Change-Clear Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Width-change-clear off</td>
+<td>ESC e .</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Width-change-clear on (default)</td>
+<td>ESC e /</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Page Size</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Set Page Size<sup>5</sup></td>
+<td colspan="2">ESC w <var>Length</var></td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC \ <var>Length</var><sup>6</sup></td>
+<td>EnH</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="7">ESC \ <var>Length</var><sup>6</sup></td>
+</tr>
+<tr>
+<td rowspan="5"><b>WYSE 160/60, WYSE 50+ Parameters:</b></td>
+<td class="minhead"><var>Length</var></td>
+<td class="minhead" colspan="2">Size of a Page</td>
+<td class="minhead" colspan="5">Description</td>
+</tr>
+<tr>
+<td>G</td>
+<td colspan="2">1*lines</td>
+<td colspan="5">Page number = current screen data lines</td>
+</tr>
+<tr>
+<td>H</td>
+<td colspan="2">2*lines</td>
+<td colspan="5">Page number = current screen data lines * 2</td>
+</tr>
+<tr>
+<td>I</td>
+<td colspan="2">4*lines</td>
+<td colspan="5">Page number = current screen data lines * 4</td>
+</tr>
+<tr>
+<td>J</td>
+<td colspan="2">*</td>
+<td colspan="5">One page number = screen data lines; the other contains rest of lines in memory.</td>
+</tr>
+<tr>
+<td rowspan="5"><b>WYSE 160/60 PCTerm and TVI Parameters:</b></td>
+<td class="minhead"><var>Length</var></td>
+<td class="minhead" colspan="2">Size of a Page</td>
+<td class="minhead" colspan="5">Description</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="2">1*lines</td>
+<td colspan="5">Page number = current screen data lines</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="2">2*lines</td>
+<td colspan="5">Page number = current screen data lines * 2</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="2">4*lines</td>
+<td colspan="5">Page number = current screen data lines * 4</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="2">*</td>
+<td colspan="5">One page number = screen data lines; the other contains rest of lines in memory.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Display Page</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Display Previous Page<sup>7</sup></td>
+<td>ESC w B or ESC J</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC J</td>
+<td>ESC J</td>
+<td>ESC J</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Display Next Page<sup>8</sup></td>
+<td>ESC w C or ESC K</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC K</td>
+<td>ESC K</td>
+<td>ESC K</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Display Specific Page</td>
+<td>ESC w <var>Page</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Split Screen</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Split screen horizontally</td>
+<td>ESC x A <var>Line</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Adjustable horiz split</td>
+<td>ESC x C <var>Line</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Split screen horizontally and Clear data</td>
+<td>ESC x 1 <var>Line</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Adjustable horiz split screen and Clear data</td>
+<td>ESC x 3 <var>Line</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Lower horiz split</td>
+<td>ESC x P</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Raise horiz split</td>
+<td>ESC x R</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Windows</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Activate upper window</td>
+<td>ESC ]</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Activate lower window</td>
+<td>ESC }</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Activate other window or page</td>
+<td>ESC J or ESC K</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Roll window up in page</td>
+<td>ESC w E</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Roll window down in page</td>
+<td>ESC w F</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Redefine screen as one window</td>
+<td>ESC x @</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Redefine screen as one window and Clear page</td>
+<td>ESC x 0</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor Drag Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor drag mode on (default)</td>
+<td>ESC d )</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Cursor drag mode off</td>
+<td>ESC d (</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Status Line Display</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Editing Status line on</td>
+<td>ESC ` a</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Standard Status line on (default)</td>
+<td>ESC ` b</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Status line off</td>
+<td>ESC ` c</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="5"></td>
+<td class="minhead" colspan="2">Starts at Column</td>
+<td class="minhead" colspan="3">Standard Status Line</td>
+<td class="minhead" colspan="3">Editing Status Line</td>
+</tr>
+<tr>
+<td colspan="2">26</td>
+<td colspan="3">HH:MM AM (or PM)</td>
+<td colspan="3">PROT (Protect mode is on)</td>
+</tr>
+<tr>
+<td colspan="2">31</td>
+<td colspan="3"></td>
+<td colspan="3">WRPT (Write protect is on)</td>
+</tr>
+<tr>
+<td colspan="2">35</td>
+<td colspan="3">Column-Row (Cursor)</td>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td colspan="2">36</td>
+<td colspan="3"></td>
+<td colspan="3">INS (Insert mode is on)</td>
+</tr>
+<tr>
+<td rowspan="19"><b>Messages:</b></td>
+<td class="minhead" colspan="2">Message</td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">LOCK</td>
+<td colspan="6">Keyboard locked</td>
+</tr>
+<tr>
+<td colspan="2">COMP</td>
+<td colspan="6">In compose process</td>
+</tr>
+<tr>
+<td colspan="2">NUM</td>
+<td colspan="6">NUM LOCK state</td>
+</tr>
+<tr>
+<td colspan="2">CAPS</td>
+<td colspan="6">The Caps Lock key is on</td>
+</tr>
+<tr>
+<td colspan="2">1...</td>
+<td colspan="6">Page indication (No message displayed for page 0)</td>
+</tr>
+<tr>
+<td colspan="2">*</td>
+<td colspan="6">Monitor mode state</td>
+</tr>
+<tr>
+<td colspan="2">FDX</td>
+<td colspan="6">Full-duplex mode</td>
+</tr>
+<tr>
+<td colspan="2">HDX</td>
+<td colspan="6">Half-duplex mode</td>
+</tr>
+<tr>
+<td colspan="2">BLK</td>
+<td colspan="6">Block mode</td>
+</tr>
+<tr>
+<td colspan="2">HBLK</td>
+<td colspan="6">Half-duplex block mode</td>
+</tr>
+<tr>
+<td colspan="2">LCL</td>
+<td colspan="6">Local mode</td>
+</tr>
+<tr>
+<td colspan="2">HLD</td>
+<td colspan="6">Hold state</td>
+</tr>
+<tr>
+<td colspan="2">%</td>
+<td colspan="6">Page Printing</td>
+</tr>
+<tr>
+<td colspan="2">&gt;</td>
+<td colspan="6">Autoprint mode</td>
+</tr>
+<tr>
+<td colspan="2">=</td>
+<td colspan="6">Controller print mode</td>
+</tr>
+<tr>
+<td colspan="2">PBSY</td>
+<td colspan="6">Printer is busy or no printer is attached.</td>
+</tr>
+<tr>
+<td colspan="2">PTR</td>
+<td colspan="6">Printer is ready.</td>
+</tr>
+<tr>
+<td colspan="2">&lt;AUX</td>
+<td colspan="6">Terminal is in auxiliary receive mode.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Computer Message</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Program/Display computer message</td>
+<td colspan="8">ESC F <var>Message</var> CR</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear computer message</td>
+<td>ESC F CR</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Function Key Label Display</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Display F key label</td>
+<td colspan="8">ESC z <var>Field Label</var> CR</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse<sup>9</sup></td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Clear F key label</td>
+<td colspan="8">ESC z <var>Field</var> CR</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="10"><b>Field Parameters:</b></td>
+<td colspan="2"></td>
+<td><b>Field</b></td>
+<td colspan="3"></td>
+<td><b>Field</b></td>
+<td></td>
+</tr>
+<tr>
+<td class="minhead">Key</td>
+<td class="minhead" colspan="2">Unshifted</td>
+<td class="minhead">Shifted</td>
+<td class="minhead">Key</td>
+<td class="minhead" colspan="2">Unshifted</td>
+<td class="minhead">Shifted</td>
+</tr>
+<tr>
+<td>F1</td>
+<td colspan="2">0</td>
+<td>P</td>
+<td>F9</td>
+<td colspan="2">8</td>
+<td>X</td>
+</tr>
+<tr>
+<td>F2</td>
+<td colspan="2">1</td>
+<td>Q</td>
+<td>F10</td>
+<td colspan="2">9</td>
+<td>Y</td>
+</tr>
+<tr>
+<td>F3</td>
+<td colspan="2">2</td>
+<td>R</td>
+<td>F11</td>
+<td colspan="2">:</td>
+<td>Z</td>
+</tr>
+<tr>
+<td>F4</td>
+<td colspan="2">3</td>
+<td>S</td>
+<td>F12</td>
+<td colspan="2">;</td>
+<td>[</td>
+</tr>
+<tr>
+<td>F5</td>
+<td colspan="2">4</td>
+<td>T</td>
+<td>F13</td>
+<td colspan="2">&lt;</td>
+<td>\</td>
+</tr>
+<tr>
+<td>F6</td>
+<td colspan="2">5</td>
+<td>U</td>
+<td>F14</td>
+<td colspan="2">=</td>
+<td>]</td>
+</tr>
+<tr>
+<td>F7</td>
+<td colspan="2">6</td>
+<td>V</td>
+<td>F15</td>
+<td colspan="2">&gt;</td>
+<td>^</td>
+</tr>
+<tr>
+<td>F8</td>
+<td colspan="2">7</td>
+<td>W</td>
+<td>F16</td>
+<td colspan="2">?</td>
+<td>_</td>
+</tr>
+<tr>
+<td rowspan="5"><b>Label Parameters:</b></td>
+<td class="minhead" colspan="2">Emulation Mode</td>
+<td class="minhead" colspan="2">Column Mode</td>
+<td class="minhead" colspan="4">Maximum Length</td>
+</tr>
+<tr>
+<td colspan="2">Hidden</td>
+<td colspan="2">80</td>
+<td colspan="4">9</td>
+</tr>
+<tr>
+<td colspan="2">Hidden</td>
+<td colspan="2">132</td>
+<td colspan="4">7</td>
+</tr>
+<tr>
+<td colspan="2">Embedded</td>
+<td colspan="2">80</td>
+<td colspan="4">8</td>
+</tr>
+<tr>
+<td colspan="2">Embedded</td>
+<td colspan="2">132</td>
+<td colspan="4">7</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Label Line Display</th>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Program/Display computer message on unshifted Label line.</td>
+<td colspan="2">ESC z ( <var>Text</var> CR</td>
+<td>same</td>
+<td rowspan="2">same as 160/60</td>
+<td rowspan="2" colspan="3">ESC f <var>text</var> CR or<br/>ESC f <var>text</var> Ctrl-M</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="2">ESC f <var>text</var> CR or<br/>ESC f <var>text</var> Ctrl-M</td>
+<td></td>
+</tr>
+<tr>
+<td rowspan="2">Program/Display computer message on shifted Label line.</td>
+<td colspan="8">ESC z ) <var>text</var> CR</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unshifted Label line.</td>
+<td>ESC z ( CR</td>
+<td>ESC f CR or ESC f Ctrl-M</td>
+<td>same</td>
+<td>same as 160/60</td>
+<td colspan="3">ESC f CR or ESC f Ctrl-M</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear shifted Label line.</td>
+<td>ESC z ) CR</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Disable shifted Label line.</td>
+<td>ESC z DEL</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td><b>WYSE and ADDS Enhanced Modes:</b></td>
+<td colspan="8"><p>There are two distinct label lines when the terminal is using 24 or 42 data lines:</p>
+<ul>
+<li>The upper one is for shifted label line (shifted function key label line).</li>
+<li>The lower one is for unshifted label line (unshifted function key label line).</li>
+</ul>
+<p>When using the 25 or 43 data line configuration mode, only one label line is available at a
+time. By default, it displays the unshifted label line (or unshifted function key label line).
+This line becomes a shifted label line (or shifted function key label) whenever the <span class="keyname">Shift</span> key
+is pressed. Releasing the <span class="keyname">Shift</span> key returns the line to be the unshifted display line.</p></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td><b>TVI and PCTerm Modes:</b></td>
+<td colspan="8"><p>Only an unshifted label line (unshifted function label line) is available. To be visible, the
+label line must be explicitly turned on by the command "Turn on User Line."</p>
+<p>For TVI personalities, the label line is displayed only when data line is set to 24 or 42
+data lines.</p>
+<p>For PCTerm mode, turning on the display line forces the terminal to 24 or 42 data lines.
+If the cursor is at the 25th or 43rd line before the line is set, then the cursor moves to the
+same column at line 24 or 42, and the entire data area scrolls up one line. The label line is
+displayed at the 25th or 43rd line, respectively.</p></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="6"><b>Text Parameter:</b></td>
+<td colspan="8"><p>The parameter <var>text</var> is a character string to be entered in the label line. The allowable size
+of <var>text</var> varies among emulation modes and column modes. In embedded emulation mode,
+the first character shown on the user line is an attribute space.</p></td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Emulation Mode</td>
+<td class="minhead" colspan="2">Column Mode</td>
+<td class="minhead" colspan="2">Maximum Number</td>
+<td class="minhead" colspan="2">Column Position</td>
+</tr>
+<tr>
+<td colspan="2">Hidden</td>
+<td colspan="2">80</td>
+<td colspan="2">80</td>
+<td colspan="2">1–80</td>
+</tr>
+<tr>
+<td colspan="2">Hidden</td>
+<td colspan="2">132</td>
+<td colspan="2">132</td>
+<td colspan="2">1–132</td>
+</tr>
+<tr>
+<td colspan="2">Embedded</td>
+<td colspan="2">80</td>
+<td colspan="2">79</td>
+<td colspan="2">2–80</td>
+</tr>
+<tr>
+<td colspan="2">Embedded</td>
+<td colspan="2">132</td>
+<td colspan="2">131</td>
+<td colspan="2">2–132</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2">User Label Line Display for TVI Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Turn off User line (default)</td>
+<td>n/a</td>
+<td>ESC e or ESC h</td>
+<td>same</td>
+<td>n/a</td>
+<td>ESC h</td>
+<td>ESC h</td>
+<td>ESC h</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Turn on User line</td>
+<td>n/a</td>
+<td>ESC g</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC g</td>
+<td>ESC g</td>
+<td>ESC g</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Character Attributes</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Assign character attribute (main display area)</td>
+<td>ESC G <var>Attr</var></td>
+<td>ESC G <var>Attribute</var></td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Parameters:</th>
+<th><var>Attr</var></th>
+<th colspan="5">Display Attributes</th>
+<th colspan="2">TVI <var>Attr</var></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="34"><b>Wyse 160/60, 150/120, 50+, and ADDS</b></td>
+<td>SP</td>
+<td colspan="5">Space character</td>
+<td colspan="2">SP</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="5">Normal</td>
+<td colspan="2">0, p</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="5">Invisible</td>
+<td colspan="2">1, q</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="5">Blink</td>
+<td colspan="2">2, r</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="5">Invisible and blink</td>
+<td colspan="2">3, s</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="5">Reverse</td>
+<td colspan="2">4, t</td>
+</tr>
+<tr>
+<td>5</td>
+<td colspan="5">Reverse and invisible</td>
+<td colspan="2">5, u</td>
+</tr>
+<tr>
+<td>6</td>
+<td colspan="5">Reverse and blink</td>
+<td colspan="2">6, v</td>
+</tr>
+<tr>
+<td>7</td>
+<td colspan="5">Reverse, blink, invisible</td>
+<td colspan="2">7, w</td>
+</tr>
+<tr>
+<td>8</td>
+<td colspan="5">Underline</td>
+<td colspan="2">8, x</td>
+</tr>
+<tr>
+<td>9</td>
+<td colspan="5">Underline and invisible</td>
+<td colspan="2">9, y</td>
+</tr>
+<tr>
+<td>:</td>
+<td colspan="5">Underline and blink</td>
+<td colspan="2">:, z</td>
+</tr>
+<tr>
+<td>;</td>
+<td colspan="5">Underline, blink, invisible</td>
+<td colspan="2">;, {</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td colspan="5">Underline and reverse</td>
+<td colspan="2">&lt;, |</td>
+</tr>
+<tr>
+<td>=</td>
+<td colspan="5">Underline, reverse, invisible</td>
+<td colspan="2">=, }</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td colspan="5">Underline, reverse, blink</td>
+<td colspan="2">&gt;, ~</td>
+</tr>
+<tr>
+<td>?</td>
+<td colspan="5">Underline, reverse, blink, invisible</td>
+<td colspan="2">?, DEL</td>
+</tr>
+<tr>
+<td></td>
+<td colspan="5"></td>
+<td colspan="2"></td>
+</tr>
+<tr>
+<td>p</td>
+<td colspan="5">Dim</td>
+<td rowspan="16" colspan="2"></td>
+</tr>
+<tr>
+<td>q</td>
+<td colspan="5">Dim and invisible</td>
+</tr>
+<tr>
+<td>r</td>
+<td colspan="5">Dim and blink</td>
+</tr>
+<tr>
+<td>s</td>
+<td colspan="5">Dim, blink, invisible</td>
+</tr>
+<tr>
+<td>t</td>
+<td colspan="5">Dim and reverse</td>
+</tr>
+<tr>
+<td>u</td>
+<td colspan="5">Dim, reverse, invisible</td>
+</tr>
+<tr>
+<td>v</td>
+<td colspan="5">Dim, reverse, blink</td>
+</tr>
+<tr>
+<td>w</td>
+<td colspan="5">Dim, reverse, blink, invisible</td>
+</tr>
+<tr>
+<td>x</td>
+<td colspan="5">Dim and underline</td>
+</tr>
+<tr>
+<td>y</td>
+<td colspan="5">Dim, underline, invisible</td>
+</tr>
+<tr>
+<td>z</td>
+<td colspan="5">Dim, underline, blink</td>
+</tr>
+<tr>
+<td>{</td>
+<td colspan="5">Dim, underline, blink, invisible</td>
+</tr>
+<tr>
+<td>|</td>
+<td colspan="5">Dim, underline, reverse</td>
+</tr>
+<tr>
+<td>}</td>
+<td colspan="5">Dim, underline, reverse, invisible</td>
+</tr>
+<tr>
+<td>~</td>
+<td colspan="5">Dim, underline, reverse, blink</td>
+</tr>
+<tr>
+<td>DEL</td>
+<td colspan="5">Dim, underline, reverse, blink, invisible</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="17"><b>PCTerm Mode</b></td>
+<td class="minhead" colspan="2"><var>Attribute</var></td>
+<td class="minhead" colspan="6">Display Attributes</td>
+</tr>
+<tr>
+<td colspan="2">0, @, P, `, p</td>
+<td colspan="6">Normal</td>
+</tr>
+<tr>
+<td colspan="2">1, A, Q, a, q</td>
+<td colspan="6">Invisible</td>
+</tr>
+<tr>
+<td colspan="2">2, B, R, b, r</td>
+<td colspan="6">Blink</td>
+</tr>
+<tr>
+<td colspan="2">3, C, S, c, s</td>
+<td colspan="6">Invisible and blink</td>
+</tr>
+<tr>
+<td colspan="2">4, D, T, d, t</td>
+<td colspan="6">Reverse</td>
+</tr>
+<tr>
+<td colspan="2">5, E, U, e, u</td>
+<td colspan="6">Reverse and invisible</td>
+</tr>
+<tr>
+<td colspan="2">6, F, V, f, v</td>
+<td colspan="6">Reverse and blink</td>
+</tr>
+<tr>
+<td colspan="2">7, G, W, g, w</td>
+<td colspan="6">Reverse, blink, invisible</td>
+</tr>
+<tr>
+<td colspan="2">8, H, X, h, x</td>
+<td colspan="6">Underline</td>
+</tr>
+<tr>
+<td colspan="2">9, I, Y, i, y</td>
+<td colspan="6">Underline and invisible</td>
+</tr>
+<tr>
+<td colspan="2">:, J, Z, j, z</td>
+<td colspan="6">Underline and blink</td>
+</tr>
+<tr>
+<td colspan="2">;, K, [, k, {</td>
+<td colspan="6">Underline, blink, invisible</td>
+</tr>
+<tr>
+<td colspan="2">&lt;, L \, l, |</td>
+<td colspan="6">Underline and reverse</td>
+</tr>
+<tr>
+<td colspan="2">=, M, ], }</td>
+<td colspan="6">Underline, reverse, invisible</td>
+</tr>
+<tr>
+<td colspan="2">&gt;, N, ^, n, ~</td>
+<td colspan="6">Underline, reverse, blink</td>
+</tr>
+<tr>
+<td colspan="2">?, O, _, o, DEL</td>
+<td colspan="6">Underline, reverse, blink, invisible</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2">Selecting Display Attribute Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Char attribute mode on<sup>10</sup></td>
+<td>ESC e 1</td>
+<td>n/a</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Char attribute mode off</td>
+<td>ESC e 0</td>
+<td>n/a</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Page attribute mode on<sup>11</sup></td>
+<td>ESC e 2</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Line attribute mode on</td>
+<td>ESC e 3</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Assign display attribute to a message field</td>
+<td colspan="8">ESC A <var>Area Attr</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC \ <var>Area Attr</var> (EnH)</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="5"><b>Parameters:</b></td>
+<td class="minhead" colspan="2">Area</td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">0</td>
+<td colspan="6">Data Area</td>
+</tr>
+<tr>
+<td colspan="2">1</td>
+<td colspan="6">Label Line</td>
+</tr>
+<tr>
+<td colspan="2">2</td>
+<td colspan="6">Terminal message field on Status Line</td>
+</tr>
+<tr>
+<td colspan="2">3</td>
+<td colspan="6">Computer message field on Status Line</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Display Attributes</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Assign write-protect character attribute</td>
+<td>ESC ` <var>Wpca</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH or ESC 0 <var>Spca</var></td>
+</tr>
+<tr>
+<td><b>Parameters – WYSE 160/60, WYSE 50+, and ADDS using WYSE sequences:</b><sup>12</sup></td>
+<td class="minhead">Wpca</td>
+<td class="minhead" colspan="2">Description</td>
+<td colspan="2"><b>Parameters – ADDS mode</b>†</td>
+<td class="minhead">Spca</td>
+<td class="minhead" colspan="2">Description</td>
+</tr>
+<tr>
+<td rowspan="8"></td>
+<td>6</td>
+<td colspan="2">Reverse</td>
+<td rowspan="8" colspan="2"></td>
+<td>0</td>
+<td colspan="2">Dim</td>
+</tr>
+<tr>
+<td>7</td>
+<td colspan="2">Dim (default)</td>
+<td>1</td>
+<td colspan="2">Blink</td>
+</tr>
+<tr>
+<td>A</td>
+<td colspan="2">Normal</td>
+<td>2</td>
+<td colspan="2">Invisible</td>
+</tr>
+<tr>
+<td>B</td>
+<td colspan="2">Blink</td>
+<td>3</td>
+<td colspan="2">Normal</td>
+</tr>
+<tr>
+<td>C</td>
+<td colspan="2">Invisible</td>
+<td>4</td>
+<td colspan="2">Reverse</td>
+</tr>
+<tr>
+<td>E</td>
+<td colspan="2">Underline</td>
+<td>5</td>
+<td colspan="2">Underline</td>
+</tr>
+<tr>
+<td>F</td>
+<td colspan="2">Reverse</td>
+<td rowspan="2" colspan="3"></td>
+</tr>
+<tr>
+<td>G</td>
+<td colspan="2">Dim</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Clear unprotected page to display attribute</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC ! <var>Attr</var></td>
+<td>n/a</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Request attribute under cursor</td>
+<td>n/a</td>
+<td>ESC D</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Response to Display Attributes</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="6">Response:‡</td>
+<td colspan="8">Two bytes—the Bit for attribute under the cursor, then "a".</td>
+</tr>
+<tr>
+<td class="minhead">Bit</td>
+<td class="minhead" colspan="2">Attribute</td>
+<td class="minhead">Bit</td>
+<td class="minhead" colspan="4">Attribute</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="2">Underline</td>
+<td>4</td>
+<td colspan="4">Always 0</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="2">Reverse</td>
+<td>5</td>
+<td colspan="4">Always 0</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="2">Blink</td>
+<td>6</td>
+<td colspan="4">Always 0</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="2">Invisible</td>
+<td>7</td>
+<td colspan="4">Dim</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Assign Line Attributes</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Assign line attributes</td>
+<td>ESC G <var>LineAttr</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="7"><b>Parameters:</b></td>
+<td class="minhead" colspan="2"><var>LineAttr</var></td>
+<td class="minhead" colspan="6">Line Attribute</td>
+</tr>
+<tr>
+<td colspan="2">@</td>
+<td colspan="6">Single height, single width (default)</td>
+</tr>
+<tr>
+<td colspan="2">A</td>
+<td colspan="6">Single height, double width</td>
+</tr>
+<tr>
+<td colspan="2">B</td>
+<td colspan="6">Top-half of double height, single width</td>
+</tr>
+<tr>
+<td colspan="2">C</td>
+<td colspan="6">Bottom-half of double height, single width</td>
+</tr>
+<tr>
+<td colspan="2">D</td>
+<td colspan="6">Top-half of double height, double width</td>
+</tr>
+<tr>
+<td colspan="2">E</td>
+<td colspan="6">Bottom-half of double height, double width</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>"WYSE 160/60 PCTerm" and TVI should have Enhanced Mode off.</p>
+<p><sup>2</sup>Users can change the scrolling rate by entering keys from the keyboard. Pressing <span class="keyname" title="Up">Ctrl/Shift/⇑</span> to increase the rate
+and <span class="keyname" title="Down">Ctrl/Shift/⇓</span> to decrease it.</p>
+<p><sup>4</sup>Because of hardware limitations, selecting 42 or 43 data lines forces the screen size to be 53 lines.</p>
+<p><sup>5</sup>Upon receipt of the Set Page Size command, the terminal:</p>
+<ul>
+<li>Clears the display memory to NUL (0/0) characters.</li>
+<li>Displays first page "page 0."</li>
+<li>Moves the cursor to its home position.</li>
+<li>Changes the split screen to a full screen format.</li>
+<li>Turns off the Protect mode.</li>
+<li>Unlocks the locked line.</li>
+</ul>
+<p><sup>6</sup>Enhanced Mode off.</p>
+<p><sup>7</sup>In WYSE mode, command "ESC J" works only when the screen is not split. If the screen is split, refer to "Activate
+Other Window or Page" command. Command "ESC w B" in WYSE modes works when the screen is not split or the split
+screen is caused by an adjustable split. It does not work when the split screen is a result of a simple split. Users can use
+local function keys to display the previous page. On a VT keyboard, press <span class="keyname">Ctrl/Prev</span>; on an Enhanced PC keyboard, press
+<span class="keyname">Ctrl/Page Up</span>.</p>
+<p><sup>8</sup>Users can use a local function key to display the next page. Press <span class="keyname">Ctrl/N</span>, where N is a number on the numeric keypad
+key equivalent to the page number, on both VT and Enhanced PC keyboard.</p>
+<p><sup>9</sup>Unshifted key label only; the Shifted Key label is not available for TVI modes.</p>
+<p><sup>12</sup>Assigning parameters "6," "7" or "A" clears previously defined write-protected attributes; "B" through "G" add on top of
+previous attribute(s) and display a combination of new and old display attributes.</p>
+<p>† All the 7-bit ASCII codes are legal in this sequence. Example: "A" turns on the dim attribute, "T" turns on the reverse
+attribute, "S" turns on dim, blink and reverse attributes.</p>
+<p>‡ Example: Dim + Reverse + Invisible reports VTS (8AH) + a.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p><a href="#T12-6">Table 12–6</a> lists the data protection control functions. The word "same" in
+<a href="#T12-6">Table 12–6</a> signifies the same control sequences as in the WYSE 160/60 column.</p></div>
+<table id="T12-6" class="truled">
+<caption><span class="tabfigid">Table 12–6</span> Data Protection Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Write-Protect Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Write-protect mode off (default)</td>
+<td>ESC (</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or Ctrl/O</td>
+</tr>
+<tr>
+<td>Write-protect mode on<sup>1</sup></td>
+<td>ESC )</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or Ctrl/N</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Protect Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Protect mode off (default)</td>
+<td>ESC '</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Protect mode on</td>
+<td>ESC &amp;</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Turning on Write-Protect mode does not start protecting the data. It only defines the range of data that needs to
+be protected. Not until Protect mode is turned on does the data become protected. Changing personality does not
+change the Write-Protect mode. Graphic characters range from 1/0 to 1/15, and embedded attributes are automatically
+write-protected even when Write-Protect mode is off.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p><a href="#T12-7">Table 12–7</a> lists the cursor control functions. The word "same" in <a href="#T12-7">Table 12–7</a>
+signifies the same control sequences as in the WYSE 160/60 column.</p></div>
+<table id="T12-7" class="truled">
+<caption><span class="tabfigid">Table 12–7</span> Cursor Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Autopage Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On</td>
+<td>ESC d +</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC v</td>
+<td>ESC v</td>
+<td>ESC v</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off (default)</td>
+<td>ESC d *</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC w</td>
+<td>ESC w</td>
+<td>ESC w</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Autoscrolling Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>ESC O</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>ESC N</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor Display Feature</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Set cursor appearance</td>
+<td>ESC ` <var>Cursor</var></td>
+<td>ESC . <var>Cursor</var></td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td colspan="3">ESC . <var>Cursor</var></td>
+<td>EnH<sup>1</sup></td>
+</tr>
+<tr>
+<td rowspan="7"><b>Parameters:</b></td>
+<td class="minhead"><var>Cursor</var></td>
+<td class="minhead" colspan="7">Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Cursor Display Off</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">Cursor Display On</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="7">Steady Block Cursor</td>
+</tr>
+<tr>
+<td>3</td>
+<td colspan="7">Blinking Line Cursor</td>
+</tr>
+<tr>
+<td>4</td>
+<td colspan="7">Steady Line Cursor</td>
+</tr>
+<tr>
+<td>5</td>
+<td colspan="7">Blinking Block Cursor</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">End-of-Line Wrap Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>ESC d /</td>
+<td>ESC ~</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>ESC d .</td>
+<td>ESC 0</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="6"></td>
+<td colspan="8"><p>When the cursor position is located at the bottom and right margin position of the current
+page with wrap flag on, any displayable character received has the following effect:</p></td>
+</tr>
+<tr>
+<td class="minhead">Autopage</td>
+<td class="minhead" colspan="2">Autoscroll</td>
+<td class="minhead" colspan="2">Page Mode</td>
+<td class="minhead" colspan="3">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td rowspan="2">On</td>
+<td rowspan="2" colspan="2">–</td>
+<td colspan="2">Single</td>
+<td colspan="3">Home position of the active page.</td>
+</tr>
+<tr>
+<td colspan="2">Multiple</td>
+<td colspan="3">Home position of the next page.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">On</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Left margin of bottom line after a scroll is performed.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">Off</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Home position of the active page.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Received CR Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>CR (default)</td>
+<td>ESC e 4</td>
+<td>ESC 9</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>CRLF</td>
+<td>ESC e 5</td>
+<td>ESC 8</td>
+<td>EnH</td>
+<td>same as 160/60</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Lock Cursor Line Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On</td>
+<td>ESC ` H</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC ! 1</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off (default)</td>
+<td>ESC ` I</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC ! 2</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Recognize DEL Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>On (default)</td>
+<td>ESC e E</td>
+<td>EnH</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>ESC e D</td>
+<td>EnH</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor Movement</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor Left (Back Space)</td>
+<td>Ctrl/H</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse or Ctrl/U</td>
+</tr>
+<tr>
+<td rowspan="3"></td>
+<td class="minhead">Autopage</td>
+<td class="minhead" colspan="2">Page Mode</td>
+<td class="minhead" colspan="5">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>On</td>
+<td colspan="2">Multiple</td>
+<td colspan="5">Bottom right margin of the preceding page (if any)
+even though the bottom right margin is protected.
+Under this command, the Protect mode feature
+carries through all pages. Refer to Protect Mode for
+details.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">Single</td>
+<td colspan="5">Bottom right margin of the active page even though
+the right margin is protected.</td>
+</tr>
+<tr>
+<td>Cursor Left (Delete)</td>
+<td>DEL</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Cursor Right</td>
+<td>Ctrl/L</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Ctrl/F</td>
+</tr>
+<tr>
+<td rowspan="4"></td>
+<td class="minhead">Autopage</td>
+<td class="minhead">Autoscroll</td>
+<td class="minhead">Page</td>
+<td class="minhead" colspan="5">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>On</td>
+<td>–</td>
+<td>Multiple</td>
+<td colspan="5">Home position or the first unprotected position (when
+Protect mode is on) of the next page (if any). Under
+this command, the Protect mode feature carries
+through all pages. Refer to Protect mode for details.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>On</td>
+<td>Single<sup>2</sup></td>
+<td colspan="5">Left margin of the bottom margin line after a scroll is
+performed.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>Off</td>
+<td>Single<sup>3</sup></td>
+<td colspan="5">Home position of the active page.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor Up</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor Up—No Scroll</td>
+<td>Ctrl/K</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Ctrl/Z</td>
+</tr>
+<tr>
+<td>Cursor Up—Scroll (Reverse Linefeed)</td>
+<td>ESC j</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="7"></td>
+<td colspan="8">This command moves the cursor as follows:</td>
+</tr>
+<tr>
+<td class="minhead">Autopage</td>
+<td class="minhead">Autoscroll</td>
+<td class="minhead">Page</td>
+<td class="minhead">Protect</td>
+<td class="minhead" colspan="4">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+<td>Single</td>
+<td>–</td>
+<td colspan="4">(Command is ignored.)</td>
+</tr>
+<tr>
+<td>On</td>
+<td>–</td>
+<td>Multiple</td>
+<td>On or Off</td>
+<td colspan="4">Bottom line of the previous page. Under
+this command, the Protect mode feature
+carries through all pages.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>On</td>
+<td>Multiple</td>
+<td>Off</td>
+<td colspan="4">Top margin of the active page after a
+reverse scroll is performed.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>On</td>
+<td>Multiple</td>
+<td>On</td>
+<td colspan="4">(Command is ignored.)</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>Off</td>
+<td>Multiple</td>
+<td>–</td>
+<td colspan="4">(Command is ignored.)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor Down</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor Down—No Scroll</td>
+<td>Ctrl/V</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Cursor Down—Scroll (Linefeed)</td>
+<td>Ctrl/J</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td rowspan="5"></td>
+<td class="minhead">Autopage</td>
+<td class="minhead">Autoscroll</td>
+<td class="minhead" colspan="2">Page Mode</td>
+<td class="minhead" colspan="4">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>Off</td>
+<td colspan="2">–</td>
+<td colspan="4">Top margin line of the active page. If
+the destination position is protected, the
+cursor moves right to the first unprotected
+position.</td>
+</tr>
+<tr>
+<td>On</td>
+<td>–</td>
+<td colspan="2">Single</td>
+<td colspan="4">Top margin line of the active page. If
+the destination position is protected, the
+cursor moves right or down to the first
+unprotected position.</td>
+</tr>
+<tr>
+<td>On</td>
+<td>–</td>
+<td colspan="2">Multiple</td>
+<td colspan="4">Top margin line of the next page. Under
+this command, the Protect mode feature
+carries through all pages. Refer to Protect
+Mode for details.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>On</td>
+<td colspan="2">Multiple</td>
+<td colspan="4">Bottom line of the active page after a
+scroll is performed.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Cursor to Start</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor to start of line</td>
+<td>Ctrl/M</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+</tr>
+<tr>
+<td>Cursor to start of next line</td>
+<td>Ctrl/_</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="3"></td>
+<td class="minhead">Autopage</td>
+<td class="minhead">Page</td>
+<td class="minhead" colspan="6">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>Single<sup>4</sup></td>
+<td colspan="6">Home position of the current page or the first unprotected
+position of the current page if Protect mode is on.</td>
+</tr>
+<tr>
+<td>On</td>
+<td>Multiple</td>
+<td colspan="6">Home position of the next page or the first unprotected position
+of the next page if Protect mode is on. Under this command, the
+Protect mode feature carries through all pages. Refer to Protect
+Mode for details.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th rowspan="2">Address Cursor</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Cursor to Home</td>
+<td>Ctrl/^ or ESC {</td>
+<td>Ctrl/^</td>
+<td>same</td>
+<td>same</td>
+<td>Ctrl/^</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or Ctrl/A</td>
+</tr>
+<tr>
+<td>Address Cursor to a specific column (<var>Col</var>)</td>
+<td>ESC _ <var>Col</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC ] <var>Col</var></td>
+<td>EnH or Ctrl/P <var>Col</var></td>
+</tr>
+<tr>
+<td>Address Cursor to a specific line</td>
+<td>ESC [ <var>Line</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or Ctrl/K <var>Line</var></td>
+</tr>
+<tr>
+<td>Address Cursor in Current Page</td>
+<td>ESC = <var>Line Col</var></td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or ESC Y <var>Line Col</var></td>
+</tr>
+<tr>
+<td>Address Cursor in specific page</td>
+<td>ESC h <var>page</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Address Cursor in specific page, line, and column</td>
+<td colspan="8">ESC w @ <var>Page Line Col</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC - <var>Page Line Col</var><sup>5</sup></td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Address Cursor in specific Window/Page</td>
+<td colspan="8">ESC - <var>Window/Page Line Col</var><sup>6</sup></td>
+</tr>
+<tr>
+<td></td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Address Cursor in 80/132 column current Page</td>
+<td colspan="8">ESC a <var>Line</var> R <var>Col</var> C</td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td colspan="3">ESC d <var>Line</var> R <var>Col</var> C</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Read Cursor</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Read Cursor address in current Page</td>
+<td>ESC ?</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Read Window, Page no., and Cursor address</td>
+<td>ESC /</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Read Cursor address in Current 80/132-col page</td>
+<td>ESC b</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Read Page number and Cursor address</td>
+<td>ESC w `<br/>
+ESC w .<br/>
+ESC w ,<br/>
+ESC w '</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup><span class="keyname">Ctrl/W</span> = Cursor off; <span class="keyname">Ctrl/X</span> = Cursor on.</p>
+<p><sup>2</sup>Autopage mode is either set to off, or the terminal is in Single Page mode and Autoscroll mode is on.</p>
+<p><sup>3</sup>Autopage mode is either set to off, or the terminal is in Single Page mode and Autoscroll mode is off.</p>
+<p><sup>4</sup>Either Autopage mode or Single Page mode is enabled.</p>
+<p><sup>5</sup>Enhanced Mode off.</p>
+<p><sup>6</sup>When screen is split, "0" = upper window; "1" = lower window.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><div class="note"><span class="notehead">Note</span>
+<div class="notebody"><p>The terminal responds to the Read Cursor command in the following
+format: lll R ccc C</p>
+<p>The two parameter values, lll and ccc, are the 3-byte decimal values for
+the line/column location of the cursor. For example, "019R010C" indicates
+the cursor is at line 19, column 10. The sequence with parameters "001"
+(3/0)(3/0)(3/1) and "001" (3/0)(3/0)(3/1) indicates the cursor is at the home
+position.</p></div></div>
+<p><a href="#T12-8">Table 12–8</a> lists the ASCII editing control functions. The word "same" in
+<a href="#T12-8">Table 12–8</a>, <a href="T12-10.html">Table 12–10</a>, and <a href="#T12-11">Table 12–11</a> signify the same control sequences as
+in the WYSE 160/60 column.</p>
+<table id="T12-8" class="truled">
+<caption><span class="tabfigid">Table 12–8</span> ASCII Editing Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Local Edit Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off<sup>1</sup> (default)</td>
+<td>ESC l</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>On<sup>2</sup></td>
+<td>ESC k</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Duplex Edit Mode On.</p>
+<p><sup>2</sup>Duplex Edit Mode Off.</p></td>
+</tr>
+</tfoot>
+</table>
+<p>In local edit mode, instead of sending keycodes to the host, some function keys
+send codes directly to the terminal to speed up the editing process. <a href="#T12-9">Table 12–9</a>
+lists these local edit functions and their operating keys for both the VT keyboard
+and the Enhanced PC keyboard.</p>
+<table id="T12-9" class="truled">
+<caption><span class="tabfigid">Table 12–9</span> Local Edit Mode Function Keys</caption>
+<thead>
+<tr>
+<th>Function</th>
+<th>VT Keyboard</th>
+<th>EPC Keyboard</th>
+<th>Sequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insert Character</td>
+<td><span class="keyname">PF1</span></td>
+<td></td>
+<td>ESC Q</td>
+</tr>
+<tr>
+<td>Insert Line</td>
+<td>Shifted <span class="keyname">PF1</span></td>
+<td></td>
+<td>ESC E</td>
+</tr>
+<tr>
+<td>Delete Character</td>
+<td><span class="keyname">PF2</span></td>
+<td><span class="keyname">Delete</span></td>
+<td>ESC W</td>
+</tr>
+<tr>
+<td>Delete Line</td>
+<td>Shifted <span class="keyname">PF2</span></td>
+<td>Shifted <span class="keyname">Delete</span></td>
+<td>ESC R</td>
+</tr>
+<tr>
+<td>Clear Line</td>
+<td><span class="keyname">PF3</span></td>
+<td><span class="keyname">End</span></td>
+<td>ESC T</td>
+</tr>
+<tr>
+<td>Clear Screen</td>
+<td>Shifted <span class="keyname">PF3</span></td>
+<td>Shifted <span class="keyname">End</span></td>
+<td>ESC Y</td>
+</tr>
+<tr>
+<td>Insert</td>
+<td></td>
+<td><span class="keyname">Insert</span></td>
+<td>ESC q</td>
+</tr>
+<tr>
+<td>Replace</td>
+<td></td>
+<td>Shifted <span class="keyname">Insert</span></td>
+<td>ESC r</td>
+</tr>
+<tr>
+<td>Next Page</td>
+<td></td>
+<td><span class="keyname">Page Down</span></td>
+<td>ESC K</td>
+</tr>
+<tr>
+<td>Previous Page</td>
+<td></td>
+<td><span class="keyname">Page Up</span></td>
+<td>ESC J</td>
+</tr>
+<tr>
+<td>Send</td>
+<td></td>
+<td></td>
+<td>ESC 7</td>
+</tr>
+<tr>
+<td>Print</td>
+<td></td>
+<td><span class="keyname">Print</span></td>
+<td>ESC P</td>
+</tr>
+<tr>
+<td>Home</td>
+<td></td>
+<td>Shift <span class="keyname">Home</span></td>
+<td>ESC {</td>
+</tr>
+<tr>
+<td>Tab</td>
+<td></td>
+<td>Shift <span class="keyname">Tab</span></td>
+<td>ESC I</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#T12-10">Table 12–10</a> lists the tab stop control functions.</p></div>
+<table id="T12-10" class="truled">
+<caption><span class="tabfigid">Table 12–10</span> Tab Stop Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Tab Stop Function</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clear All Tab Stops</td>
+<td>ESC 0</td>
+<td>ESC 3</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>ESC 3</td>
+<td>ESC 3</td>
+<td>ESC 3</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Clear Tab Stop</td>
+<td>ESC 2</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Set Tab Stop</td>
+<td>ESC 1</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Tabulate Cursor or Field Tab<sup>1</sup></td>
+<td>ESC i or Ctrl/I</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="6"></td>
+<td colspan="8">The cursor moves as follows:</td>
+</tr>
+<tr>
+<td class="minhead">Autopage</td>
+<td class="minhead" colspan="2">Autoscroll</td>
+<td class="minhead" colspan="2">Page Mode</td>
+<td class="minhead" colspan="3">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>On</td>
+<td colspan="2">–</td>
+<td colspan="2">Single</td>
+<td colspan="3">Top margin line of the active page</td>
+</tr>
+<tr>
+<td>On</td>
+<td colspan="2">–</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Top margin line of the other page.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">On</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Bottom margin of the active page after a scroll is performed.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">Off</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Top margin line of the active page.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Backtab or Field Tab<sup>2</sup></td>
+<td>ESC I</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="6"></td>
+<td colspan="8">The cursor moves as follows:</td>
+</tr>
+<tr>
+<td class="minhead">Autopage</td>
+<td class="minhead" colspan="2">Autoscroll</td>
+<td class="minhead" colspan="2">Page Mode</td>
+<td class="minhead" colspan="3">Cursor Moves to . . .</td>
+</tr>
+<tr>
+<td>On</td>
+<td colspan="2">–</td>
+<td colspan="2">Single</td>
+<td colspan="3">Home</td>
+</tr>
+<tr>
+<td>On</td>
+<td colspan="2">–</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Bottom margin line of the previous page if any.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">On</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Bottom margin line of the active page.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td colspan="2">Off</td>
+<td colspan="2">Multiple</td>
+<td colspan="3">Bottom margin line of the active page.</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Executes "tabulate cursor" when protect mode is off.</p>
+<p><sup>2</sup>If protect mode is on, this command executes a "field tab" to move the cursor left to the first unprotected character
+position after the nearest protect field. The tab stop setting is completely ignored. The cursor moves backward from the
+first position of an unprotected area to the first position of another unprotected area.</p>
+<p>Executing a Backtab from an unprotected page to a previous protected page changes its protect mode to "unprotected."</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p><a href="#T12-11">Table 12–11</a> lists the page edit control functions.</p></div>
+<table id="T12-11" class="truled">
+<caption><span class="tabfigid">Table 12–11</span> Page Edit Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Page Edit Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off (default)</td>
+<td>ESC e "</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC O</td>
+<td>ESC O</td>
+<td>ESC O</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>On</td>
+<td>ESC e #</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC N</td>
+<td>ESC N</td>
+<td>ESC N</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Insert/Replace Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Replace mode On (default)</td>
+<td>ESC r</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Insert mode On</td>
+<td>ESC q</td>
+<td>ESC z</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Insert Characters</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Insert Space Character</td>
+<td>ESC Q</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Insert Line of Spaces</td>
+<td>ESC E</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH or ESC M</td>
+</tr>
+<tr>
+<td>Insert Column of NULs</td>
+<td>ESC c M</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Deleting Data on Current Page Only</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Delete Cursor Character</td>
+<td>ESC W</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Delete Cursor Line</td>
+<td>ESC R</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Delete Cursor Column</td>
+<td>ESC c J</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Erasing Data on Page Function</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Clear Page to NULs</td>
+<td>ESC *</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear Page to spaces</td>
+<td>ESC +</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH or Ctrl/L</td>
+</tr>
+<tr>
+<td>Clear page to write-protected spaces</td>
+<td>ESC ,</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected page to write-protected spaces</td>
+<td>n/a</td>
+<td>ESC ,</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC ,</td>
+<td>ESC ,</td>
+<td>ESC ,</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Clear unprotected page to NULs</td>
+<td>ESC :</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>ESC : (EnH)</td>
+</tr>
+<tr>
+<td>Clear unprotected page to spaces</td>
+<td>ESC ; or Ctrl/Z</td>
+<td>same or ESC +</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>same or ESC +</td>
+<td>same or ESC +</td>
+<td>same or ESC +</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected page to a specific character<sup>1</sup></td>
+<td>ESC . <var>Char</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected page to NULs from cursor</td>
+<td>ESC y</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected page to spaces from cursor</td>
+<td>ESC Y</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>ESC k</td>
+</tr>
+<tr>
+<td>Clear unprotected page foreground to NULs from cursor position</td>
+<td>ESC c Q</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected page foreground to spaces from cursor position</td>
+<td>ESC c P</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected area to end of line with NULs</td>
+<td>ESC c L</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected area to end of line with spaces</td>
+<td>ESC c O</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected line from cursor position to NULs</td>
+<td>ESC t</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected line from cursor position to spaces</td>
+<td>ESC T</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC K</td>
+</tr>
+<tr>
+<td>Clear unprotected line foreground from cursor position to NULs</td>
+<td>ESC c S</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected line foreground from cursor position to spaces</td>
+<td>ESC c R</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected position to NULs</td>
+<td>ESC c K</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear unprotected column to a specific character<sup>1</sup></td>
+<td>ESC c I <var>Char</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Clear column to write-protected space</td>
+<td>ESC V</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>"<var>Char</var>" is an ASCII character. Any 8-bit code is treated as a 7-bit code since the most significant bit of the code is
+stripped off.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p><a href="#T12-12">Table 12–12</a> lists the rectangle area control functions.</p></div>
+<table id="T12-12" class="truled">
+<caption><span class="tabfigid">Table 12–12</span> Rectangle Area Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Draw Rectangle in 80/132 column Current Page</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Format 1</td>
+<td colspan="8">ESC c G <var>Line Col</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Format 2<sup>1</sup></td>
+<td colspan="8">ESC c G <var>Line</var> ~ <var>Col</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Fill Rectangle with a Specific Character in 80/132-column Cursor Page</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Format 1</td>
+<td colspan="8">ESC c H <var>Line Col Char</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Format 2<sup>1</sup></td>
+<td colspan="8">ESC c H <var>Line</var> ~ <var>Col Char</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Fill unprotected Rectangle with a specific character</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Format 1</td>
+<td colspan="8">ESC c F <var>Line Col Char</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td rowspan="2">Format 2<sup>1</sup></td>
+<td colspan="8">ESC c F <var>Line</var> ~ <var>Col Char</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Draw Rectangle<sup>2</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2">Draw rectangle area to right and below cursor.</td>
+<td colspan="8">ESC c N <var>Width Height</var></td>
+</tr>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Swap/Copy/Move</th>
+<th colspan="8">WYSE 160/60</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Swap, copy, or move the data in a rectangle to another rectangle.</td>
+<td colspan="8">ESC c ^ <var>Action S_page</var> P <var>S_n1</var> R <var>S_n2</var> C <var>S_n3</var> R <var>S_n4</var> C <var>D_page</var> P <var>D_n1</var> R <var>D_n2</var> C</td>
+</tr>
+<tr>
+<td rowspan="13"><b>Parameters:</b></td>
+<td class="minhead"><var>Action</var></td>
+<td class="minhead" colspan="7">Description</td>
+</tr>
+<tr>
+<td>0</td>
+<td colspan="7">Swaps data between the source and the destination rectangles.</td>
+</tr>
+<tr>
+<td>1</td>
+<td colspan="7">Copies the content of the source rectangle to a destination rectangle,
+preserving the contents of the source rectangle.</td>
+</tr>
+<tr>
+<td>2</td>
+<td colspan="7">Moves the contents of the source rectangle to destination rectangle, clearing
+the source rectangle.</td>
+</tr>
+<tr>
+<td class="minhead">Parameter</td>
+<td class="minhead" colspan="7">Description</td>
+</tr>
+<tr>
+<td><var>S_page</var></td>
+<td colspan="7">Page number of the source rectangle</td>
+</tr>
+<tr>
+<td><var>S_n1</var></td>
+<td colspan="7">Starting line number of the source rectangle (top left corner)</td>
+</tr>
+<tr>
+<td><var>S_n2</var></td>
+<td colspan="7">Starting column number of the source rectangle (top left corner)</td>
+</tr>
+<tr>
+<td><var>S_n3</var></td>
+<td colspan="7">Ending line number of the source rectangle (bottom right corner)</td>
+</tr>
+<tr>
+<td><var>S_n4</var></td>
+<td colspan="7">Ending column number of the source rectangle (bottom right corner)</td>
+</tr>
+<tr>
+<td><var>D_page</var></td>
+<td colspan="7">Page number of the destination rectangle</td>
+</tr>
+<tr>
+<td><var>D_n1</var></td>
+<td colspan="7">Starting line number of the destination rectangle (top left corner)</td>
+</tr>
+<tr>
+<td><var>D_n2</var></td>
+<td colspan="7">Starting column number of the destination rectangle (top left corner)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th>Swap/Copy/Move</th>
+<td></td>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Swap, copy, or move the data in a rectangle.</td>
+<td></td>
+<td>n/a</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>Not recommended for 80-column mode.</p>
+<p><sup>2</sup>Parameters Line and Column are ASCII characters whose decimal values are the desired numbers plus 31.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><h2 id="S12.5">12.5 Printing/Sending Data</h2>
+<p>This section describes commands to print and send data.</p>
+<h3 id="S12.5.1">12.5.1 Sending Data</h3>
+<p>This section describes commands to send a defined area of data on the screen
+through the main communication port using ASCII control functions. Individual
+commands address the specific data to be sent.</p>
+<p>In send operations, delimiter characters are sent along with data to mark a line
+end, transfer complete, or the protect data and its area. <a href="#T12-13">Table 12–13</a> lists the
+possible delimiter types. Depending on the scope of data (line, page) and the type
+of data (protected, unprotected) that has been sent, different delimiter characters
+are enclosed. The individual commands explain which delimiter should be sent
+with each command.</p>
+<p><a href="#T12-13">Table 12–13</a> lists the types of delimiters to send data.</p>
+<table id="T12-13" class="truled">
+<caption><span class="tabfigid">Table 12–13</span> Send Data Delimiters</caption>
+<thead>
+<tr>
+<th>Delimiter Type</th>
+<th>Sent . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>End of the line</td>
+<td>At the end of each line but not at the end of the page (block).</td>
+</tr>
+<tr>
+<td>Transfer complete</td>
+<td>After each Send Data action, except for a "Send the Cursor
+Character" command.</td>
+</tr>
+<tr>
+<td>Field separator</td>
+<td>To take the position of the protected field data when "Send
+Unprotected" command is executed and Protect mode is on.</td>
+</tr>
+<tr>
+<td>Start protect field and End protect field</td>
+<td>To mark the beginning and the ending of a write-protected field
+of data when Protect mode is on.</td>
+</tr>
+</tbody>
+</table>
+<p>All the send data actions in this section, except "Send the Cursor Character"
+command, use the following rules:</p>
+<ul>
+<li>The attributes are not sent along with their data. But a Space character (Hex
+20) is inserted between two distinct attribute data to indicate the attribute
+difference.</li>
+<li>During the process of sending characters, the cursor moves to the location of
+the character being sent.
+<ul>
+<li><b>Protect mode on:</b> The cursor does not move.</li>
+<li><b>Protect mode off:</b> The cursor moves to the left margin of the next line.</li>
+</ul></li>
+<li>Null characters on the screen are not sent.</li>
+<li>Delimiter characters:
+<ul>
+<li><b>TVI modes and WYSE 160/60 PCTerm modes:</b> Defined by command
+"Define Delimiters" (Refer to the command for details.)</li>
+<li><b>Other personalities:</b> See <a href="#T12-14">Table 12–14</a>.</li>
+</ul></li>
+</ul>
+<table id="T12-14" class="truled">
+<caption><span class="tabfigid">Table 12–14</span> Delimiters for Other Personalities</caption>
+<thead>
+<tr>
+<th>Delimiter</th>
+<th>Terminal sends...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>End of line</td>
+<td>Either "US" or "CRLF" depending on the Set-Up Block End selection.</td>
+</tr>
+<tr>
+<td>End of transmission</td>
+<td>Either "CR" or "ETX" depending on the Set-Up Block End selection.</td>
+</tr>
+<tr>
+<td>Protected field</td>
+<td>A single FS (Hex 1C).</td>
+</tr>
+<tr>
+<td>Protected field separator</td>
+<td><p><b>Native mode:</b> "ESC )" and "ESC (" when the protect field
+attribute is Dim or Normal;<br/>
+"ESC )sp" and "ESC (sp" when the protect field attribute
+is any other combination.</p>
+<p><b>Other modes:</b> "ESC )" and "ESC ("</p></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>If any line on the screen is locked, then the line is not sent; however, the end
+of line delimiter is still sent to indicate a line has been skipped.</li>
+<li>If the first character sent is a protected character, then the ESC ) sequence
+is not sent before the first character; if the last character sent is a protected
+character, then the ESC ( sequence is not sent before the terminator.</li>
+<li>If the cursor position is located at the right margin of the bottom margin line
+and the Protect mode is off:
+<table class="truled">
+<thead>
+<tr>
+<th>Autopage</th>
+<th>Autoscroll</th>
+<th>Page Mode</th>
+<th>Cursor moves to . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On</td>
+<td>–</td>
+<td>Single</td>
+<td>Home position of the active page.</td>
+</tr>
+<tr>
+<td>On</td>
+<td>–</td>
+<td>Multiple</td>
+<td>Home position of the other page.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>On</td>
+<td>Multiple</td>
+<td>Left margin of the bottom line after a scroll is performed.</td>
+</tr>
+<tr>
+<td>Off</td>
+<td>Off</td>
+<td>Multiple</td>
+<td>Home position of the active page.</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<p><a href="#T12-15">Table 12–15</a> lists the print/send control functions.</p></div>
+<table id="T12-15" class="truled">
+<caption><span class="tabfigid">Table 12–15</span> Print/Send Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Function</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2">Define delimiters</td>
+<td>n/a</td>
+<td colspan="7">ESC x <var>Dlmtr Char1 Char2</var></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>n/a</td>
+<td>n/a</td>
+<td colspan="3">ESC x <var>Dlmtr Char1 Char2</var></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td rowspan="14"><b>Parameters:</b></td>
+<td class="minhead" colspan="2"><var>Dlmtr</var></td>
+<td class="minhead" colspan="6">Description</td>
+</tr>
+<tr>
+<td colspan="2">0</td>
+<td colspan="6">Protected Field separator</td>
+</tr>
+<tr>
+<td colspan="2">1</td>
+<td colspan="6">Start protect field</td>
+</tr>
+<tr>
+<td colspan="2">2</td>
+<td colspan="6">End protect field</td>
+</tr>
+<tr>
+<td colspan="2">3</td>
+<td colspan="6">End of the line</td>
+</tr>
+<tr>
+<td colspan="2">4</td>
+<td colspan="6">Termination</td>
+</tr>
+<tr>
+<td colspan="8">Parameters <var>Char1</var> and <var>Char2</var> are ASCII characters.</td>
+</tr>
+<tr>
+<td class="minhead" colspan="2">Delimiter</td>
+<td class="minhead" colspan="6">Default ASCII Character</td>
+</tr>
+<tr>
+<td colspan="2">Field separator</td>
+<td colspan="6">FS NUL (1/12 0/0)</td>
+</tr>
+<tr>
+<td colspan="2">Start protect field</td>
+<td colspan="6">ESC ) (1/11 2/9)</td>
+</tr>
+<tr>
+<td colspan="2">End protect field</td>
+<td colspan="6">ESC ( (1/11 2/8)</td>
+</tr>
+<tr>
+<td colspan="2">End of the line</td>
+<td colspan="6">US NUL (1/15 0/0)</td>
+</tr>
+<tr>
+<td colspan="2">Termination</td>
+<td colspan="6">CR NUL (1/13 0/0)</td>
+</tr>
+<tr>
+<td colspan="8">A NUL character that is defined in a delimiter is not sent out.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Begin Print/Send</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Begin Print/Send at Top of Page</td>
+<td>ESC d `</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Begin Print/Send at Top of Screen</td>
+<td>ESC d &amp;</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Sending a Character or Line</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Send the Cursor Character</td>
+<td>ESC M</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Send the Cursor Line</td>
+<td>ESC 6</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Send unprotected Cursor Line</td>
+<td>ESC 4</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Sending a Page</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Send Page</td>
+<td>ESC 7</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Send an unprotected Page</td>
+<td>ESC 5</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Sending a Block</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Mark Block Beginning</td>
+<td>ESC 8</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Mark Block Ending<sup>1</sup></td>
+<td>ESC 9</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Send Block<sup>2</sup></td>
+<td>ESC s</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Send an unprotected Character in a Block</td>
+<td>ESC S</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>See Note 1.</p>
+<p><sup>2</sup>See Note 2.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p>ASCII emulations do not send:</p>
+<ul>
+<li>Initialization codes</li>
+<li>Ending sequences to designated character sets and display attributes</li>
+<li>"Fallbacks" to represent data that cannot be printed by the attached printer</li>
+</ul>
+<p>The only factors that affect printing data are data and parity settings.</p>
+<table class="truled">
+<thead>
+<tr>
+<th>Data/Parity Setting</th>
+<th>Characters are printed . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-bit</td>
+<td>As is</td>
+</tr>
+<tr>
+<td>7-bit</td>
+<td>After stripping off the most significant bit</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><span class="notehead">Notes</span>
+<div class="notebody"><ol>
+<li>Note on Mark Block Ending:
+<ul>
+<li><b>Replace mode on:</b> "STX" or "ETX" replaces the existing
+character at the active position and moves the cursor right one
+position.</li>
+<li><b>Insert mode on:</b> Writing "STX" or "ETX" moves all characters
+and their attributes one position to the right of the cursor position
+(inclusive) in the current line without wraparound.</li>
+</ul></li>
+<li>Note on Send Block:
+<ul>
+<li><b>Protect mode on:</b> Unprotected data is sent as is; protected
+data, enveloped between "start of protect field" and "end of protect
+field" delimiters, is sent.</li>
+<li><b>Protect mode off:</b> All the data in the range, protected or
+unprotected, is sent.</li>
+</ul></li>
+</ol></div></div>
+<p><a href="#T12-16">Table 12–16</a> lists the printing data control functions.</p></div>
+<table id="T12-16" class="truled">
+<caption><span class="tabfigid">Table 12–16</span> Printing Data Control Functions</caption>
+<thead>
+<tr>
+<th rowspan="2">Autoprint Mode<sup>1</sup></th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off (default)</td>
+<td>Ctrl/T</td>
+<td>ESC A</td>
+<td>Ctrl/T</td>
+<td>Ctrl/T</td>
+<td colspan="3">ESC A or Ctrl/T</td>
+<td>Ctrl/T</td>
+</tr>
+<tr>
+<td>On</td>
+<td>Ctrl/R</td>
+<td>ESC @</td>
+<td>Ctrl/R</td>
+<td>Ctrl/R</td>
+<td colspan="3">ESC @ or Ctrl/R</td>
+<td>Ctrl/R</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Control Print Mode<sup>3</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Off</td>
+<td>Ctrl/T</td>
+<td>ESC a</td>
+<td>Ctrl/T</td>
+<td>Ctrl/T</td>
+<td>ESC a</td>
+<td>ESC a</td>
+<td>ESC a</td>
+<td>ESC 4</td>
+</tr>
+<tr>
+<td>On</td>
+<td>ESC d # or Ctrl/X<sup>2</sup></td>
+<td>ESC '</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>ESC '</td>
+<td>ESC '</td>
+<td>ESC '</td>
+<td>ESC 3 ESC d # (EnH)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Aux Receive Mode</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Off (default)</td>
+<td>ESC d Sp</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>On</td>
+<td>ESC d !</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Bidirectional Mode<sup>4</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Off (default)</td>
+<td>ESC d $</td>
+<td>Ctrl/T</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>Ctrl/T</td>
+<td>Ctrl/T</td>
+<td>Ctrl/T</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>On</td>
+<td>ESC d %</td>
+<td>Ctrl/R</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>Ctrl/R</td>
+<td>Ctrl/R</td>
+<td>Ctrl/R</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Print Page to the Cursor Position</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Formatted Page<sup>5</sup></td>
+<td>ESC P</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Formatted Page (unprotected)</td>
+<td>ESC @</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Unformatted Page<sup>5</sup></td>
+<td>ESC p or ESC L</td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>ESC L</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC p</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Print a Page with Time Message<sup>5</sup></th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td></td>
+<td>n/a</td>
+<td>ESC L</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>ESC L</td>
+<td>ESC L</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Pass a Character to the Printer Port</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td></td>
+<td>Ctrl/P <var>Char</var></td>
+<td>Wyse</td>
+<td>same</td>
+<td>same</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>Wyse</td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Define the Page Print Terminator</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td rowspan="2"></td>
+<td>n/a</td>
+<td colspan="7">ESC p Ps <var>Char</var></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>n/a</td>
+<td>n/a</td>
+<td colspan="3">ESC p <var>Char</var></td>
+<td>n/a</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>The symbol "&gt;" is displayed in the status line when in Autoprint mode.</p>
+<p><sup>2</sup>Enhanced mode is off.</p>
+<p><sup>3</sup>The symbol "=" is displayed in the status line when in Autoprint mode.</p>
+<p><sup>4</sup>Turning off Bidirectional mode turns off Aux Receive mode and forces a normal print mode.</p>
+<p><sup>5</sup>The time prints out in a format such as "TIME AM/PM 00:00." At the end of the time message, the following is sent to
+the printer port: <b>NUL Ctrl/F NUL</b>. The page prints as formatted data. The terminal sends an "ACK" to the host at the
+end of a print operation if ACK mode is on.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><h3 id="S12.5.2">12.5.2 Graphics Characters</h3>
+<p><a href="#T12-17">Table 12–17</a> lists the graphic characters.</p></div>
+<table id="T12-17" class="truled">
+<caption><span class="tabfigid">Table 12–17</span> Graphic Characters</caption>
+<thead>
+<tr>
+<th rowspan="2">Graphics Mode</th>
+<th class="spanning" colspan="4">WYSE</th>
+<th class="spanning" colspan="3">TVI</th>
+<th class="spanning">ADDS</th>
+</tr>
+<tr>
+<th>160/60</th>
+<th>PCTerm</th>
+<th>150/120</th>
+<th>WY 50+</th>
+<th>950</th>
+<th>925</th>
+<th>910+</th>
+<th>A2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On</td>
+<td>ESC H or Ctrl/B</td>
+<td>ESC $</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>ESC $ or Wyse</td>
+<td>ESC $ or Wyse</td>
+<td>ESC $ or Wyse</td>
+<td>EnH</td>
+</tr>
+<tr>
+<td>Off (default)</td>
+<td>ESC H or Ctrl/C</td>
+<td>ESC %</td>
+<td>same as 160/60</td>
+<td>same as 160/60</td>
+<td>ESC % or Wyse</td>
+<td>ESC % or Wyse</td>
+<td>ESC % or Wyse</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="9">Display Graphic Character</th>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>Display character from the first 32 character set.<sup>1</sup></td>
+<td>ESC H <var>Char</var></td>
+<td>n/a</td>
+<td>same</td>
+<td>same</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>EnH</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="9"><p><sup>1</sup>The parameter Char is an ASCII character in the range of Hex 20 to Hex 7E.</p></td>
+</tr>
+</tfoot>
+</table>
+<div class="main"><p>With Graphics mode on, all received codes in the range of 00 to 7E are displayed
+as characters in the range of Hex 00 to Hex 1F in the same character set.</p>
+<p>This is done by stripping off the highest 3 bits of the code. For example:</p>
+<table>
+<thead>
+<tr>
+<th>Receiving . . .</th>
+<th>Displays . . .</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21, 41, or 61 (Hex)</td>
+<td>01 (Hex) character</td>
+</tr>
+<tr>
+<td>2C, 4C, or 6C (Hex)</td>
+<td>0C (Hex) character</td>
+</tr>
+<tr>
+<td>31, 51, or 71 (Hex)</td>
+<td>11 (Hex) character</td>
+</tr>
+</tbody>
+</table>
+<p>Most character sets in ASCII emulation contain characters in the range of Hex
+00 and Hex 1F. For example, the Native character set contains 16 line-drawing
+graphics characters from Hex 10 to Hex 1F and 16 CRM characters from Hex 00
+to 0F. But in most of the cases, Hex codes 00 to 1F are treated as control codes.
+To display these graphic characters, Graphic mode has to be turned on.</p>
+<p>When the Graphic mode is on, new characters entered have normal attributes
+regardless of the state of the Write-Protect mode attribute. With Protect mode on,
+all the entered characters, except CRM characters, are protected.</p>
+<p>To design a character font, see <a href="chapter13.html">Chapter 13</a>.</p></div>
+<footer>
+<nav class="sections"><a href="chapter11.html">Chapter 11</a><a href="contents.html">Contents</a><a href="chapter13.html">Chapter 13</a></nav>
+</footer>
+</body>
+</html>

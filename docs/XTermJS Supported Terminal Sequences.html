@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link href="http://xtermjs.org/images/favicon.png" rel="shortcut icon">
+
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Supported Terminal Sequences</title>
+  <meta name="description" content="">
+
+  <!-- Social media cards start -->
+  <meta name="twitter:card" content="summary">
+  
+  <meta property="og:url" content="http://xtermjs.org/docs/api/vtfeatures/">
+  <meta property="og:title" content="Supported Terminal Sequences">
+  <meta property="og:description" content="">
+  <!-- Social media cards end -->
+
+  <link rel="shortcut icon" type="image/png" href="http://xtermjs.org/images/favicon.png">
+  <link rel="stylesheet" href="XTermJS%20Supported%20Terminal%20Sequences-Dateien/bootstrap.min.css" media="">
+  <link href="XTermJS%20Supported%20Terminal%20Sequences-Dateien/fonts.css" rel="stylesheet" type="text/css" media="">
+  <link rel="stylesheet" href="XTermJS%20Supported%20Terminal%20Sequences-Dateien/main.css" media="">
+  <link rel="canonical" href="http://xtermjs.org/docs/api/vtfeatures/">
+  <script src="XTermJS%20Supported%20Terminal%20Sequences-Dateien/jquery-3.1.1.slim.min.js"></script>
+  <link rel="stylesheet" href="XTermJS%20Supported%20Terminal%20Sequences-Dateien/fontawesome.css" media="">
+</head>
+
+
+  <body>
+    <div class="site-wrapper">
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <span class="navbar-brand breadcrumbs">
+        <a href="http://xtermjs.org/">xterm.js</a>
+        
+      </span>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="http://xtermjs.org/docs">Docs</a></li>
+      <li>
+        <a href="https://github.com/xtermjs/xterm.js">
+        	<i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+      <main>
+        <section>
+          <div class="container">
+            <header>
+  
+</header>
+
+<article class="docs-content">
+<h1 id="supported-terminal-sequences">Supported Terminal Sequences</h1>
+
+<p>xterm.js version: 5.5.0</p>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<nav>
+
+  <ul>
+    <li><a href="#general-notes">General notes</a></li>
+    <li><a href="#c0">C0</a></li>
+    <li><a href="#c1">C1</a></li>
+    <li><a href="#csi">CSI</a></li>
+    <li><a href="#dcs">DCS</a></li>
+    <li><a href="#esc">ESC</a></li>
+    <li><a href="#osc">OSC</a></li>
+  </ul>
+
+</nav>
+
+<h2 id="general-notes">General notes</h2>
+
+<p>This document lists xterm.js’ support of terminal sequences. The sequences are grouped by their sequence type:</p>
+
+<ul>
+  <li>C0: single byte command (7bit control codes, byte range <code class="language-plaintext highlighter-rouge">\x00</code> .. <code class="language-plaintext highlighter-rouge">\x1F</code>, <code class="language-plaintext highlighter-rouge">\x7F</code>)</li>
+  <li>C1: single byte command (8bit control codes, byte range <code class="language-plaintext highlighter-rouge">\x80</code> .. <code class="language-plaintext highlighter-rouge">\x9F</code>)</li>
+  <li>ESC: sequence starting with <code class="language-plaintext highlighter-rouge">ESC</code> (<code class="language-plaintext highlighter-rouge">\x1B</code>)</li>
+  <li>CSI - Control Sequence Introducer: sequence starting with <code class="language-plaintext highlighter-rouge">ESC [</code> (7bit) or CSI (<code class="language-plaintext highlighter-rouge">\x9B</code>, 8bit)</li>
+  <li>DCS - Device Control String: sequence starting with <code class="language-plaintext highlighter-rouge">ESC P</code> (7bit) or DCS (<code class="language-plaintext highlighter-rouge">\x90</code>, 8bit)</li>
+  <li>OSC - Operating System Command: sequence starting with <code class="language-plaintext highlighter-rouge">ESC ]</code> (7bit) or OSC (<code class="language-plaintext highlighter-rouge">\x9D</code>, 8bit)</li>
+</ul>
+
+<p>Application Program Command (APC), Privacy Message (PM) and Start of String (SOS) are recognized but not supported,
+any sequence of these types will be silently ignored. They are also not hookable by the API.</p>
+
+<p>Note that the list only marks sequences implemented in xterm.js’ core codebase as supported. Missing sequences are either
+not supported or unstable/experimental. Furthermore addons or integrations can provide additional custom sequences
+(denoted as “External” where known).</p>
+
+<p>To denote the sequences the tables use the same abbreviations as xterm does:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Ps</code>: A single (usually optional) numeric parameter, composed of one or more decimal digits.</li>
+  <li><code class="language-plaintext highlighter-rouge">Pm</code>: Multiple numeric parameters composed of any number of single numeric parameters, separated by ; character(s),
+e.g. ` Ps ; Ps ; … `.</li>
+  <li><code class="language-plaintext highlighter-rouge">Pt</code>: A text parameter composed of printable characters. Note that for most commands with <code class="language-plaintext highlighter-rouge">Pt</code> only
+ASCII printables are specified to work. Additionally the parser will let pass any codepoint greater than C1 as printable.</li>
+</ul>
+
+<h2 id="c0">C0</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonic</th>
+      <th>Name</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NUL</td>
+      <td>Null</td>
+      <td><code class="language-plaintext highlighter-rouge">\0, \x00</code></td>
+      <td>NUL is ignored.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>BEL</td>
+      <td>Bell</td>
+      <td><code class="language-plaintext highlighter-rouge">\a, \x07</code></td>
+      <td>Ring the bell. <em><a href="#bell" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>BS</td>
+      <td>Backspace</td>
+      <td><code class="language-plaintext highlighter-rouge">\b, \x08</code></td>
+      <td>Move the cursor one position to the left. <em><a href="#backspace" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HT</td>
+      <td>Horizontal Tabulation</td>
+      <td><code class="language-plaintext highlighter-rouge">\t, \x09</code></td>
+      <td>Move the cursor to the next character tab stop.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>LF</td>
+      <td>Line Feed</td>
+      <td><code class="language-plaintext highlighter-rouge">\n, \x0A</code></td>
+      <td>Move the cursor one row down, scrolling if needed. <em><a href="#line-feed" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>VT</td>
+      <td>Vertical Tabulation</td>
+      <td><code class="language-plaintext highlighter-rouge">\v, \x0B</code></td>
+      <td>Treated as LF.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>FF</td>
+      <td>Form Feed</td>
+      <td><code class="language-plaintext highlighter-rouge">\f, \x0C</code></td>
+      <td>Treated as LF.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CR</td>
+      <td>Carriage Return</td>
+      <td><code class="language-plaintext highlighter-rouge">\r, \x0D</code></td>
+      <td>Move the cursor to the beginning of the row.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SO</td>
+      <td>Shift Out</td>
+      <td><code class="language-plaintext highlighter-rouge">\x0E</code></td>
+      <td>Switch to an alternative character set.</td>
+      <td><span title="Only limited ISO-2022 charset support." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>SI</td>
+      <td>Shift In</td>
+      <td><code class="language-plaintext highlighter-rouge">\x0F</code></td>
+      <td>Return to regular character set after Shift Out.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>ESC</td>
+      <td>Escape</td>
+      <td><code class="language-plaintext highlighter-rouge">\e, \x1B</code></td>
+      <td>Start of a sequence. Cancels any other sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="sequence-details">
+
+  <h3 id="bell">Bell</h3>
+  <p>The behavior of the bell is further customizable with <code class="language-plaintext highlighter-rouge">ITerminalOptions.bellStyle</code>
+and <code class="language-plaintext highlighter-rouge">ITerminalOptions.bellSound</code>.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="backspace">Backspace</h3>
+  <p>By default it is not possible to move the cursor past the leftmost position.
+If <code class="language-plaintext highlighter-rouge">reverse wrap-around</code> (<code class="language-plaintext highlighter-rouge">CSI ? 45 h</code>) is set, a previous soft line wrap (DECAWM)
+can be undone with BS within the scroll margins. In that case the cursor will wrap back
+to the end of the previous row. Note that it is not possible to peek back into the scrollbuffer
+with the cursor, thus at the home position (top-leftmost cell) this has no effect.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="line-feed">Line Feed</h3>
+  <p>Scrolling is restricted to scroll margins and will only happen on the bottom line.</p>
+
+</section>
+
+<h2 id="c1">C1</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonic</th>
+      <th>Name</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>IND</td>
+      <td>Index</td>
+      <td><code class="language-plaintext highlighter-rouge">\x84</code></td>
+      <td>Move the cursor one line down scrolling if needed.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>NEL</td>
+      <td>Next Line</td>
+      <td><code class="language-plaintext highlighter-rouge">\x85</code></td>
+      <td>Move the cursor to the beginning of the next row.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HTS</td>
+      <td>Horizontal Tabulation Set</td>
+      <td><code class="language-plaintext highlighter-rouge">\x88</code></td>
+      <td>Places a tab stop at the current cursor position.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DCS</td>
+      <td>Device Control String</td>
+      <td><code class="language-plaintext highlighter-rouge">\x90</code></td>
+      <td>Start of a DCS sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CSI</td>
+      <td>Control Sequence Introducer</td>
+      <td><code class="language-plaintext highlighter-rouge">\x9B</code></td>
+      <td>Start of a CSI sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>ST</td>
+      <td>String Terminator</td>
+      <td><code class="language-plaintext highlighter-rouge">\x9C</code></td>
+      <td>Terminator used for string type sequences.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>OSC</td>
+      <td>Operating System Command</td>
+      <td><code class="language-plaintext highlighter-rouge">\x9D</code></td>
+      <td>Start of an OSC sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>PM</td>
+      <td>Privacy Message</td>
+      <td><code class="language-plaintext highlighter-rouge">\x9E</code></td>
+      <td>Start of a privacy message.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>APC</td>
+      <td>Application Program Command</td>
+      <td><code class="language-plaintext highlighter-rouge">\x9F</code></td>
+      <td>Start of an APC sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="csi">CSI</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonic</th>
+      <th>Name</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ICH</td>
+      <td>Insert Characters</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps @</code></td>
+      <td>Insert <code class="language-plaintext highlighter-rouge">Ps</code> (blank) characters (default = 1). <em><a href="#insert-characters" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SL</td>
+      <td>Scroll Left</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps SP @</code></td>
+      <td>Scroll viewport <code class="language-plaintext highlighter-rouge">Ps</code> times to the left. <em><a href="#scroll-left" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CUU</td>
+      <td>Cursor Up</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps A</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times up (default=1). <em><a href="#cursor-up" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SR</td>
+      <td>Scroll Right</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps SP A</code></td>
+      <td>Scroll viewport <code class="language-plaintext highlighter-rouge">Ps</code> times to the right. <em><a href="#scroll-right" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CUD</td>
+      <td>Cursor Down</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps B</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times down (default=1). <em><a href="#cursor-down" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CUF</td>
+      <td>Cursor Forward</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps C</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times forward (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CUB</td>
+      <td>Cursor Backward</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps D</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times backward (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CNL</td>
+      <td>Cursor Next Line</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps E</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times down (default=1) and to the first column. <em><a href="#cursor-next-line" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CPL</td>
+      <td>Cursor Backward</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps F</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times up (default=1) and to the first column. <em><a href="#cursor-backward" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CHA</td>
+      <td>Cursor Horizontal Absolute</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps G</code></td>
+      <td>Move cursor to <code class="language-plaintext highlighter-rouge">Ps</code>-th column of the active row (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CUP</td>
+      <td>Cursor Position</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps ; Ps H</code></td>
+      <td>Set cursor to position [<code class="language-plaintext highlighter-rouge">Ps</code>, <code class="language-plaintext highlighter-rouge">Ps</code>] (default = [1, 1]). <em><a href="#cursor-position" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CHT</td>
+      <td>Cursor Horizontal Tabulation</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps I</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times tabs forward (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>ED</td>
+      <td>Erase In Display</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps J</code></td>
+      <td>Erase various parts of the viewport. <em><a href="#erase-in-display" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSED</td>
+      <td>Selective Erase In Display</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ? Ps J</code></td>
+      <td>Same as ED with respecting protection flag.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>EL</td>
+      <td>Erase In Line</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps K</code></td>
+      <td>Erase various parts of the active row. <em><a href="#erase-in-line" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSEL</td>
+      <td>Selective Erase In Line</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ? Ps K</code></td>
+      <td>Same as EL with respecting protecting flag.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>IL</td>
+      <td>Insert Line</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps L</code></td>
+      <td>Insert <code class="language-plaintext highlighter-rouge">Ps</code> blank lines at active row (default=1). <em><a href="#insert-line" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DL</td>
+      <td>Delete Line</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps M</code></td>
+      <td>Delete <code class="language-plaintext highlighter-rouge">Ps</code> lines at active row (default=1). <em><a href="#delete-line" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DCH</td>
+      <td>Delete Character</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps P</code></td>
+      <td>Delete <code class="language-plaintext highlighter-rouge">Ps</code> characters (default=1). <em><a href="#delete-character" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SU</td>
+      <td>Scroll Up</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps S</code></td>
+      <td>Scroll <code class="language-plaintext highlighter-rouge">Ps</code> lines up (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SD</td>
+      <td>Scroll Down</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps T</code></td>
+      <td>Scroll <code class="language-plaintext highlighter-rouge">Ps</code> lines down (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>ECH</td>
+      <td>Erase Character</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps X</code></td>
+      <td>Erase <code class="language-plaintext highlighter-rouge">Ps</code> characters from current cursor position to the right (default=1). <em><a href="#erase-character" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CBT</td>
+      <td>Cursor Backward Tabulation</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps Z</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> tabs backward (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HPA</td>
+      <td>Horizontal Position Absolute</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps `</code></td>
+      <td>Same as CHA.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HPR</td>
+      <td>Horizontal Position Relative</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps a</code></td>
+      <td>Same as CUF.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>REP</td>
+      <td>Repeat Preceding Character</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps b</code></td>
+      <td>Repeat preceding character <code class="language-plaintext highlighter-rouge">Ps</code> times (default=1). <em><a href="#repeat-preceding-character" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DA1</td>
+      <td>Primary Device Attributes</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI c</code></td>
+      <td>Send primary device attributes.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DA2</td>
+      <td>Secondary Device Attributes</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI &gt; c</code></td>
+      <td>Send primary device attributes.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>VPA</td>
+      <td>Vertical Position Absolute</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps d</code></td>
+      <td>Move cursor to <code class="language-plaintext highlighter-rouge">Ps</code>-th row (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>VPR</td>
+      <td>Vertical Position Relative</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps e</code></td>
+      <td>Move cursor <code class="language-plaintext highlighter-rouge">Ps</code> times down (default=1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HVP</td>
+      <td>Horizontal and Vertical Position</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps ; Ps f</code></td>
+      <td>Same as CUP.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>TBC</td>
+      <td>Tab Clear</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps g</code></td>
+      <td>Clear tab stops at current position (0) or all (3) (default=0). <em><a href="#tab-clear" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SM</td>
+      <td>Set Mode</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Pm h</code></td>
+      <td>Set various terminal modes. <em><a href="#set-mode" class="link-details">more</a></em></td>
+      <td><span title="Only IRM is supported." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>DECSET</td>
+      <td>DEC Private Set Mode</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ? Pm h</code></td>
+      <td>Set various terminal attributes. <em><a href="#dec-private-set-mode" class="link-details">more</a></em></td>
+      <td><span title="See below for supported modes." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>RM</td>
+      <td>Reset Mode</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Pm l</code></td>
+      <td>Set various terminal attributes. <em><a href="#reset-mode" class="link-details">more</a></em></td>
+      <td><span title="Only IRM is supported." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>DECRST</td>
+      <td>DEC Private Reset Mode</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ? Pm l</code></td>
+      <td>Reset various terminal attributes. <em><a href="#dec-private-reset-mode" class="link-details">more</a></em></td>
+      <td><span title="See below for supported modes." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>SGR</td>
+      <td>Select Graphic Rendition</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Pm m</code></td>
+      <td>Set/Reset various text attributes. <em><a href="#select-graphic-rendition" class="link-details">more</a></em></td>
+      <td><span title="See below for supported attributes." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>DSR</td>
+      <td>Device Status Report</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps n</code></td>
+      <td>Request cursor position (CPR) with <code class="language-plaintext highlighter-rouge">Ps</code> = 6.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECDSR</td>
+      <td>DEC Device Status Report</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ? Ps n</code></td>
+      <td>Only CPR is supported (same as DSR).</td>
+      <td><span title="Only CPR is supported." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>DECRQM</td>
+      <td>Request Mode</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps $p</code></td>
+      <td>Request mode state. <em><a href="#request-mode" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSTR</td>
+      <td>Soft Terminal Reset</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI ! p</code></td>
+      <td>Reset several terminal attributes to initial state. <em><a href="#soft-terminal-reset" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSCA</td>
+      <td>Select Character Protection Attribute</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps " q</code></td>
+      <td>Whether DECSED and DECSEL can erase (0=default, 2) or not (1).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSCUSR</td>
+      <td>Set Cursor Style</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps SP q</code></td>
+      <td>Set cursor style. <em><a href="#set-cursor-style" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECSTBM</td>
+      <td>Set Top and Bottom Margin</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps ; Ps r</code></td>
+      <td>Set top and bottom margins of the viewport [top;bottom] (default = viewport size).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>SCOSC</td>
+      <td>Save Cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI s</code></td>
+      <td>Save cursor position, charmap and text attributes.</td>
+      <td><span title="TODO..." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>SCORC</td>
+      <td>Restore Cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI u</code></td>
+      <td>Restore cursor position, charmap and text attributes.</td>
+      <td><span title="TODO..." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>DECIC</td>
+      <td>Insert Columns</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps ' }</code></td>
+      <td>Insert <code class="language-plaintext highlighter-rouge">Ps</code> columns at cursor position. <em><a href="#insert-columns" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECDC</td>
+      <td>Delete Columns</td>
+      <td><code class="language-plaintext highlighter-rouge">CSI Ps ' ~</code></td>
+      <td>Delete <code class="language-plaintext highlighter-rouge">Ps</code> columns at cursor position. <em><a href="#delete-columns" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="sequence-details">
+
+  <h3 id="insert-characters">Insert Characters</h3>
+  <p>The ICH sequence inserts <code class="language-plaintext highlighter-rouge">Ps</code> blank characters. The cursor remains at the beginning of the
+blank characters. Text between the cursor and right margin moves to the right. Characters moved
+past the right margin are lost.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="scroll-left">Scroll Left</h3>
+  <p>SL moves the content of all lines within the scroll margins <code class="language-plaintext highlighter-rouge">Ps</code> times to the left.
+SL has no effect outside of the scroll margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="cursor-up">Cursor Up</h3>
+  <p>If the cursor would pass the top scroll margin, it will stop there.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="scroll-right">Scroll Right</h3>
+  <p>SL moves the content of all lines within the scroll margins <code class="language-plaintext highlighter-rouge">Ps</code> times to the right.
+Content at the right margin is lost.
+SL has no effect outside of the scroll margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="cursor-down">Cursor Down</h3>
+  <p>If the cursor would pass the bottom scroll margin, it will stop there.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="cursor-next-line">Cursor Next Line</h3>
+  <p>Same as CUD, additionally places the cursor at the first column.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="cursor-backward">Cursor Backward</h3>
+  <p>Same as CUU, additionally places the cursor at the first column.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="cursor-position">Cursor Position</h3>
+  <p>If ORIGIN mode is set, places the cursor to the absolute position within the scroll margins.
+If ORIGIN mode is not set, places the cursor to the absolute position within the viewport.
+Note that the coordinates are 1-based, thus the top left position starts at <code class="language-plaintext highlighter-rouge">1 ; 1</code>.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="erase-in-display">Erase In Display</h3>
+  <p>Supported param values:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ps</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Erase from the cursor through the end of the viewport.</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Erase from the beginning of the viewport through the cursor.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Erase complete viewport.</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Erase scrollback.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="erase-in-line">Erase In Line</h3>
+  <p>Supported param values:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ps</th>
+        <th>Effect</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Erase from the cursor through the end of the row.</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Erase from the beginning of the line through the cursor.</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Erase complete line.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="insert-line">Insert Line</h3>
+  <p>For every inserted line at the scroll top one line at the scroll bottom gets removed.
+The cursor is set to the first column.
+IL has no effect if the cursor is outside the scroll margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="delete-line">Delete Line</h3>
+  <p>For every deleted line at the scroll top one blank line at the scroll bottom gets appended.
+The cursor is set to the first column.
+DL has no effect if the cursor is outside the scroll margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="delete-character">Delete Character</h3>
+  <p>As characters are deleted, the remaining characters between the cursor and right margin move to
+the left. Character attributes move with the characters. The terminal adds blank characters at
+the right margin.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="erase-character">Erase Character</h3>
+  <p>ED erases <code class="language-plaintext highlighter-rouge">Ps</code> characters from current cursor position to the right.
+ED works inside or outside the scrolling margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="repeat-preceding-character">Repeat Preceding Character</h3>
+  <p>REP repeats the previous character <code class="language-plaintext highlighter-rouge">Ps</code> times advancing the cursor, also wrapping if DECAWM is
+set. REP has no effect if the sequence does not follow a printable ASCII character
+(NOOP for any other sequence in between or NON ASCII characters).</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="tab-clear">Tab Clear</h3>
+  <p>Clearing tabstops off the active row (Ps = 2, VT100) is currently not supported.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="set-mode">Set Mode</h3>
+  <p>Supported param values by SM:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Param</th>
+        <th>Action</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2</td>
+        <td>Keyboard Action Mode (KAM). Always on.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Insert Mode (IRM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Send/receive (SRM). Always off.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Automatic Newline (LNM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="dec-private-set-mode">DEC Private Set Mode</h3>
+  <p>Supported param values by DECSET:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>param</th>
+        <th>Action</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Application Cursor Keys (DECCKM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Designate US-ASCII for character sets G0-G3 (DECANM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>132 Column Mode (DECCOLM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Origin Mode (DECOM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Auto-wrap Mode (DECAWM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Auto-repeat Keys (DECARM). Always on.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>X10 xterm mouse protocol.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Start Blinking Cursor.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Show Cursor (DECTCEM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>45</td>
+        <td>Reverse wrap-around.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>47</td>
+        <td>Use Alternate Screen Buffer.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>66</td>
+        <td>Application keypad (DECNKM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>X11 xterm mouse protocol.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1002</td>
+        <td>Use Cell Motion Mouse Tracking.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1003</td>
+        <td>Use All Motion Mouse Tracking.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1004</td>
+        <td>Send Focuse/FocusOut events</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1005</td>
+        <td>Enable UTF-8 Mouse Mode.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>1006</td>
+        <td>Enable SGR Mouse Mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1015</td>
+        <td>Enable urxvt Mouse Mode.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>1016</td>
+        <td>Enable SGR-Pixels Mouse Mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1047</td>
+        <td>Use Alternate Screen Buffer.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1048</td>
+        <td>Save cursor as in DECSC.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1049</td>
+        <td>Save cursor and switch to alternate buffer clearing it.</td>
+        <td><span title="Does not clear the alternate buffer." style="text-decoration: underline">Partial</span></td>
+      </tr>
+      <tr>
+        <td>2004</td>
+        <td>Set bracketed paste mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="reset-mode">Reset Mode</h3>
+  <p>Supported param values by RM:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Param</th>
+        <th>Action</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2</td>
+        <td>Keyboard Action Mode (KAM). Always on.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Replace Mode (IRM). (default)</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Send/receive (SRM). Always off.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Normal Linefeed (LNM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="dec-private-reset-mode">DEC Private Reset Mode</h3>
+  <p>Supported param values by DECRST:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>param</th>
+        <th>Action</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Normal Cursor Keys (DECCKM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Designate VT52 mode (DECANM).</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>80 Column Mode (DECCOLM).</td>
+        <td><span title="Switches to old column width instead of 80." style="text-decoration: underline">Broken</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Normal Cursor Mode (DECOM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>No Wraparound Mode (DECAWM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>No Auto-repeat Keys (DECARM).</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Don’t send Mouse X &amp; Y on button press.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Stop Blinking Cursor.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Hide Cursor (DECTCEM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>45</td>
+        <td>No reverse wrap-around.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>47</td>
+        <td>Use Normal Screen Buffer.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>66</td>
+        <td>Numeric keypad (DECNKM).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>Don’t send Mouse reports.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1002</td>
+        <td>Don’t use Cell Motion Mouse Tracking.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1003</td>
+        <td>Don’t use All Motion Mouse Tracking.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1004</td>
+        <td>Don’t send Focuse/FocusOut events.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1005</td>
+        <td>Disable UTF-8 Mouse Mode.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>1006</td>
+        <td>Disable SGR Mouse Mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1015</td>
+        <td>Disable urxvt Mouse Mode.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>1016</td>
+        <td>Disable SGR-Pixels Mouse Mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1047</td>
+        <td>Use Normal Screen Buffer (clearing screen if in alt).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1048</td>
+        <td>Restore cursor as in DECRC.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1049</td>
+        <td>Use Normal Screen Buffer and restore cursor.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>2004</td>
+        <td>Reset bracketed paste mode.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="select-graphic-rendition">Select Graphic Rendition</h3>
+  <p>SGR selects one or more character attributes at the same time. Multiple params (up to 32)
+are applied in order from left to right. The changed attributes are applied to all new
+characters received. If you move characters in the viewport by scrolling or any other means,
+then the attributes move with the characters.</p>
+
+  <p>Supported param values by SGR:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Param</th>
+        <th>Meaning</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Normal (default). Resets any other preceding SGR.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Bold. (also see <code class="language-plaintext highlighter-rouge">options.drawBoldTextInBrightColors</code>)</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Faint, decreased intensity.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Italic.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Underlined (see below for style support).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Slowly blinking.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Rapidly blinking.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Inverse. Flips foreground and background color.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Invisible (hidden).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Crossed-out characters (strikethrough).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td>Doubly underlined.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td>Normal (neither bold nor faint).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>No italic.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td>Not underlined.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>Steady (not blinking).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td>Positive (not inverse).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td>Visible (not hidden).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td>Not Crossed-out (strikethrough).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td>Foreground color: Black.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>31</td>
+        <td>Foreground color: Red.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>32</td>
+        <td>Foreground color: Green.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>33</td>
+        <td>Foreground color: Yellow.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>34</td>
+        <td>Foreground color: Blue.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>35</td>
+        <td>Foreground color: Magenta.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>36</td>
+        <td>Foreground color: Cyan.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>37</td>
+        <td>Foreground color: White.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>38</td>
+        <td>Foreground color: Extended color.</td>
+        <td><span title="Support for RGB and indexed colors, see below." style="text-decoration: underline">Partial</span></td>
+      </tr>
+      <tr>
+        <td>39</td>
+        <td>Foreground color: Default (original).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>40</td>
+        <td>Background color: Black.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>41</td>
+        <td>Background color: Red.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>42</td>
+        <td>Background color: Green.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>43</td>
+        <td>Background color: Yellow.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>44</td>
+        <td>Background color: Blue.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>45</td>
+        <td>Background color: Magenta.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>46</td>
+        <td>Background color: Cyan.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>47</td>
+        <td>Background color: White.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>48</td>
+        <td>Background color: Extended color.</td>
+        <td><span title="Support for RGB and indexed colors, see below." style="text-decoration: underline">Partial</span></td>
+      </tr>
+      <tr>
+        <td>49</td>
+        <td>Background color: Default (original).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>53</td>
+        <td>Overlined.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>55</td>
+        <td>Not Overlined.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>58</td>
+        <td>Underline color: Extended color.</td>
+        <td><span title="Support for RGB and indexed colors, see below." style="text-decoration: underline">Partial</span></td>
+      </tr>
+      <tr>
+        <td>90 - 97</td>
+        <td>Bright foreground color (analogous to 30 - 37).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>100 - 107</td>
+        <td>Bright background color (analogous to 40 - 47).</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Underline supports subparams to denote the style in the form <code class="language-plaintext highlighter-rouge">4 : x</code>:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>x</th>
+        <th>Meaning</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>No underline. Same as <code class="language-plaintext highlighter-rouge">SGR 24 m</code>.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Single underline. Same as <code class="language-plaintext highlighter-rouge">SGR 4 m</code>.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Double underline.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Curly underline.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Dotted underline.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Dashed underline.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>other</td>
+        <td>Single underline. Same as <code class="language-plaintext highlighter-rouge">SGR 4 m</code>.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Extended colors are supported for foreground (Ps=38), background (Ps=48) and underline (Ps=58)
+as follows:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Ps + 1</th>
+        <th>Meaning</th>
+        <th>Support</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Implementation defined.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Transparent.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>RGB color as <code class="language-plaintext highlighter-rouge">Ps ; 2 ; R ; G ; B</code> or <code class="language-plaintext highlighter-rouge">Ps : 2 : : R : G : B</code>.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>CMY color.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>CMYK color.</td>
+        <td><span title="unsupported">✗</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Indexed (256 colors) as <code class="language-plaintext highlighter-rouge">Ps ; 5 ; INDEX</code> or <code class="language-plaintext highlighter-rouge">Ps : 5 : INDEX</code>.</td>
+        <td><span title="supported">✓</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="request-mode">Request Mode</h3>
+  <p>Returns a report as <code class="language-plaintext highlighter-rouge">CSI Ps; Pm $ y</code> (DECRPM), where <code class="language-plaintext highlighter-rouge">Ps</code> is the mode number as in SM/RM
+or DECSET/DECRST, and <code class="language-plaintext highlighter-rouge">Pm</code> is the mode value:</p>
+  <ul>
+    <li>0: not recognized</li>
+    <li>1: set</li>
+    <li>2: reset</li>
+    <li>3: permanently set</li>
+    <li>4: permanently reset</li>
+  </ul>
+
+  <p>For modes not understood xterm.js always returns <code class="language-plaintext highlighter-rouge">notRecognized</code>. In general this means,
+that a certain operation mode is not implemented and cannot be used.</p>
+
+  <p>Modes changing the active terminal buffer (47, 1047, 1049) are not subqueried
+and only report, whether the alternate buffer is set.</p>
+
+  <p>Mouse encodings and mouse protocols are handled mutual exclusive,
+thus only one of each of those can be set at a given time.</p>
+
+  <p>There is a chance, that some mode reports are not fully in line with xterm.js’ behavior,
+e.g. if the default implementation already exposes a certain behavior. If you find
+discrepancies in the mode reports, please file a bug.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="soft-terminal-reset">Soft Terminal Reset</h3>
+  <p>There are two terminal reset sequences - RIS and DECSTR. While RIS performs almost a full
+terminal bootstrap, DECSTR only resets certain attributes. For most needs DECSTR should be
+sufficient.</p>
+
+  <p>The following terminal attributes are reset to default values:</p>
+  <ul>
+    <li>IRM is reset (dafault = false)</li>
+    <li>scroll margins are reset (default = viewport size)</li>
+    <li>erase attributes are reset to default</li>
+    <li>charsets are reset</li>
+    <li>DECSC data is reset to initial values</li>
+    <li>DECOM is reset to absolute mode</li>
+  </ul>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="set-cursor-style">Set Cursor Style</h3>
+  <p>Supported cursor styles:</p>
+  <ul>
+    <li>empty, 0 or 1: steady block</li>
+    <li>2: blink block</li>
+    <li>3: steady underline</li>
+    <li>4: blink underline</li>
+    <li>5: steady bar</li>
+    <li>6: blink bar</li>
+  </ul>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="insert-columns">Insert Columns</h3>
+  <p>DECIC inserts <code class="language-plaintext highlighter-rouge">Ps</code> times blank columns at the cursor position for all lines with the scroll
+margins, moving content to the right. Content at the right margin is lost. DECIC has no effect
+outside the scrolling margins.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="delete-columns">Delete Columns</h3>
+  <p>DECDC deletes <code class="language-plaintext highlighter-rouge">Ps</code> times columns at the cursor position for all lines with the scroll margins,
+moving content to the left. Blank columns are added at the right margin.
+DECDC has no effect outside the scrolling margins.</p>
+
+</section>
+
+<h2 id="dcs">DCS</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonic</th>
+      <th>Name</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SIXEL</td>
+      <td>SIXEL Graphics</td>
+      <td><code class="language-plaintext highlighter-rouge">DCS Ps ; Ps ; Ps ; q 	Pt ST</code></td>
+      <td>Draw SIXEL image.</td>
+      <td><span title="Supported via @xterm/addon-image." style="text-decoration: underline">External</span></td>
+    </tr>
+    <tr>
+      <td>DECUDK</td>
+      <td>User Defined Keys</td>
+      <td><code class="language-plaintext highlighter-rouge">DCS Ps ; Ps \| Pt ST</code></td>
+      <td>Definitions for user-defined keys.</td>
+      <td><span title="unsupported">✗</span></td>
+    </tr>
+    <tr>
+      <td>XTGETTCAP</td>
+      <td>Request Terminfo String</td>
+      <td><code class="language-plaintext highlighter-rouge">DCS + q Pt ST</code></td>
+      <td>Request Terminfo String.</td>
+      <td><span title="unsupported">✗</span></td>
+    </tr>
+    <tr>
+      <td>XTSETTCAP</td>
+      <td>Set Terminfo Data</td>
+      <td><code class="language-plaintext highlighter-rouge">DCS + p Pt ST</code></td>
+      <td>Set Terminfo Data.</td>
+      <td><span title="unsupported">✗</span></td>
+    </tr>
+    <tr>
+      <td>DECRQSS</td>
+      <td>Request Selection or Setting</td>
+      <td><code class="language-plaintext highlighter-rouge">DCS $ q Pt ST</code></td>
+      <td>Request several terminal settings. <em><a href="#request-selection-or-setting" class="link-details">more</a></em></td>
+      <td><span title="Limited support, see below." style="text-decoration: underline">Partial</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="sequence-details">
+
+  <h3 id="request-selection-or-setting">Request Selection or Setting</h3>
+  <p>Response is in the form <code class="language-plaintext highlighter-rouge">ESC P 1 $ r Pt ST</code> for valid requests, where <code class="language-plaintext highlighter-rouge">Pt</code> contains the
+corresponding CSI string, <code class="language-plaintext highlighter-rouge">ESC P 0 ST</code> for invalid requests.</p>
+
+  <p>Supported requests and responses:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Request</th>
+        <th>Response (<code class="language-plaintext highlighter-rouge">Pt</code>)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Graphic Rendition (SGR)</td>
+        <td><code class="language-plaintext highlighter-rouge">DCS $ q m ST</code></td>
+        <td>always reporting <code class="language-plaintext highlighter-rouge">0m</code> (currently broken)</td>
+      </tr>
+      <tr>
+        <td>Top and Bottom Margins (DECSTBM)</td>
+        <td><code class="language-plaintext highlighter-rouge">DCS $ q r ST</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Ps ; Ps r</code></td>
+      </tr>
+      <tr>
+        <td>Cursor Style (DECSCUSR)</td>
+        <td><code class="language-plaintext highlighter-rouge">DCS $ q SP q ST</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Ps SP q</code></td>
+      </tr>
+      <tr>
+        <td>Protection Attribute (DECSCA)</td>
+        <td><code class="language-plaintext highlighter-rouge">DCS $ q " q ST</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Ps " q</code> (DECSCA 2 is reported as Ps = 0)</td>
+      </tr>
+      <tr>
+        <td>Conformance Level (DECSCL)</td>
+        <td><code class="language-plaintext highlighter-rouge">DCS $ q " p ST</code></td>
+        <td>always reporting <code class="language-plaintext highlighter-rouge">61 ; 1 " p</code> (DECSCL is unsupported)</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<h2 id="esc">ESC</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mnemonic</th>
+      <th>Name</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SC</td>
+      <td>Save Cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC 7</code></td>
+      <td>Save cursor position, charmap and text attributes.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>RC</td>
+      <td>Restore Cursor</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC 8</code></td>
+      <td>Restore cursor position, charmap and text attributes.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DECALN</td>
+      <td>Screen Alignment Pattern</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC # 8</code></td>
+      <td>Fill viewport with a test pattern (E).</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>IND</td>
+      <td>Index</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC D</code></td>
+      <td>Move the cursor one line down scrolling if needed.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>NEL</td>
+      <td>Next Line</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC E</code></td>
+      <td>Move the cursor to the beginning of the next row.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>HTS</td>
+      <td>Horizontal Tabulation Set</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC H</code></td>
+      <td>Places a tab stop at the current cursor position.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>IR</td>
+      <td>Reverse Index</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC M</code></td>
+      <td>Move the cursor one line up scrolling if needed.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>DCS</td>
+      <td>Device Control String</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC P</code></td>
+      <td>Start of a DCS sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>CSI</td>
+      <td>Control Sequence Introducer</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC [</code></td>
+      <td>Start of a CSI sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>ST</td>
+      <td>String Terminator</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC \</code></td>
+      <td>Terminator used for string type sequences.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>OSC</td>
+      <td>Operating System Command</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC ]</code></td>
+      <td>Start of an OSC sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>PM</td>
+      <td>Privacy Message</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC ^</code></td>
+      <td>Start of a privacy message.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>APC</td>
+      <td>Application Program Command</td>
+      <td><code class="language-plaintext highlighter-rouge">ESC _</code></td>
+      <td>Start of an APC sequence.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="osc">OSC</h2>
+
+<p><strong>Note</strong>: Other than listed in the table, the parser recognizes both ST (ECMA-48) and BEL (xterm) as OSC sequence finalizer.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Sequence</th>
+      <th>Short Description</th>
+      <th>Support</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 0 ; Pt BEL</code></td>
+      <td>Set window title and icon name. <em><a href="#set-windows-title-and-icon-name" class="link-details">more</a></em></td>
+      <td><span title="Icon name is not exposed." style="text-decoration: underline">Partial</span></td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 1 ; Pt BEL</code></td>
+      <td>Set icon name.</td>
+      <td><span title="unsupported">✗</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 2 ; Pt BEL</code></td>
+      <td>Set window title. <em><a href="#set-windows-title" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 4 ; c ; spec BEL</code></td>
+      <td>Change color number <code class="language-plaintext highlighter-rouge">c</code> to the color specified by <code class="language-plaintext highlighter-rouge">spec</code>. <em><a href="#set-ansi-color" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 8 ; params ; uri BEL</code></td>
+      <td>Create a hyperlink to <code class="language-plaintext highlighter-rouge">uri</code> using <code class="language-plaintext highlighter-rouge">params</code>. <em><a href="#create-hyperlink" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 10 ; Pt BEL</code></td>
+      <td>Set or query default foreground color. <em><a href="#set-or-query-default-foreground-color" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 11 ; Pt BEL</code></td>
+      <td>Same as OSC 10, but for default background.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 12 ; Pt BEL</code></td>
+      <td>Same as OSC 10, but for default cursor color.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 104 ; c BEL</code></td>
+      <td>Reset color number <code class="language-plaintext highlighter-rouge">c</code> to themed color. <em><a href="#reset-ansi-color" class="link-details">more</a></em></td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 110 BEL</code></td>
+      <td>Restore default foreground to themed color.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 111 BEL</code></td>
+      <td>Restore default background to themed color.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td><code class="language-plaintext highlighter-rouge">OSC 112 BEL</code></td>
+      <td>Restore default cursor to themed color.</td>
+      <td><span title="supported">✓</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<section class="sequence-details">
+
+  <h3 id="set-windows-title-and-icon-name">Set Windows Title and Icon Name</h3>
+  <p>Icon name is not supported. For Window Title see below.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="set-windows-title">Set Windows Title</h3>
+  <p>xterm.js does not manipulate the title directly, instead exposes changes via the event
+<code class="language-plaintext highlighter-rouge">Terminal.onTitleChange</code>.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="set-ansi-color">Set ANSI color</h3>
+  <p><code class="language-plaintext highlighter-rouge">c</code> is the color index between 0 and 255. The color format of <code class="language-plaintext highlighter-rouge">spec</code> is derived from
+<code class="language-plaintext highlighter-rouge">XParseColor</code> (see OSC 10 for supported formats). There may be multipe <code class="language-plaintext highlighter-rouge">c ; spec</code> pairs present
+in the same instruction. If <code class="language-plaintext highlighter-rouge">spec</code> contains <code class="language-plaintext highlighter-rouge">?</code> the terminal returns a sequence with the
+currently set color.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="create-hyperlink">Create hyperlink</h3>
+  <p><code class="language-plaintext highlighter-rouge">uri</code> is a hyperlink starting with <code class="language-plaintext highlighter-rouge">http://</code>, <code class="language-plaintext highlighter-rouge">https://</code>, <code class="language-plaintext highlighter-rouge">ftp://</code>, <code class="language-plaintext highlighter-rouge">file://</code> or <code class="language-plaintext highlighter-rouge">mailto://</code>. <code class="language-plaintext highlighter-rouge">params</code> is an
+optional list of key=value assignments, separated by the : character.
+Example: <code class="language-plaintext highlighter-rouge">id=xyz123:foo=bar:baz=quux</code>.
+Currently only the id key is defined. Cells that share the same ID and URI share hover
+feedback. Use <code class="language-plaintext highlighter-rouge">OSC 8 ; ; BEL</code> to finish the current hyperlink.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="set-or-query-default-foreground-color">Set or query default foreground color</h3>
+  <p>To set the color, the following color specification formats are supported:</p>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">rgb:&lt;red&gt;/&lt;green&gt;/&lt;blue&gt;</code> for  <code class="language-plaintext highlighter-rouge">&lt;red&gt;, &lt;green&gt;, &lt;blue&gt;</code> in <code class="language-plaintext highlighter-rouge">h | hh | hhh | hhhh</code>, where
+<code class="language-plaintext highlighter-rouge">h</code> is a single hexadecimal digit (case insignificant). The different widths scale
+from 4 bit (<code class="language-plaintext highlighter-rouge">h</code>) to 16 bit (<code class="language-plaintext highlighter-rouge">hhhh</code>) and get converted to 8 bit (<code class="language-plaintext highlighter-rouge">hh</code>).</li>
+    <li><code class="language-plaintext highlighter-rouge">#RGB</code> - 4 bits per channel, expanded to <code class="language-plaintext highlighter-rouge">#R0G0B0</code></li>
+    <li><code class="language-plaintext highlighter-rouge">#RRGGBB</code> - 8 bits per channel</li>
+    <li><code class="language-plaintext highlighter-rouge">#RRRGGGBBB</code> - 12 bits per channel, truncated to <code class="language-plaintext highlighter-rouge">#RRGGBB</code></li>
+    <li><code class="language-plaintext highlighter-rouge">#RRRRGGGGBBBB</code> - 16 bits per channel, truncated to <code class="language-plaintext highlighter-rouge">#RRGGBB</code></li>
+  </ul>
+
+  <p><strong>Note:</strong> X11 named colors are currently unsupported.</p>
+
+  <p>If <code class="language-plaintext highlighter-rouge">Pt</code> contains <code class="language-plaintext highlighter-rouge">?</code> instead of a color specification, the terminal
+returns a sequence with the current default foreground color
+(use that sequence to restore the color after changes).</p>
+
+  <p><strong>Note:</strong> Other than xterm, xterm.js does not support OSC 12 - 19.
+Therefore stacking multiple <code class="language-plaintext highlighter-rouge">Pt</code> separated by <code class="language-plaintext highlighter-rouge">;</code> only works for the first two entries.</p>
+
+</section>
+<section class="sequence-details">
+
+  <h3 id="reset-ansi-color">Reset ANSI color</h3>
+  <p><code class="language-plaintext highlighter-rouge">c</code> is the color index between 0 and 255. This function restores the default color for <code class="language-plaintext highlighter-rouge">c</code> as
+specified by the loaded theme. Any number of <code class="language-plaintext highlighter-rouge">c</code> parameters may be given.
+If no parameters are given, the entire indexed color table will be reset.</p>
+
+</section>
+
+<script type="text/javascript">
+  const linkStates = {};
+
+  function hideDetailSections() {
+    for (let section of document.getElementsByClassName('sequence-details')) section.style.display = 'none';
+  }
+
+  function decorateDetailLinks() {
+    for (let link of document.getElementsByClassName('link-details')) {
+      link.addEventListener("click", toggleDetails, false);
+      if (linkStates[link.href] === undefined) {
+        linkStates[link.href] = {open: false, links: [], trElem: null};
+      }
+      linkStates[link.href].links.push(link);
+    }
+  }
+
+  function openDetails(link) {
+    const closestTr = link.closest('tr');
+    if (!closestTr || !closestTr.parentNode) return;
+    const closestSection = document.getElementById(link.href.split('#')[1]).closest('section');
+    if (!closestSection || !closestSection.innerHTML) return;
+    const content = closestSection.innerHTML.split('</h3>')[1];
+
+    const newRow = closestTr.parentNode.insertRow(closestTr.rowIndex);
+    const cell = newRow.insertCell(0);
+    cell.innerHTML = '<div style="font-style: italic">' + content + '</div>';
+    cell.colSpan = closestTr.children.length;
+    const state = linkStates[link.href];
+    state.trElem = newRow;
+    state.open = true;
+    if (link.innerHTML === 'more') link.innerHTML = 'less';
+  }
+
+  function closeDetails(link) {
+    const state = linkStates[link.href];
+    if (state.trElem && state.trElem.rowIndex !== -1) {
+      if (state.trElem.parentNode) state.trElem.parentNode.deleteRow(state.trElem.rowIndex-1); // why -1 here?
+      state.trElem.remove();
+      state.trElem = null;
+    }
+    state.open = false;
+    if (link.innerHTML === 'less') link.innerHTML = 'more';
+  }
+
+  function toggleDetails(ev) {
+    if (!ev.target || !ev.target.href) return;
+    const isOpen = linkStates[ev.target.href].open;
+    if (isOpen === undefined) return;
+    if (isOpen) closeDetails(ev.target);
+    else openDetails(ev.target);
+    ev.preventDefault();
+    return false;
+  }
+
+  function load() {
+    hideDetailSections();
+    decorateDetailLinks();
+  }
+  load(); // we are inlined behind all needed data, thus dont wait for onload (avoids flickering)
+</script>
+
+</article>
+
+<script>
+	$('h1, h2, h3, h4, h5, h6').each(function (i, el) {
+    var i = document.createElement('i'),
+        a = document.createElement('a');
+    $(i).addClass('fa fa-link');
+    $(a).addClass('anchor');
+    $(a).attr('href', '#' + $(el).attr('id'));
+    $(a).attr('title', $(el).text());
+    $(a).append(i);
+    el.prepend(a);
+  });
+</script>
+
+          </div>
+        </section>
+      </main>
+      <footer>
+	Proudly brought to you by <a href="https://www.sourcelair.com/">SourceLair</a> and the <a href="https://github.com/xtermjs/xterm.js/graphs/contributors">xterm.js authors</a>.
+</footer>
+
+    </div>
+  
+</body></html>

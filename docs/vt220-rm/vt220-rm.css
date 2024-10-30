@@ -1,0 +1,67 @@
+body {
+    background: #fff none;
+    color: #000;
+    font-family: sans-serif;
+}
+
+/* This is the mobile & universal stuff. */
+table { border-collapse: collapse; margin: 1em 0 }
+caption { padding: 0.5em; text-align: left; font-weight: bolder }
+/* Some huge tables have "repeater" headers or sub-heads,
+ * <tr class="th"> that need to align as if they were in thead.
+ */
+thead tr,
+tbody tr.th { vertical-align: bottom }
+tbody tr,
+tfoot tr { vertical-align: top }
+th { text-align: left }
+th, td { padding: 0.2em 0.5em }
+/* Alignment overrides */
+th.c, td.c { text-align: center }
+th.r, td.r { text-align: right }
+td p:first-child { margin-top: 0 }
+
+/* Images and inlined SVGs should be constrained to document width */
+img, svg { max-width: 100%; height: auto }
+
+/* end of universal */
+
+/* Site style */
+header { border-bottom: thin solid black; padding: 0 0 0.5em 0 }
+footer { border-top: thin solid black; padding: 0.5em 0 0 0 }
+
+/* Site logo has one pixel underneath the text, for alignment with the terminal icon,
+ * so align the text with following text. */
+#vt100-net-site-logo {
+    display: inline-block;
+    position: relative;
+    bottom: -1px
+}
+
+/* Used for manuals */
+nav.sections a { display: inline-block; width: 33.3%; margin: 0.5em 0 }
+nav.sections a:nth-child(1) { text-align: left }
+nav.sections a:nth-child(2) { text-align: center }
+nav.sections a:nth-child(3) { text-align: right }
+
+.chapterhead {
+	text-align: right;
+}
+
+.footnote {
+	font-size: 80%;
+}
+
+hr.navbar { margin-top: 30px; }
+
+.button { border: none; }
+
+kbd { color: #900; }
+
+.identity { margin-top: 0px; text-align: right; }
+
+.booktitle { text-align: center; }
+.bookcover, .contentslink { text-align: center; }
+td pre { margin-top: 0; margin-bottom: 0 }
+table.figure caption { caption-side: bottom }
+.navbot { text-align: right }
