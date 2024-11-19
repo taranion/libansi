@@ -1,7 +1,6 @@
 package org.prelle.ansi.commands;
 
 import org.prelle.ansi.ControlSequenceFragment;
-import org.prelle.ansi.EscapeSequenceFragment;
 import org.prelle.ansi.Level;
 
 /**

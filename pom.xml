@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.prelle</groupId>
   <artifactId>libansi</artifactId>
-  <version>0.1.0</version>
+  <version>0.2.0-SNAPSHOT</version>
   <name>LibANSI</name>
   <description>Inject or recevie ANSI control codes from streams</description>
   <url>https://bitbucket.org/taranion/libansi/</url>
