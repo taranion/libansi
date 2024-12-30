@@ -9,10 +9,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.HexFormat;
 import java.util.List;
 
 import org.junit.Test;
+import org.prelle.ansi.commands.CursorForward;
+import org.prelle.ansi.commands.CursorPosition;
 import org.prelle.ansi.commands.DeviceAttributes;
+import org.prelle.ansi.commands.EraseInDisplay;
 import org.prelle.ansi.commands.SelectGraphicRendition;
 import org.prelle.ansi.commands.SetLeftAndRightMargin;
 
@@ -93,7 +98,7 @@ public class ANSIParserTest {
 
 		bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment2 = ain.readFragment();
 		System.out.println(fragment2);
 		assertNotNull(fragment2);
@@ -147,7 +152,7 @@ public class ANSIParserTest {
 
 		ByteArrayInputStream bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ANSIInputStream ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
@@ -156,7 +161,7 @@ public class ANSIParserTest {
 
 		bins = new ByteArrayInputStream(text7Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment2 = ain.readFragment();
 		System.out.println(fragment2);
 		assertNotNull(fragment2);
@@ -173,7 +178,7 @@ public class ANSIParserTest {
 
 		ByteArrayInputStream bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ANSIInputStream ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
@@ -189,7 +194,7 @@ public class ANSIParserTest {
 
 		ByteArrayInputStream bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ANSIInputStream ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
@@ -209,7 +214,7 @@ public class ANSIParserTest {
 
 		ByteArrayInputStream bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ANSIInputStream ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
@@ -218,4 +223,32 @@ public class ANSIParserTest {
 
 	}
 
+	//-------------------------------------------------------------------
+	@Test
+	public void testCP437() throws IOException {
+		InputStream in = ClassLoader.getSystemResourceAsStream("cp437MUD.ans");
+		ANSIInputStream ain = new ANSIInputStream(in);
+		ain.setEncoding(Charset.forName("CP437"));
+		ain.setCollectPrintable(true);
+		AParsedElement fragment = ain.readFragment();
+		assertNotNull(fragment);
+		assertEquals(SelectGraphicRendition.class, fragment.getClass());
+
+		fragment = ain.readFragment();
+		assertNotNull(fragment);
+		assertEquals(EraseInDisplay.class, fragment.getClass());
+		assertEquals(CursorPosition.class, ain.readFragment().getClass());
+		assertEquals(SelectGraphicRendition.class, ain.readFragment().getClass());
+		assertEquals(CursorForward.class, ain.readFragment().getClass());
+		assertEquals(SelectGraphicRendition.class, ain.readFragment().getClass());
+		//assertEquals(PrintableFragment.class, fragment.getClass());
+
+		fragment = ain.readFragment();
+		assertNotNull(fragment);
+		assertEquals(PrintableFragment.class, fragment.getClass());
+		byte[] bytes = ((PrintableFragment)fragment).getData();
+		System.out.println("Bytes read: "+HexFormat.of().formatHex(bytes));
+		assertEquals(5, ((PrintableFragment)fragment).getText().length());
+		assertEquals(15, bytes.length);
+	}
 }

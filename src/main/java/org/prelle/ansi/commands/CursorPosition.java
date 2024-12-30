@@ -33,6 +33,12 @@ public class CursorPosition extends ControlSequenceFragment {
 	}
 
 	//-------------------------------------------------------------------
+	public void setLine(int val) {
+		parameter.remove(0);
+		parameter.add(0,val);
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * @return indicates what column the cursor is at.
 	 */
@@ -41,4 +47,9 @@ public class CursorPosition extends ControlSequenceFragment {
 		return (value==0)?1:value;
 	}
 
+	//-------------------------------------------------------------------
+	public void setColumn(int val) {
+		parameter.remove(1);
+		parameter.add(val);
+	}
 }

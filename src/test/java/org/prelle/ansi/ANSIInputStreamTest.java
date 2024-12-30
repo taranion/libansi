@@ -98,7 +98,7 @@ public class ANSIInputStreamTest {
 		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
 
 		ANSIInputStream in = new ANSIInputStream(bais);
-		in.setUtf8Mode(false);
+		in.setEncoding(StandardCharsets.US_ASCII);
 		AParsedElement frag = in.readFragment();
 		assertNotNull(frag);
 		assertTrue(frag instanceof PrintableFragment);
@@ -129,7 +129,7 @@ public class ANSIInputStreamTest {
 
 		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
 		ANSIInputStream in = new ANSIInputStream(bais);
-		in.setUtf8Mode(true);
+		in.setEncoding(StandardCharsets.UTF_8);
 		AParsedElement frag = in.readFragment();
 		assertNotNull(frag);
 		assertTrue(frag instanceof PrintableFragment);
@@ -147,7 +147,7 @@ public class ANSIInputStreamTest {
 
 		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
 		ANSIInputStream in = new ANSIInputStream(bais);
-		in.setUtf8Mode(true);
+		in.setEncoding(StandardCharsets.UTF_8);
 		AParsedElement frag = in.readFragment();
 		assertNotNull(frag);
 		assertTrue(frag instanceof PrintableFragment);
@@ -170,7 +170,7 @@ public class ANSIInputStreamTest {
 
 		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
 		ANSIInputStream in = new ANSIInputStream(bais);
-		in.setUtf8Mode(true);
+		in.setEncoding(StandardCharsets.UTF_8);
 		AParsedElement frag = in.readFragment();
 		assertNotNull(frag);
 		assertTrue(frag instanceof StringMessageFragment);

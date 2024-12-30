@@ -238,7 +238,7 @@ public class VT500ParserTest {
 
 		ByteArrayInputStream bins = new ByteArrayInputStream(text8Bit.getBytes(StandardCharsets.ISO_8859_1));
 		ANSIInputStream ain = new ANSIInputStream(bins);
-		ain.setUtf8Mode(false);
+		ain.setEncoding(StandardCharsets.ISO_8859_1);
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
@@ -281,9 +281,11 @@ class ParsingStream  {
 
 		VT500ParserListener callback = new VT500ParserListener() {
 
-			@Override
-			public void print(char c) {
-				stash.add(new PrintableFragment().add(c));
+			@Override public void print(byte c) {
+				stash.add(new PrintableFragment().add( (char)c));
+			}
+			@Override public void print(char c) {
+				stash.add(new PrintableFragment().add( c));
 			}
 
 			@Override
@@ -330,7 +332,7 @@ class ParsingStream  {
 			}
 		};
 		parser = new VT500Parser(callback);
-		parser.setUtf8Mode(false);
+		parser.setEncoding(StandardCharsets.US_ASCII);
 	}
 
 	//-------------------------------------------------------------------

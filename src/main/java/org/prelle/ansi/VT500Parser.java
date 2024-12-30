@@ -2,6 +2,8 @@ package org.prelle.ansi;
 
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @see <a href="https://vt100.net/emu/dec_ansi_parser">https://vt100.net/emu/dec_ansi_parser</a>
@@ -29,6 +31,8 @@ public class VT500Parser {
 
 	private VT500ParserListener callback;
 	private ParserState state;
+	
+	private Charset encoding = StandardCharsets.UTF_8;
 
 	/**
 	 * If this is enabled, C1 control codes from 0x80 to 0x9F are considered
@@ -55,6 +59,17 @@ public class VT500Parser {
 	}
 
 	//-------------------------------------------------------------------
+	public void setEncoding(Charset encoding) {
+		this.encoding = encoding;
+		utf8Mode = (encoding==StandardCharsets.UTF_8);
+	}
+
+	//-------------------------------------------------------------------
+	public Charset getEncoding() {
+		return this.encoding;
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * @return the utf8Mode
 	 */
@@ -62,13 +77,13 @@ public class VT500Parser {
 		return utf8Mode;
 	}
 
-	//-------------------------------------------------------------------
-	/**
-	 * @param utf8Mode the utf8Mode to set
-	 */
-	public void setUtf8Mode(boolean utf8Mode) {
-		this.utf8Mode = utf8Mode;
-	}
+//	//-------------------------------------------------------------------
+//	/**
+//	 * @param utf8Mode the utf8Mode to set
+//	 */
+//	public void setUtf8Mode(boolean utf8Mode) {
+//		this.utf8Mode = utf8Mode;
+//	}
 
 	//-------------------------------------------------------------------
 	public void parse(int code) {
@@ -89,7 +104,9 @@ public class VT500Parser {
 						if (foo.length()!=1) {
 							logger.log(Level.TRACE, "Expect 1 character string for codepoint {0} but got {1}", utf8Codepoint, foo.length());
 						} else {
+							logger.log(Level.ERROR, "STOP HERE "+foo.charAt(0));
 							callback.print( (char)foo.charAt(0));
+							//System.exit(1);
 						}
 						utf8Codepoint=0;
 					} else {
@@ -169,8 +186,8 @@ public class VT500Parser {
 		case GROUND:
 			switch ( (Integer)code) {
 			case Integer x when isExecutableC0(codeF) -> callback.execute( C0Code.valueOf(code));
-			case Integer x when x>=0x20 && x<=0x7F -> callback.print( (char)(int)x);
-			case Integer x when x>=0xA0 && x<=0xFF -> callback.print( (char)(int)x);
+			case Integer x when x>=0x20 && x<=0x7F -> callback.print( (byte)(int)x);
+			case Integer x when x>=0xA0 && x<=0xFF -> callback.print( (byte)(int)x);
 			default -> ignore(code);
 			}
 			return;
@@ -185,7 +202,7 @@ public class VT500Parser {
 			case Integer x when x==0x5F -> {sosPmApcCode=code+64; enterState(ParserState.SOS_PM_APC);}
 			case Integer x when x==0x7F -> ignore(code);
 			case Integer x when executesESCDIspatch(codeF) -> {escDispatch(code); enterState(ParserState.GROUND);}
-			case Integer x when x>=0xA0 && x<=0xFF -> callback.print( (char)(int)x);
+			case Integer x when x>=0xA0 && x<=0xFF -> callback.print( (byte)(int)x);
 			default -> ignore(code);
 			}
 			return;
@@ -207,7 +224,7 @@ public class VT500Parser {
 			case Integer x when x>=0x40 && x<=0x7E -> {csiDispatch(code); enterState(ParserState.GROUND);}
 			case Integer x when x==0x7F -> ignore(code);
 			case Integer x when x>=0xA0 && x<=0xAF -> {collect(code); enterState(ParserState.CSI_INTERMEDIATE);}
-			case Integer x when x>=0xB0 && x<=0xFF -> callback.print( (char)(int)x);
+			case Integer x when x>=0xB0 && x<=0xFF -> callback.print( (byte)(int)x);
 			default -> ignore(code);
 			}
 			return;

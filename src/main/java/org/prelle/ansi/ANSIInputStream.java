@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -47,8 +49,23 @@ public class ANSIInputStream extends FilterInputStream {
 	public ANSIInputStream(InputStream in) {
 		super(in);
 		parser = new VT500Parser(new VT500ParserListener() {
-			@Override public void print(char c) {
+			@Override public void print(byte c) {
 //				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable);
+				byte[] foo = new byte[] {c};
+				try {
+					String foo2 = new String(foo, parser.getEncoding());
+					char cc = foo2.charAt(0);
+					if (collectPrintable) {
+						if (collectInto!=null) collectInto.add(cc); else collectInto=new PrintableFragment().add(cc);
+					} else {
+						queue.add(new PrintableFragment().add(cc));
+					}
+				} catch (Exception e) {
+					logger.log(Level.INFO, "Error reading "+c,e);
+				}
+			}
+			@Override public void print(char c) {
+				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable);
 				if (collectPrintable) {
 					if (collectInto!=null) collectInto.add(c); else collectInto=new PrintableFragment().add(c);
 				} else {
@@ -147,9 +164,9 @@ public class ANSIInputStream extends FilterInputStream {
 
 		// If you get here, the queue is empty
 		while (queue.isEmpty()) {
-			logger.log(Level.TRACE, "Calling in.read");
+			//logger.log(Level.TRACE, "Calling in.read");
 			int code = in.read();
-			logger.log(Level.TRACE, "Returned from in.read");
+			logger.log(Level.TRACE, "Returned from in.read with {0}",code);
 			if (code==-1) {
 				logger.log(Level.DEBUG, "Connection lost");
 				if (collectInto!=null) {
@@ -161,7 +178,7 @@ public class ANSIInputStream extends FilterInputStream {
 							e.printStackTrace();
 						}
 					}
-					logger.log(Level.DEBUG, "Before removing: "+queue);
+					logger.log(Level.TRACE, "Before removing: {0}",queue);
 					return queue.remove(0);
 				}
 				return null;
@@ -205,19 +222,13 @@ public class ANSIInputStream extends FilterInputStream {
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * @return the utf8Mode
-	 */
-	public boolean isUtf8Mode() {
-		return parser.isUtf8Mode();
+	public void setEncoding(Charset encoding) {
+		parser.setEncoding(encoding);
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * @param utf8Mode the utf8Mode to set
-	 */
-	public void setUtf8Mode(boolean utf8Mode) {
-		parser.setUtf8Mode(utf8Mode);
+	public Charset getEncoding() {
+		return parser.getEncoding();
 	}
 
 }
