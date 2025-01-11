@@ -12,6 +12,8 @@ import org.prelle.ansi.DeviceControlFragment;
 import org.prelle.ansi.StringMessageFragment;
 import org.prelle.ansi.commands.DeviceAttributes;
 import org.prelle.ansi.commands.DeviceAttributes.Variant;
+import org.prelle.ansi.commands.QueryRIPScrip.RipState;
+import org.prelle.ansi.commands.QueryRIPScrip;
 import org.prelle.ansi.commands.iterm.ITermCommandFragment;
 import org.prelle.ansi.commands.iterm.SendITermImage;
 import org.prelle.ansi.commands.xterm.XTermWindowOperation;
@@ -175,5 +177,19 @@ public class ReportingControls {
 		logger.log(Level.DEBUG, "requestXTermFontSize (Xterm)");
 		out.write(new XtermTextParameter(XtermTextParameter.FONT,"?"));
 	}
+    //-------------------------------------------------------------------
+    /**
+     * @param out
+     * @throws IOException
+     */
+    public static void requestRIPScrip(ANSIOutputStream out) throws IOException {
+        logger.log(Level.INFO, "requestRIPScrip ");
+        out.write(new QueryRIPScrip(RipState.QUERY));
+
+//      out.write(C0Code.ESC.code());
+//      out.write("_Gi=31,s=1,v=1,a=q,t=d,f=24;AAAA".getBytes(StandardCharsets.ISO_8859_1));
+//      out.write(C0Code.ESC.code());
+//      out.write((int)'\\');
+    }
 
 }
