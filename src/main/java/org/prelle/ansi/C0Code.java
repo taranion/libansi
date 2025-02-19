@@ -64,6 +64,7 @@ public enum C0Code {
 	FS(28),
 	/** Group separator */
 	GS(29),
+	/** Record Separator */
 	RS(30),
 	/** Ignored when received, unless a 96- character set is mapped into GL. DEL is not used as a fill character. Digital does not recommend using DEL as a fill character. Use NUL instead. */
 	US(31),

@@ -10,8 +10,16 @@ public class DECSetMode extends ControlSequenceFragment {
 
 	public static enum DECMode {
 		WRAP_AROUND_MODE(7),
+		X10_MOUSE(9),
 		TEXT_CURSOR_ENABLE(25),
 		OLD_ALTERNATE_BUFFER(47),
+		VT200_MOUSE(1000),
+		VT200_HIGHLIGHT_MOUSE(1001),
+		BTN_EVENT_MOUSE(1002),
+		EXT_MODE_MOUSE(1005),
+		SGR_EXT_MODE_MOUSE(1006),
+		URXVT_EXT_MODE_MOUSE(1015),
+		PIXEL_POSITION_MOUSE(1016),
 		ALTERNATE_BUFFER(1047),
 		ALTERNATE_BUFFER_SAVE_CURSOR(1049),
 		;
@@ -32,10 +40,11 @@ public class DECSetMode extends ControlSequenceFragment {
 	}
 
 	//-------------------------------------------------------------------
-	public DECSetMode(DECMode mode) {
+	public DECSetMode(DECMode... modes) {
 		this();
 		parameter.clear();
-		parameter.add(mode.val);
+		for (DECMode mode : modes)
+			parameter.add(mode.val);
 	}
 
 	//-------------------------------------------------------------------

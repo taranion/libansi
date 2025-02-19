@@ -59,6 +59,7 @@ public class AllCommands {
 
 			// VT100
 			SetTopAndBottomMargin.class, // DECSTBM
+			MouseButtonPress.class,
 
 			LeftRightMarginMode.class,
 			SetLeftAndRightMargin.class,

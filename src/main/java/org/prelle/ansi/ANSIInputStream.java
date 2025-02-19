@@ -166,7 +166,7 @@ public class ANSIInputStream extends FilterInputStream {
 		while (queue.isEmpty()) {
 			//logger.log(Level.TRACE, "Calling in.read");
 			int code = in.read();
-			logger.log(Level.TRACE, "Returned from in.read with {0}",code);
+			logger.log(Level.TRACE, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);
 			if (code==-1) {
 				logger.log(Level.DEBUG, "Connection lost");
 				if (collectInto!=null) {
@@ -182,9 +182,19 @@ public class ANSIInputStream extends FilterInputStream {
 					return queue.remove(0);
 				}
 				return null;
+			} else if (code==0x1E) {
+				logger.log(Level.DEBUG, "Record separator found - flushing collected printables");
+				if (collectInto!=null) {
+					releasePrintable();
+					return queue.remove(0);
+				} else
+					continue;
 			}
 			code = (code<0)?(256+code):code;
 			parser.parse(code);
+		}
+		if (!queue.isEmpty()) {
+			queue.get(0).readExpectedLateBytes(in);
 		}
 		if (loggingListener!=null && !queue.isEmpty()) {
 			try {

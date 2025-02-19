@@ -1,6 +1,7 @@
 package org.prelle.ansi;
 
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 
 /**
  *
@@ -45,5 +46,8 @@ public abstract class AParsedElement {
 
 	//-------------------------------------------------------------------
 	public abstract void encode(ByteArrayOutputStream toFill, boolean use7Bit);
+
+	//-------------------------------------------------------------------
+	public void readExpectedLateBytes(InputStream in) {}
 
 }

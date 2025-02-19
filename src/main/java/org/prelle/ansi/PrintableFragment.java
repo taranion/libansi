@@ -1,7 +1,6 @@
 package org.prelle.ansi;
 
 import java.io.ByteArrayOutputStream;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,11 @@ public class PrintableFragment extends AParsedElement {
 	}
 
 	//-------------------------------------------------------------------
+	public void clear() {
+		buffer.clear();
+	}
+
+	//-------------------------------------------------------------------
 	public byte[] getData() {
 //		byte[] buf = new byte[buffer.size()];
 //		for (int i=0; i<buf.length; i++) buf[i]=buffer.get(i);
@@ -57,11 +61,21 @@ public class PrintableFragment extends AParsedElement {
 	}
 
 	//-------------------------------------------------------------------
+	public boolean isEmpty() {
+		return buffer.size()==0;
+	}
+
+	//-------------------------------------------------------------------
+	public int size() {
+		return buffer.size();
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString() {
-		return "PRINTABLE("+getText()+")";
+		return "PRINTABLE|"+buffer.size()+"("+getText()+")";
 	}
 
 	//-------------------------------------------------------------------
@@ -73,6 +87,7 @@ public class PrintableFragment extends AParsedElement {
 		return "PRINT";
 	}
 
+	//-------------------------------------------------------------------
 	@Override
 	public void encode(ByteArrayOutputStream toFill, boolean use7Bit) {
 		System.err.println("TODO: PrintableFragment.encode");
