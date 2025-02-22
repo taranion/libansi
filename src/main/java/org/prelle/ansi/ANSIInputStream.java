@@ -135,7 +135,7 @@ public class ANSIInputStream extends FilterInputStream {
 					queue.add(seq);
 			}
 			public void handleStringMessage(C1Code code, String data) {
-				logger.log(Level.WARNING, "You could implement command detection here: {0}: {1}", code.name(), data);
+				logger.log(Level.DEBUG, "You could implement command detection here: {0}: {1}", code.name(), data);
 				queue.add(new StringMessageFragment(code, data));
 			}
 		});
