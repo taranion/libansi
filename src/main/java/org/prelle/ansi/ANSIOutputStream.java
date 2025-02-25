@@ -6,13 +6,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HexFormat;
-import java.util.List;
 import java.util.function.BiConsumer;
 
 import org.prelle.ansi.commands.SelectGraphicRendition;
@@ -47,7 +43,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	/**
 	 * @see java.io.FilterOutputStream#write(int)
 	 */
-	public synchronized void write(int value) throws IOException {
+	public void write(int value) throws IOException {
 //		System.err.println("ANSIOut.write "+value+"/"+Integer.toHexString(value));
 		if (sendAs7Bit && value>=0x80 && value<0xA0) {
 			out.write(0x1B); // ESC
@@ -61,7 +57,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	/**
 	 * @see java.io.FilterOutputStream#write(byte[])
 	 */
-	public synchronized void write(byte[] values) throws IOException {
+	public void write(byte[] values) throws IOException {
 		out.write(values);
 //		if (sendAs7Bit) {
 //			ByteArrayOutputStream baos = new ByteArrayOutputStream(values.length);
@@ -85,7 +81,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void write(byte[] values, String name) throws IOException {
+	public void write(byte[] values, String name) throws IOException {
 		if (loggingListener!=null)
 			loggingListener.accept(name, "");
 		System.err.println("ANSIOut.write "+Arrays.toString(values));
@@ -93,7 +89,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void write(String value) throws IOException {
+	public void write(String value) throws IOException {
 		if (utf8Mode) {
 			this.write(value.getBytes(StandardCharsets.UTF_8));
 		} else {
@@ -102,7 +98,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void write(C1Code code) throws IOException {
+	public void write(C1Code code) throws IOException {
 //		if (sendAs7Bit) {
 			this.write(C0Code.ESC.code);
 			this.write(code.code-64);
@@ -114,14 +110,14 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void write(C0Code code) throws IOException {
+	public void write(C0Code code) throws IOException {
 		this.write(code.code());
 		if (loggingListener!=null)
 			loggingListener.accept(code.name(), "");
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void writeCSI(int n, int...param) throws IOException {
+	public void writeCSI(int n, int...param) throws IOException {
 		write(C1Code.CSI);
 //		StringBuffer buf = new StringBuffer(((char)0x9B)+"");
 		StringBuffer buf = new StringBuffer();
@@ -139,13 +135,13 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 
 	//-------------------------------------------------------------------
-	public synchronized void setTextColor(int color) throws IOException {
+	public void setTextColor(int color) throws IOException {
 		write(new SelectGraphicRendition(38,5,color));
 //		writeSGR(38,5,color);
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void reset() {
+	public void reset() {
 		try {
 			writeCSI( (int)'m',0);
 		} catch (IOException e) {
@@ -155,7 +151,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void write(AParsedElement toWrite) throws IOException {
+	public void write(AParsedElement toWrite) throws IOException {
 		switch (toWrite) {
 		case ControlSequenceFragment csi -> writeCSI(csi);
 		case EscapeSequenceFragment esc -> writeESC(esc);
@@ -171,7 +167,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	private synchronized void writeC1(C1Fragment c1) throws IOException {
+	private void writeC1(C1Fragment c1) throws IOException {
 		if (sendAs7Bit) {
 			this.write(C0Code.ESC.code);
 			this.write(c1.code.code - 0x40);
@@ -181,7 +177,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void writeCSI(ControlSequenceFragment csi) throws IOException {
+	public void writeCSI(ControlSequenceFragment csi) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		csi.encode(baos, sendAs7Bit);
 		super.write(baos.toByteArray());
@@ -191,7 +187,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void writeDCS(DeviceControlFragment dcs) throws IOException {
+	public void writeDCS(DeviceControlFragment dcs) throws IOException {
 		logger.log(Level.ERROR, "writeDCS "+dcs);
 //		if (loggingListener==null)
 //			loggingListener = (type,text) -> {if (!"PRINT".equals(type)) logger.log(Level.INFO, "MUD --> {0} = {1}", type,text);};
@@ -204,7 +200,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void writeESC(EscapeSequenceFragment esc) throws IOException {
+	public void writeESC(EscapeSequenceFragment esc) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		esc.encode(baos, sendAs7Bit);
 		super.write(baos.toByteArray());
@@ -214,7 +210,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public synchronized void writeString(StringMessageFragment value) throws IOException {
+	public void writeString(StringMessageFragment value) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		value.encode(baos, sendAs7Bit);
 //		if (sendAs7Bit) {
