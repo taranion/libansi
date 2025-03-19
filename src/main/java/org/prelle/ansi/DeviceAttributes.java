@@ -105,7 +105,9 @@ public class DeviceAttributes {
 		ISO_LATIN2_CHARSET(42),
 		PCTERM(44),
 		SOFT_KEY_MAP(45),
-		ASCII_EMULATION(46)
+		ASCII_EMULATION(46),
+		// https://contour-terminal.org/vt-extensions/buffer-capture/
+		CAPTURE_SCREEN_BUFFER(314),
 		;
 
 		int code;

@@ -188,7 +188,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 	//-------------------------------------------------------------------
 	public void writeDCS(DeviceControlFragment dcs) throws IOException {
-		logger.log(Level.ERROR, "writeDCS "+dcs);
+		logger.log(Level.DEBUG, "writeDCS "+dcs);
 //		if (loggingListener==null)
 //			loggingListener = (type,text) -> {if (!"PRINT".equals(type)) logger.log(Level.INFO, "MUD --> {0} = {1}", type,text);};
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);

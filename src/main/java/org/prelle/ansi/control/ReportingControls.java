@@ -183,7 +183,7 @@ public class ReportingControls {
      * @throws IOException
      */
     public static void requestRIPScrip(ANSIOutputStream out) throws IOException {
-        logger.log(Level.INFO, "requestRIPScrip ");
+        logger.log(Level.DEBUG, "requestRIPScrip ");
         out.write(new QueryRIPScrip(RipState.QUERY));
 
 //      out.write(C0Code.ESC.code());
