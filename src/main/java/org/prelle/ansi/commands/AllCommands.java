@@ -8,6 +8,7 @@ import java.util.Map;
 import org.prelle.ansi.ControlSequenceFragment;
 import org.prelle.ansi.DeviceControlFragment;
 import org.prelle.ansi.EscapeSequenceFragment;
+import org.prelle.ansi.commands.kitty.KittyScaledFontFragment;
 import org.prelle.ansi.commands.xterm.XTermWindowOperation;
 
 /**
@@ -80,7 +81,7 @@ public class AllCommands {
 			
 			// Xterm
 			XTermWindowOperation.class,
-			MXPLine.class
+			MXPLine.class,
 	};
 
 	@SuppressWarnings("unchecked")
