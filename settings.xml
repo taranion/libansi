@@ -17,12 +17,6 @@
         <gpg.keyname>${env.GPG_KEY}</gpg.keyname>
         <gpg.passphrase>${env.GPG_PWD}</gpg.passphrase>
       </properties>
-      <repositories>
-        <repository>
-          <id>ossrh</id>
-          <url>https://oss.sonatype.org/content/groups/public</url>
-        </repository>
-      </repositories>
     </profile>
   </profiles>
 </settings>
