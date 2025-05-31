@@ -185,11 +185,6 @@ public class ReportingControls {
     public static void requestRIPScrip(ANSIOutputStream out) throws IOException {
         logger.log(Level.DEBUG, "requestRIPScrip ");
         out.write(new QueryRIPScrip(RipState.QUERY));
-
-//      out.write(C0Code.ESC.code());
-//      out.write("_Gi=31,s=1,v=1,a=q,t=d,f=24;AAAA".getBytes(StandardCharsets.ISO_8859_1));
-//      out.write(C0Code.ESC.code());
-//      out.write((int)'\\');
     }
 
 }

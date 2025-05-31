@@ -82,6 +82,8 @@ public class AllCommands {
 			// Xterm
 			XTermWindowOperation.class,
 			MXPLine.class,
+			
+			QueryRIPScrip.class,
 	};
 
 	@SuppressWarnings("unchecked")
@@ -123,6 +125,10 @@ public class AllCommands {
 	public static ControlSequenceFragment parseControlSequence(int code, String intermediate, String paramString) {
 		String key = (intermediate!=null)?(intermediate+(char)code):String.valueOf( (char)code);
 
+//		logger.log(Level.ERROR, "Finding ''{0}'' in csiCode returns {1}", key, csiByCode.get(key));
+//		logger.log(Level.ERROR, "... ", csiByCode.keySet().stream().filter(k -> k.charAt(0)=='!').toList());
+//		csiByCode.keySet().stream().forEachOrdered(x -> System.out.println(x+"="+csiByCode.get(x)));
+		
 		Class<? extends ControlSequenceFragment> clazz = csiByCode.get(key);
 		if (clazz==null) {
 			logger.log(Level.ERROR, "Unsupported CSI command "+Integer.toHexString(code)+" / "+key);

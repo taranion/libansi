@@ -184,4 +184,19 @@ public class ANSIInputStreamTest {
 		assertEquals(C1Code.DCS, ((DeviceControlFragment)frag).getCode());
 		in.close();
 	}
+
+	//-------------------------------------------------------------------
+	@Test
+	public void test4() throws IOException {
+		byte[] buf = new byte[] {27, 91, 48, 33, 27, 55};
+		ByteArrayInputStream bais = new ByteArrayInputStream(buf);
+
+		ANSIInputStream in = new ANSIInputStream(bais);
+		AParsedElement frag = in.readFragment();
+		assertNotNull(frag);
+		assertTrue(frag instanceof ControlSequenceFragment);
+		ControlSequenceFragment print = (ControlSequenceFragment)frag;
+		assertEquals("QRIP", print.getName());
+		in.close();
+	}
 }

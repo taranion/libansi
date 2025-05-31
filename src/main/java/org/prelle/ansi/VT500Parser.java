@@ -153,6 +153,8 @@ public class VT500Parser {
 				break;
 			if (state==ParserState.OSC_STRING)
 				break;
+			if (state==ParserState.CSI_INTERMEDIATE)
+				csiDispatch(-1);
 			enterState(ParserState.ESCAPE);
 			return;
 		case 0x7F:

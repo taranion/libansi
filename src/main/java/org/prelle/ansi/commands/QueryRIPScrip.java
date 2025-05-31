@@ -27,7 +27,7 @@ public class QueryRIPScrip extends ControlSequenceFragment {
 
     //-------------------------------------------------------------------
     public QueryRIPScrip() {
-        super('!', "QRIP", Level.UNKNOWN);
+        super("!", -1, "QRIP", Level.UNKNOWN);
     }
 
     //-------------------------------------------------------------------
