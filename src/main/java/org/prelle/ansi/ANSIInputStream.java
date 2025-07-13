@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -48,6 +47,8 @@ public class ANSIInputStream extends FilterInputStream {
 	//-------------------------------------------------------------------
 	public ANSIInputStream(InputStream in) {
 		super(in);
+		if (in==null)
+			throw new NullPointerException();
 		parser = new VT500Parser(new VT500ParserListener() {
 			@Override public void print(byte c) {
 //				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable);
@@ -65,7 +66,7 @@ public class ANSIInputStream extends FilterInputStream {
 				}
 			}
 			@Override public void print(char c) {
-				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable);
+//				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable);
 				if (collectPrintable) {
 					if (collectInto!=null) collectInto.add(c); else collectInto=new PrintableFragment().add(c);
 				} else {
