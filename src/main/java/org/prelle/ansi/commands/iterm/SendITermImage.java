@@ -145,6 +145,7 @@ public class SendITermImage extends ITermCommandFragment {
 		if (inline==null || inline) {
 			pairs.add("inline=1");
 		}
+		pairs.add("size="+imgData.length);
 		if (width!=null) {
 			if (width>80)
 				pairs.add("width="+width+"px");
