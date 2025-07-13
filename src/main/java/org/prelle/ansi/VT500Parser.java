@@ -104,7 +104,7 @@ public class VT500Parser {
 						if (foo.length()!=1) {
 							logger.log(Level.TRACE, "Expect 1 character string for codepoint {0} but got {1}", utf8Codepoint, foo.length());
 						} else {
-							logger.log(Level.ERROR, "STOP HERE "+foo.charAt(0));
+//							logger.log(Level.ERROR, "STOP HERE "+foo.charAt(0));
 							callback.print( (char)foo.charAt(0));
 							//System.exit(1);
 						}
