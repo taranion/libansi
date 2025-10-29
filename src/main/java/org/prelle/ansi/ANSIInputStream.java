@@ -152,6 +152,14 @@ public class ANSIInputStream extends FilterInputStream {
 
 	//-------------------------------------------------------------------
 	public AParsedElement readFragment() throws IOException {
+//		try {
+//			throw new RuntimeException("Trace");
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		
 		if (!queue.isEmpty()) {
 			if (loggingListener!=null) {
 				try {

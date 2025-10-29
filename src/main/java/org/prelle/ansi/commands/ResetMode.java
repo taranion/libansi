@@ -2,7 +2,7 @@ package org.prelle.ansi.commands;
 
 import org.prelle.ansi.ControlSequenceFragment;
 import org.prelle.ansi.Level;
-import org.prelle.ansi.commands.SetMode.Mode;
+import org.prelle.ansi.commands.SetMode.ANSIMode;
 
 /**
  *
@@ -15,16 +15,16 @@ public class ResetMode extends ControlSequenceFragment {
 	}
 
 	//-------------------------------------------------------------------
-	public ResetMode(Mode mode) {
+	public ResetMode(ANSIMode mode) {
 		this();
 		parameter.clear();
 		parameter.add(mode.val);
 	}
 
 	//-------------------------------------------------------------------
-	public Mode getValue() {
+	public ANSIMode getValue() {
 		int value = parameter.get(0);
-		return Mode.valueOf(value);
+		return ANSIMode.valueOf(value);
 	}
 
 }

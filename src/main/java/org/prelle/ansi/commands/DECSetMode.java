@@ -9,6 +9,10 @@ import org.prelle.ansi.Level;
 public class DECSetMode extends ControlSequenceFragment {
 
 	public static enum DECMode {
+		/** 
+		 * The reset state causes any displayable characters received when the cursor is at the right margin to replace any previous characters there. 
+		 * The set state causes these characters to advance to the start of the next line, doing a scroll up if required and permitted. 
+		 */
 		WRAP_AROUND_MODE(7),
 		X10_MOUSE(9),
 		TEXT_CURSOR_ENABLE(25),

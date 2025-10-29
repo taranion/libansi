@@ -9,7 +9,7 @@ import org.prelle.ansi.commands.EraseInDisplay.Mode;
  */
 public class SetMode extends ControlSequenceFragment {
 
-	public static enum Mode {
+	public static enum ANSIMode {
 		GATM_GUARDED_AREA_TRANSFER(1),
 		/** Keyboard Action mode lets your program lock and unlock the keyboard. When the keyboard is locked, it cannot send codes to the program. To alert the operator, the terminal turns on the Wait indicators and disables the keyclick features whenever the keyboard is locked. */
 		KAM_KEYBOARD_ACTION_MODE(2),
@@ -38,10 +38,10 @@ public class SetMode extends ControlSequenceFragment {
 		GRAPHIC_RENDITION_COMBINATION_MODE(21),
 		;
 		int val;
-		Mode(int val) { this.val = val; }
+		ANSIMode(int val) { this.val = val; }
 		public int value() { return val; }
-		public static Mode valueOf(int x) {
-			for (Mode m : Mode.values())
+		public static ANSIMode valueOf(int x) {
+			for (ANSIMode m : ANSIMode.values())
 				if (m.val==x) return m;
 			return null;
 		}
@@ -92,7 +92,7 @@ public class SetMode extends ControlSequenceFragment {
 	}
 
 	//-------------------------------------------------------------------
-	public SetMode(Mode mode) {
+	public SetMode(ANSIMode mode) {
 		this();
 		this.intermediate=null;
 		parameter.clear();
@@ -108,9 +108,9 @@ public class SetMode extends ControlSequenceFragment {
 	}
 
 	//-------------------------------------------------------------------
-	public Mode getValue() {
+	public ANSIMode getValue() {
 		int value = parameter.get(0);
-		return Mode.valueOf(value);
+		return ANSIMode.valueOf(value);
 	}
 
 }
