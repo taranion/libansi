@@ -7,6 +7,7 @@ import java.lang.System.Logger.Level;
 import org.prelle.ansi.ANSIOutputStream;
 import org.prelle.ansi.commands.EraseInDisplay;
 import org.prelle.ansi.commands.EraseInLine;
+import org.prelle.ansi.commands.EraseRectangularArea;
 import org.prelle.ansi.commands.FillRectangularArea;
 import org.prelle.ansi.commands.LinefeedNewlineMode;
 import org.prelle.ansi.commands.SetLeftAndRightMargin;
@@ -63,5 +64,10 @@ public class AreaControls {
 	//-------------------------------------------------------------------
 	public static void fillArea(ANSIOutputStream out, char c, int x, int y, int w, int h) throws IOException {
 		out.write(new FillRectangularArea(c, y, x, y+h, x+w));
+	}
+
+	//-------------------------------------------------------------------
+	public static void clearArea(ANSIOutputStream out, int x, int y, int w, int h) throws IOException {
+		out.write(new EraseRectangularArea(y, x, y+h, x+w));
 	}
 }
