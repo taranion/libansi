@@ -18,7 +18,7 @@ public class StringMessageFragment extends C1Fragment {
 
 	//-------------------------------------------------------------------
 	public String toString() {
-		if (data.length()>50)
+		if (data!=null && data.length()>50)
 			return code+":"+data.substring(0, 50);
 		return code+":"+data;
 	}

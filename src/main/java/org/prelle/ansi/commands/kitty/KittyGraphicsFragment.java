@@ -44,6 +44,21 @@ public class KittyGraphicsFragment extends StringMessageFragment {
 	}
 
 	//-------------------------------------------------------------------
+	@Override
+	public String toString() {
+		// Prepare line
+		StringBuffer full = new StringBuffer("G");
+		full.append( controlData.entrySet().stream().map(e -> e.getKey()+"="+e.getValue()).collect(Collectors.joining(",")) );
+		full.append(';');
+		if (payloadB64!=null) {
+			full.append(payloadB64);
+		}
+		data = full.toString();
+		return super.toString();
+
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * @see org.prelle.ansi.SequenceFragment#encode(java.io.ByteArrayOutputStream, boolean)
 	 */

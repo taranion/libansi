@@ -106,6 +106,8 @@ public class DeviceAttributes {
 		PCTERM(44),
 		SOFT_KEY_MAP(45),
 		ASCII_EMULATION(46),
+		/** his is a recent extension that a number of terminals have agreed to support, and indicates that the terminal is capable of copying to the clipboard with OSC 52 using a Pc value of c or an empty Pc value. */
+		OSC52_CLIPBOARD(52),
 		// https://contour-terminal.org/vt-extensions/buffer-capture/
 		CAPTURE_SCREEN_BUFFER(314),
 		;
