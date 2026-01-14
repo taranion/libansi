@@ -108,6 +108,10 @@ public abstract class ControlSequenceFragment extends SequenceFragment {
 			toFill.writeBytes(intermediate.getBytes(StandardCharsets.US_ASCII));
 		if (super.finalChar>=0)
 			toFill.write( (byte)super.finalChar);
+		else {
+			toFill.write( (byte)super.finalChar);
+			toFill.write( (byte)super.finalChar);			
+		}
 	}
 
 	//-------------------------------------------------------------------
