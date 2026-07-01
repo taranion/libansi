@@ -1,5 +1,6 @@
 package org.prelle.ansi;
 
+import java.io.ByteArrayOutputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.nio.charset.Charset;
@@ -40,6 +41,7 @@ public class VT500Parser {
 	 */
 	private boolean utf8Mode = true;
 
+	private ByteArrayOutputStream processed;
 	protected StringBuffer intermediate = new StringBuffer();
 	protected StringBuffer parameter = new StringBuffer();
 	protected StringBuffer oscData = new StringBuffer();
@@ -88,6 +90,8 @@ public class VT500Parser {
 	//-------------------------------------------------------------------
 	public void parse(int code) {
 		logger.log(Level.DEBUG, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
+		if (processed==null) processed = new ByteArrayOutputStream();
+		processed.write(code);
 
 		if (utf8Mode && code>=0x80) {
 			// Collect UTF printable
@@ -95,39 +99,36 @@ public class VT500Parser {
 			if (((code & 0xC0)>>6)==0x02) {
 				// UTF-8 continuation
 				utf8Expect--;
-				logger.log(Level.TRACE, "UTF-8 continuation ... expect {0} more", utf8Expect);
+				logger.log(Level.WARNING, "UTF-8 continuation ... expect {0} more", utf8Expect);
 				utf8Codepoint = (utf8Codepoint<<6) | (code & 0x3F);
 				if (utf8Expect==0) {
-					logger.log(Level.TRACE, "UTF-8 done ... codepoint is {0}", utf8Codepoint);
+					logger.log(Level.WARNING, "UTF-8 done ... codepoint is {0}", utf8Codepoint);
 					if (utf8Codepoint>=0xA0) {
-						String foo = Character.toString(utf8Codepoint);
-						if (foo.length()!=1) {
-							logger.log(Level.TRACE, "Expect 1 character string for codepoint {0} but got {1}", utf8Codepoint, foo.length());
-						} else {
-//							logger.log(Level.ERROR, "STOP HERE "+foo.charAt(0));
-							callback.print( (char)foo.charAt(0));
-							//System.exit(1);
-						}
+						if (!Character.isValidCodePoint(utf8Codepoint)) {
+					        logger.log(Level.WARNING, "Invalid codepoint {0}", utf8Codepoint);
+					    } else {
+					        callback.print(utf8Codepoint);
+					    }
 						utf8Codepoint=0;
 					} else {
-						logger.log(Level.TRACE, "UTF-8 codepoint for a C1 code: {0}", utf8Codepoint);
+						logger.log(Level.WARNING, "UTF-8 codepoint for a C1 code: {0}", utf8Codepoint);
 						code = utf8Codepoint;
 						dontContinueProcessing=false;
 					}
 				}
 			} else if (((code & 0xE0)>>5)==0x06) {
 				// 2 Byte sequence
-				logger.log(Level.TRACE, "2 Byte UTF-8 ... expect 1 more");
+				logger.log(Level.WARNING, "2 Byte UTF-8 ... expect 1 more");
 				utf8Expect=1;
 				utf8Codepoint = code & 0x1F;
-			} else if (((code & 0xE0)>>4)==0x0E) {
+			} else if ((code & 0xF0) == 0xE0) {
 				// 3 byte sequence
-				logger.log(Level.TRACE, "3 Byte UTF-8 ... expect 2 more");
+				logger.log(Level.WARNING, "3 Byte UTF-8 ... expect 2 more");
 				utf8Expect=2;
 				utf8Codepoint = code & 0xF;
-			} else if (((code & 0xF8)>>3)==0x1E) {
+			} else if ((code & 0xF8) == 0xF0) {
 				// 4 byte sequence
-				logger.log(Level.TRACE, "4 Byte UTF-8 ... expect 3 more");
+				logger.log(Level.WARNING, "4 Byte UTF-8 ... expect 3 more");
 				utf8Expect=3;
 				utf8Codepoint = code & 0x7;
 			} else {
@@ -192,6 +193,7 @@ public class VT500Parser {
 			case Integer x when x>=0xA0 && x<=0xFF -> callback.print( (byte)(int)x);
 			default -> ignore(code);
 			}
+			processed.reset();
 			return;
 		case ESCAPE:
 			switch ( (Integer)code) {
@@ -406,12 +408,14 @@ public class VT500Parser {
 
 	//-------------------------------------------------------------------
 	private void csiDispatch(int code) {
-		callback.controlSequence(code, intermediate.toString(), parameter.toString());
+		callback.controlSequence(code, intermediate.toString(), parameter.toString(), processed.toByteArray());
+		processed.reset();
 	}
 
 	//-------------------------------------------------------------------
 	private void escDispatch(int code) {
-		callback.handleEscape(code, intermediate.toString());
+		callback.handleEscape(code, intermediate.toString(), processed.toByteArray());
+		processed.reset();
 	}
 
 	//-------------------------------------------------------------------
@@ -431,8 +435,9 @@ public class VT500Parser {
 
 	//-------------------------------------------------------------------
 	private void oscEnd() {
-		if (oscData.length()>0) callback.handleOperatingSystemCommand(oscData.toString());
+		if (oscData.length()>0) callback.handleOperatingSystemCommand(oscData.toString(), processed.toByteArray());
 		oscData.delete(0, oscData.length());
+		processed.reset();
 	}
 
 	//-------------------------------------------------------------------
@@ -442,8 +447,9 @@ public class VT500Parser {
 
 	//-------------------------------------------------------------------
 	private void unhook(int code) {
-		callback.handleDeviceControlString(code, intermediate.toString(), parameter.toString(), hook.toString());
+		callback.handleDeviceControlString(code, intermediate.toString(), parameter.toString(), hook.toString(), processed.toByteArray());
 		hook.delete(0, hook.length());
+		processed.reset();
 	}
 
 	//-------------------------------------------------------------------
@@ -455,6 +461,7 @@ public class VT500Parser {
 	private void stringUnhook() {
 		String foo = sosPmApc.toString();
 		sosPmApc.delete(0, sosPmApc.length());
-		callback.handleStringMessage(C1Code.valueOf(sosPmApcCode), foo.toString());
+		callback.handleStringMessage(C1Code.valueOf(sosPmApcCode), foo.toString(), processed.toByteArray());
+		processed.reset();
 	}
 }
