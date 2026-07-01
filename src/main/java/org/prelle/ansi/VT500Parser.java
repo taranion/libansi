@@ -99,13 +99,13 @@ public class VT500Parser {
 			if (((code & 0xC0)>>6)==0x02) {
 				// UTF-8 continuation
 				utf8Expect--;
-				logger.log(Level.WARNING, "UTF-8 continuation ... expect {0} more", utf8Expect);
+				logger.log(Level.TRACE, "UTF-8 continuation ... expect {0} more", utf8Expect);
 				utf8Codepoint = (utf8Codepoint<<6) | (code & 0x3F);
 				if (utf8Expect==0) {
-					logger.log(Level.WARNING, "UTF-8 done ... codepoint is {0}", utf8Codepoint);
+					logger.log(Level.TRACE, "UTF-8 done ... codepoint is {0}", utf8Codepoint);
 					if (utf8Codepoint>=0xA0) {
 						if (!Character.isValidCodePoint(utf8Codepoint)) {
-					        logger.log(Level.WARNING, "Invalid codepoint {0}", utf8Codepoint);
+					        logger.log(Level.TRACE, "Invalid codepoint {0}", utf8Codepoint);
 					    } else {
 					        callback.print(utf8Codepoint);
 					    }
@@ -118,17 +118,17 @@ public class VT500Parser {
 				}
 			} else if (((code & 0xE0)>>5)==0x06) {
 				// 2 Byte sequence
-				logger.log(Level.WARNING, "2 Byte UTF-8 ... expect 1 more");
+				logger.log(Level.TRACE, "2 Byte UTF-8 ... expect 1 more");
 				utf8Expect=1;
 				utf8Codepoint = code & 0x1F;
 			} else if ((code & 0xF0) == 0xE0) {
 				// 3 byte sequence
-				logger.log(Level.WARNING, "3 Byte UTF-8 ... expect 2 more");
+				logger.log(Level.TRACE, "3 Byte UTF-8 ... expect 2 more");
 				utf8Expect=2;
 				utf8Codepoint = code & 0xF;
 			} else if ((code & 0xF8) == 0xF0) {
 				// 4 byte sequence
-				logger.log(Level.WARNING, "4 Byte UTF-8 ... expect 3 more");
+				logger.log(Level.TRACE, "4 Byte UTF-8 ... expect 3 more");
 				utf8Expect=3;
 				utf8Codepoint = code & 0x7;
 			} else {
