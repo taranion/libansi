@@ -132,6 +132,9 @@ public class AllCommands {
 		Class<? extends ControlSequenceFragment> clazz = csiByCode.get(key);
 		if (clazz==null) {
 			logger.log(Level.ERROR, "Unsupported CSI command "+Integer.toHexString(code)+" / "+key);
+			logger.log(Level.ERROR, "Finding ''{0}'' in csiCode returns {1}", key, csiByCode.get(key));
+			logger.log(Level.ERROR, "... ", csiByCode.keySet().stream().filter(k -> k.charAt(0)=='!').toList());
+			csiByCode.keySet().stream().forEachOrdered(x -> System.out.println(x+"="+csiByCode.get(x)));
 			return null;
 		}
 

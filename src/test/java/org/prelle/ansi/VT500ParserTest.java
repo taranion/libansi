@@ -284,18 +284,18 @@ class ParsingStream  {
 			@Override public void print(byte c) {
 				stash.add(new PrintableFragment().add( (char)c));
 			}
-			@Override public void print(char c) {
+			@Override public void print(int c) {
 				stash.add(new PrintableFragment().add( c));
 			}
 
 			@Override
-			public void handleOperatingSystemCommand(String data) {
+			public void handleOperatingSystemCommand(String data, byte[] buf) {
 				System.out.println("handleOperatingSystemCommand "+data);
 
 			}
 
 			@Override
-			public void handleEscape(int code, String parameter) {
+			public void handleEscape(int code, String parameter, byte[] buf) {
 				System.out.println("handleEscape "+code+" with '"+parameter+"'");
 
 			}
@@ -313,7 +313,7 @@ class ParsingStream  {
 			}
 
 			@Override
-			public void controlSequence(int code, String inter, String param) {
+			public void controlSequence(int code, String inter, String param, byte[] buf) {
 				System.out.println("Execute CSI: "+code+" with i='"+inter+"' and p='"+param+"'");
 
 				ControlSequenceFragment seq = AllCommands.parseControlSequence(code, inter, param);
@@ -324,10 +324,11 @@ class ParsingStream  {
 			}
 
 			@Override
-			public void handleDeviceControlString(int code, String inter, String param, String data) {
+			public void handleDeviceControlString(int code, String inter, String param, String data, byte[] buf) {
 				System.out.println("ToDo: implement handleDeviceControlString: i="+inter+", p="+param+", d="+data);
 			}
-			public void handleStringMessage(C1Code code, String data) {
+			@Override
+			public void handleStringMessage(C1Code code, String data, byte[] buf) {
 				stash.add(new StringMessageFragment(code, data));
 			}
 		};

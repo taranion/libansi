@@ -35,12 +35,23 @@ public abstract class AParsedElement {
 	}
 
 	protected Type type;
+	protected byte[] rawData;
 
 	//-------------------------------------------------------------------
 	public Type getType() {
 		return type;
 	}
 
+	public AParsedElement setRaw(byte[] raw) {
+		this.rawData = raw;
+		return this;
+	}
+	
+	//-------------------------------------------------------------------
+	public byte[] getRaw() {
+		return rawData;
+	}
+	
 	//-------------------------------------------------------------------
 	public abstract String getName();
 

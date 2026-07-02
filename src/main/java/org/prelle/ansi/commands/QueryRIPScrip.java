@@ -1,5 +1,6 @@
 package org.prelle.ansi.commands;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -27,7 +28,7 @@ public class QueryRIPScrip extends ControlSequenceFragment {
 
     //-------------------------------------------------------------------
     public QueryRIPScrip() {
-        super("!", 127, "QRIP", Level.UNKNOWN);
+        super(0x21, "QRIP", Level.UNKNOWN);
     }
 
     //-------------------------------------------------------------------
@@ -55,6 +56,20 @@ public class QueryRIPScrip extends ControlSequenceFragment {
 		buf[pos++]=(byte) (((int)'0')+state.value);
 		buf[pos++]=(byte) '!';
 		return buf;
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.SequenceFragment#encode(java.io.ByteArrayOutputStream, boolean)
+	 */
+	@Override
+	public void encode(ByteArrayOutputStream toFill, boolean use7Bit) {
+		toFill.write( (byte)C0Code.ESC.code());
+		toFill.write( (byte)C1Code.CSI.getAsEscapeCode());
+		if (firstParam!=0) {
+			toFill.write( (byte)firstParam);
+		}
+		toFill.write( (byte)'!');
 	}
 
 
