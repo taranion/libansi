@@ -254,6 +254,7 @@ public class VT500Parser {
 		case CSI_PARAM:
 			switch ( (Integer)code) {
 			case Integer x when isExecutableC0(codeF) -> callback.execute( C0Code.valueOf(code));
+			case Integer x when x==0x21 -> {csiDispatch( (char)(int)x); enterState(ParserState.GROUND);} // Workaround for RIPScrip, because they use 0x21 as a final char
 			case Integer x when x>=0x20 && x<=0x2F -> {collect(code); enterState(ParserState.CSI_INTERMEDIATE);}
 			case Integer x when x>=0x30 && x<=0x3F -> param(code);
 //			case Integer x when x==0x3A ->  enterState(ParserState.CSI_IGNORE);
