@@ -194,7 +194,7 @@ public class ANSIInputStreamTest {
 		ANSIInputStream in = new ANSIInputStream(bais);
 		AParsedElement frag = in.readFragment();
 		assertNotNull(frag);
-		assertTrue(frag instanceof ControlSequenceFragment);
+		assertTrue("Expected CSI but got "+frag.getClass(),frag instanceof ControlSequenceFragment);
 		ControlSequenceFragment print = (ControlSequenceFragment)frag;
 		assertEquals("QRIP", print.getName());
 		in.close();

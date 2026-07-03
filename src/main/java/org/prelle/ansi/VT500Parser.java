@@ -89,7 +89,7 @@ public class VT500Parser {
 
 	//-------------------------------------------------------------------
 	public void parse(int code) {
-		logger.log(Level.DEBUG, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
+		logger.log(Level.TRACE, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
 		if (processed==null) processed = new ByteArrayOutputStream();
 		processed.write(code);
 

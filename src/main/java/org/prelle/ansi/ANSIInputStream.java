@@ -46,7 +46,16 @@ public class ANSIInputStream extends FilterInputStream {
 	private BiConsumer<String,String> loggingListener;
 
 	/** Elements waiting to be returned */
-	private List<AParsedElement> queue = new ArrayList<AParsedElement>();
+	private List<AParsedElement> queue = new ArrayList<AParsedElement>() {
+		@Override
+		public boolean add(AParsedElement e) {
+			if (e instanceof PrintableFragment print && print.getText().isEmpty()) {
+				throw new RuntimeException("Attempt to add empty PrintableFragment to queue");
+			}
+			return super.add(e);
+			
+		}
+	};
 	private List<Integer> decomposedFragment = new ArrayList<Integer>();
 	private byte[] blockFragment;
 	private int blockOffset;
@@ -62,7 +71,7 @@ public class ANSIInputStream extends FilterInputStream {
 			throw new NullPointerException();
 		parser = new VT500Parser(new VT500ParserListener() {
 			@Override public void print(byte c) {
-//				logger.log(Level.INFO, "print "+c+"  collect="+collectPrintable+"  enc="+parser.getEncoding());
+				logger.log(Level.TRACE, "print "+c+"/"+(char)c+"  collect="+collectPrintable+"  enc="+parser.getEncoding());
 				byte[] foo = new byte[] {c};
 				try {
 					String foo2 = new String(foo, parser.getEncoding());
@@ -87,7 +96,7 @@ public class ANSIInputStream extends FilterInputStream {
 			@Override public void print(int codePoint) {
 				char[] chars = Character.toChars(codePoint);
 				String s = new String(chars);
-//				logger.log(Level.INFO, "print "+s+" / "+codePoint+"  collect="+collectPrintable);
+				logger.log(Level.TRACE, "print "+s+" / "+codePoint+"  collect="+collectPrintable);
 				if (collectPrintable) {
 					try {
 						collectBuffer.write(s.getBytes(StandardCharsets.UTF_8));
@@ -176,6 +185,10 @@ public class ANSIInputStream extends FilterInputStream {
 				queue.add(new StringMessageFragment(code, data).setRaw(buf));
 			}
 		});
+	}
+	//-------------------------------------------------------------------
+	public String toString() {
+		return "ANSIInput <-- "+in;
 	}
 
 	//-------------------------------------------------------------------
@@ -293,24 +306,30 @@ public class ANSIInputStream extends FilterInputStream {
 
 	//-------------------------------------------------------------------
 	@Override
-	public int read(byte[] buf) throws IOException {
-//		System.err.println("ENTER: AIS.read(byte[]) called");
+	public int read(byte[] buf, int offset, int length) throws IOException {
+		System.err.println("ENTER: AIS.read(byte[],"+offset+","+length+") called");
 		try {
-		AParsedElement frag = readFragment();
-		if (frag==null) return -1;
-		byte[] data = frag.getRaw();
-		if (data==null) {
-			if (frag.getType()==Type.C0) { buf[0]=(byte)((C0Fragment)frag).getCode().code(); return 1; }
-			if (frag.getType()==Type.C1) { buf[0]=(byte)((C1Fragment)frag).getCode().code(); return 1; }
-			System.err.println("AIS.read(byte[]) returned a fragment with null raw data: "+frag.getClass());
-			return 0;
-		}
-		int len = Math.min(data.length, buf.length);
-		if (len<data.length)
-			System.err.println("AIS.read(byte[]) returned "+len+" bytes, but buffer is "+buf.length);
-		System.arraycopy(data, 0, buf, 0, len);
-		
-		return len;
+			AParsedElement frag = readFragment();
+//			logger.log(Level.ERROR, frag);
+			if (frag==null) return -1;
+			byte[] data = frag.getRaw();
+			if (data==null) {
+				if (frag.getType()==Type.C0) { buf[0]=(byte)((C0Fragment)frag).getCode().code(); return 1; }
+				if (frag.getType()==Type.C1) { buf[0]=(byte)((C1Fragment)frag).getCode().code(); return 1; }
+				System.err.println("AIS.read(byte[],int,int) returned a fragment with null raw data: "+frag.getClass());
+				return 0;
+			}
+			int len = Math.min(data.length, buf.length-offset);
+			if (len<data.length)
+				System.err.println("AIS.read(byte[]) returned "+len+" bytes, but buffer is "+buf.length);
+			System.arraycopy(data, 0, buf, offset, len);
+//			System.err.println("WAS: AIS.read(byte[],"+offset+","+length+") called");
+//			logger.log(Level.ERROR, "Converted {0} to string \"{1}\" ", frag, new String(data, 0, len, StandardCharsets.UTF_8));
+//			if (frag instanceof ControlSequenceFragment csi) {
+//				logger.log(Level.ERROR, "ControlSequenceFragment text: \"{0}\"", csi);
+//			}
+			
+			return len;
 		} finally {
 //			System.err.println("LEAVE: AIS.read(byte[])");
 		}
@@ -334,20 +353,21 @@ public class ANSIInputStream extends FilterInputStream {
 					logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
 					continue;
 				}
+				logger.log(Level.WARNING, "collectBuffer.reset() called");
 				collectBuffer.reset();
 				if (filtered.size()>1) {
 					logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
 					queue.addAll(filtered.subList(1, filtered.size()));
 				}
-				//logger.log(Level.WARNING, filtered.getFirst());
+				logger.log(Level.WARNING, filtered.getFirst());
 				return filtered.getFirst();
 			} else {
-				//logger.log(Level.TRACE, "Calling in.read");
+				logger.log(Level.TRACE, "Calling in.read");
 				int code = -1; 
 				try {
 					code = in.read();
 				} catch (SocketTimeoutException e) {
-					logger.log(Level.DEBUG, "SocketTimeoutException in.read");
+					logger.log(Level.TRACE, "SocketTimeoutException in.read");
 					continue;
 				}
 //				logger.log(Level.WARNING, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);
@@ -366,6 +386,7 @@ public class ANSIInputStream extends FilterInputStream {
 //						logger.log(Level.WARNING, queue.getFirst());
 						return queue.remove(0);
 					}
+					logger.log(Level.WARNING, "collectBuffer.reset() called");
 					collectBuffer.reset();
 					return null;
 				} else if (code==0x1E) {
@@ -403,12 +424,13 @@ public class ANSIInputStream extends FilterInputStream {
 				logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
 				continue;
 			}
+			logger.log(Level.WARNING, "collectBuffer.reset() called");
 			collectBuffer.reset();
 			if (filtered.size()>1) {
 				logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
 				queue.addAll(filtered.subList(1, filtered.size()));
 			}
-//			logger.log(Level.WARNING, filtered.getFirst());
+			logger.log(Level.WARNING, filtered.getFirst());
 			return filtered.getFirst();
 		} while (true);
 	}
@@ -449,9 +471,13 @@ public class ANSIInputStream extends FilterInputStream {
 
 	public void releaseBuffer() {
 		logger.log(Level.DEBUG, "releaseBuffer() ");
-		PrintableFragment frag = (collectInto!=null)?collectInto:new PrintableFragment();
-		frag.rawData = collectBuffer.toByteArray();
-		queue.add(frag);
+		if (collectInto!=null) {
+			collectInto.rawData = collectBuffer.toByteArray();
+			queue.add(collectInto);
+		}
+//		PrintableFragment frag = (collectInto!=null)?collectInto:new PrintableFragment();
+//		frag.rawData = collectBuffer.toByteArray();
+//		queue.add(frag);
 		collectInto=null;
 		collectBuffer.reset();
 	}
