@@ -1,7 +1,6 @@
 package org.prelle.ansi;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.System.Logger;
@@ -10,19 +9,17 @@ import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-import org.prelle.ansi.AParsedElement.Type;
 import org.prelle.ansi.commands.AllCommands;
 
 /**
  *
  */
-public class ANSIInputStream extends InputStream {
+public abstract class AbstractANSIInputStream extends InputStream implements FilteringANSIStream {
 
-	private final static Logger logger = System.getLogger(ANSIInputStream.class.getPackageName());
+	protected final static Logger logger = System.getLogger(AbstractANSIInputStream.class.getPackageName());
 
 	private enum Mode {
 		TEXT,
@@ -39,7 +36,7 @@ public class ANSIInputStream extends InputStream {
 	 * If set to TRUE all printable characters will be collected until a
 	 * non-printable fragment is received
 	 */
-	private boolean collectPrintable = true;
+	protected boolean collectPrintable = true;
 	private transient PrintableFragment collectInto;
 	private ByteArrayOutputStream collectBuffer = new ByteArrayOutputStream();
 	/** Optional. Will receive a fragment mnemonic and a data string */
@@ -57,16 +54,16 @@ public class ANSIInputStream extends InputStream {
 		}
 	};
 	private List<Integer> decomposedFragment = new ArrayList<Integer>();
-	private byte[] blockFragment;
-	private int blockOffset;
 
 	private VT500Parser parser;
 	
 	private List<ANSIInputStreamFilter> filters = new ArrayList<ANSIInputStreamFilter>();
 	private InputStream in;
+	
+	protected boolean filtered = false;
 
 	//-------------------------------------------------------------------
-	public ANSIInputStream(InputStream in) {
+	public AbstractANSIInputStream(InputStream in) {
 		this.in = in;
 		if (in==null)
 			throw new NullPointerException();
@@ -147,12 +144,12 @@ public class ANSIInputStream extends InputStream {
 			}
 			@Override public void execute(C1Code c1) {
 				if (collectPrintable) releasePrintable();
-				queue.add(new C1Fragment(c1));
+				queue.add(new C1Fragment(c1).setRaw(new byte[] {(byte)c1.code}));
 			}
 			@Override
 			public void execute(C0Code c0) {
 				if (collectPrintable) releasePrintable();
-				queue.add(new C0Fragment(c0));
+				queue.add(new C0Fragment(c0).setRaw(new byte[] {(byte)c0.code}));
 			}
 			@Override public void controlSequence(int code, String inter, String param, byte[] buf) {
 				if (collectPrintable) releasePrintable();
@@ -213,150 +210,26 @@ public class ANSIInputStream extends InputStream {
 	private List<AParsedElement> checkFilters(AParsedElement frag) {
 		for (ANSIInputStreamFilter filter : filters) {
 			if (filter.handles(frag)) {
+				filtered = true;
 				return filter.process(frag);
 			}
 		}
 		return List.of(frag);
 	}
 	
+	//-------------------------------------------------------------------
+	/**
+	 * @see java.io.InputStream#available()
+	 */
 	@Override
 	public int available() throws IOException {
 //		logger.log(Level.DEBUG, "AIS.available() called");
 		return decomposedFragment.isEmpty()?in.available():decomposedFragment.size();
 	}
-	
-//	@Override
-//    public int read(byte[] b, int off, int len) throws IOException {
-//		AParsedElement frag = queue.isEmpty()?readFragment():queue.remove(0);
-//		byte[] data = (frag.getRaw()!=null)?frag.getRaw():null;
-//		if (data==null) {
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			frag.encode(baos, true);
-//			data = baos.toByteArray();
-//		}
-//		int lenToCopy = Math.min(len, data.length);
-//		System.arraycopy(data, 0, b, off, Math.min(len, data.length));
-//    }
-
-	
-	//-------------------------------------------------------------------
-	@Override
-	public int read() throws IOException {
-		logger.log(Level.DEBUG, "AIS.read() called");
-		while (true) {
-			logger.log(Level.DEBUG, "AIS.read() in loop");
-			if (!decomposedFragment.isEmpty()) {
-				int code = decomposedFragment.remove(0);
-				return code;
-			} else {
-				AParsedElement frag = queue.isEmpty()?readFragment():queue.remove(0);
-				byte[] data = (frag.getRaw()!=null)?frag.getRaw():null;
-				if (data==null) {
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					frag.encode(baos, true);
-					data = baos.toByteArray();
-				}
-				if (frag instanceof PrintableFragment print) {
-					String text = print.getText();
-					for (int i=0; i<text.length(); i++) {
-						decomposedFragment.add(text.codePointAt(i));					
-					}
-				} else {
-					if (data==null) {
-						System.err.println("AIS.read() returned a fragment with null raw data: "+frag.getClass());
-						continue;
-					}
-					for (byte b : data) {
-						decomposedFragment.add((b<0)?(256+b):b);
-					}
-				}
-				return decomposedFragment.remove(0);
-			}
-		}
-		
-		
-//		while (true) {
-//			try {
-//				if (!decomposedFragment.isEmpty()) {
-//					int code = decomposedFragment.remove(0);
-//					return code;
-//				} else {
-//					AParsedElement frag = readFragment();
-//					if (frag instanceof PrintableFragment print) {
-//						String text = print.getText();
-//						for (int i=0; i<text.length(); i++) {
-//							decomposedFragment.add(text.codePointAt(i));					
-//						}
-//						continue;
-//					} else {
-//						byte[] data = frag.getRaw();
-//						if (data==null) {
-//							System.err.println("AIS.read() returned a fragment with null raw data: "+frag.getClass());
-//							continue;
-//						}
-//						for (byte b : data) {
-//							decomposedFragment.add((b<0)?(256+b):b);
-//						}
-//					}
-//				}
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		return super.read();
-	}
 
 	//-------------------------------------------------------------------
-	@Override
-	public int read(byte[] buf, int offset, int length) throws IOException {
-		logger.log(Level.INFO,"ENTER: AIS.read(byte[],"+offset+","+length+") called");
-		int len = 0;
-		try {
-			AParsedElement frag = readFragment(false);
-			if (frag==null) return 0;
-			logger.log(Level.ERROR, frag);
-			byte[] data = frag.getRaw();
-			if (data==null) {
-				if (frag.getType()==Type.C0) { buf[0]=(byte)((C0Fragment)frag).getCode().code(); return 1; }
-				if (frag.getType()==Type.C1) { buf[0]=(byte)((C1Fragment)frag).getCode().code(); return 1; }
-				System.err.println("AIS.read(byte[],int,int) returned a fragment with null raw data: "+frag.getClass());
-				len=0;
-				return 0;
-			}
-			len = Math.min(data.length, buf.length-offset);
-			if (len<data.length)
-				System.err.println("AIS.read(byte[]) returned "+len+" bytes, but buffer is "+buf.length);
-			System.arraycopy(data, 0, buf, offset, len);
-//			System.err.println("WAS: AIS.read(byte[],"+offset+","+length+") called");
-//			logger.log(Level.ERROR, "Converted {0} to string \"{1}\" ", frag, new String(data, 0, len, StandardCharsets.UTF_8));
-//			if (frag instanceof ControlSequenceFragment csi) {
-//				logger.log(Level.ERROR, "ControlSequenceFragment text: \"{0}\"", csi);
-//			}
-			
-			
-			return len;
-		} finally {
-			logger.log(Level.INFO,"LEAVE: AIS.read(byte[]) = {0}",len);
-			if (len==0) {
-				try {
-					throw new RuntimeException("Trace");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				logger.log(Level.WARNING, "AIS.read(byte[]) returned 0 bytes ");
-			}
-		}
-	}
-
-	//-------------------------------------------------------------------
-	public AParsedElement readFragment() throws IOException {
-		return readFragment(true);
-	}
-
-	//-------------------------------------------------------------------
-	public AParsedElement readFragment(boolean blocking) throws IOException {
+	protected AParsedElement readFragment() throws IOException {
+		filtered = false;
 		do {
 			if (!queue.isEmpty()) {
 				AParsedElement frag = queue.remove(0);
@@ -387,7 +260,6 @@ public class ANSIInputStream extends InputStream {
 					logger.log(Level.DEBUG, "Calling in.read = {0} / {1}", (char)code, code);
 				} catch (SocketTimeoutException e) {
 					logger.log(Level.TRACE, "SocketTimeoutException in.read");
-					if (!blocking) return null;
 					continue;
 				}
 //				logger.log(Level.WARNING, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);

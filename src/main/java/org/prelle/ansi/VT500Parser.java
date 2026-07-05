@@ -132,7 +132,7 @@ public class VT500Parser {
 				utf8Expect=3;
 				utf8Codepoint = code & 0x7;
 			} else {
-				logger.log(Level.WARNING, "Broken UTF-8 encoding");
+				logger.log(Level.WARNING, "Broken UTF-8 encoding: "+code);
 			}
 
 			if (dontContinueProcessing) {

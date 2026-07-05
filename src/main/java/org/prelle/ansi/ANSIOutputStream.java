@@ -32,6 +32,11 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	public String toString() {
+		return "ANSIInput --> "+out;
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * @param loggingListener the loggingListener to set
 	 */
