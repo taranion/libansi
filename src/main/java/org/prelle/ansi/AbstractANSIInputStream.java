@@ -21,17 +21,6 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 
 	protected final static Logger logger = System.getLogger(AbstractANSIInputStream.class.getPackageName());
 
-	private enum Mode {
-		TEXT,
-		// Collect more bytes
-		UTF_COLLECT,
-		ESCAPE,
-		STRING_TERMINATED,
-		SEQUENCE,
-		/** Wait for ST to finish Device Control Sequence */
-		DCS_TEXT
-	}
-
 	/**
 	 * If set to TRUE all printable characters will be collected until a
 	 * non-printable fragment is received

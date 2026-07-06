@@ -33,7 +33,7 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 	//-------------------------------------------------------------------
 	public String toString() {
-		return "ANSIInput --> "+out;
+		return "ANSIOutput --> "+out;
 	}
 
 	//-------------------------------------------------------------------

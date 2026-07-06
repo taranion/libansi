@@ -19,7 +19,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 	 */
 	public PassthroughANSIInputStream(InputStream in) {
 		super(in);
-		collectPrintable = false;
+		collectPrintable = true;
 	}
 
 	//-------------------------------------------------------------------
