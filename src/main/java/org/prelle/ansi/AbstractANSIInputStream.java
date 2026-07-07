@@ -47,7 +47,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 	private VT500Parser parser;
 	
 	private List<ANSIInputStreamFilter> filters = new ArrayList<ANSIInputStreamFilter>();
-	private InputStream in;
+	protected InputStream in;
 	
 	protected boolean filtered = false;
 
@@ -173,6 +173,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 			}
 		});
 	}
+	
 	//-------------------------------------------------------------------
 	public String toString() {
 		return "ANSIInput <-- "+in;
@@ -240,13 +241,14 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 					logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
 					queue.addAll(filtered.subList(1, filtered.size()));
 				}
-				logger.log(Level.DEBUG, filtered.getFirst());
+				logger.log(Level.INFO, filtered.getFirst());
 				return filtered.getFirst();
 			} else {
 				int code = -1; 
 				try {
+//					logger.log(Level.WARNING, "Calling in.read on {0}", in);
 					code = in.read();
-					logger.log(Level.DEBUG, "Calling in.read = {0} / {1}", (char)code, code);
+//					logger.log(Level.WARNING, "Calling in.read = {0} / {1}", (char)code, code);
 				} catch (SocketTimeoutException e) {
 					logger.log(Level.TRACE, "SocketTimeoutException in.read");
 					continue;
@@ -264,7 +266,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 							}
 						}
 						logger.log(Level.TRACE, "Before removing: {0}",queue);
-//						logger.log(Level.WARNING, queue.getFirst());
+						logger.log(Level.WARNING, queue.getFirst());
 						return queue.remove(0);
 					}
 					logger.log(Level.WARNING, "collectBuffer.reset() called");
@@ -310,7 +312,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
 				queue.addAll(filtered.subList(1, filtered.size()));
 			}
-			logger.log(Level.DEBUG, filtered.getFirst());
+			logger.log(Level.INFO, filtered.getFirst());
 			return filtered.getFirst();
 		} while (true);
 	}

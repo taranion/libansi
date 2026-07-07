@@ -12,6 +12,8 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 
 	private byte[] blockFragment;
 	private int blockOffset;
+	private long lastReleaseTime;
+	private Thread autoReleaseThread;
 
 	//-------------------------------------------------------------------
 	/**
@@ -20,6 +22,22 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 	public PassthroughANSIInputStream(InputStream in) {
 		super(in);
 		collectPrintable = true;
+		
+		if (collectPrintable) {
+			autoReleaseThread = new Thread(() -> {
+				while (true) {
+					try {
+						Thread.sleep(100);
+						if (System.currentTimeMillis() - lastReleaseTime > 100) 
+							releaseBuffer();
+					} catch (InterruptedException e) {
+						break;
+					}
+				}
+			});
+			autoReleaseThread.setDaemon(true);
+			autoReleaseThread.start();
+		}
 	}
 
 	//-------------------------------------------------------------------
@@ -27,7 +45,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 		if (blockFragment == null || blockOffset == blockFragment.length) {
 			AParsedElement fragment = readFragment();
 			if (fragment == null) return -1;
-			logger.log(Level.TRACE, "fragment: {0}={1}", fragment, fragment.rawData);
+			logger.log(Level.ERROR, "fragment: {0}={1}", fragment, fragment.rawData);
 			blockFragment = fragment.getRaw();
 			blockOffset = 0;
 		}
@@ -50,6 +68,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 		try {
 			ensureBlockFragment();
 			
+        	lastReleaseTime = System.currentTimeMillis();
 			return blockFragment[blockOffset++] & 0xFF;
 		} finally {
 			logger.log(Level.DEBUG, "LEAVE read()");
@@ -63,27 +82,21 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
     public int read(byte[] b, int off, int len) throws IOException {
         Objects.checkFromIndexSize(off, len, b.length);
         if (len == 0) {
+        	lastReleaseTime = System.currentTimeMillis();
             return 0;
         }
 
-        int c = read();
-        if (c == -1) {
-            return -1;
-        }
-        b[off] = (byte)c;
-
-        int i = 1;
-        try {
-            for (; i < len ; i++) {
-                c = read();
-                if (c == -1 || filtered) {
-                    break;
-                }
-                b[off + i] = (byte)c;
-            }
-        } catch (IOException ee) {
-        }
-        return i;
+        int i=0;
+        while (i < len) {
+			int c = read();
+			if (c == -1 || filtered) {
+				break;
+			}
+			b[off + i] = (byte)c;
+			i++;
+		}
+    	lastReleaseTime = System.currentTimeMillis();
+    	return i;
     }
 
 }
