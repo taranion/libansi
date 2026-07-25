@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -65,6 +66,8 @@ public class ANSIInputStream extends InputStream {
 	private List<ANSIInputStreamFilter> filters = new ArrayList<ANSIInputStreamFilter>();
 	private InputStream in;
 
+	private boolean disconnected;
+	
 	//-------------------------------------------------------------------
 	public ANSIInputStream(InputStream in) {
 		this.in = in;
@@ -72,7 +75,7 @@ public class ANSIInputStream extends InputStream {
 			throw new NullPointerException();
 		parser = new VT500Parser(new VT500ParserListener() {
 			@Override public void print(byte c) {
-				logger.log(Level.TRACE, "print "+c+"/"+(char)c+"  collect="+collectPrintable+"  enc="+parser.getEncoding());
+//				logger.log(Level.WARNING, "print "+c+"/"+(char)c+"  collect="+collectPrintable+"  enc="+parser.getEncoding());
 				byte[] foo = new byte[] {c};
 				try {
 					String foo2 = new String(foo, parser.getEncoding());
@@ -202,8 +205,24 @@ public class ANSIInputStream extends InputStream {
 	}
 
 	//-------------------------------------------------------------------
-	public void addFilter(ANSIInputStreamFilter filter) {
-		filters.add(filter);
+	public boolean hasFilter(ANSIInputStreamFilter filter) {
+		return filters.contains(filter);
+	}
+
+	//-------------------------------------------------------------------
+	public boolean addFilter(ANSIInputStreamFilter filter) {
+		return filters.add(filter);
+	}
+
+	//-------------------------------------------------------------------
+	public boolean addFilter(int index, ANSIInputStreamFilter filter) {
+		filters.add(index, filter);
+		return true;
+	}
+
+	//-------------------------------------------------------------------
+	public boolean removeFilter(ANSIInputStreamFilter filter) {
+		return filters.remove(filter);
 	}
 
 	//-------------------------------------------------------------------
@@ -357,6 +376,8 @@ public class ANSIInputStream extends InputStream {
 
 	//-------------------------------------------------------------------
 	public AParsedElement readFragment(boolean blocking) throws IOException {
+//		logger.log(Level.INFO, "readFragment(blocking={0}) called - queue is {1}  this= {2}", blocking, queue, this);
+		if (disconnected) return null;
 		do {
 			if (!queue.isEmpty()) {
 				AParsedElement frag = queue.remove(0);
@@ -381,14 +402,19 @@ public class ANSIInputStream extends InputStream {
 				logger.log(Level.DEBUG, filtered.getFirst());
 				return filtered.getFirst();
 			} else {
+				// Queue was empty
 				int code = -1; 
 				try {
 					code = in.read();
-					logger.log(Level.DEBUG, "Calling in.read = {0} / {1}", (char)code, code);
+					logger.log(Level.DEBUG, "  returned {0} / {1}", (char)code, code);
 				} catch (SocketTimeoutException e) {
-					logger.log(Level.TRACE, "SocketTimeoutException in.read");
+//					logger.log(Level.WARNING, "SocketTimeoutException in.read");
 					if (!blocking) return null;
 					continue;
+				} catch (SocketException e) {
+					disconnected=true;
+					logger.log(Level.WARNING, "SocketException in.read: {0}", e.getMessage());
+					throw e;
 				}
 //				logger.log(Level.WARNING, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);
 				if (code==-1) {
@@ -408,6 +434,7 @@ public class ANSIInputStream extends InputStream {
 					}
 					logger.log(Level.WARNING, "collectBuffer.reset() called");
 					collectBuffer.reset();
+					disconnected=true;
 					return null;
 				} else if (code==0x1E) {
 					logger.log(Level.DEBUG, "Record separator found - flushing collected printables");

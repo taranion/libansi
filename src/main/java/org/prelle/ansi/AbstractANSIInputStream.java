@@ -213,8 +213,14 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 	 */
 	@Override
 	public int available() throws IOException {
-//		logger.log(Level.DEBUG, "AIS.available() called");
-		return decomposedFragment.isEmpty()?in.available():decomposedFragment.size();
+		logger.log(Level.WARNING, "ENTER: AIS.available() called = decomposed="+decomposedFragment.size()+"  in="+in);
+		int ret = 0;
+		try {
+			ret = decomposedFragment.isEmpty()?in.available():decomposedFragment.size();
+			return ret;
+		} finally {
+			logger.log(Level.WARNING, "LEAVE: AIS.available() with "+ret);
+		}
 	}
 
 	//-------------------------------------------------------------------
@@ -245,14 +251,14 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				return filtered.getFirst();
 			} else {
 				int code = -1; 
-				try {
-//					logger.log(Level.WARNING, "Calling in.read on {0}", in);
+//				try {
+					logger.log(Level.WARNING, "Calling in.read on {0}", in);
 					code = in.read();
-//					logger.log(Level.WARNING, "Calling in.read = {0} / {1}", (char)code, code);
-				} catch (SocketTimeoutException e) {
-					logger.log(Level.TRACE, "SocketTimeoutException in.read");
-					continue;
-				}
+					logger.log(Level.WARNING, "Called in.read = {0} / {1}", (char)code, code);
+//				} catch (SocketTimeoutException e) {
+//					logger.log(Level.TRACE, "SocketTimeoutException in.read");
+//					continue;
+//				}
 //				logger.log(Level.WARNING, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);
 				if (code==-1) {
 					logger.log(Level.DEBUG, "Connection lost");
@@ -312,7 +318,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
 				queue.addAll(filtered.subList(1, filtered.size()));
 			}
-			logger.log(Level.INFO, filtered.getFirst());
+//			logger.log(Level.INFO, filtered.getFirst());
 			return filtered.getFirst();
 		} while (true);
 	}

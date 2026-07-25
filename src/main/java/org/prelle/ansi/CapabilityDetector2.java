@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -30,7 +32,7 @@ import org.prelle.ansi.control.ReportingControls;
 /**
  *
  */
-public class CapabilityDetector2 implements ANSIInputStreamFilter {
+public class CapabilityDetector2 {
 	
 	private static enum State {
 		IDLE,
@@ -58,6 +60,8 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 	private final static Logger logger = System.getLogger(CapabilityDetector2.class.getPackageName());
 
 	private ANSIOutputStream out;
+	private ANSIInputStream in;
+	private Consumer<TerminalCapabilities> listener;
 
 	private State state;
 	private TerminalCapabilities capabilities;
@@ -65,44 +69,61 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 	private static int expectedCPRs;
 
 	private StringBuffer printable = new StringBuffer();
+	private boolean continueReading = false;
+	private List<AParsedElement> processLater = new ArrayList<>();
 
 	//-------------------------------------------------------------------
-	public CapabilityDetector2(ANSIOutputStream out, Consumer<TerminalCapabilities> listener) {
+	public CapabilityDetector2(ANSIInputStream in, ANSIOutputStream out, Consumer<TerminalCapabilities> listener) {
+		this.in = in;
 		this.out= out;
+		this.listener = listener;
 		this.state = State.IDLE;
 		capabilities = new TerminalCapabilities();
 		//out.setLoggingListener( (k,v) -> System.err.println("-->"+k+" : "+v));
-		
-		// Start detection in dedicated thread
-		Thread t = new Thread( () -> {
-			try {
-				state = State.STARTED;
-				performCheck(80, 24);
-				state = State.FINISHED;
-				listener.accept(capabilities);
-			} catch (IOException e) {
-				logger.log(Level.ERROR, "Failed in detection",e);
+	}
+
+	//-----------------------------------------------------------------
+	private void startReadFromSocketThread() {
+		Runnable run = () -> {
+			continueReading = true;
+			while (continueReading) {
+				try {
+					AParsedElement data = in.readFragment(false);
+					if (data!=null) {
+						processLater.addAll( process(data) );
+					}
+				} catch (SocketTimeoutException timeout) {
+					// Ignore, this is expected
+				} catch (IOException e) {
+					logger.log(Level.ERROR, "Error reading from socket", e);
+					continueReading = false;
+				}
 			}
-		});
-		t.start();
+			logger.log(Level.ERROR, "Stopping read from socket thread");
+		};
+		Thread.startVirtualThread(run);
+	}
+	
+	//-------------------------------------------------------------------
+	public void start(int timeoutMs) {
+		logger.log(Level.INFO, "ENTER: start({0})", timeoutMs);
+		try {
+			state = State.STARTED;
+			startReadFromSocketThread();
+			performCheck(timeoutMs, 80, 24);
+			state = State.FINISHED;
+			listener.accept(capabilities);
+			logger.log(Level.INFO, "Stop detecting terminal capabilities");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			logger.log(Level.INFO, "LEAVE: start({0})", timeoutMs);
+		}
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * @see org.prelle.ansi.ANSIInputStreamFilter#handles(org.prelle.ansi.AParsedElement)
-	 */
-	@Override
-	public boolean handles(AParsedElement event) {
-		if (state!=State.STARTED) return false;
-		if (event instanceof PrintableFragment textEvent) {
-  	       printable.append( textEvent.getText() );
-  	       return false;
-  		}
-		return true;
-	}
-
-	//-------------------------------------------------------------------
-	public TerminalCapabilities performCheck(int width, int height) throws IOException {
+	public TerminalCapabilities performCheck(int timeoutMS, int width, int height) throws IOException {
 		logger.log(Level.INFO, "ENTER: detecting terminal capabilities");
 		try {
 		    printable.delete(0, printable.length());
@@ -173,23 +194,27 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 			out.flush();
 
 			synchronized (stepsTaken) {
+				// Wait 1000 milliseconds on a non-blocking socket
 				try {
-//					logger.log(Level.INFO, "Wait for all responses");
-					stepsTaken.wait(1000);
-//					logger.log(Level.INFO, "Wait done "+this);
+					logger.log(Level.INFO, "Wait {0}ms for all responses", timeoutMS);
+					Instant start = Instant.now();
+					stepsTaken.wait(timeoutMS);
+					logger.log(Level.WARNING, "Done waiting ... {0}ms", Instant.now().toEpochMilli()-start.toEpochMilli());
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} finally {
+					continueReading = false;
 				}
 			}
 			AreaControls.clearScreen(out);
 			out.writeCSI('m', 0);
 
 //			logger.log(Level.INFO, "Reporting");
-			capabilities.report(out);
+//			capabilities.report(out);
 			capabilities.report(new ANSIOutputStream(System.out));
 		} catch (SocketException e) {
-			logger.log(Level.ERROR, "Failed in detection: {0}", e.getMessage());
+			logger.log(Level.ERROR, "Failed in detection: "+e.getMessage(),e);
 		} catch (Exception e) {
 			logger.log(Level.ERROR, "Failed in detection",e);
 		} finally {
@@ -228,11 +253,10 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * @see org.prelle.ansi.ANSIInputStreamFilter#process(org.prelle.ansi.AParsedElement)
-	 */
-	@Override
-	public List<AParsedElement> process(AParsedElement frag) {
+	private List<AParsedElement> process(AParsedElement frag) {
+		logger.log(Level.WARNING, "Process {0} in {1}",frag, stepsTaken);
+		if (state==State.FINISHED) return List.of(frag);
+		
  		// Check if there is a printable result to process
  		if (!printable.isEmpty()) {
  		    String toProcess = printable.toString();
@@ -293,8 +317,10 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 				logger.log(Level.INFO, "Left Right Margin = "+capabilities.marginLeftRight);
 				acknowledgeStep(Step.LEFT_RIGHT_MARGIN);
 			} else if (stepsTaken.contains(Step.CURSOR_POSITIONING.ordinal())) {
-				if (capabilities.cursorPositioning==false)
+				if (capabilities.cursorPositioning==false) {
 					capabilities.cursorPositioning = cpr.getColumn()==50;
+					acknowledgeStep(Step.CURSOR_POSITIONING);
+				}
 				logger.log(Level.INFO, "Cursor positioning = "+capabilities.cursorPositioning);
 				if (expectedCPRs==2) {
 					acknowledgeStep(Step.CURSOR_POSITIONING);
@@ -388,10 +414,10 @@ public class CapabilityDetector2 implements ANSIInputStreamFilter {
 
 	//-------------------------------------------------------------------
 	private void testCellSize() throws IOException {
-		logger.log(Level.DEBUG, "ENTER: testResolutionAndSizes");
+		logger.log(Level.ERROR, "ENTER: testCellSize");
 		ReportingControls.requestXTermCellSize(out);
 		out.flush();
-		logger.log(Level.DEBUG, "LEAVE: testResolutionAndSizes");
+		logger.log(Level.ERROR, "LEAVE: testCellSize");
 	}
 
 	//-------------------------------------------------------------------

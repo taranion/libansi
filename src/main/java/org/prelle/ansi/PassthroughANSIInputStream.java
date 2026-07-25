@@ -3,6 +3,7 @@ package org.prelle.ansi;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.System.Logger.Level;
+import java.net.SocketTimeoutException;
 import java.util.Objects;
 
 /**
@@ -21,7 +22,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 	 */
 	public PassthroughANSIInputStream(InputStream in) {
 		super(in);
-		collectPrintable = true;
+		collectPrintable = false;
 		
 		if (collectPrintable) {
 			autoReleaseThread = new Thread(() -> {
@@ -45,7 +46,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 		if (blockFragment == null || blockOffset == blockFragment.length) {
 			AParsedElement fragment = readFragment();
 			if (fragment == null) return -1;
-			logger.log(Level.ERROR, "fragment: {0}={1}", fragment, fragment.rawData);
+//			logger.log(Level.ERROR, "fragment: {0}={1}", fragment, fragment.rawData);
 			blockFragment = fragment.getRaw();
 			blockOffset = 0;
 		}
@@ -54,7 +55,10 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 
 	//-------------------------------------------------------------------
 	public int available() throws IOException {
-		return ensureBlockFragment();
+		if (blockFragment == null || blockOffset == blockFragment.length) {
+			return in.available();
+		}
+		return blockFragment.length - blockOffset;
 	}
 
 	//-------------------------------------------------------------------
@@ -87,13 +91,16 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
         }
 
         int i=0;
-        while (i < len) {
-			int c = read();
-			if (c == -1 || filtered) {
-				break;
+        try {
+			while (i < len) {
+				int c = read();
+				if (c == -1 || filtered) {
+					break;
+				}
+				b[off + i] = (byte)c;
+				i++;
 			}
-			b[off + i] = (byte)c;
-			i++;
+		} catch (SocketTimeoutException e) {
 		}
     	lastReleaseTime = System.currentTimeMillis();
     	return i;
