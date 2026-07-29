@@ -252,9 +252,9 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 			} else {
 				int code = -1; 
 //				try {
-					logger.log(Level.WARNING, "Calling in.read on {0}", in);
+//					logger.log(Level.WARNING, "Calling in.read on {0}", in);
 					code = in.read();
-					logger.log(Level.WARNING, "Called in.read = {0} / {1}", (char)code, code);
+//					logger.log(Level.WARNING, "Called in.read = {0} / {1}", (char)code, code);
 //				} catch (SocketTimeoutException e) {
 //					logger.log(Level.TRACE, "SocketTimeoutException in.read");
 //					continue;

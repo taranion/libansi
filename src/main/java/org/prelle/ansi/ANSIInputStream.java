@@ -329,7 +329,7 @@ public class ANSIInputStream extends InputStream {
 	//-------------------------------------------------------------------
 	@Override
 	public int read(byte[] buf, int offset, int length) throws IOException {
-		logger.log(Level.INFO,"ENTER: AIS.read(byte[],"+offset+","+length+") called");
+		logger.log(Level.WARNING,"ENTER: AIS.read(byte[],"+offset+","+length+") called");
 		int len = 0;
 		try {
 			AParsedElement frag = readFragment(false);
