@@ -73,6 +73,9 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 			ensureBlockFragment();
 			
         	lastReleaseTime = System.currentTimeMillis();
+        	if (blockFragment == null || blockOffset == blockFragment.length) {
+				return -1;
+			}
 			return blockFragment[blockOffset++] & 0xFF;
 		} finally {
 			logger.log(Level.DEBUG, "LEAVE read()");
