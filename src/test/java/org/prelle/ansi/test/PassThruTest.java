@@ -14,6 +14,9 @@ import org.prelle.ansi.AParsedElement;
 import org.prelle.ansi.PassthroughANSIInputStream;
 import org.prelle.ansi.commands.SelectGraphicRendition;
 
+/**
+ * This class contains unit tests for the PassthroughANSIInputStream.
+ */
 public class PassThruTest {
 	
 	private static class CSIFilter implements ANSIInputStreamFilter {

@@ -106,7 +106,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 		} catch (SocketTimeoutException e) {
 		}
     	lastReleaseTime = System.currentTimeMillis();
-    	return i;
+     	return i;
     }
 
 }

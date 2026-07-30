@@ -101,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.12.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -110,7 +110,9 @@
                         </goals>
                         <configuration>
                             <author>false</author>
+                            <additionalparam>-quiet -Xdoclint:none -Xmaxwarns=1</additionalparam>
                             <failOnError>false</failOnError>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
                             <sourceFileExcludes>
                                 <sourceFileExclude>**/module-info.java</sourceFileExclude>
                             </sourceFileExcludes>

@@ -236,19 +236,21 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 						e.printStackTrace();
 					}
 				}
-				// Filter
-				List<AParsedElement> filtered = checkFilters(frag);
-				if (filtered.isEmpty()) {
+				// Consume or replace the fragment with the result of a filter
+				List<AParsedElement> replacedOrConsumed = checkFilters(frag);
+				if (replacedOrConsumed.isEmpty()) {
+					// The fragment was consumed by a filter and should not be returned to the caller. Continue reading
 					logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
 					continue;
 				}
 				collectBuffer.reset();
-				if (filtered.size()>1) {
-					logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
-					queue.addAll(filtered.subList(1, filtered.size()));
+				// If there are multiple fragments returned by the filter, add them to the queue and return the first one
+				if (replacedOrConsumed.size()>1) {
+					logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, replacedOrConsumed.size());
+					queue.addAll(replacedOrConsumed.subList(1, replacedOrConsumed.size()));
 				}
-				logger.log(Level.INFO, filtered.getFirst());
-				return filtered.getFirst();
+				logger.log(Level.INFO, replacedOrConsumed.getFirst());
+				return replacedOrConsumed.getFirst();
 			} else {
 				int code = -1; 
 //				try {
