@@ -204,6 +204,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				return filter.process(frag);
 			}
 		}
+		filtered=false;
 		return List.of(frag);
 	}
 	
@@ -240,7 +241,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				List<AParsedElement> replacedOrConsumed = checkFilters(frag);
 				if (replacedOrConsumed.isEmpty()) {
 					// The fragment was consumed by a filter and should not be returned to the caller. Continue reading
-					logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
+					logger.log(Level.INFO, "Fragment {0} was handled by a filter", frag);
 					continue;
 				}
 				collectBuffer.reset();

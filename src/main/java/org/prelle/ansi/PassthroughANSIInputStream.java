@@ -67,7 +67,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 	 */
 	@Override
 	public int read() throws IOException {
-		logger.log(Level.DEBUG, "ENTER read()");
+		logger.log(Level.INFO, "ENTER read()");
 		filtered = false;
 		try {
 			ensureBlockFragment();
