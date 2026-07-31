@@ -14,7 +14,7 @@ import org.prelle.ansi.PassthroughANSIInputStream;
 /**
  * 
  */
-public class InputStreamTest {
+public class PassThruInputStreamTest {
 
 	//-------------------------------------------------------------------
 	/**
