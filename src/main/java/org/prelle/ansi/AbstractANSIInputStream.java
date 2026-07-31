@@ -204,6 +204,7 @@ public abstract class AbstractANSIInputStream extends InputStream implements Fil
 				return filter.process(frag);
 			}
 		}
+		// Prevent this element to be skipped in PassthroughANSIInputStream.read(byte[] b, int off, int len)
 		filtered=false;
 		return List.of(frag);
 	}

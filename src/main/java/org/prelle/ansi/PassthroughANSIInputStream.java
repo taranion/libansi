@@ -98,6 +98,7 @@ public class PassthroughANSIInputStream extends AbstractANSIInputStream {
 			while (i < len) {
 				int c = read();
 				if (c == -1 || filtered) {
+					if (filtered) i++;
 					break;
 				}
 				b[off + i] = (byte)c;
