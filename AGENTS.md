@@ -20,6 +20,9 @@ This document serves as context, architectural guidance, and operational knowled
 `NewANSIInputStream` is the primary, modern input stream class. It extends `java.io.InputStream` and implements `FilteringANSIStream`.
 
 * **VT500 Parser**: Uses `VT500Parser` internally to parse bytes from the underlying `InputStream` into structured `AParsedElement` fragments.
+* **VT500Parser Raw Buffer Management**:
+  * `VT500Parser` accumulates raw incoming bytes in a `processed` buffer (`ByteArrayOutputStream`) to populate `AParsedElement.setRaw(...)`.
+  * **CRITICAL**: When a multi-byte UTF-8 character finishes parsing (`utf8Expect == 0`), `VT500Parser` MUST reset `processed` (`processed.reset()`). If `processed` is not reset, the multi-byte UTF-8 raw bytes leak into the `getRaw()` buffer of subsequent ANSI control sequences (e.g. SGR color codes `\u001b[48;5;10m`), causing downstream terminals to render duplicate character glyphs when control sequences are written.
 * **Printable Fragment Collection (`collectPrintable`)**:
   * Controlled via `setCollectPrintable(boolean)`.
   * When `collectPrintable == true` (default), consecutive printable characters are collected into a single `PrintableFragment`.

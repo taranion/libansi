@@ -110,6 +110,9 @@ public class VT500Parser {
 					        callback.print(utf8Codepoint);
 					    }
 						utf8Codepoint=0;
+						if (processed != null) {
+							processed.reset();
+						}
 					} else {
 						logger.log(Level.WARNING, "UTF-8 codepoint for a C1 code: {0}", utf8Codepoint);
 						code = utf8Codepoint;

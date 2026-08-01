@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -52,6 +53,32 @@ public class NewANSIInputStreamTest {
 			assertEquals(raw[i] & 0xFF, c);
 		}
 		assertEquals(-1, in.read());
+		in.close();
+	}
+
+	//-------------------------------------------------------------------
+	@Test
+	public void testUnicodeReadByteArray() throws IOException {
+		String data = "Was ist äöüß? oder ╔═╗\u001b[42m║╚╝\u001b[0m║─╤╧╟╢┼┴┬┤├ ?\r\nKein Emoji 😀!";
+		byte[] raw = data.getBytes(StandardCharsets.UTF_8);
+
+		ByteArrayInputStream bais = new ByteArrayInputStream(raw);
+		NewANSIInputStream in = new NewANSIInputStream(bais);
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		byte[] buf = new byte[1024];
+		int bytesRead;
+		while ((bytesRead = in.read(buf)) != -1) {
+			String asString = new String(buf, 0, bytesRead, StandardCharsets.UTF_8);
+			System.out.println("Read " + bytesRead + " bytes: " + asString);
+			baos.write(buf, 0, bytesRead);
+		}
+		byte[] result = baos.toByteArray();
+
+		assertEquals(raw.length, result.length);
+		for (int i = 0; i < raw.length; i++) {
+			assertEquals(raw[i] & 0xFF, result[i] & 0xFF);
+		}
 		in.close();
 	}
 
@@ -211,6 +238,33 @@ public class NewANSIInputStreamTest {
 		assertEquals("╔", new String(buf, 0, num6, StandardCharsets.UTF_8));
 
 		assertEquals(-1, in.read(buf, 0, 4));
+		in.close();
+	}
+
+	//-------------------------------------------------------------------
+	@Test
+	public void testUTF8FollowedBySGRNoByteLeak() throws IOException {
+		// "║\u001b[48;5;10m"
+		String data = "║\u001b[48;5;10m";
+		byte[] raw = data.getBytes(StandardCharsets.UTF_8);
+
+		ByteArrayInputStream bais = new ByteArrayInputStream(raw);
+		NewANSIInputStream in = new NewANSIInputStream(bais);
+
+		AParsedElement frag1 = in.readFragment();
+		assertNotNull(frag1);
+		assertTrue(frag1 instanceof PrintableFragment);
+		assertEquals("║", ((PrintableFragment) frag1).getText());
+		assertEquals(3, frag1.getRaw().length);
+
+		AParsedElement frag2 = in.readFragment();
+		assertNotNull(frag2);
+		assertTrue(frag2 instanceof ControlSequenceFragment);
+		byte[] raw2 = frag2.getRaw();
+		// Crucial assertion: raw2 MUST be 10 bytes (\u001b[48;5;10m) and NOT start with E2 95 91 (║)
+		assertEquals(10, raw2.length);
+		assertEquals("\u001b[48;5;10m", new String(raw2, StandardCharsets.UTF_8));
+
 		in.close();
 	}
 
