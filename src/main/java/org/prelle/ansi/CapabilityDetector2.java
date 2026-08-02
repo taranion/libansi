@@ -106,19 +106,19 @@ public class CapabilityDetector2 {
 	
 	//-------------------------------------------------------------------
 	public void start(int timeoutMs) {
-		logger.log(Level.INFO, "ENTER: start({0})", timeoutMs);
+		logger.log(Level.WARNING, "ENTER: start({0})", timeoutMs);
 		try {
 			state = State.STARTED;
 			startReadFromSocketThread();
 			performCheck(timeoutMs, 80, 24);
 			state = State.FINISHED;
 			listener.accept(capabilities);
-			logger.log(Level.INFO, "Stop detecting terminal capabilities");
+			logger.log(Level.WARNING, "Stop detecting terminal capabilities");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			logger.log(Level.INFO, "LEAVE: start({0})", timeoutMs);
+			logger.log(Level.WARNING, "LEAVE: start({0})", timeoutMs);
 		}
 	}
 
@@ -196,7 +196,7 @@ public class CapabilityDetector2 {
 			synchronized (stepsTaken) {
 				// Wait 1000 milliseconds on a non-blocking socket
 				try {
-					logger.log(Level.INFO, "Wait {0}ms for all responses", timeoutMS);
+					logger.log(Level.WARNING, "Wait {0}ms for all responses", timeoutMS);
 					Instant start = Instant.now();
 					stepsTaken.wait(timeoutMS);
 					logger.log(Level.WARNING, "Done waiting ... {0}ms", Instant.now().toEpochMilli()-start.toEpochMilli());

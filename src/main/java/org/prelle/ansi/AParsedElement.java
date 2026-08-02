@@ -67,6 +67,12 @@ public abstract class AParsedElement {
 	 * @return Raw byte array, or null if not set
 	 */
 	public byte[] getRaw() {
+		if (rawData == null) {
+			// If rawData is not set, encode the element into a byte array
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			encode(baos, false);
+			rawData = baos.toByteArray();
+		}
 		return rawData;
 	}
 	
