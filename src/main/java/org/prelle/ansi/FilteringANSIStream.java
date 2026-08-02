@@ -5,7 +5,15 @@ package org.prelle.ansi;
  */
 public interface FilteringANSIStream {
 
+
 	//-------------------------------------------------------------------
-	void addFilter(ANSIInputStreamFilter filter);
+	boolean hasFilter(ANSIInputStreamFilter filter) ;
+
+	//-------------------------------------------------------------------
+	boolean addFilter(ANSIInputStreamFilter filter);
+	boolean addFilter(int position, ANSIInputStreamFilter filter);
+	
+	//-------------------------------------------------------------------
+	boolean removeFilter(ANSIInputStreamFilter filter);
 
 }

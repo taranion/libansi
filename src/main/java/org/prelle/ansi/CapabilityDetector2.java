@@ -88,7 +88,7 @@ public class CapabilityDetector2 {
 			continueReading = true;
 			while (continueReading) {
 				try {
-					AParsedElement data = in.readFragment(false);
+					AParsedElement data = in.readFragment();
 					if (data!=null) {
 						processLater.addAll( process(data) );
 					}

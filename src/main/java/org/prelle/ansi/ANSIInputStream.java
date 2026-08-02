@@ -1,139 +1,103 @@
 package org.prelle.ansi;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.BiConsumer;
 
-import org.prelle.ansi.AParsedElement.Type;
 import org.prelle.ansi.commands.AllCommands;
 
 /**
- *
+ * An ANSI Input Stream implementation that parses VT500 sequences,
+ * supports filtering, fragment-level reading, and configurable printable collection.
  */
-public class ANSIInputStream extends InputStream {
+public class ANSIInputStream extends InputStream implements FilteringANSIStream {
 
 	private final static Logger logger = System.getLogger(ANSIInputStream.class.getPackageName());
 
-	private enum Mode {
-		TEXT,
-		// Collect more bytes
-		UTF_COLLECT,
-		ESCAPE,
-		STRING_TERMINATED,
-		SEQUENCE,
-		/** Wait for ST to finish Device Control Sequence */
-		DCS_TEXT
-	}
-
-	/**
-	 * If set to TRUE all printable characters will be collected until a
-	 * non-printable fragment is received
-	 */
+	private final InputStream in;
+	private final VT500Parser parser;
 	private boolean collectPrintable = true;
-	private transient PrintableFragment collectInto;
-	private ByteArrayOutputStream collectBuffer = new ByteArrayOutputStream();
+
+	private PrintableFragment collectInto;
+	private final ByteArrayOutputStream collectBuffer = new ByteArrayOutputStream();
+
+	private final List<ANSIInputStreamFilter> filters = new ArrayList<>();
+	private final List<AParsedElement> queue = new ArrayList<>();
+
+	private byte[] pendingRaw;
+	private int pendingOffset;
 	/** Optional. Will receive a fragment mnemonic and a data string */
 	private BiConsumer<String,String> loggingListener;
 
-	/** Elements waiting to be returned */
-	private List<AParsedElement> queue = new ArrayList<AParsedElement>() {
-		@Override
-		public boolean add(AParsedElement e) {
-			if (e instanceof PrintableFragment print && print.getText().isEmpty()) {
-				throw new RuntimeException("Attempt to add empty PrintableFragment to queue");
-			}
-			return super.add(e);
-			
-		}
-	};
-	private List<Integer> decomposedFragment = new ArrayList<Integer>();
-	private byte[] blockFragment;
-	private int blockOffset;
-
-	private VT500Parser parser;
-	
-	private List<ANSIInputStreamFilter> filters = new ArrayList<ANSIInputStreamFilter>();
-	private InputStream in;
-
-	private boolean disconnected;
-	
 	//-------------------------------------------------------------------
 	public ANSIInputStream(InputStream in) {
-		this.in = in;
-		if (in==null)
-			throw new NullPointerException();
-		parser = new VT500Parser(new VT500ParserListener() {
+		this.in = Objects.requireNonNull(in, "InputStream cannot be null");
+		this.parser = new VT500Parser(new VT500ParserListener() {
 			@Override public void print(byte c) {
-//				logger.log(Level.WARNING, "print "+c+"/"+(char)c+"  collect="+collectPrintable+"  enc="+parser.getEncoding());
-				byte[] foo = new byte[] {c};
+				byte[] raw = new byte[] {c};
 				try {
-					String foo2 = new String(foo, parser.getEncoding());
-					char cc = foo2.charAt(0);
+					String str = new String(raw, parser.getEncoding());
+					char ch = str.charAt(0);
 					if (collectPrintable) {
-						if (collectInto!=null) {
-							collectInto.add(cc);
-							collectBuffer.write(c);
-							collectInto.setRaw(collectBuffer.toByteArray());
-						} else {
-							collectInto=new PrintableFragment().add(cc);
-							collectBuffer.write(c);
-							collectInto.setRaw(collectBuffer.toByteArray());
-						};
+						if (collectInto == null) {
+							collectInto = new PrintableFragment();
+						}
+						collectInto.add(ch);
+						collectBuffer.write(c);
 					} else {
-						queue.add(new PrintableFragment().add(cc).setRaw(foo));
+						enqueueFragment(new PrintableFragment().add(ch).setRaw(raw));
 					}
 				} catch (Exception e) {
-					logger.log(Level.INFO, "Error reading "+c,e);
+					logger.log(Level.INFO, "Error reading byte character " + c, e);
 				}
 			}
+
 			@Override public void print(int codePoint) {
 				char[] chars = Character.toChars(codePoint);
-				String s = new String(chars);
-				logger.log(Level.TRACE, "print "+s+" / "+codePoint+"  collect="+collectPrintable);
+				String str = new String(chars);
+				byte[] raw = str.getBytes(StandardCharsets.UTF_8);
 				if (collectPrintable) {
-					try {
-						collectBuffer.write(s.getBytes(StandardCharsets.UTF_8));
-					} catch (IOException e) {
-						e.printStackTrace();
+					if (collectInto == null) {
+						collectInto = new PrintableFragment();
 					}
-					if (collectInto!=null) {
-						collectInto.add(codePoint);
-					} else {
-						collectInto=new PrintableFragment().add(codePoint);
-					};
-					collectInto.setRaw(collectBuffer.toByteArray());
+					collectInto.add(codePoint);
+					collectBuffer.writeBytes(raw);
 				} else {
-					queue.add(new PrintableFragment().add(codePoint).setRaw(s.getBytes(StandardCharsets.UTF_8)));
+					enqueueFragment(new PrintableFragment().add(codePoint).setRaw(raw));
 				}
 			}
+
 			@Override public void handleOperatingSystemCommand(String data, byte[] buf) {
-				queue.add(new StringMessageFragment(C1Code.OSC, data).setRaw(buf));
+				releaseCollectPrintable();
+				enqueueFragment(new StringMessageFragment(C1Code.OSC, data).setRaw(buf));
 			}
+
 			@Override public void handleDeviceControlString(int code, String inter, String param, String data, byte[] buf) {
-				if (collectPrintable) releasePrintable();
+				releaseCollectPrintable();
 				DeviceControlFragment dcs = AllCommands.parseDeviceControlSequence(code, inter, param, data);
-				dcs.setRaw(buf);
-				queue.add(dcs);
- 			}
+				if (dcs != null) {
+					dcs.setRaw(buf);
+				}
+				enqueueFragment(dcs);
+			}
+
 			@Override public void handleEscape(int code, String parameter, byte[] buf) {
+				releaseCollectPrintable();
 				try {
 					switch (code) {
-					case 55: queue.add(new EscapeSequenceFragment('7', "DECSC", null).setRaw(buf)); break;
-					case 56: queue.add(new EscapeSequenceFragment('8', "DECRC", null).setRaw(buf)); break;
-					case 79: // F1-F4 ... depending on next byte
+					case 55: enqueueFragment(new EscapeSequenceFragment('7', "DECSC", null).setRaw(buf)); break;
+					case 56: enqueueFragment(new EscapeSequenceFragment('8', "DECRC", null).setRaw(buf)); break;
+					case 79:
 						int next = in.read();
-						queue.add(switch (next) {
+						enqueueFragment(switch (next) {
 						case 80 -> new KeyCodeFragment(0x70, "F1").setRaw(buf);
 						case 81 -> new KeyCodeFragment(0x71, "F2").setRaw(buf);
 						case 82 -> new KeyCodeFragment(0x72, "F3").setRaw(buf);
@@ -142,66 +106,94 @@ public class ANSIInputStream extends InputStream {
 						});
 						break;
 					default:
-						logger.log(Level.WARNING, "ToDo: implement handleEscape: "+code+": "+parameter);
+						logger.log(Level.WARNING, "Unhandled Escape code: " + code + ": " + parameter);
 					}
 				} catch (IOException e) {
-					logger.log(Level.ERROR, "Error reading extended Escape code");
+					logger.log(Level.ERROR, "Error reading extended Escape code", e);
 				}
 			}
+
 			@Override public void execute(C1Code c1) {
-				if (collectPrintable) releasePrintable();
-				queue.add(new C1Fragment(c1));
+				releaseCollectPrintable();
+				enqueueFragment(new C1Fragment(c1).setRaw(new byte[] {(byte)c1.code}));
 			}
-			@Override
-			public void execute(C0Code c0) {
-				if (collectPrintable) releasePrintable();
-				queue.add(new C0Fragment(c0));
+
+			@Override public void execute(C0Code c0) {
+				releaseCollectPrintable();
+				enqueueFragment(new C0Fragment(c0).setRaw(new byte[] {(byte)c0.code}));
 			}
+
 			@Override public void controlSequence(int code, String inter, String param, byte[] buf) {
-				if (collectPrintable) releasePrintable();
+				releaseCollectPrintable();
 				ControlSequenceFragment seq = AllCommands.parseControlSequence(code, inter, param);
-				if (seq==null) {
-					// Special handling for key codes
-					if (code==126) {
+				if (seq == null) {
+					if (code == 126) {
 						switch (param) {
-						case  "5": queue.add(new KeyCodeFragment(0x21, "Page Up").setRaw(buf)); return;
-						case  "5;2": queue.add(new KeyCodeFragment(0x21, "Page Up").setRaw(buf)); return;
-						case  "6": queue.add(new KeyCodeFragment(0x22, "Page Down").setRaw(buf)); return;
-						case  "6;2": queue.add(new KeyCodeFragment(0x22, "Page Down").setRaw(buf)); return;
-						case "15": queue.add(new KeyCodeFragment(0x74, "F5").setRaw(buf)); return;
-						case "17": queue.add(new KeyCodeFragment(0x75, "F6").setRaw(buf)); return;
-						case "18": queue.add(new KeyCodeFragment(0x76, "F7").setRaw(buf)); return;
-						case "19": queue.add(new KeyCodeFragment(0x77, "F8").setRaw(buf)); return;
-						case "20": queue.add(new KeyCodeFragment(0x78, "F9").setRaw(buf)); return;
-						case "21": queue.add(new KeyCodeFragment(0x79, "F10").setRaw(buf)); return;
-						case "23": queue.add(new KeyCodeFragment(0x7A, "F11").setRaw(buf)); return;
-						case "24": queue.add(new KeyCodeFragment(0x7B, "F12").setRaw(buf)); return;
+						case "5": enqueueFragment(new KeyCodeFragment(0x21, "Page Up").setRaw(buf)); return;
+						case "5;2": enqueueFragment(new KeyCodeFragment(0x21, "Page Up").setRaw(buf)); return;
+						case "6": enqueueFragment(new KeyCodeFragment(0x22, "Page Down").setRaw(buf)); return;
+						case "6;2": enqueueFragment(new KeyCodeFragment(0x22, "Page Down").setRaw(buf)); return;
+						case "15": enqueueFragment(new KeyCodeFragment(0x74, "F5").setRaw(buf)); return;
+						case "17": enqueueFragment(new KeyCodeFragment(0x75, "F6").setRaw(buf)); return;
+						case "18": enqueueFragment(new KeyCodeFragment(0x76, "F7").setRaw(buf)); return;
+						case "19": enqueueFragment(new KeyCodeFragment(0x77, "F8").setRaw(buf)); return;
+						case "20": enqueueFragment(new KeyCodeFragment(0x78, "F9").setRaw(buf)); return;
+						case "21": enqueueFragment(new KeyCodeFragment(0x79, "F10").setRaw(buf)); return;
+						case "23": enqueueFragment(new KeyCodeFragment(0x7A, "F11").setRaw(buf)); return;
+						case "24": enqueueFragment(new KeyCodeFragment(0x7B, "F12").setRaw(buf)); return;
 						}
 					}
-					logger.log(Level.WARNING, "No control sequence for "+code+"  inter="+inter+"  param="+param);
+					logger.log(Level.WARNING, "No control sequence for " + code + " inter=" + inter + " param=" + param);
 				} else {
 					seq.setRaw(buf);
-					queue.add(seq);
+					enqueueFragment(seq);
 				}
 			}
+
 			@Override public void handleStringMessage(C1Code code, String data, byte[] buf) {
-				logger.log(Level.DEBUG, "You could implement command detection here: {0}: {1}", code.name(), data);
-				queue.add(new StringMessageFragment(code, data).setRaw(buf));
+				releaseCollectPrintable();
+				enqueueFragment(new StringMessageFragment(code, data).setRaw(buf));
 			}
 		});
 	}
 	//-------------------------------------------------------------------
-	public String toString() {
-		return "ANSIInput <-- "+in;
+	/**
+	 * @param loggingListener the loggingListener to set
+	 */
+	public void setLoggingListener(BiConsumer<String, String> loggingListener) {
+		this.loggingListener = loggingListener;
 	}
 
 	//-------------------------------------------------------------------
-	private void releasePrintable() {
-		if (collectInto!=null) {
-			queue.add(collectInto);
-			collectInto=null;
+	private void releaseCollectPrintable() {
+		if (collectInto != null && !collectInto.isEmpty()) {
+			collectInto.setRaw(collectBuffer.toByteArray());
+			AParsedElement frag = collectInto;
+			collectInto = null;
+			collectBuffer.reset();
+			enqueueFragment(frag);
 		}
-		collectBuffer.reset();
+	}
+
+	//-------------------------------------------------------------------
+	private void enqueueFragment(AParsedElement element) {
+		if (element == null) return;
+		List<AParsedElement> current = List.of(element);
+		for (ANSIInputStreamFilter filter : filters) {
+			List<AParsedElement> nextList = new ArrayList<>();
+			for (AParsedElement item : current) {
+				if (filter.handles(item)) {
+					List<AParsedElement> processed = filter.process(item);
+					if (processed != null) {
+						nextList.addAll(processed);
+					}
+				} else {
+					nextList.add(item);
+				}
+			}
+			current = nextList;
+		}
+		queue.addAll(current);
 	}
 
 	//-------------------------------------------------------------------
@@ -210,299 +202,35 @@ public class ANSIInputStream extends InputStream {
 	}
 
 	//-------------------------------------------------------------------
+	@Override
 	public boolean addFilter(ANSIInputStreamFilter filter) {
-		return filters.add(filter);
+		if (filter != null && !filters.contains(filter)) {
+			filters.add(filter);
+		}
+		return true;
 	}
 
 	//-------------------------------------------------------------------
+	@Override
 	public boolean addFilter(int index, ANSIInputStreamFilter filter) {
 		filters.add(index, filter);
 		return true;
 	}
 
 	//-------------------------------------------------------------------
+	@Override
 	public boolean removeFilter(ANSIInputStreamFilter filter) {
 		return filters.remove(filter);
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * returns TRUE if the fragment was handled by a filter and should not be returned to the caller
-	 */
-	private List<AParsedElement> checkFilters(AParsedElement frag) {
-		for (ANSIInputStreamFilter filter : filters) {
-			if (filter.handles(frag)) {
-				return filter.process(frag);
-			}
-		}
-		return List.of(frag);
-	}
-	
-	@Override
-	public int available() throws IOException {
-//		logger.log(Level.DEBUG, "AIS.available() called");
-		return decomposedFragment.isEmpty()?in.available():decomposedFragment.size();
-	}
-	
-//	@Override
-//    public int read(byte[] b, int off, int len) throws IOException {
-//		AParsedElement frag = queue.isEmpty()?readFragment():queue.remove(0);
-//		byte[] data = (frag.getRaw()!=null)?frag.getRaw():null;
-//		if (data==null) {
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//			frag.encode(baos, true);
-//			data = baos.toByteArray();
-//		}
-//		int lenToCopy = Math.min(len, data.length);
-//		System.arraycopy(data, 0, b, off, Math.min(len, data.length));
-//    }
-
-	
-	//-------------------------------------------------------------------
-	@Override
-	public int read() throws IOException {
-		logger.log(Level.DEBUG, "AIS.read() called");
-		while (true) {
-			logger.log(Level.DEBUG, "AIS.read() in loop");
-			if (!decomposedFragment.isEmpty()) {
-				int code = decomposedFragment.remove(0);
-				return code;
-			} else {
-				AParsedElement frag = queue.isEmpty()?readFragment():queue.remove(0);
-				byte[] data = (frag.getRaw()!=null)?frag.getRaw():null;
-				if (data==null) {
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					frag.encode(baos, true);
-					data = baos.toByteArray();
-				}
-				if (frag instanceof PrintableFragment print) {
-					String text = print.getText();
-					for (int i=0; i<text.length(); i++) {
-						decomposedFragment.add(text.codePointAt(i));					
-					}
-				} else {
-					if (data==null) {
-						System.err.println("AIS.read() returned a fragment with null raw data: "+frag.getClass());
-						continue;
-					}
-					for (byte b : data) {
-						decomposedFragment.add((b<0)?(256+b):b);
-					}
-				}
-				return decomposedFragment.remove(0);
-			}
-		}
-		
-		
-//		while (true) {
-//			try {
-//				if (!decomposedFragment.isEmpty()) {
-//					int code = decomposedFragment.remove(0);
-//					return code;
-//				} else {
-//					AParsedElement frag = readFragment();
-//					if (frag instanceof PrintableFragment print) {
-//						String text = print.getText();
-//						for (int i=0; i<text.length(); i++) {
-//							decomposedFragment.add(text.codePointAt(i));					
-//						}
-//						continue;
-//					} else {
-//						byte[] data = frag.getRaw();
-//						if (data==null) {
-//							System.err.println("AIS.read() returned a fragment with null raw data: "+frag.getClass());
-//							continue;
-//						}
-//						for (byte b : data) {
-//							decomposedFragment.add((b<0)?(256+b):b);
-//						}
-//					}
-//				}
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-//		return super.read();
-	}
-
-	//-------------------------------------------------------------------
-	@Override
-	public int read(byte[] buf, int offset, int length) throws IOException {
-		logger.log(Level.WARNING,"ENTER: AIS.read(byte[],"+offset+","+length+") called");
-		int len = 0;
-		try {
-			AParsedElement frag = readFragment(false);
-			if (frag==null) return 0;
-			logger.log(Level.ERROR, frag);
-			byte[] data = frag.getRaw();
-			if (data==null) {
-				if (frag.getType()==Type.C0) { buf[0]=(byte)((C0Fragment)frag).getCode().code(); return 1; }
-				if (frag.getType()==Type.C1) { buf[0]=(byte)((C1Fragment)frag).getCode().code(); return 1; }
-				System.err.println("AIS.read(byte[],int,int) returned a fragment with null raw data: "+frag.getClass());
-				len=0;
-				return 0;
-			}
-			len = Math.min(data.length, buf.length-offset);
-			if (len<data.length)
-				System.err.println("AIS.read(byte[]) returned "+len+" bytes, but buffer is "+buf.length);
-			System.arraycopy(data, 0, buf, offset, len);
-//			System.err.println("WAS: AIS.read(byte[],"+offset+","+length+") called");
-//			logger.log(Level.ERROR, "Converted {0} to string \"{1}\" ", frag, new String(data, 0, len, StandardCharsets.UTF_8));
-//			if (frag instanceof ControlSequenceFragment csi) {
-//				logger.log(Level.ERROR, "ControlSequenceFragment text: \"{0}\"", csi);
-//			}
-			
-			
-			return len;
-		} finally {
-			logger.log(Level.INFO,"LEAVE: AIS.read(byte[]) = {0}",len);
-			if (len==0) {
-				try {
-					throw new RuntimeException("Trace");
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				logger.log(Level.WARNING, "AIS.read(byte[]) returned 0 bytes ");
-			}
-		}
-	}
-
-	//-------------------------------------------------------------------
-	public AParsedElement readFragment() throws IOException {
-		return readFragment(true);
-	}
-
-	//-------------------------------------------------------------------
-	public AParsedElement readFragment(boolean blocking) throws IOException {
-//		logger.log(Level.INFO, "readFragment(blocking={0}) called - queue is {1}  this= {2}", blocking, queue, this);
-		if (disconnected) return null;
-		do {
-			if (!queue.isEmpty()) {
-				AParsedElement frag = queue.remove(0);
-				if (loggingListener!=null) {
-					try {
-						loggingListener.accept(frag.getType().name(), frag.toString());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				// Filter
-				List<AParsedElement> filtered = checkFilters(frag);
-				if (filtered.isEmpty()) {
-					logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
-					continue;
-				}
-				collectBuffer.reset();
-				if (filtered.size()>1) {
-					logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
-					queue.addAll(filtered.subList(1, filtered.size()));
-				}
-				logger.log(Level.DEBUG, filtered.getFirst());
-				return filtered.getFirst();
-			} else {
-				// Queue was empty
-				int code = -1; 
-				try {
-					code = in.read();
-					logger.log(Level.DEBUG, "  returned {0} / {1}", (char)code, code);
-				} catch (SocketTimeoutException e) {
-//					logger.log(Level.WARNING, "SocketTimeoutException in.read");
-					if (!blocking) return null;
-					continue;
-				} catch (SocketException e) {
-					disconnected=true;
-					logger.log(Level.WARNING, "SocketException in.read: {0}", e.getMessage());
-					throw e;
-				}
-//				logger.log(Level.WARNING, "Returned from in.read with {0}   (collect: Printable={1} Into={2})",code, collectPrintable, collectInto);
-				if (code==-1) {
-					logger.log(Level.DEBUG, "Connection lost");
-					if (collectInto!=null) {
-						releasePrintable();
-						if (loggingListener!=null) {
-							try {
-								loggingListener.accept(queue.get(0).getType().name(), queue.get(0).toString());
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
-						}
-						logger.log(Level.TRACE, "Before removing: {0}",queue);
-//						logger.log(Level.WARNING, queue.getFirst());
-						return queue.remove(0);
-					}
-					logger.log(Level.WARNING, "collectBuffer.reset() called");
-					collectBuffer.reset();
-					disconnected=true;
-					return null;
-				} else if (code==0x1E) {
-					logger.log(Level.DEBUG, "Record separator found - flushing collected printables");
-					if (collectInto!=null) {
-						releasePrintable();
-						//logger.log(Level.WARNING, queue.getFirst());
-						return queue.remove(0);
-					} else
-						continue;
-				}
-				code = (code<0)?(256+code):code;
-				parser.parse(code);
-			}
-			if (!queue.isEmpty()) {
-				queue.get(0).readExpectedLateBytes(in);
-			} else {
-//				collectInto.readExpectedLateBytes(in);
-				continue;
-			} 
-			logger.log(Level.DEBUG, queue.get(0));
-			if (loggingListener!=null && !queue.isEmpty()) {
-				try {
-					loggingListener.accept(queue.get(0).getType().name(), queue.get(0).toString());
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			if (queue.isEmpty()) continue;
-						
-			AParsedElement frag = queue.remove(0);
-			List<AParsedElement> filtered = checkFilters(frag);
-			if (filtered.isEmpty()) {
-				logger.log(Level.DEBUG, "Fragment {0} was handled by a filter", frag);
-				continue;
-			}
-
-			collectBuffer.reset();
-			if (filtered.size()>1) {
-				logger.log(Level.DEBUG, "Fragment {0} was split into {1} fragments by a filter", frag, filtered.size());
-				queue.addAll(filtered.subList(1, filtered.size()));
-			}
-			logger.log(Level.DEBUG, filtered.getFirst());
-			return filtered.getFirst();
-		} while (true);
-	}
-
-	//-------------------------------------------------------------------
-	/**
-	 * @return the collectPrintable
-	 */
 	public boolean isCollectPrintable() {
 		return collectPrintable;
 	}
 
 	//-------------------------------------------------------------------
-	/**
-	 * @param collectPrintable the collectPrintable to set
-	 */
 	public void setCollectPrintable(boolean collectPrintable) {
 		this.collectPrintable = collectPrintable;
-	}
-
-	//-------------------------------------------------------------------
-	/**
-	 * @param loggingListener the loggingListener to set
-	 */
-	public void setLoggingListener(BiConsumer<String, String> loggingListener) {
-		this.loggingListener = loggingListener;
 	}
 
 	//-------------------------------------------------------------------
@@ -515,17 +243,210 @@ public class ANSIInputStream extends InputStream {
 		return parser.getEncoding();
 	}
 
-	public void releaseBuffer() {
-		logger.log(Level.DEBUG, "releaseBuffer() ");
-		if (collectInto!=null) {
-			collectInto.rawData = collectBuffer.toByteArray();
-			queue.add(collectInto);
+	//-------------------------------------------------------------------
+	/**
+	 * Blocking read for the next parsed fragment.
+	 * @return Next AParsedElement fragment, or null on EOF.
+	 */
+	public AParsedElement readFragment() throws IOException {
+		while (queue.isEmpty()) {
+			int b = in.read();
+			if (b == -1) {
+				releaseCollectPrintable();
+				if (!queue.isEmpty()) {
+					AParsedElement frag = queue.remove(0);
+					// Eventually log
+					if (loggingListener!=null) {
+						try {
+							loggingListener.accept(frag.getType().name(), frag.toString());
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					return frag;
+				}
+				return null;
+			}
+			b = (b < 0) ? (256 + b) : b;
+			parser.parse(b);
+			if (!queue.isEmpty()) {
+				queue.get(0).readExpectedLateBytes(in);
+			}
 		}
-//		PrintableFragment frag = (collectInto!=null)?collectInto:new PrintableFragment();
-//		frag.rawData = collectBuffer.toByteArray();
-//		queue.add(frag);
-		collectInto=null;
-		collectBuffer.reset();
+		AParsedElement frag = queue.remove(0);
+		// Eventually log
+		if (loggingListener!=null) {
+			try {
+				loggingListener.accept(frag.getType().name(), frag.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return frag;
 	}
 
+	//-------------------------------------------------------------------
+	private AParsedElement peekOrReadAvailableFragment() throws IOException {
+		if (!queue.isEmpty()) {
+			return queue.remove(0);
+		}
+		while (queue.isEmpty() && in.available() > 0) {
+			int b = in.read();
+			if (b == -1) break;
+			b = (b < 0) ? (256 + b) : b;
+			parser.parse(b);
+			if (!queue.isEmpty()) {
+				queue.get(0).readExpectedLateBytes(in);
+			}
+		}
+		if (queue.isEmpty()) {
+			releaseCollectPrintable();
+		}
+		if (!queue.isEmpty()) {
+			return queue.remove(0);
+		}
+		return null;
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Blocking byte-wise read. Multi-byte UTF-8 may be split across calls.
+	 */
+	@Override
+	public int read() throws IOException {
+		if (pendingRaw != null && pendingOffset < pendingRaw.length) {
+			int b = pendingRaw[pendingOffset++] & 0xFF;
+			if (pendingOffset == pendingRaw.length) {
+				pendingRaw = null;
+				pendingOffset = 0;
+			}
+			return b;
+		}
+
+		AParsedElement frag = readFragment();
+		if (frag == null) {
+			return -1;
+		}
+
+		byte[] raw = frag.getRaw();
+		if (raw == null || raw.length == 0) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			frag.encode(baos, true);
+			raw = baos.toByteArray();
+		}
+
+		if (raw.length == 1) {
+			return raw[0] & 0xFF;
+		}
+
+		pendingRaw = raw;
+		pendingOffset = 1;
+		return raw[0] & 0xFF;
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Block read into buffer. Returns after every fragment unless collectPrintable
+	 * is enabled for PrintableFragments and more data is immediately available.
+	 */
+	@Override
+	public int read(byte[] b, int off, int len) throws IOException {
+		Objects.checkFromIndexSize(off, len, b.length);
+		if (len == 0) {
+			return 0;
+		}
+
+		int bytesRead = 0;
+
+		// 1. Drain any pending bytes from a previous byte-wise read() call
+		if (pendingRaw != null && pendingOffset < pendingRaw.length) {
+			int avail = pendingRaw.length - pendingOffset;
+			int toCopy = Math.min(len, avail);
+			System.arraycopy(pendingRaw, pendingOffset, b, off, toCopy);
+			pendingOffset += toCopy;
+			if (pendingOffset == pendingRaw.length) {
+				pendingRaw = null;
+				pendingOffset = 0;
+			}
+			return toCopy;
+		}
+
+		// 2. Read first fragment blocking
+		AParsedElement frag = readFragment();
+		if (frag == null) {
+			return -1;
+		}
+
+		byte[] raw = frag.getRaw();
+		if (raw == null || raw.length == 0) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			frag.encode(baos, true);
+			raw = baos.toByteArray();
+		}
+
+		int toCopy = Math.min(len, raw.length);
+		System.arraycopy(raw, 0, b, off, toCopy);
+		bytesRead += toCopy;
+
+		if (toCopy < raw.length) {
+			// Buffer was smaller than single fragment raw bytes
+			pendingRaw = raw;
+			pendingOffset = toCopy;
+			return bytesRead;
+		}
+
+		// Non-printable or collectPrintable is false -> return after 1 fragment
+		if (!(frag instanceof PrintableFragment) || !collectPrintable) {
+			return bytesRead;
+		}
+
+		// Collect further printable fragments if data is available
+		while (bytesRead < len && (queue.size() > 0 || in.available() > 0)) {
+			if (queue.isEmpty() && in.available() <= 0) {
+				break;
+			}
+
+			AParsedElement nextFrag = peekOrReadAvailableFragment();
+			if (nextFrag == null) {
+				break;
+			}
+
+			if (!(nextFrag instanceof PrintableFragment)) {
+				queue.add(0, nextFrag);
+				break;
+			}
+
+			byte[] nextRaw = nextFrag.getRaw();
+			if (nextRaw == null || nextRaw.length == 0) {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				nextFrag.encode(baos, true);
+				nextRaw = baos.toByteArray();
+			}
+
+			if (bytesRead + nextRaw.length > len) {
+				queue.add(0, nextFrag);
+				break;
+			}
+
+			System.arraycopy(nextRaw, 0, b, off + bytesRead, nextRaw.length);
+			bytesRead += nextRaw.length;
+		}
+
+		return bytesRead;
+	}
+
+	//-------------------------------------------------------------------
+	@Override
+	public int available() throws IOException {
+		if (pendingRaw != null) {
+			return (pendingRaw.length - pendingOffset) + in.available();
+		}
+		return in.available();
+	}
+
+	//-------------------------------------------------------------------
+	@Override
+	public void close() throws IOException {
+		in.close();
+	}
 }
