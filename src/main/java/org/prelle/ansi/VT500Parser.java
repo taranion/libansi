@@ -55,39 +55,53 @@ public class VT500Parser {
 	protected int utf8Expect;
 
 	//-------------------------------------------------------------------
+	/**
+	 * Creates a new VT500Parser with the specified callback listener.
+	 *
+	 * @param callback The VT500ParserListener to receive parser callbacks
+	 */
 	public VT500Parser(VT500ParserListener callback) {
 		this.callback = callback;
 		state = ParserState.GROUND;
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Sets the character encoding used by the parser.
+	 *
+	 * @param encoding The Charset encoding to set
+	 */
 	public void setEncoding(Charset encoding) {
 		this.encoding = encoding;
 		utf8Mode = (encoding==StandardCharsets.UTF_8);
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Returns the character encoding used by the parser.
+	 *
+	 * @return The current Charset encoding
+	 */
 	public Charset getEncoding() {
 		return this.encoding;
 	}
 
 	//-------------------------------------------------------------------
 	/**
-	 * @return the utf8Mode
+	 * Checks if UTF-8 parsing mode is enabled.
+	 *
+	 * @return true if UTF-8 mode is active; false otherwise
 	 */
 	public boolean isUtf8Mode() {
 		return utf8Mode;
 	}
 
-//	//-------------------------------------------------------------------
-//	/**
-//	 * @param utf8Mode the utf8Mode to set
-//	 */
-//	public void setUtf8Mode(boolean utf8Mode) {
-//		this.utf8Mode = utf8Mode;
-//	}
-
 	//-------------------------------------------------------------------
+	/**
+	 * Parses a single byte code according to the VT500 state machine.
+	 *
+	 * @param code The byte value (0-255) to parse
+	 */
 	public void parse(int code) {
 		logger.log(Level.TRACE, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
 		if (processed==null) processed = new ByteArrayOutputStream();

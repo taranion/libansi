@@ -4,10 +4,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
 /**
- *
+ * Abstract base class representing a parsed element fragment from an ANSI stream.
  */
 public abstract class AParsedElement {
 
+	/** Enumeration of fragment types. */
 	public static enum Type {
 		PRINTABLE,
 		C0,
@@ -38,27 +39,60 @@ public abstract class AParsedElement {
 	protected byte[] rawData;
 
 	//-------------------------------------------------------------------
+	/**
+	 * Returns the type of this element.
+	 *
+	 * @return The element Type
+	 */
 	public Type getType() {
 		return type;
 	}
 
+	//-------------------------------------------------------------------
+	/**
+	 * Sets the raw byte payload associated with this element fragment.
+	 *
+	 * @param raw Raw byte array to set
+	 * @return This AParsedElement instance for chaining
+	 */
 	public AParsedElement setRaw(byte[] raw) {
 		this.rawData = raw;
 		return this;
 	}
 	
 	//-------------------------------------------------------------------
+	/**
+	 * Returns the raw byte payload of this element fragment.
+	 *
+	 * @return Raw byte array, or null if not set
+	 */
 	public byte[] getRaw() {
 		return rawData;
 	}
 	
 	//-------------------------------------------------------------------
+	/**
+	 * Returns the human-readable name or mnemonic of this element.
+	 *
+	 * @return The element name
+	 */
 	public abstract String getName();
 
 	//-------------------------------------------------------------------
+	/**
+	 * Encodes this element into the given output stream buffer.
+	 *
+	 * @param toFill Buffer to write encoded bytes into
+	 * @param use7Bit true to encode C1 codes as 7-bit ESC sequences; false for 8-bit
+	 */
 	public abstract void encode(ByteArrayOutputStream toFill, boolean use7Bit);
 
 	//-------------------------------------------------------------------
+	/**
+	 * Reads any expected late bytes from the input stream if required by this fragment type.
+	 *
+	 * @param in InputStream to read additional bytes from
+	 */
 	public void readExpectedLateBytes(InputStream in) {}
 
 }

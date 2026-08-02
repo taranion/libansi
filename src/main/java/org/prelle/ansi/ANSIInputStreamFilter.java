@@ -3,23 +3,26 @@ package org.prelle.ansi;
 import java.util.List;
 
 /**
- * 
+ * Filter interface for processing and transforming AParsedElement stream fragments.
  */
 public interface ANSIInputStreamFilter {
 
 	//-------------------------------------------------------------------
 	/**
-	 * Does the filter feel responsible for handling this element?
-	 * @param element
-	 * @return
+	 * Determines whether this filter processes the given element.
+	 *
+	 * @param event The fragment to evaluate
+	 * @return true if this filter should process the event; false otherwise
 	 */
 	boolean handles(AParsedElement event);
 	
 	//-------------------------------------------------------------------
 	/**
-	 * @param event
-	 * @return The events that can be passed on - may be empty or more than one
+	 * Processes the input fragment and returns the transformed list of fragments.
+	 *
+	 * @param event The fragment to process
+	 * @return A list of replacement fragments (may be empty if consumed, or contain multiple fragments)
 	 */
-	List<AParsedElement> process(AParsedElement event) ;
+	List<AParsedElement> process(AParsedElement event);
 	
 }

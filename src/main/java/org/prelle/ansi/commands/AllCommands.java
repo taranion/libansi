@@ -8,11 +8,10 @@ import java.util.Map;
 import org.prelle.ansi.ControlSequenceFragment;
 import org.prelle.ansi.DeviceControlFragment;
 import org.prelle.ansi.EscapeSequenceFragment;
-import org.prelle.ansi.commands.kitty.KittyScaledFontFragment;
 import org.prelle.ansi.commands.xterm.XTermWindowOperation;
 
 /**
- *
+ * Registry and factory for parsing ANSI/VT500 control sequences, escape sequences, and device control sequences.
  */
 public class AllCommands {
 

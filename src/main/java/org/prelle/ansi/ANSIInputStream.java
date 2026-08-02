@@ -38,6 +38,11 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	private BiConsumer<String,String> loggingListener;
 
 	//-------------------------------------------------------------------
+	/**
+	 * Creates a new ANSIInputStream wrapping the specified underlying input stream.
+	 *
+	 * @param in The underlying InputStream source
+	 */
 	public ANSIInputStream(InputStream in) {
 		this.in = Objects.requireNonNull(in, "InputStream cannot be null");
 		this.parser = new VT500Parser(new VT500ParserListener() {
@@ -157,7 +162,10 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 		});
 	}
 	//-------------------------------------------------------------------
+	//-------------------------------------------------------------------
 	/**
+	 * Sets the listener for logging parsed fragments.
+	 *
 	 * @param loggingListener the loggingListener to set
 	 */
 	public void setLoggingListener(BiConsumer<String, String> loggingListener) {
@@ -197,11 +205,18 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.FilteringANSIStream#hasFilter(org.prelle.ansi.ANSIInputStreamFilter)
+	 */
+	@Override
 	public boolean hasFilter(ANSIInputStreamFilter filter) {
 		return filters.contains(filter);
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.FilteringANSIStream#addFilter(org.prelle.ansi.ANSIInputStreamFilter)
+	 */
 	@Override
 	public boolean addFilter(ANSIInputStreamFilter filter) {
 		if (filter != null && !filters.contains(filter)) {
@@ -224,21 +239,41 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Checks if printable characters are collected into a single PrintableFragment.
+	 *
+	 * @return true if printable characters are collected; false otherwise
+	 */
 	public boolean isCollectPrintable() {
 		return collectPrintable;
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Sets whether printable characters should be collected into a single PrintableFragment.
+	 *
+	 * @param collectPrintable true to collect printable characters; false otherwise
+	 */
 	public void setCollectPrintable(boolean collectPrintable) {
 		this.collectPrintable = collectPrintable;
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Sets the character encoding used by the underlying VT500 parser.
+	 *
+	 * @param encoding The Charset encoding to use
+	 */
 	public void setEncoding(Charset encoding) {
 		parser.setEncoding(encoding);
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Returns the character encoding used by the underlying VT500 parser.
+	 *
+	 * @return The current Charset encoding
+	 */
 	public Charset getEncoding() {
 		return parser.getEncoding();
 	}
@@ -246,7 +281,9 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	//-------------------------------------------------------------------
 	/**
 	 * Blocking read for the next parsed fragment.
+	 *
 	 * @return Next AParsedElement fragment, or null on EOF.
+	 * @throws IOException If an I/O error occurs while reading from the underlying stream
 	 */
 	public AParsedElement readFragment() throws IOException {
 		while (queue.isEmpty()) {
@@ -310,7 +347,10 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 
 	//-------------------------------------------------------------------
 	/**
-	 * Blocking byte-wise read. Multi-byte UTF-8 may be split across calls.
+	 * Reads the next byte of data from the stream.
+	 *
+	 * @return The next byte of data (0-255), or -1 if the end of the stream is reached
+	 * @throws IOException If an I/O error occurs
 	 */
 	@Override
 	public int read() throws IOException {
@@ -346,8 +386,13 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 
 	//-------------------------------------------------------------------
 	/**
-	 * Block read into buffer. Returns after every fragment unless collectPrintable
-	 * is enabled for PrintableFragments and more data is immediately available.
+	 * Reads up to len bytes of data from the stream into an array of bytes.
+	 *
+	 * @param b Destination byte buffer
+	 * @param off Start offset in array b
+	 * @param len Maximum number of bytes to read
+	 * @return Total number of bytes read into buffer, or -1 if end of stream is reached
+	 * @throws IOException If an I/O error occurs
 	 */
 	@Override
 	public int read(byte[] b, int off, int len) throws IOException {
@@ -436,6 +481,12 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Returns an estimate of the number of bytes that can be read without blocking.
+	 *
+	 * @return Number of available bytes
+	 * @throws IOException If an I/O error occurs
+	 */
 	@Override
 	public int available() throws IOException {
 		if (pendingRaw != null) {
@@ -445,6 +496,11 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Closes this input stream and releases any system resources associated with it.
+	 *
+	 * @throws IOException If an I/O error occurs
+	 */
 	@Override
 	public void close() throws IOException {
 		in.close();

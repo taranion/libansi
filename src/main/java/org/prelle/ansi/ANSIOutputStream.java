@@ -14,7 +14,7 @@ import java.util.function.BiConsumer;
 import org.prelle.ansi.commands.SelectGraphicRendition;
 
 /**
- *
+ * FilterOutputStream implementation for writing ANSI escape sequences, control fragments, and encoded text.
  */
 public class ANSIOutputStream extends FilterOutputStream {
 
@@ -27,18 +27,26 @@ public class ANSIOutputStream extends FilterOutputStream {
 	private boolean utf8Mode = true;
 
 	//-------------------------------------------------------------------
+	/**
+	 * Creates a new ANSIOutputStream wrapping the specified underlying output stream.
+	 *
+	 * @param out The underlying OutputStream
+	 */
 	public ANSIOutputStream(OutputStream out) {
 		super(out);
 	}
 
 	//-------------------------------------------------------------------
+	@Override
 	public String toString() {
 		return "ANSIOutput --> "+out;
 	}
 
 	//-------------------------------------------------------------------
 	/**
-	 * @param loggingListener the loggingListener to set
+	 * Sets the optional logging listener for written fragments.
+	 *
+	 * @param loggingListener The BiConsumer to receive fragment type names and values
 	 */
 	public void setLoggingListener(BiConsumer<String, String> loggingListener) {
 		this.loggingListener = loggingListener;
@@ -46,10 +54,13 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 	//-------------------------------------------------------------------
 	/**
-	 * @see java.io.FilterOutputStream#write(int)
+	 * Writes a single byte to the output stream.
+	 *
+	 * @param value The byte value to write
+	 * @throws IOException If an I/O error occurs
 	 */
+	@Override
 	public void write(int value) throws IOException {
-//		System.err.println("ANSIOut.write "+value+"/"+Integer.toHexString(value));
 		if (sendAs7Bit && value>=0x80 && value<0xA0) {
 			out.write(0x1B); // ESC
 			out.write(value-64); // C1 as C0
@@ -60,32 +71,24 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 	//-------------------------------------------------------------------
 	/**
-	 * @see java.io.FilterOutputStream#write(byte[])
+	 * Writes an array of bytes to the output stream.
+	 *
+	 * @param values The byte array to write
+	 * @throws IOException If an I/O error occurs
 	 */
+	@Override
 	public void write(byte[] values) throws IOException {
 		out.write(values);
-//		if (sendAs7Bit) {
-//			ByteArrayOutputStream baos = new ByteArrayOutputStream(values.length);
-//
-//			for (int i=0; i<values.length; i++) {
-//				byte b = values[i];
-//				int value = (b<0)?(256+b):b;
-//				if (value>=0x80 && value<0xA0) {
-//					baos.write(0x1B);
-//					baos.write(value-64);
-//					System.err.println("ANSIOut.write replaced "+Integer.toHexString(value)+" ("+((char)value)+" with "+Integer.toHexString(value-64)+" ("+((char)(value-64)));
-//				} else
-//					baos.write(value);
-//			}
-//			out.write(baos.toByteArray());
-//			System.err.println("ANSIOut.write "+Arrays.toString(baos.toByteArray()));
-//			baos.close();
-//		} else {
-//			out.write(values);
-//		}
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes an array of bytes with a descriptive name for logging.
+	 *
+	 * @param values The byte array to write
+	 * @param name The descriptive name of the payload
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void write(byte[] values, String name) throws IOException {
 		if (loggingListener!=null)
 			loggingListener.accept(name, "");
@@ -94,6 +97,12 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a text string encoded according to current utf8Mode.
+	 *
+	 * @param value The string to write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void write(String value) throws IOException {
 		if (utf8Mode) {
 			this.write(value.getBytes(StandardCharsets.UTF_8));
@@ -103,18 +112,26 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a C1 control code sequence.
+	 *
+	 * @param code The C1Code to write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void write(C1Code code) throws IOException {
-//		if (sendAs7Bit) {
-			this.write(C0Code.ESC.code);
-			this.write(code.code-64);
-//		} else {
-//			this.write(code.code);
-//		}
+		this.write(C0Code.ESC.code);
+		this.write(code.code-64);
 		if (loggingListener!=null)
 			loggingListener.accept(code.name(), "");
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a C0 control code.
+	 *
+	 * @param code The C0Code to write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void write(C0Code code) throws IOException {
 		this.write(code.code());
 		if (loggingListener!=null)
@@ -122,9 +139,15 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a CSI sequence with numeric parameters and final character code.
+	 *
+	 * @param n Final character code
+	 * @param param Parameter numbers
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void writeCSI(int n, int...param) throws IOException {
 		write(C1Code.CSI);
-//		StringBuffer buf = new StringBuffer(((char)0x9B)+"");
 		StringBuffer buf = new StringBuffer();
 		for (int i=0; i<param.length; i++) {
 			buf.append(param[i]);
@@ -138,24 +161,36 @@ public class ANSIOutputStream extends FilterOutputStream {
 			loggingListener.accept("CSI", Arrays.toString(param)+" "+(char)n);
 	}
 
-
 	//-------------------------------------------------------------------
+	/**
+	 * Sets the foreground text color using SGR color code.
+	 *
+	 * @param color 256-color palette index
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void setTextColor(int color) throws IOException {
 		write(new SelectGraphicRendition(38,5,color));
-//		writeSGR(38,5,color);
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Resets graphic rendition attributes to default (SGR 0).
+	 */
 	public void reset() {
 		try {
 			writeCSI( (int)'m',0);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a parsed AParsedElement fragment to the stream.
+	 *
+	 * @param toWrite The fragment to write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void write(AParsedElement toWrite) throws IOException {
 		switch (toWrite) {
 		case ControlSequenceFragment csi -> writeCSI(csi);
@@ -182,6 +217,12 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a ControlSequenceFragment (CSI) to the stream.
+	 *
+	 * @param csi The control sequence fragment to encode and write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void writeCSI(ControlSequenceFragment csi) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		csi.encode(baos, sendAs7Bit);
@@ -192,10 +233,14 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a DeviceControlFragment (DCS) to the stream.
+	 *
+	 * @param dcs The device control fragment to encode and write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void writeDCS(DeviceControlFragment dcs) throws IOException {
 		logger.log(Level.DEBUG, "writeDCS "+dcs);
-//		if (loggingListener==null)
-//			loggingListener = (type,text) -> {if (!"PRINT".equals(type)) logger.log(Level.INFO, "MUD --> {0} = {1}", type,text);};
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		dcs.encode(baos, sendAs7Bit);
 		super.write(baos.toByteArray());
@@ -205,6 +250,12 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes an EscapeSequenceFragment (ESC) to the stream.
+	 *
+	 * @param esc The escape sequence fragment to encode and write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void writeESC(EscapeSequenceFragment esc) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		esc.encode(baos, sendAs7Bit);
@@ -215,23 +266,24 @@ public class ANSIOutputStream extends FilterOutputStream {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * Writes a StringMessageFragment (OSC / SOS / PM / APC) to the stream.
+	 *
+	 * @param value The string message fragment to encode and write
+	 * @throws IOException If an I/O error occurs
+	 */
 	public void writeString(StringMessageFragment value) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		value.encode(baos, sendAs7Bit);
-//		if (sendAs7Bit) {
-//			baos.write(C0Code.ESC.code);
-//			baos.write((byte)0x5c);
-//		} else {
-//			baos.write((byte) C1Code.ST.code);
-//		}
 		super.write(baos.toByteArray());
 		baos.close();
-//		System.err.println(Arrays.toString(baos.toByteArray()));
 	}
 
 	//-------------------------------------------------------------------
 	/**
-	 * @return the utf8Mode
+	 * Checks if UTF-8 encoding mode is enabled.
+	 *
+	 * @return true if UTF-8 mode is active; false if ISO-8859-1 mode is active
 	 */
 	public boolean isUtf8Mode() {
 		return utf8Mode;
@@ -239,7 +291,9 @@ public class ANSIOutputStream extends FilterOutputStream {
 
 	//-------------------------------------------------------------------
 	/**
-	 * @param utf8Mode the utf8Mode to set
+	 * Sets whether UTF-8 encoding mode is active.
+	 *
+	 * @param utf8Mode true to enable UTF-8 mode; false for ISO-8859-1 mode
 	 */
 	public void setUtf8Mode(boolean utf8Mode) {
 		this.utf8Mode = utf8Mode;
