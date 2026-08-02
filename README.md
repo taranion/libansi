@@ -27,11 +27,11 @@
 
 ### 1. Basic Usage
 
-Wrap any standard `InputStream` with `NewANSIInputStream` to read parsed ANSI fragments or UTF-8 text:
+Wrap any standard `InputStream` with `ANSIInputStream` to read parsed ANSI fragments or UTF-8 text:
 
 ```java
 InputStream source = ...; // e.g. ByteArrayInputStream or Socket InputStream
-NewANSIInputStream ansiIn = new NewANSIInputStream(source);
+ANSIInputStream ansiIn = new ANSIInputStream(source);
 
 // Read fragments structured by type
 AParsedElement fragment;
@@ -53,7 +53,7 @@ ansiIn.close();
 You can add custom filters to transform text or ANSI sequences on the fly. For example, replacing `<red>` tags with ANSI color codes:
 
 ```java
-NewANSIInputStream ansiIn = new NewANSIInputStream(source);
+ANSIInputStream ansiIn = new ANSIInputStream(source);
 
 ansiIn.addFilter(new ANSIInputStreamFilter() {
     @Override

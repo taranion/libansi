@@ -16,8 +16,8 @@ This document serves as context, architectural guidance, and operational knowled
 
 ## 2. Core Architecture & Design Patterns
 
-### `NewANSIInputStream` (`org.prelle.ansi.NewANSIInputStream`)
-`NewANSIInputStream` is the primary, modern input stream class. It extends `java.io.InputStream` and implements `FilteringANSIStream`.
+### `ANSIInputStream` (`org.prelle.ansi.ANSIInputStream`)
+`ANSIInputStream` is the primary input stream class. It extends `java.io.InputStream` and implements `FilteringANSIStream`.
 
 * **VT500 Parser**: Uses `VT500Parser` internally to parse bytes from the underlying `InputStream` into structured `AParsedElement` fragments.
 * **VT500Parser Raw Buffer Management**:
@@ -82,5 +82,5 @@ This document serves as context, architectural guidance, and operational knowled
   ```
 * **Run specific test class**:
   ```bash
-  mvn test -Dtest=NewANSIInputStreamTest
+  mvn test -Dtest=ANSIInputStreamTest
   ```
