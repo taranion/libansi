@@ -16,7 +16,7 @@ import org.prelle.ansi.commands.SelectGraphicRendition;
 /**
  * FilterOutputStream implementation for writing ANSI escape sequences, control fragments, and encoded text.
  */
-public class ANSIOutputStream extends FilterOutputStream {
+public class ANSIOutputStream extends OutputStream {
 
 	private final static Logger logger = System.getLogger(ANSIOutputStream.class.getPackageName());
 
@@ -25,6 +25,8 @@ public class ANSIOutputStream extends FilterOutputStream {
 	private BiConsumer<String,String> loggingListener;
 
 	private boolean utf8Mode = true;
+	
+	private OutputStream out;
 
 	//-------------------------------------------------------------------
 	/**
@@ -33,7 +35,8 @@ public class ANSIOutputStream extends FilterOutputStream {
 	 * @param out The underlying OutputStream
 	 */
 	public ANSIOutputStream(OutputStream out) {
-		super(out);
+		//super(out);
+		this.out = out;
 	}
 
 	//-------------------------------------------------------------------

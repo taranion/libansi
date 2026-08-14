@@ -27,6 +27,31 @@
 
 ### 1. Basic Usage
 
+#### Variant 1: Block coding
+
+Instantiate a `VT500Parser` with an implementation of `VT500ParserListener`. There is a default implementation `DefaultListener` that collects all parsed fragments, so that after calling `VT500Parser.parse(byte[])` you can call `DefaultListener.consumeFragments()` to get all parsed fragments.
+
+By default, the `DefaultListener` collects printable characters and only releases them as an event when an ANSI control sequence is encountered. To flush the collection buffer, call `releaseCollectPrintable()` on the listener.
+The collection behavior can be triggered with `setCollectPrintable`.
+
+```java
+DefaultListener listener = new DefaultListener(StandardCharsets.UTF_8);	
+listener.setCollectPrintable(true);
+
+// Instantiate parser
+VT500Parser parser = new VT500Parser(listener);
+// Convert byte array into events
+byte[] data = ...
+parser.parse(data);
+listener.releaseCollectPrintable();
+List<AParsedFragment> events = listener.consumeFragments();
+
+```
+
+Encoding a `AParsedFragment` into a Byte array is straight forward by calling `AParsedFragment.getRaw()`.
+
+#### Variant 2: Input-/Outputstreams
+
 Wrap any standard `InputStream` with `ANSIInputStream` to read parsed ANSI fragments or UTF-8 text:
 
 ```java
@@ -75,24 +100,3 @@ ansiIn.addFilter(new ANSIInputStreamFilter() {
 });
 ```
 
----
-
-## Building and Testing
-
-Build the library with Maven:
-
-```bash
-mvn clean compile
-```
-
-Run unit tests:
-
-```bash
-mvn test
-```
-
----
-
-## License
-
-Distributed under the project license. See project repository details for licensing terms.

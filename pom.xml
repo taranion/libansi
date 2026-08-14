@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.prelle</groupId>
   <artifactId>libansi</artifactId>
-  <version>0.4.0</version>
+  <version>0.5.0-SNAPSHOT</version>
   <name>LibANSI</name>
   <description>Inject or recevie ANSI control codes from streams</description>
   <url>https://bitbucket.org/taranion/libansi/</url>
@@ -59,7 +59,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
+                <version>3.15.0</version>
             </plugin>
 
             <!-- Packaging -->
@@ -132,7 +132,7 @@
                         <configuration>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
-                <arg>loopback</arg>
+                                <arg>loopback</arg>
                             </gpgArguments>
                         </configuration>
                         <goals>

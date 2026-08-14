@@ -97,6 +97,13 @@ public class VT500Parser {
 	}
 
 	//-------------------------------------------------------------------
+	public void parse(byte[] data) {
+		for (byte b : data) {
+			parse(b & 0xFF);
+		}
+	}
+
+	//-------------------------------------------------------------------
 	/**
 	 * Parses a single byte code according to the VT500 state machine.
 	 *
