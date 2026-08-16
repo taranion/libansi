@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.System.Logger.Level;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -298,6 +299,11 @@ class ParsingStream  {
 			public void handleEscape(int code, String parameter, byte[] buf) {
 				System.out.println("handleEscape "+code+" with '"+parameter+"'");
 
+			}
+
+			@Override
+			public void handleTwoByteEscape(int first, int second, byte[] buf) {
+				System.out.println("handleTwoByteEscape "+first+" with '"+second+"'");
 			}
 
 			@Override

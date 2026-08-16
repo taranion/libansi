@@ -118,6 +118,25 @@ public class ANSIInputStream extends InputStream implements FilteringANSIStream 
 				}
 			}
 
+			@Override
+			public void handleTwoByteEscape(int first, int second, byte[] buf) {
+				switch (first) {
+				case 0x4f -> {
+					switch (second) {
+					case 0x50: enqueueFragment(new KeyCodeFragment(0x70, "F1").setRaw(buf)); break;
+					case 0x51: enqueueFragment(new KeyCodeFragment(0x71, "F2").setRaw(buf)); break;
+					case 0x52: enqueueFragment(new KeyCodeFragment(0x72, "F3").setRaw(buf)); break;
+					case 0x53: enqueueFragment(new KeyCodeFragment(0x73, "F4").setRaw(buf)); break;
+					default:
+						logger.log(Level.WARNING, "Unhandled two-byte escape sequence: " + first + ", " + second);
+					}
+				}
+				default -> {
+					logger.log(Level.WARNING, "Unhandled two-byte escape sequence: " + first + ", " + second);
+				}
+				}
+			}
+
 			@Override public void execute(C1Code c1) {
 				releaseCollectPrintable();
 				enqueueFragment(new C1Fragment(c1).setRaw(new byte[] {(byte)c1.code}));

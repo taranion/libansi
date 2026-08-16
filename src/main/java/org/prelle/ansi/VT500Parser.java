@@ -28,6 +28,7 @@ public class VT500Parser {
 		GROUND,
 		OSC_STRING,
 		SOS_PM_APC,
+		FUNCTION_KEY,
 	}
 
 	private VT500ParserListener callback;
@@ -53,6 +54,7 @@ public class VT500Parser {
 	protected boolean rcvEscapeinDCSPassthrough;
 	protected int utf8Codepoint;
 	protected int utf8Expect;
+	protected int firstByte; // For Two-Byte escape sequences
 
 	//-------------------------------------------------------------------
 	/**
@@ -110,7 +112,7 @@ public class VT500Parser {
 	 * @param code The byte value (0-255) to parse
 	 */
 	public void parse(int code) {
-		logger.log(Level.TRACE, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
+		logger.log(Level.WARNING, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
 		if (processed==null) processed = new ByteArrayOutputStream();
 		processed.write(code);
 
@@ -222,6 +224,7 @@ public class VT500Parser {
 		case ESCAPE:
 			switch ( (Integer)code) {
 			case Integer x when isExecutableC0(codeF) -> callback.execute( C0Code.valueOf(code));
+			case Integer x when x==0x4F -> {firstByte=code; enterState(ParserState.FUNCTION_KEY);}
 			case Integer x when x==0x50 -> enterState(ParserState.DCS_ENTRY);
 			case Integer x when x==0x58 -> {sosPmApcCode=code+64; enterState(ParserState.SOS_PM_APC);}
 			case Integer x when x==0x5B -> enterState(ParserState.CSI_ENTRY);
@@ -240,6 +243,14 @@ public class VT500Parser {
 			case Integer x when x>=0x20 && x<=0x2F -> collect(code);
 			case Integer x when x==0x7F -> ignore(code);
 			case Integer x when x>=0x30 && x<=0x7E -> { escDispatch(code); enterState(ParserState.GROUND);}
+			default -> ignore(code);
+			}
+			return;
+		case FUNCTION_KEY:
+			switch ( (Integer)code) {
+//			case Integer x when isExecutableC0(codeF) -> callback.execute( C0Code.valueOf(code));
+			case Integer x when x>=0x50 && x<=0x53 -> { callback.handleTwoByteEscape(firstByte, code, new byte[] {27,(byte)firstByte,(byte)code}); enterState(ParserState.GROUND);}
+//			case Integer x when x==0x7F -> ignore(code);
 			default -> ignore(code);
 			}
 			return;
@@ -381,6 +392,17 @@ public class VT500Parser {
 
 	//-------------------------------------------------------------------
 	private boolean executesESCDIspatch(int code) {
+		if (code>=0x30 && code<=0x4F) return true;
+		if (code>=0x51 && code<=0x57) return true;
+		if (code==0x59) return true;
+		if (code==0x5A) return true;
+		if (code==0x5C) return true;
+		if (code>=0x60 && code<=0x7E) return true;
+		return false;
+	}
+
+	//-------------------------------------------------------------------
+	private boolean executeFunctionKey(int code) {
 		if (code>=0x30 && code<=0x4F) return true;
 		if (code>=0x51 && code<=0x57) return true;
 		if (code==0x59) return true;

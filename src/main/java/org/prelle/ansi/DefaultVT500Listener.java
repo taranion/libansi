@@ -13,7 +13,7 @@ import org.prelle.ansi.commands.AllCommands;
 /**
  * 
  */
-public class DefaultListener implements VT500ParserListener {
+public class DefaultVT500Listener implements VT500ParserListener {
 
 	private final static Logger logger = System.getLogger(ANSIInputStream.class.getPackageName());
 
@@ -26,7 +26,7 @@ public class DefaultListener implements VT500ParserListener {
 	private List<AParsedElement> fragments = new ArrayList<>();
 	
 	//-------------------------------------------------------------------
-	public DefaultListener(Charset encoding) {
+	public DefaultVT500Listener(Charset encoding) {
 		this.encoding = encoding;
 	}
 	
@@ -174,6 +174,26 @@ public class DefaultListener implements VT500ParserListener {
 	@Override public void handleStringMessage(C1Code code, String data, byte[] buf) {
 		releaseCollectPrintable();
 		enqueueFragment(new StringMessageFragment(code, data).setRaw(buf));
+	}
+
+	@Override
+	public void handleTwoByteEscape(int first, int second, byte[] buf) {
+		// TODO Auto-generated method stub
+		switch (first) {
+		case 0x4f -> {
+			switch (second) {
+			case 0x50: enqueueFragment(new KeyCodeFragment(0x70, "F1").setRaw(buf)); break;
+			case 0x51: enqueueFragment(new KeyCodeFragment(0x71, "F2").setRaw(buf)); break;
+			case 0x52: enqueueFragment(new KeyCodeFragment(0x72, "F3").setRaw(buf)); break;
+			case 0x53: enqueueFragment(new KeyCodeFragment(0x73, "F4").setRaw(buf)); break;
+			default:
+				logger.log(Level.WARNING, "Unhandled two-byte escape sequence: " + first + ", " + second);
+			}
+		}
+		default -> {
+			logger.log(Level.WARNING, "Unhandled two-byte escape sequence: " + first + ", " + second);
+		}
+		}
 	}
 
 }
