@@ -58,6 +58,10 @@ public class DefaultListener implements VT500ParserListener {
 		}
 	}
 
+	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.VT500ParserListener#print(byte)
+	 */
 	@Override public void print(byte c) {
 		byte[] raw = new byte[] {c};
 		try {
