@@ -112,7 +112,7 @@ public class VT500Parser {
 	 * @param code The byte value (0-255) to parse
 	 */
 	public void parse(int code) {
-		logger.log(Level.WARNING, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
+		logger.log(Level.TRACE, "RCV {0} / {1} / {2} in state {3}", Integer.toHexString(code), code, (char)code, state);
 		if (processed==null) processed = new ByteArrayOutputStream();
 		processed.write(code);
 
