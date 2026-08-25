@@ -15,27 +15,27 @@ import org.prelle.ansi.commands.SelectGraphicRendition.Meaning;
  */
 public class TerminalCapabilities {
 
-	OperatingLevel operatingLevel;
-	List<VT220Parameter> features = new ArrayList<>();
-	TerminalType generalCompatibility;
-	String terminalName;
+	public OperatingLevel operatingLevel;
+	public List<VT220Parameter> features = new ArrayList<>();
+	public TerminalType generalCompatibility;
+	public String terminalName;
 	// Layout capabilities
-	boolean cursorPositioning;
-	boolean scaledTextKitty;
-	boolean editRectangular;
-	boolean marginTopBottom;
-	boolean marginLeftRight;
+	public boolean cursorPositioning;
+	public boolean scaledTextKitty;
+	public boolean editRectangular;
+	public boolean marginTopBottom;
+	public boolean marginLeftRight;
 	// Image capabilities
-	boolean inlineImageSixel;
-	boolean inlineImageKitty;
-	boolean inlineImageITerm;
-	boolean color16;
-	boolean color256;
-	boolean color16m;
-	int cellWidth, cellHeight;
-	int screenWidth, screenHeight;
-	boolean ripScrip;
-	int ripScripVersion;
+	public boolean inlineImageSixel;
+	public boolean inlineImageKitty;
+	public boolean inlineImageITerm;
+	public boolean color16;
+	public boolean color256;
+	public boolean color16m;
+	public int cellWidth, cellHeight;
+	public int screenWidth, screenHeight;
+	public boolean ripScrip;
+	public int ripScripVersion;
 
 	//-------------------------------------------------------------------
 	/**

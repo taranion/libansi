@@ -5,6 +5,7 @@ import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 import java.net.SocketException;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +68,7 @@ public class CapabilityDetector {
 	}
 
 	//-------------------------------------------------------------------
-	public TerminalCapabilities performCheck(int width, int height) throws IOException {
+	public TerminalCapabilities performCheck(int timeoutMS, int width, int height) throws IOException {
 		logger.log(Level.INFO, "ENTER: detecting terminal capabilities");
 		try {
 		    printable.delete(0, printable.length());
@@ -99,6 +100,7 @@ public class CapabilityDetector {
             waitFor(Step.RIP_SCRIP);
             ReportingControls.requestRIPScrip(out);
             out.flush();
+            Thread.sleep(100);
 			waitFor(Step.TOP_BOTTOM_MARGIN);
             logger.log(Level.DEBUG, "testTopBottomMargins");
 			testTopBottomMargins(height);			
@@ -127,10 +129,12 @@ public class CapabilityDetector {
 			out.flush();
 
 			synchronized (stepsTaken) {
+				// Wait 1000 milliseconds on a non-blocking socket
 				try {
-//					logger.log(Level.INFO, "Wait for all responses");
-					stepsTaken.wait(1000);
-//					logger.log(Level.INFO, "Wait done "+this);
+					logger.log(Level.WARNING, "Wait {0}ms for all responses", timeoutMS);
+					Instant start = Instant.now();
+					stepsTaken.wait(timeoutMS);
+					logger.log(Level.WARNING, "Done waiting ... {0}ms", Instant.now().toEpochMilli()-start.toEpochMilli());
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -246,8 +250,10 @@ public class CapabilityDetector {
 				logger.log(Level.INFO, "Left Right Margin = "+capabilities.marginLeftRight);
 				acknowledgeStep(Step.LEFT_RIGHT_MARGIN);
 			} else if (stepsTaken.contains(Step.CURSOR_POSITIONING.ordinal())) {
-				if (capabilities.cursorPositioning==false)
+				if (capabilities.cursorPositioning==false) {
 					capabilities.cursorPositioning = cpr.getColumn()==50;
+					acknowledgeStep(Step.CURSOR_POSITIONING);
+				}
 				logger.log(Level.INFO, "Cursor positioning = "+capabilities.cursorPositioning);
 				if (expectedCPRs==2) {
 					acknowledgeStep(Step.CURSOR_POSITIONING);
@@ -321,7 +327,9 @@ public class CapabilityDetector {
 		AreaControls.setTopAndBottomMargins(out, 10, 15);
 		out.write(new CursorPosition(1,11));
 		for (int i=0; i<10; i++) out.write("\r\n");
-		out.write(new DeviceStatusReport(DeviceStatusReport.Type.CURSOR_POS));
+		expectedCPRs+=1;
+		out.write(new DeviceStatusReport(DeviceStatusReport.Type.CURSOR_POS)); // Should be 15 (not 21)
+		out.write("\n");
 		out.flush();
 		try {
 			Thread.sleep(100);
@@ -336,10 +344,10 @@ public class CapabilityDetector {
 
 	//-------------------------------------------------------------------
 	private void testCellSize() throws IOException {
-		logger.log(Level.DEBUG, "ENTER: testResolutionAndSizes");
+		logger.log(Level.ERROR, "ENTER: testCellSize");
 		ReportingControls.requestXTermCellSize(out);
 		out.flush();
-		logger.log(Level.DEBUG, "LEAVE: testResolutionAndSizes");
+		logger.log(Level.ERROR, "LEAVE: testCellSize");
 	}
 
 	//-------------------------------------------------------------------
@@ -360,6 +368,7 @@ public class CapabilityDetector {
 		AreaControls.setLeftAndRightMargins(out, 5, 65);
 		out.write(new CursorPosition(5,11));
 		for (int i=0; i<10; i++) out.write("\r\n");
+		expectedCPRs+=1;
 		out.write(new DeviceStatusReport(DeviceStatusReport.Type.CURSOR_POS));
 		out.flush();
 		try {
@@ -507,6 +516,13 @@ public class CapabilityDetector {
 		}
 	}
 
+	//-------------------------------------------------------------------
+	/**
+	 * @return the capabilities
+	 */
+	public TerminalCapabilities getCapabilities() {
+		return capabilities;
+	}
 
 
 }

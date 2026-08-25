@@ -1,7 +1,6 @@
 package org.prelle.ansi;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.System.Logger;
@@ -18,7 +17,7 @@ import org.prelle.ansi.commands.SelectGraphicRendition;
  */
 public class ANSIOutputStream extends OutputStream {
 
-	private final static Logger logger = System.getLogger(ANSIOutputStream.class.getPackageName());
+	protected final static Logger logger = System.getLogger(ANSIOutputStream.class.getPackageName());
 
 	private boolean sendAs7Bit = true;
 	/** Optional. Will receive a fragment mnemonic and a data string */
@@ -229,7 +228,7 @@ public class ANSIOutputStream extends OutputStream {
 	public void writeCSI(ControlSequenceFragment csi) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		csi.encode(baos, sendAs7Bit);
-		super.write(baos.toByteArray());
+		out.write(baos.toByteArray());
 
 		logger.log(Level.DEBUG, HexFormat.ofDelimiter(" ").formatHex(baos.toByteArray()));
 		baos.close();
@@ -246,7 +245,7 @@ public class ANSIOutputStream extends OutputStream {
 		logger.log(Level.DEBUG, "writeDCS "+dcs);
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		dcs.encode(baos, sendAs7Bit);
-		super.write(baos.toByteArray());
+		out.write(baos.toByteArray());
 
 		logger.log(Level.DEBUG, HexFormat.ofDelimiter(" ").formatHex(baos.toByteArray()));
 		baos.close();
@@ -262,7 +261,7 @@ public class ANSIOutputStream extends OutputStream {
 	public void writeESC(EscapeSequenceFragment esc) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		esc.encode(baos, sendAs7Bit);
-		super.write(baos.toByteArray());
+		out.write(baos.toByteArray());
 
 		logger.log(Level.DEBUG, HexFormat.ofDelimiter(" ").formatHex(baos.toByteArray()));
 		baos.close();
@@ -278,7 +277,7 @@ public class ANSIOutputStream extends OutputStream {
 	public void writeString(StringMessageFragment value) throws IOException {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(16);
 		value.encode(baos, sendAs7Bit);
-		super.write(baos.toByteArray());
+		out.write(baos.toByteArray());
 		baos.close();
 	}
 
