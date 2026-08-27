@@ -106,7 +106,6 @@ public class PrintableFragment extends AParsedElement {
 	//-------------------------------------------------------------------
 	@Override
 	public void encode(ByteArrayOutputStream toFill, boolean use7Bit) {
-		System.err.println("TODO: PrintableFragment.encode");
 		try {
 			toFill.write( getText().getBytes(StandardCharsets.UTF_8) );
 		} catch (IOException e) {
