@@ -3,12 +3,12 @@ package org.prelle.ansi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.System.Logger.Level;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ import org.prelle.ansi.commands.AllCommands;
 import org.prelle.ansi.commands.DeviceAttributes;
 import org.prelle.ansi.commands.DeviceAttributes.Variant;
 import org.prelle.ansi.commands.SelectGraphicRendition;
+import org.prelle.ansi.commands.kitty.KittyGraphicsFragment;
 
 public class VT500ParserTest {
 
@@ -243,7 +244,8 @@ public class VT500ParserTest {
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
-		assertEquals(StringMessageFragment.class, fragment.getClass());
+		assertTrue(fragment instanceof StringMessageFragment);
+		assertEquals(KittyGraphicsFragment.class, fragment.getClass());
 		ain.close();
 
 	}

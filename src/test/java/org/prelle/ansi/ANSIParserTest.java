@@ -3,13 +3,13 @@ package org.prelle.ansi;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.HexFormat;
 import java.util.List;
 
@@ -20,6 +20,7 @@ import org.prelle.ansi.commands.DeviceAttributes;
 import org.prelle.ansi.commands.EraseInDisplay;
 import org.prelle.ansi.commands.SelectGraphicRendition;
 import org.prelle.ansi.commands.SetLeftAndRightMargin;
+import org.prelle.ansi.commands.kitty.KittyGraphicsFragment;
 
 public class ANSIParserTest {
 
@@ -198,7 +199,8 @@ public class ANSIParserTest {
 		AParsedElement fragment = ain.readFragment();
 		System.out.println(fragment);
 		assertNotNull(fragment);
-		assertEquals(StringMessageFragment.class, fragment.getClass());
+		assertTrue(fragment instanceof StringMessageFragment);
+		assertEquals(KittyGraphicsFragment.class, fragment.getClass());
 		ain.close();
 
 	}
