@@ -36,6 +36,11 @@ public class TerminalCapabilities {
 	public int screenWidth, screenHeight;
 	public boolean ripScrip;
 	public int ripScripVersion;
+	// Glyph Protocol (https://github.com/raphamorim/rio/blob/main/specs/glyph-protocol.md),
+	// detected via its "s" (support) verb, which doubles as a protocol-detection
+	// ping -- any reply confirms support, a timeout means unsupported.
+	public boolean glyphProtocol;
+	public List<String> glyphProtocolFormats = new ArrayList<>();
 
 	//-------------------------------------------------------------------
 	/**
@@ -96,6 +101,11 @@ public class TerminalCapabilities {
 		outputOption(out,"iTerm Graphics",20,inlineImageITerm);
 		out.write("- with a cell size of "+cellWidth+"x"+cellHeight);
 		out.write( "\r\n");
+		outputOption(out,"Glyph Protocol",20,glyphProtocol);
+		if (glyphProtocol && glyphProtocolFormats!=null) {
+			out.write("- with payload formats "+glyphProtocolFormats);
+			out.write( "\r\n");
+		}
 
 	}
 
@@ -254,5 +264,21 @@ public class TerminalCapabilities {
     public void setRipScripVersion(int ripScripVersion) {
         this.ripScripVersion = ripScripVersion;
     }
-	
+
+    //-------------------------------------------------------------------
+    /**
+     * @return the glyphProtocol
+     */
+    public boolean isGlyphProtocol() {
+        return glyphProtocol;
+    }
+
+    //-------------------------------------------------------------------
+    /**
+     * @return the glyphProtocolFormats
+     */
+    public List<String> getGlyphProtocolFormats() {
+        return glyphProtocolFormats;
+    }
+
 }
