@@ -2,12 +2,21 @@ package org.prelle.ansi.commands;
 
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.prelle.ansi.C1Code;
 import org.prelle.ansi.ControlSequenceFragment;
 import org.prelle.ansi.DeviceControlFragment;
 import org.prelle.ansi.EscapeSequenceFragment;
+import org.prelle.ansi.StringMessageFragment;
+import org.prelle.ansi.commands.kitty.KittyGraphicsFragment;
+import org.prelle.ansi.commands.rio.GlyphClearFragment;
+import org.prelle.ansi.commands.rio.GlyphQueryFragment;
+import org.prelle.ansi.commands.rio.GlyphRegisterFragment;
+import org.prelle.ansi.commands.rio.GlyphSupportFragment;
 import org.prelle.ansi.commands.xterm.XTermWindowOperation;
 
 /**
@@ -100,7 +109,24 @@ public class AllCommands {
 
 	};
 
+	/**
+	 * Typed replies for APC/OSC/PM ("string message") bodies. Unlike CSI,
+	 * these have no structural key to look up before parsing -- each class
+	 * declares a literal {@link StringMessageFragment#getPrefix()} instead,
+	 * matched by longest-prefix (see {@link #parseStringMessage(C1Code, String)}).
+	 */
+	@SuppressWarnings("unchecked")
+	public final static Class<? extends StringMessageFragment>[] STRING_MESSAGES = new Class[]{
+			KittyGraphicsFragment.class,
+			GlyphSupportFragment.class,
+			GlyphQueryFragment.class,
+			GlyphRegisterFragment.class,
+			GlyphClearFragment.class,
+	};
+
 	private static Map<String,Class<? extends ControlSequenceFragment>> csiByCode;
+	private static Map<C1Code,List<Class<? extends StringMessageFragment>>> stringMsgByCode;
+	private static Map<Class<? extends StringMessageFragment>,String> stringMsgPrefix;
 
 	static {
 		csiByCode = new HashMap<>();
@@ -118,6 +144,58 @@ public class AllCommands {
 			}
 
 		}
+	}
+
+	static {
+		stringMsgByCode = new HashMap<>();
+		stringMsgPrefix = new HashMap<>();
+		for (Class<? extends StringMessageFragment> cls : STRING_MESSAGES) {
+			try {
+				cls.getDeclaredConstructor().setAccessible(true);
+				StringMessageFragment proto = cls.getDeclaredConstructor().newInstance();
+				String prefix = proto.getPrefix();
+				if (prefix == null) {
+					logger.log(Level.ERROR, "{0} is registered in STRING_MESSAGES but has no getPrefix()", cls);
+					continue;
+				}
+				stringMsgPrefix.put(cls, prefix);
+				stringMsgByCode.computeIfAbsent(proto.getCode(), k -> new ArrayList<>()).add(cls);
+			} catch (NoSuchMethodException nsm) {
+				logger.log(Level.ERROR, nsm.toString());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Decode an incoming APC/OSC/PM message body into a typed subclass of
+	 * {@link StringMessageFragment}, if one is registered in
+	 * {@link #STRING_MESSAGES} for this {@link C1Code} whose
+	 * {@link StringMessageFragment#getPrefix()} matches -- longest prefix
+	 * wins if more than one would match. Falls back to a plain, undecoded
+	 * {@link StringMessageFragment} if nothing matches, so an unrecognised
+	 * message is never lost or rejected (mirroring how APC/OSC/PM are meant
+	 * to be safely ignorable by consumers that don't know them).
+	 */
+	public static StringMessageFragment parseStringMessage(C1Code code, String data) {
+		List<Class<? extends StringMessageFragment>> candidates = stringMsgByCode.get(code);
+		if (candidates != null && data != null) {
+			Class<? extends StringMessageFragment> best = null;
+			int bestLen = -1;
+			for (Class<? extends StringMessageFragment> cls : candidates) {
+				String prefix = stringMsgPrefix.get(cls);
+				if (data.startsWith(prefix) && prefix.length() > bestLen) {
+					best = cls;
+					bestLen = prefix.length();
+				}
+			}
+			if (best != null) {
+				return StringMessageFragment.decode(best, data);
+			}
+		}
+		return new StringMessageFragment(code, data);
 	}
 
 	//-------------------------------------------------------------------

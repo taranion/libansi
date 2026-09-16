@@ -25,6 +25,15 @@ public class KittyGraphicsFragment extends StringMessageFragment {
 	protected Map<Character,String> controlData = new HashMap<>();
 	protected String payloadB64;
 
+	/** Set by {@link #decodingHook()}: true if decoded from an incoming reply. */
+	protected boolean reply;
+	/** Only the {@code ;OK} success case is confirmed against real behavior
+	 * (see CapabilityDetectorMUDEvents' prior string check); anything else
+	 * is treated as failure with the raw trailer kept in {@link #errorMessage},
+	 * best-effort and not verified against a real terminal's error format. */
+	protected boolean ok;
+	protected String errorMessage;
+
 	//-------------------------------------------------------------------
 	public KittyGraphicsFragment() {
 		super(C1Code.APC, null);
@@ -80,6 +89,63 @@ public class KittyGraphicsFragment extends StringMessageFragment {
 	public KittyGraphicsFragment setPayload(String value) {
 		this.payloadB64 = value;
 		return this;
+	}
+
+	//-------------------------------------------------------------------
+	public Map<Character,String> getControlData() {
+		return controlData;
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.StringMessageFragment#getPrefix()
+	 */
+	@Override
+	public String getPrefix() {
+		return "G";
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Parses {@code G<key>=<value>,...;OK} (confirmed) or
+	 * {@code G<key>=<value>,...;<trailer>} (best-effort: {@link #ok} false,
+	 * {@link #errorMessage} set to the raw trailer -- the exact error wire
+	 * format isn't confirmed against a real terminal here).
+	 * @see org.prelle.ansi.StringMessageFragment#decodingHook()
+	 */
+	@Override
+	protected void decodingHook() {
+		reply = true;
+		String body = data.substring(1); // strip leading 'G'
+		int semi = body.indexOf(';');
+		String controlPart = (semi >= 0) ? body.substring(0, semi) : body;
+		String rest = (semi >= 0) ? body.substring(semi + 1) : "";
+		controlData.clear();
+		for (String kv : controlPart.split(",")) {
+			int eq = kv.indexOf('=');
+			if (eq > 0) {
+				controlData.put(kv.charAt(0), kv.substring(eq + 1));
+			}
+		}
+		ok = "OK".equals(rest);
+		if (!ok) {
+			errorMessage = rest;
+		}
+	}
+
+	//-------------------------------------------------------------------
+	public boolean isReply() {
+		return reply;
+	}
+
+	//-------------------------------------------------------------------
+	public boolean isOk() {
+		return ok;
+	}
+
+	//-------------------------------------------------------------------
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 
 }

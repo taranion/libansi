@@ -98,7 +98,7 @@ public class DefaultVT500Listener implements VT500ParserListener {
 
 	@Override public void handleOperatingSystemCommand(String data, byte[] buf) {
 		releaseCollectPrintable();
-		enqueueFragment(new StringMessageFragment(C1Code.OSC, data).setRaw(buf));
+		enqueueFragment(AllCommands.parseStringMessage(C1Code.OSC, data).setRaw(buf));
 	}
 
 	@Override public void handleDeviceControlString(int code, String inter, String param, String data, byte[] buf) {
@@ -173,7 +173,7 @@ public class DefaultVT500Listener implements VT500ParserListener {
 
 	@Override public void handleStringMessage(C1Code code, String data, byte[] buf) {
 		releaseCollectPrintable();
-		enqueueFragment(new StringMessageFragment(code, data).setRaw(buf));
+		enqueueFragment(AllCommands.parseStringMessage(code, data).setRaw(buf));
 	}
 
 	@Override

@@ -94,6 +94,13 @@ public class GlyphRegisterFragment extends StringMessageFragment {
 	/** Base64-encoded payload for {@link #format}. */
 	protected String payloadB64;
 
+	/** Set by {@link #decodingHook()}: true if decoded from an incoming reply. */
+	protected boolean reply;
+	/** 0 on success; a nonzero code (see {@link #reason}) on failure. -1 until decoded. */
+	protected int status = -1;
+	/** Error code, e.g. {@code out_of_namespace}, {@code outline_too_large}. Null on success. */
+	protected String reason;
+
 	//-------------------------------------------------------------------
 	public GlyphRegisterFragment() {
 		super(C1Code.APC, null);
@@ -128,6 +135,56 @@ public class GlyphRegisterFragment extends StringMessageFragment {
 
 		data = "25a1;r;" + String.join(";", params) + ";" + (payloadB64 != null ? payloadB64 : "");
 		super.encode(toFill, use7Bit);
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.StringMessageFragment#getPrefix()
+	 */
+	@Override
+	public String getPrefix() {
+		return "25a1;r;";
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Parses {@code 25a1;r;cp=<hex>;status=0} (success) or
+	 * {@code 25a1;r;cp=<hex>;status=<n>;reason=<code>} (failure) -- spec
+	 * section 6.2. Only fires for {@code reply=1} (default) or
+	 * {@code reply=2} (failures only); {@code reply=0} registrations produce
+	 * no reply to decode at all.
+	 * @see org.prelle.ansi.StringMessageFragment#decodingHook()
+	 */
+	@Override
+	protected void decodingHook() {
+		reply = true;
+		String[] parts = data.split(";");
+		if (parts.length > 2 && parts[2].startsWith("cp=")) {
+			codepoint = Integer.parseInt(parts[2].substring(3), 16);
+		}
+		GlyphAck ack = GlyphAck.parse(parts, 3);
+		status = ack.status;
+		reason = ack.reason;
+	}
+
+	//-------------------------------------------------------------------
+	public boolean isReply() {
+		return reply;
+	}
+
+	//-------------------------------------------------------------------
+	public boolean isSuccess() {
+		return status == 0;
+	}
+
+	//-------------------------------------------------------------------
+	public int getStatus() {
+		return status;
+	}
+
+	//-------------------------------------------------------------------
+	public String getReason() {
+		return reason;
 	}
 
 	//-------------------------------------------------------------------

@@ -1,6 +1,7 @@
 package org.prelle.ansi.commands.rio;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 import org.prelle.ansi.C1Code;
 import org.prelle.ansi.StringMessageFragment;
@@ -18,8 +19,12 @@ import org.prelle.ansi.StringMessageFragment;
  */
 public class GlyphQueryFragment extends StringMessageFragment {
 
-	/** Codepoint to query, e.g. 0xE000. */
+	/** Codepoint to query, e.g. 0xE000. Overwritten with the echoed value on decode. */
 	protected int codepoint;
+	/** Set by {@link #decodingHook()}: true if decoded from an incoming reply. */
+	protected boolean reply;
+	/** Coverage sources for {@link #codepoint}: empty, or some of {@code system}/{@code glossary}. */
+	protected List<String> status = List.of();
 
 	//-------------------------------------------------------------------
 	public GlyphQueryFragment() {
@@ -43,6 +48,33 @@ public class GlyphQueryFragment extends StringMessageFragment {
 	}
 
 	//-------------------------------------------------------------------
+	/**
+	 * @see org.prelle.ansi.StringMessageFragment#getPrefix()
+	 */
+	@Override
+	public String getPrefix() {
+		return "25a1;q;";
+	}
+
+	//-------------------------------------------------------------------
+	/**
+	 * Parses {@code 25a1;q;cp=<hex>;status=<list>} (spec section 5.2).
+	 * @see org.prelle.ansi.StringMessageFragment#decodingHook()
+	 */
+	@Override
+	protected void decodingHook() {
+		reply = true;
+		for (String part : data.split(";")) {
+			if (part.startsWith("cp=")) {
+				codepoint = Integer.parseInt(part.substring(3), 16);
+			} else if (part.startsWith("status=")) {
+				String s = part.substring(7);
+				status = s.isEmpty() ? List.of() : List.of(s.split(","));
+			}
+		}
+	}
+
+	//-------------------------------------------------------------------
 	public int getCodepoint() {
 		return codepoint;
 	}
@@ -51,6 +83,16 @@ public class GlyphQueryFragment extends StringMessageFragment {
 	public GlyphQueryFragment setCodepoint(int codepoint) {
 		this.codepoint = codepoint;
 		return this;
+	}
+
+	//-------------------------------------------------------------------
+	public boolean isReply() {
+		return reply;
+	}
+
+	//-------------------------------------------------------------------
+	public List<String> getStatus() {
+		return status;
 	}
 
 }
